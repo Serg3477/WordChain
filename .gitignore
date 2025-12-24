@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+poetry.lock
+
+# FastAPI
+backend/.mypy_cache/
+backend/.pytest_cache/
+
+# Node / JS (на будущее)
+frontend/node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
