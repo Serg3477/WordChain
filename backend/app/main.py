@@ -11,4 +11,5 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="FastAPI Altcoins",
     lifespan=lifespan
+)
 
