@@ -8,6 +8,7 @@ class WordBase(BaseModel):
     word: str = Field(..., max_length=100)
     translation: str = Field(..., max_length=255)
     part_of_speech: Optional[str] = None
+    transcription: Optional[str] = None
 
     examples: Optional[List[str]] = []
     synonyms: Optional[List[str]] = []
@@ -23,6 +24,7 @@ class WordUpdate(BaseModel):
     word: Optional[str] = Field(None, max_length=100)
     translation: Optional[str] = Field(None, max_length=255)
     part_of_speech: Optional[str] = None
+    transcription: Optional[str] = None
 
     examples: Optional[List[str]] = None
     synonyms: Optional[List[str]] = None
