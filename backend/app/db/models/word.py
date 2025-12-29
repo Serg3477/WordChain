@@ -3,6 +3,7 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
+
 class Word(Base):
     __tablename__ = "words"
 

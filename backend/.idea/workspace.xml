@@ -55,6 +55,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -64,6 +65,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/db/models" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,7 +89,8 @@
       <workItem from="1766562295421" duration="5055000" />
       <workItem from="1766584122787" duration="850000" />
       <workItem from="1766585012800" duration="7697000" />
-      <workItem from="1766917343672" duration="9614000" />
+      <workItem from="1766917343672" duration="11120000" />
+      <workItem from="1767012762568" duration="7394000" />
     </task>
     <servers />
   </component>

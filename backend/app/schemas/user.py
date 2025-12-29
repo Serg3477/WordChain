@@ -6,7 +6,10 @@ from typing import Optional
 # Базовая схема — общие поля
 class UserBase(BaseModel):
     nickname: str = Field(..., max_length=50)
+    email: str | None = None
     avatar_url: Optional[str] = None
+    is_guest: bool = True,
+    is_premium: bool = False
 
 
 # Схема для создания пользователя (регистрация)
