@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # Роутеры
-from app.routers.auth import router as auth_router
-from app.routers.translation import router as translation_router
+from app.routers.auth import auth_router as auth_router
+from app.routers.translation import translation_router as translation_router
 
 app = FastAPI(
     title="WordChain",
@@ -25,8 +25,8 @@ app.add_middleware(
 # -----------------------------
 # Подключение роутеров
 # -----------------------------
-app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(translation_router, prefix="/api", tags=["Translation"])
+app.include_router(auth_router)
+app.include_router(translation_router)
 
 # -----------------------------
 # Тестовый эндпоинт

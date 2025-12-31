@@ -6,9 +6,9 @@ from app.services.translation_service import translate_word
 from app.db.session import async_session
 from app.db.repositories.word_repository import WordRepository
 
-router = APIRouter()
+translation_router = APIRouter()
 
-@router.post("/translate", response_model=TranslationResponse)
+@translation_router.post("/translate", response_model=TranslationResponse)
 async def translate(
     req: TranslationRequest,
     user = Depends(get_current_user)

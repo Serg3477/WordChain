@@ -5,10 +5,10 @@ from app.schemas.user import UserRead
 from app.services.jwt_service import create_access_token
 import random
 
-router = APIRouter()
+auth_router = APIRouter()
 
 # создание гостя + выдача JWT
-@router.post("/guest")
+@auth_router.post("/guest")
 async def create_guest():
     nickname = f"Guest-{random.randint(1000, 9999)}"
 

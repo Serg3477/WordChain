@@ -1,0 +1,7 @@
+.modal {
+  display: none;
+}
+
+.modal.modal--visible {
+  display: flex; /* или grid, как тебе нужно */
+}
