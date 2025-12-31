@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     DB_HOST: str
@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
+    OPENAI_API_KEY: str
+
     @property
     def database_url(self):
         return (
@@ -14,7 +16,7 @@ class Settings(BaseSettings):
             f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         )
     class config:
-        env_file = ".env"
+        env_file = "../../.env"
 
 
 settings = Settings()
