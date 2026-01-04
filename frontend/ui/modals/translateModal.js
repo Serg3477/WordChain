@@ -10,8 +10,8 @@ export function createTranslateModal() {
       <h3>Translate word</h3>
 
       <input data-role="word" placeholder="Word">
-      <input data-role="source-lang" placeholder="From language" value="English">
-      <input data-role="target-lang" placeholder="To language" value="Russian">
+      <input data-role="source-lang" placeholder="From language" value="en">
+      <input data-role="target-lang" placeholder="To language" value="ru">
 
       <button data-role="translate-btn">Translate</button>
 
@@ -35,7 +35,11 @@ export function createTranslateModal() {
     if (!word) return;
 
     const result = await translateWord({ word, sourceLang: source, targetLang: target });
-    resultDiv.textContent = result.translation ?? result;
+    resultDiv.innerHTML = `
+        ${result.translation ?? ''} <br />
+        ${result.part_of_speech ?? ''} <br />
+        ${result.examples?.join("<br />") ?? ''} 
+      `;
   });
 
   closeBtn.addEventListener("click", () => {

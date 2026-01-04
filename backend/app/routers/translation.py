@@ -25,7 +25,11 @@ async def translate(
             session=session,
             user_id=user.id,
             word=req.word,
-            translation=translation_json
+            translation=translation_json["translation"],
+            part_of_speech=translation_json.get("part_of_speech"),
+            transcription=None,
+            examples=translation_json.get("examples", []),
+            synonyms=[]
         )
 
-    return TranslationResponse(translation=translation_json)
+    return TranslationResponse(**translation_json)
