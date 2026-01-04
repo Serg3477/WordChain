@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -34,5 +35,4 @@ app.include_router(translation_router)
 @app.get("/")
 async def root():
     return {"status": "ok", "message": "WordChain backend is running"}
-
 

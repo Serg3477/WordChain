@@ -30,7 +30,6 @@ class UserRead(UserBase):
     id: int
     created_at: datetime
     last_login: Optional[datetime] = None
-    is_active: bool
     is_premium: bool
 
     class Config:

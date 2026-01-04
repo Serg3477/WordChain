@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/features/user/guest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/user/guest.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +52,7 @@
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/serg/PycharmProjects/GPT/Fastapi_Bit&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/serg/PycharmProjects/WordChain/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,7 +95,9 @@
       <workItem from="1766917343672" duration="11120000" />
       <workItem from="1767012762568" duration="7567000" />
       <workItem from="1767102091465" duration="6354000" />
-      <workItem from="1767169706282" duration="780000" />
+      <workItem from="1767169706282" duration="9303000" />
+      <workItem from="1767284386777" duration="4814000" />
+      <workItem from="1767456586117" duration="8312000" />
     </task>
     <servers />
   </component>
