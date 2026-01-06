@@ -2,35 +2,54 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
 
+# ---------------------------------------------------------
+# 1. DTO для перевода (используется в /translate)
+# ---------------------------------------------------------
 
-# Базовая схема — общие поля
+class TranslationRequest(BaseModel):
+    word: str
+    source_lang: str
+    target_lang: str
+
+
+class TranslationResponse(BaseModel):
+    translation: str
+    part_of_speech: Optional[str] = None
+    examples: List[str] = []
+
+
+# ---------------------------------------------------------
+# 2. DTO для создания/обновления слова (используется в /saveWord)
+# ---------------------------------------------------------
+
 class WordBase(BaseModel):
     word: str = Field(..., max_length=100)
     translation: str = Field(..., max_length=255)
     part_of_speech: Optional[str] = None
     transcription: Optional[str] = None
+    examples: List[str] = []
+    synonyms: List[str] = []
 
-    examples: Optional[List[str]] = []
-    synonyms: Optional[List[str]] = []
 
-
-# Схема для создания слова
 class WordCreate(WordBase):
+    """То, что приходит от клиента при сохранении слова"""
     pass
 
 
-# Схема для обновления слова
 class WordUpdate(BaseModel):
-    word: Optional[str] = Field(None, max_length=100)
-    translation: Optional[str] = Field(None, max_length=255)
+    """То, что приходит при обновлении слова"""
+    word: Optional[str] = None
+    translation: Optional[str] = None
     part_of_speech: Optional[str] = None
     transcription: Optional[str] = None
-
     examples: Optional[List[str]] = None
     synonyms: Optional[List[str]] = None
 
 
-# Схема для ответа API
+# ---------------------------------------------------------
+# 3. DTO для ответа API (чтение слова из БД)
+# ---------------------------------------------------------
+
 class WordRead(WordBase):
     id: int
     user_id: int
@@ -38,4 +57,4 @@ class WordRead(WordBase):
     updated_at: Optional[datetime] = None
 
     class Config:
-        from_attributes = True  # позволяет возвращать ORM-модель напрямую
+        from_attributes = True

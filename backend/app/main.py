@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
+from app.routers.saveWord import save_router
 from app.routers.translation import translation_router as translation_router
 
 app = FastAPI(
@@ -28,6 +29,7 @@ app.add_middleware(
 # -----------------------------
 app.include_router(auth_router)
 app.include_router(translation_router)
+app.include_router(save_router)
 
 # -----------------------------
 # Тестовый эндпоинт

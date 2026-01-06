@@ -1,6 +1,6 @@
 import { ensureGuest } from "./features/user/guest.js";
 import { windowManager } from "./core/windowManager.js";
-import { createTranslateModal } from "./ui/modals/translateModal.js";
+import { createTranslateModal } from "./modals/translateModal.js";
 
 
 
