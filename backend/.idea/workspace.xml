@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/features/translator/translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/translator/translate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/modals/translateModal.js" beforeDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +98,8 @@
       <workItem from="1767515582848" duration="7740000" />
       <workItem from="1767537015377" duration="7070000" />
       <workItem from="1767629507968" duration="7594000" />
-      <workItem from="1767709052728" duration="9121000" />
+      <workItem from="1767709052728" duration="9551000" />
+      <workItem from="1767796612741" duration="4724000" />
     </task>
     <servers />
   </component>
