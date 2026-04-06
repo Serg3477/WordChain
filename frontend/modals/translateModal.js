@@ -1,61 +1,60 @@
-import { translateWord, saveWord } from "../../features/translator/translate.js";
-import { windowManager } from "../../core/windowManager.js";
-
+import { translateWord, saveWord } from "../features/translator/translate.js";
+import { windowManager } from "../core/windowManager.js";
 
 export function createTranslateModal() {
   const root = document.createElement("div");
-  root.className = "modal"; // без hidden, этим управляет windowManager
+  root.className = "translate-modal";
 
   root.innerHTML = `
-    <div class="modal-content">
-      <h3>Translate word</h3>
+    <div class="modal-header">
+      <span class="modal-title">Translate</span>
+      <button class="modal-close">✕</button>
+    </div>
 
-      <input data-role="word" placeholder="Word">
-      <input data-role="source-lang" placeholder="From language" value="en">
-      <input data-role="target-lang" placeholder="To language" value="ru">
+    <div class="modal-body">
+      <input data-role="word" class="input-word" placeholder="Enter word...">
 
-      <button data-role="translate-btn">Translate</button>
-      <button data-role="save-btn"> Save </button>
+      <div class="buttons-row">
+        <button data-role="translate-btn" class="btn primary">Translate</button>
+        <button data-role="save-btn" class="btn secondary">Save</button>
+      </div>
 
-      <div data-role="result"></div>
-
-      <button data-role="close-btn">Close</button>
+      <div data-role="result" class="results"></div>
     </div>
   `;
 
   const wordInput = root.querySelector('[data-role="word"]');
-  const sourceInput = root.querySelector('[data-role="source-lang"]');
-  const targetInput = root.querySelector('[data-role="target-lang"]');
   const translateBtn = root.querySelector('[data-role="translate-btn"]');
   const saveBtn = root.querySelector('[data-role="save-btn"]');
   const resultDiv = root.querySelector('[data-role="result"]');
-  const closeBtn = root.querySelector('[data-role="close-btn"]');
-
 
   let result = null;
+
   translateBtn.addEventListener("click", async () => {
     const word = wordInput.value.trim();
-    const source = sourceInput.value.trim();
-    const target = targetInput.value.trim();
     if (!word) return;
 
-    result = await translateWord({ word, sourceLang: source, targetLang: target });
+    result = await translateWord({
+      word,
+      sourceLang: "en",
+      targetLang: "ru"
+    });
+
     resultDiv.innerHTML = `
-        ${result.translation ?? ''} <br />
-        ${result.part_of_speech ?? ''} <br />
-        ${result.examples?.join("<br />") ?? ''} 
+      <div><b>${result.translation ?? ""}</b></div>
+      <div>${result.part_of_speech ?? ""}</div>
+      <div>${result.examples?.join("<br>") ?? ""}</div>
     `;
   });
 
-  saveBtn.addEventListener("click", async () =>{
-      if (!result) return;
-      const saveResult = await saveWord(wordInput.value.trim(), result);
+  saveBtn.addEventListener("click", async () => {
+    if (!result) return;
+    await saveWord(wordInput.value.trim(), result);
   });
 
-  closeBtn.addEventListener("click", () => {
+  root.querySelector(".modal-close").onclick = () => {
     windowManager.close("translateModal");
-  });
+  };
 
   return root;
 }
-

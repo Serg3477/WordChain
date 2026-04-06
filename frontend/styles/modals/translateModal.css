@@ -1,0 +1,68 @@
+.translate-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.input-word {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0 12px;
+  margin-top: 16px;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.btn.primary {
+  background: #bc8ff4;
+  color: #5200aa;
+}
+
+.btn.secondary {
+  background: #eee;
+  color: #666;
+}
+
+.results {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

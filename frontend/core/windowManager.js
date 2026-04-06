@@ -1,25 +1,32 @@
+import { ModalBase } from "../modals/modalBase.js";
+
 const registry = {};
+let base = null;
 
 export const windowManager = {
+  init() {
+    base = new ModalBase();
+    base.create();
+  },
+
   register(name, factory) {
     registry[name] = { factory, instance: null };
   },
 
-  open(name, props = {}) {
+  open(name) {
     const record = registry[name];
     if (!record) return;
 
-    if (!record.instance) {
-      record.instance = record.factory(props);
-      document.body.appendChild(record.instance);
-    }
-
-    record.instance.classList.add("modal--visible");
+    record.instance = record.factory();
+    base.mountModal(record.instance);
   },
 
   close(name) {
     const record = registry[name];
     if (!record || !record.instance) return;
-    record.instance.classList.remove("modal--visible");
+
+    record.instance.remove();
+    record.instance = null;
   }
 };
+

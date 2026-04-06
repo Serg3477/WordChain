@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.page {
+  background: white;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.navbar {
+  align-items: center;
+  background: #27448e;
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 20px;
+  position: absolute;
+  top: 11px;
+  width: calc(100% - 40px);
+}
+
+.navbar__left,
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  display: block;
+}
+
+.navbar__center {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
+
+.button {
+  align-items: center;
+  box-shadow: 5px 5px 10px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.content {
+  align-items: center;
+  background: #f7f2fa;
+  border-radius: 100px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.state-layer {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.label {
+  color: #6750a4;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.title {
+  color: #9365e2;
+  font-size: 57px;
+  font-weight: 400;
+  line-height: 64px;
+  margin: 100px 32px;
+  text-align: center;
+  width: 370px;
+}
+
+.input-section {
+  align-items: flex-start;
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  margin: 233px 20px 0 20px;
+  padding: 20px 50px;
+}
+
+.input-word {
+  background: #d9d9d9;
+  height: 56px;
+  width: 745px;
+}
+
+.button-translate,
+.button-save {
+  align-items: flex-start;
+  background: #bc8ff4;
+  border-radius: 15px;
+  display: flex;
+  height: 56px;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.translate {
+  color: #5200aa;
+  font-size: 14px;
+  font-weight: 500;
+  height: 38px;
+  line-height: 20px;
+  text-align: center;
+  width: 152px;
+}
+
+.save {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-weight: 500;
+  height: 38px;
+  line-height: 20px;
+  text-align: center;
+  width: 152px;
+}
+
+.full-info {
+  margin: 360px 20px 0 20px;
+  height: 640px;
+  overflow: hidden;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+.translation,
+.type-of-speech,
+.sentences {
+  position: absolute;
+}
+
+.translation {
+  top: 25px;
+  left: 89px;
+  width: 540px;
+  height: 48px;
+}
+
+.type-of-speech {
+  top: 100px;
+  left: 89px;
+  width: 583px;
+  height: 54px;
+}
+
+.sentences {
+  top: 185px;
+  left: 89px;
+  width: 634px;
+  height: 442px;
+}

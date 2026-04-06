@@ -1,7 +1,3 @@
-.modal {
-  display: none;
-}
+@import "./modals/modalBase.css";
+@import "./modals/translateModal.css";
 
-.modal.modal--visible {
-  display: flex; /* или grid, как тебе нужно */
-}
