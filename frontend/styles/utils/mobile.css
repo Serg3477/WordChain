@@ -1,0 +1,11 @@
+@media (max-width: 600px) {
+  .translate-modal {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .modal-resizer {
+    display: none;
+  }
+}

@@ -1,5 +1,9 @@
 import { translateWord, saveWord } from "../features/translator/translate.js";
 import { windowManager } from "../core/windowManager.js";
+import { makeDraggable } from "./utils/drag.js";
+import { makeResizable } from "./utils/resize.js";
+
+
 
 export function createTranslateModal() {
   const root = document.createElement("div");
@@ -55,6 +59,11 @@ export function createTranslateModal() {
   root.querySelector(".modal-close").onclick = () => {
     windowManager.close("translateModal");
   };
+
+  // Подключаем утилиты
+  const header = root.querySelector(".modal-header");
+  makeDraggable(root, header);
+  makeResizable(root);
 
   return root;
 }

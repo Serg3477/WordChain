@@ -2,7 +2,7 @@
   background: white;
   border-radius: 16px;
   padding: 16px;
-  width: 90%;
+  width: 100%;
   max-width: 420px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   display: flex;
@@ -28,7 +28,8 @@
 }
 
 .input-word {
-  width: 100%;
+  display: flex;
+  width: 90%;
   height: 48px;
   border-radius: 8px;
   border: 1px solid #ccc;

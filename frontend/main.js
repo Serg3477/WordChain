@@ -11,12 +11,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Делаем доступным в консоли
   window.windowManager = windowManager;
 
+  // Открывать модалку автоматически
+  windowManager.open("translateModal");
 
-  // Временно: кнопка для теста
-  const btn = document.createElement("button");
-  btn.textContent = "Open Translator";
-  btn.onclick = () => windowManager.open("translateModal");
+  // const btn = document.createElement("button");
+  // btn.textContent = "Open Translator";
+  // btn.onclick = () => windowManager.open("translateModal");
 
-  document.getElementById("app").appendChild(btn);
+  // document.getElementById("app").appendChild(btn);
+
 });
 
