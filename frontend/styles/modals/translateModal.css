@@ -1,12 +1,17 @@
 .translate-modal {
-  background: white;
+  background: rgb(218, 181, 255);
+  border: 2px solid blue;
   border-radius: 16px;
   padding: 16px;
-  width: 100%;
-  max-width: 420px;
+  width: 420px;
+  height: 320px;
+  min-width: 420px;
+  min-height: 320px;
+  position: absolute;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
+  resize: none;          /* мы используем свой resize */
 }
 
 .modal-header {
@@ -29,7 +34,7 @@
 
 .input-word {
   display: flex;
-  width: 90%;
+  width: 95%;
   height: 48px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -41,29 +46,47 @@
   display: flex;
   gap: 12px;
   margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .btn {
   flex: 1;
   height: 48px;
+  border: 1px solid black;
   border-radius: 8px;
   border: none;
   font-size: 16px;
 }
 
 .btn.primary {
-  background: #bc8ff4;
-  color: #5200aa;
+  background: #43e253;
+  color: #242097;
 }
 
 .btn.secondary {
-  background: #eee;
+  background: #dbef7d;
   color: #666;
 }
 
 .results {
-  margin-top: 16px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 10px;
 }
+.result-container {
+  flex: 0 0 auto; /* НЕ растягивается */
+  max-height: none;
+  min-height: 120px;     /* минимальный размер */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fafafa;
+  overflow-y: auto;      /* длинный текст — скролл */
+  box-sizing: border-box;
+}
+

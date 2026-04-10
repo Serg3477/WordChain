@@ -23,7 +23,9 @@ export function createTranslateModal() {
         <button data-role="save-btn" class="btn secondary">Save</button>
       </div>
 
-      <div data-role="result" class="results"></div>
+      <div class="result-container">
+        <div data-role="result" class="results"></div>
+      </div>
     </div>
   `;
 
@@ -49,6 +51,10 @@ export function createTranslateModal() {
       <div>${result.part_of_speech ?? ""}</div>
       <div>${result.examples?.join("<br>") ?? ""}</div>
     `;
+
+    // Фиксируем минимальную высоту контента
+    const body = root.querySelector(".modal-body");
+    root._minContentHeight = body.scrollHeight;
   });
 
   saveBtn.addEventListener("click", async () => {
