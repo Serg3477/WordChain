@@ -1,57 +1,3 @@
-.modal-base {
-  position: fixed;
-  inset: 0;
-  background: #4b2e83;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-/* NAVBAR */
-.navbar {
-  height: 56px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  color: white;
-}
-
-.navbar-left .logo {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.navbar-center {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-btn {
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  color: white;
-  font-size: 14px;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.avatar {
-  width: 32px;
-  height: 32px;
-  background: white;
-  border-radius: 50%;
-}
-
 /* Выпадающее меню для Curriculum */
 /* === DROPDOWN MENU === */
 
@@ -107,14 +53,3 @@
   text-align: center;
 }
 /* End dropdown menu Curriculum */
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .navbar-center {
-    display: none;
-  }
-  .user-name {
-    display: none;
-  }
-}
-

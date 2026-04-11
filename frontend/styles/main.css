@@ -1,4 +1,5 @@
-@import "./modals/modalBase.css";
+@import "./modalBase/modalBase.css";
+@import "./modalBase/curriculum.css";
 @import "./modals/translateModal.css";
 @import "./utils/resize_corner.css";
 @import "./utils/mobile.css";

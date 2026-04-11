@@ -1,4 +1,4 @@
-import { ModalBase } from "../modals/modalBase.js";
+import { ModalBase } from "../modals/modalBase/modalBase.js";
 
 const registry = {};
 let base = null;
