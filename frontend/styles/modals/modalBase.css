@@ -52,6 +52,32 @@
   border-radius: 50%;
 }
 
+/* Выпадающее меню для Curriculum */
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 8px 0;
+  width: 180px;
+  z-index: 9999;
+}
+
+.dropdown-menu.hidden {
+  display: none;
+}
+
+.menu-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu-item:hover {
+  background: #f0f0ff;
+}
+
+
 /* MOBILE */
 @media (max-width: 600px) {
   .navbar-center {
