@@ -52,9 +52,28 @@ export function createTranslateModal() {
       <div>${result.examples?.join("<br>") ?? ""}</div>
     `;
 
-    // Фиксируем минимальную высоту контента
-    const body = root.querySelector(".modal-body");
-    root._minContentHeight = body.scrollHeight;
+    // --- АВТОРАСШИРЕНИЕ МОДАЛКИ ПОСЛЕ ПЕРЕВОДА ---
+    // даём браузеру дорисовать DOM
+    requestAnimationFrame(() => {
+      const body = root.querySelector(".modal-body");
+
+      // реальная нужная высота по контенту
+      const neededHeight = body.scrollHeight
+        + parseInt(getComputedStyle(root).paddingTop)
+        + parseInt(getComputedStyle(root).paddingBottom)
+        + root.querySelector(".modal-header").offsetHeight;
+
+      // текущая высота модалки
+      const currentHeight = root.offsetHeight;
+
+      // если контента стало больше, чем текущая высота — расширяем
+      if (neededHeight > currentHeight) {
+        root.style.height = neededHeight + "px";
+      }
+
+      // фиксируем минимальную высоту контента для resize.js
+      root._minContentHeight = neededHeight;
+    });
   });
 
   saveBtn.addEventListener("click", async () => {

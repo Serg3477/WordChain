@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/translateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/utils/resize.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/utils/resize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/utils/resize_corner.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/utils/resize_corner.css" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +127,7 @@
       <workItem from="1775656721994" duration="679000" />
       <workItem from="1775735847904" duration="88000" />
       <workItem from="1775735973745" duration="691000" />
-      <workItem from="1775808791343" duration="1551000" />
+      <workItem from="1775808791343" duration="2173000" />
     </task>
     <servers />
   </component>

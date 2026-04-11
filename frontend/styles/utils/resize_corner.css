@@ -20,7 +20,7 @@
    ============================================================ */
 
 .result-container {
-  flex: auto; /* НЕ растягивается */
+  flex: 0 0 auto; /* НЕ растягивается */
   max-height: none;
   min-height: auto;     /* минимальный размер */
   border: 1px solid #ddd;
