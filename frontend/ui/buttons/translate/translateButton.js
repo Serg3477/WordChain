@@ -3,7 +3,7 @@ export class TranslateButton {
     label, 
     type = type, 
     icon = null, 
-    action = "click", 
+    action = null, 
     handler = null 
   }) {
     this.el = document.createElement("button");

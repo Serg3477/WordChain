@@ -5,18 +5,31 @@
   font-size: 16px;
 }
 
+/*  
+  Основной стиль кнопки:
+  - position: relative — нужно для ripple-эффекта (::after)
+  - overflow: hidden — чтобы ripple не выходил за границы
+  - transition — плавность всех анимаций
+  - box-shadow — мягкая объёмная тень (современный стиль)
+*/
 .ui-btn {
   position: relative;
   overflow: hidden;
   transition: 
     background 0.2s ease,
-    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), /* пружинная анимация */
     box-shadow 0.2s ease;
   box-shadow:
-    0 3px 6px rgba(0,0,0,0.15),
-    0 1px 2px rgba(0,0,0,0.1);
+    0 3px 6px rgba(0,0,0,0.15), /* основная мягкая тень */
+    0 1px 2px rgba(0,0,0,0.1);  /* дополнительная глубина */
 }
 
+/*  
+  Эффект нажатия:
+  - translateY + scale — реалистичное "утопание" кнопки
+  - уменьшенная тень — имитация физического нажатия
+  - animation — лёгкая вибрация (микро-обратная связь)
+*/
 .ui-btn:active {
   transform: translateY(2px) scale(0.98);
   box-shadow:
@@ -25,13 +38,24 @@
   animation: btn-press 0.1s ease;
 }
 
+/*  
+  Hover-эффект:
+  - лёгкий подъём кнопки вверх
+  - мягкая подсветка (неоновая, но аккуратная)
+*/
 .ui-btn:hover {
   transform: translateY(-1px);
   box-shadow:
-    0 0 8px rgba(67, 226, 83, 0.5),
+    0 0 8px rgba(67, 226, 83, 0.5), /* зелёное свечение */
     0 0 4px rgba(67, 226, 83, 0.3);
 }
 
+/*  
+  Ripple-эффект (как в Material UI):
+  - псевдоэлемент ::after создаёт круг
+  - изначально он невидим и имеет размер 0
+  - при клике расширяется до 200% и исчезает
+*/
 .ui-btn::after {
   content: "";
   position: absolute;
@@ -39,13 +63,19 @@
   top: 50%;
   width: 0;
   height: 0;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.4); /* белая волна */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
 }
 
+/*  
+  Активное состояние ripple:
+  - круг резко увеличивается
+  - opacity становится видимой
+  - transition: 0s — мгновенное появление
+*/
 .ui-btn:active::after {
   width: 200%;
   height: 200%;
@@ -53,9 +83,13 @@
   transition: 0s;
 }
 
+/*  
+  Микро-анимация "вибрации":
+  - создаёт ощущение физического отклика
+  - используется в :active
+*/
 @keyframes btn-press {
   0% { transform: scale(1); }
   50% { transform: scale(0.97); }
   100% { transform: scale(1); }
 }
-

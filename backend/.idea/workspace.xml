@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +134,7 @@
       <workItem from="1775808791343" duration="2173000" />
       <workItem from="1775894569014" duration="668000" />
       <workItem from="1775910592683" duration="639000" />
+      <workItem from="1775998755028" duration="639000" />
     </task>
     <servers />
   </component>

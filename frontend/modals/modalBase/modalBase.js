@@ -1,4 +1,5 @@
 import { CurriculumMenu } from "./curriculum.js";
+import { NavbarButton } from "../../ui/buttons/navbar/navbarButtons.js";
 
 export class ModalBase {
   constructor() {
@@ -17,9 +18,7 @@ export class ModalBase {
         </div>
 
         <nav class="navbar-center">
-          <button class="nav-btn" data-action="curriculum">Curriculum</button>
-          <button class="nav-btn" data-action="progress">Progress</button>
-          <button class="nav-btn" data-action="options">Options</button>
+          
         </nav>
 
         <div class="navbar-right">
@@ -33,8 +32,42 @@ export class ModalBase {
 
     document.body.appendChild(this.root);
 
+    const navbarCenter = this.root.querySelector(".navbar-center");
+
+    // Curriculum
+    const curriculumBtn = new NavbarButton({
+      label: "Curriculum",
+      type: "nav-btn navbar ui-btn",
+      icon: "📘",
+      action: ["click", "mouseover"],
+      dataAction: "curriculum"
+    }).render();
+
+    // Progress
+    const progressBtn = new NavbarButton({
+      label: "Progress",
+      type: "nav-btn navbar ui-btn",
+      icon: "📊",
+      dataAction: "progress"
+    }).render();
+
+    // Options
+    const optionsBtn = new NavbarButton({
+      label: "Options",
+      type: "nav-btn navbar ui-btn",
+      icon: "⚙️",
+      dataAction: "options"
+    }).render();
+
+    navbarCenter.appendChild(curriculumBtn);
+    navbarCenter.appendChild(progressBtn);
+    navbarCenter.appendChild(optionsBtn);
+
     // подключаем меню Curriculum
     this.curriculumMenu = new CurriculumMenu(this.root);
+
+    // ВАЖНО: передаём кнопку в меню
+    this.curriculumMenu.attachButton(curriculumBtn);
   }
 
   mountModal(modalElement) {

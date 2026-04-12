@@ -7,9 +7,24 @@ export class CurriculumMenu {
   constructor(baseRoot) {
     this.baseRoot = baseRoot;
     this.dropdown = null;
+    this.button = null; // кнопка будет передана извне
 
     this.createDropdown();
-    this.attachLogic();
+  }
+
+  attachButton(btn) {
+    this.button = btn;
+
+    // обработчик открытия меню
+    this.button.addEventListener("mouseover", () => this.toggle());
+  }
+
+  toggle() {
+    this.dropdown.classList.toggle("hidden");
+
+    const rect = this.button.getBoundingClientRect();
+    this.dropdown.style.left = rect.left + "px";
+    this.dropdown.style.top = rect.bottom + "px";
   }
 
   createDropdown() {
@@ -29,25 +44,8 @@ export class CurriculumMenu {
     `;
 
     document.body.appendChild(this.dropdown);
-  }
 
-  attachLogic() {
-    const btn = this.baseRoot.querySelector('[data-action="curriculum"]');
-
-    btn.addEventListener("click", () => {
-      this.dropdown.classList.toggle("hidden");
-
-      const rect = btn.getBoundingClientRect();
-      this.dropdown.style.left = rect.left + "px";
-      this.dropdown.style.top = rect.bottom + "px";
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!this.dropdown.contains(e.target) && e.target !== btn) {
-        this.dropdown.classList.add("hidden");
-      }
-    });
-
+    // логика выбора пункта меню
     this.dropdown.addEventListener("click", (e) => {
       const item = e.target.closest(".menu-item");
       if (!item) return;
@@ -58,6 +56,13 @@ export class CurriculumMenu {
       if (action === "translation") windowManager.open("translateModal");
       if (action === "sets") windowManager.open("setsModal");
       if (action === "exams") windowManager.open("examsModal");
+    });
+
+    // закрытие при клике вне меню
+    document.addEventListener("click", (e) => {
+      if (!this.dropdown.contains(e.target) && e.target !== this.button) {
+        this.dropdown.classList.add("hidden");
+      }
     });
   }
 }
