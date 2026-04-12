@@ -52,19 +52,15 @@
 .btn {
   flex: 1;
   height: 48px;
-  border: 1px solid black;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
 }
 
-.btn.primary {
-  background: #43e253;
+.btn-translate {
+  background: linear-gradient(180deg, #4cf05a, #3bd04b);
   color: #242097;
 }
 
-.btn.secondary {
-  background: #dbef7d;
+.btn-save {
+  background: linear-gradient(180deg, #4cf05a, #3bd04b);
   color: #666;
 }
 

@@ -1,3 +1,6 @@
+// ===============================
+// CURRICULUM — меню кнопки Curriculum
+// ===============================
 import { windowManager } from "../../core/windowManager.js";
 
 export class CurriculumMenu {

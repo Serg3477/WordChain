@@ -1,5 +1,7 @@
-/* Выпадающее меню для Curriculum */
-/* === DROPDOWN MENU === */
+/* ===============================
+   Выпадающее меню для Curriculum
+   =============================== 
+*/
 
 .dropdown-menu {
   position: absolute;
@@ -52,4 +54,3 @@
   width: 22px;
   text-align: center;
 }
-/* End dropdown menu Curriculum */

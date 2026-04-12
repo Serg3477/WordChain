@@ -3,6 +3,6 @@
 @import "./modals/translateModal.css";
 @import "./utils/resize_corner.css";
 @import "./utils/mobile.css";
-
-
+@import "../ui/buttons/translate/translateButton.css";
+@import "../ui/buttons/navbar/navbar.css";
 

@@ -2,8 +2,7 @@ import { translateWord, saveWord } from "../features/translator/translate.js";
 import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
-
-
+import { TranslateButton } from "../ui/buttons/translate/translateButton.js";
 
 export function createTranslateModal() {
   const root = document.createElement("div");
@@ -18,10 +17,7 @@ export function createTranslateModal() {
     <div class="modal-body">
       <input data-role="word" class="input-word" placeholder="Enter word...">
 
-      <div class="buttons-row">
-        <button data-role="translate-btn" class="btn primary">Translate</button>
-        <button data-role="save-btn" class="btn secondary">Save</button>
-      </div>
+      <div class="buttons-row" data-role="buttons-row"></div>
 
       <div class="result-container">
         <div data-role="result" class="results"></div>
@@ -30,13 +26,15 @@ export function createTranslateModal() {
   `;
 
   const wordInput = root.querySelector('[data-role="word"]');
-  const translateBtn = root.querySelector('[data-role="translate-btn"]');
-  const saveBtn = root.querySelector('[data-role="save-btn"]');
   const resultDiv = root.querySelector('[data-role="result"]');
+  const buttonsRow = root.querySelector('[data-role="buttons-row"]');
 
   let result = null;
 
-  translateBtn.addEventListener("click", async () => {
+  // ---------------------------
+  // ФУНКЦИЯ ПЕРЕВОДА
+  // ---------------------------
+  async function doTranslate() {
     const word = wordInput.value.trim();
     if (!word) return;
 
@@ -52,40 +50,65 @@ export function createTranslateModal() {
       <div>${result.examples?.join("<br>") ?? ""}</div>
     `;
 
-    // --- АВТОРАСШИРЕНИЕ МОДАЛКИ ПОСЛЕ ПЕРЕВОДА ---
-    // даём браузеру дорисовать DOM
+    // Авторасширение модалки
     requestAnimationFrame(() => {
       const body = root.querySelector(".modal-body");
 
-      // реальная нужная высота по контенту
-      const neededHeight = body.scrollHeight
-        + parseInt(getComputedStyle(root).paddingTop)
-        + parseInt(getComputedStyle(root).paddingBottom)
-        + root.querySelector(".modal-header").offsetHeight;
+      const neededHeight =
+        body.scrollHeight +
+        parseInt(getComputedStyle(root).paddingTop) +
+        parseInt(getComputedStyle(root).paddingBottom) +
+        root.querySelector(".modal-header").offsetHeight;
 
-      // текущая высота модалки
-      const currentHeight = root.offsetHeight;
-
-      // если контента стало больше, чем текущая высота — расширяем
-      if (neededHeight > currentHeight) {
+      if (neededHeight > root.offsetHeight) {
         root.style.height = neededHeight + "px";
       }
 
-      // фиксируем минимальную высоту контента для resize.js
       root._minContentHeight = neededHeight;
     });
-  });
+  }
 
-  saveBtn.addEventListener("click", async () => {
+  // ---------------------------
+  // ФУНКЦИЯ СОХРАНЕНИЯ
+  // ---------------------------
+  async function doSave() {
     if (!result) return;
     await saveWord(wordInput.value.trim(), result);
-  });
+  }
 
+  // ---------------------------
+  // КНОПКИ ЧЕРЕЗ TranslateButton
+  // ---------------------------
+
+  const translateBtn = new TranslateButton({
+    label: "Translate",
+    type: "translate ui-btn btn btn-translate",
+    icon: "🌐",
+    action: "click",
+    handler: doTranslate
+  }).render();
+
+  const saveBtn = new TranslateButton({
+    label: "Save",
+    type: "translate ui-btn btn btn-save",
+    icon: "💾",
+    action: "click",
+    handler: doSave
+  }).render();
+
+  buttonsRow.appendChild(translateBtn);
+  buttonsRow.appendChild(saveBtn);
+
+  // ---------------------------
+  // КНОПКА ЗАКРЫТИЯ
+  // ---------------------------
   root.querySelector(".modal-close").onclick = () => {
     windowManager.close("translateModal");
   };
 
-  // Подключаем утилиты
+  // ---------------------------
+  // УТИЛИТЫ
+  // ---------------------------
   const header = root.querySelector(".modal-header");
   makeDraggable(root, header);
   makeResizable(root);
