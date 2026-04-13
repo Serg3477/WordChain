@@ -39,8 +39,8 @@ export class ModalBase {
       label: "Curriculum",
       type: "nav-btn navbar ui-btn",
       icon: "📘",
-      action: ["click", "mouseover"],
-      dataAction: "curriculum"
+      action: "click",
+      handler: () => this.curriculumMenu.toggle()  // ← curriculum.js
     }).render();
 
     // Progress
@@ -67,7 +67,7 @@ export class ModalBase {
     this.curriculumMenu = new CurriculumMenu(this.root);
 
     // ВАЖНО: передаём кнопку в меню
-    this.curriculumMenu.attachButton(curriculumBtn);
+    this.curriculumMenu.button = curriculumBtn;
   }
 
   mountModal(modalElement) {

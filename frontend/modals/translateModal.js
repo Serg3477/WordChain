@@ -3,6 +3,8 @@ import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
 import { TranslateButton } from "../ui/buttons/translate/translateButton.js";
+import { CloseButton } from "../ui/buttons/close/closeButton.js";
+
 
 export function createTranslateModal() {
   const root = document.createElement("div");
@@ -11,7 +13,8 @@ export function createTranslateModal() {
   root.innerHTML = `
     <div class="modal-header">
       <span class="modal-title">Translate</span>
-      <button class="modal-close">✕</button>
+      <div data-role="close-btn"></div>
+
     </div>
 
     <div class="modal-body">
@@ -28,6 +31,7 @@ export function createTranslateModal() {
   const wordInput = root.querySelector('[data-role="word"]');
   const resultDiv = root.querySelector('[data-role="result"]');
   const buttonsRow = root.querySelector('[data-role="buttons-row"]');
+  const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
 
   let result = null;
 
@@ -102,9 +106,19 @@ export function createTranslateModal() {
   // ---------------------------
   // КНОПКА ЗАКРЫТИЯ
   // ---------------------------
-  root.querySelector(".modal-close").onclick = () => {
-    windowManager.close("translateModal");
-  };
+  const closeBtn = new CloseButton({
+    action: "click",
+    handler: closeWithScatter
+  }).render();
+
+  function closeWithScatter() {
+    root.classList.add("modal-scale-out");
+    setTimeout(() => {
+      windowManager.close("translateModal");
+    }, 350);
+  }
+
+  closeBtnContainer.appendChild(closeBtn);
 
   // ---------------------------
   // УТИЛИТЫ

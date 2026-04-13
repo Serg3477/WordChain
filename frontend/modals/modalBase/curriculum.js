@@ -12,13 +12,6 @@ export class CurriculumMenu {
     this.createDropdown();
   }
 
-  attachButton(btn) {
-    this.button = btn;
-
-    // обработчик открытия меню
-    this.button.addEventListener("mouseover", () => this.toggle());
-  }
-
   toggle() {
     this.dropdown.classList.toggle("hidden");
 

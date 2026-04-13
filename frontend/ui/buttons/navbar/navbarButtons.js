@@ -1,28 +1,23 @@
 export class NavbarButton {
   constructor({
     label,
-    type = "",
+    type = type,
     icon = null,
     action = null,
-    handler = null,
-    dataAction = null
+    handler = null
   }) {
     this.el = document.createElement("button");
-
-    // классы передаются как строка
-    this.el.className = type;
-
-    // data-action для CurriculumMenu
-    if (dataAction) {
-      this.el.dataset.action = dataAction;
-    }
+    this.el.className = `${type}`;
 
     this.el.innerHTML = `
       ${icon ? `<span class="nav-btn-icon">${icon}</span>` : ""}
       <span class="nav-btn-label">${label}</span>
     `;
 
-    if (handler) {
+    // поддержка массива событий
+    if (Array.isArray(action)) {
+      action.forEach(evt => this.el.addEventListener(evt, handler));
+    } else if (handler && action) {
       this.el.addEventListener(action, handler);
     }
   }
