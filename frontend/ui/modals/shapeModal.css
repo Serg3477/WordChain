@@ -1,5 +1,9 @@
-/* БАЗОВАЯ ОБОЛОЧКА МОДАЛКИ */
-/* БАЗОВАЯ ВЫПУКЛАЯ МОДАЛКА */
+/* ===============================
+   БАЗОВАЯ ОБОЛОЧКА МОДАЛКИ
+   БАЗОВАЯ ВЫПУКЛАЯ МОДАЛКА
+   =============================== 
+*/
+
 .ui-modal {
   background: #e3e3e3;
   border-radius: 20px;
@@ -22,11 +26,7 @@
   overflow: hidden;
   box-sizing: border-box;
 
-  /* адаптивность */
-  width: 420px;
-  min-width: 360px;
-  min-height: 260px;
-  max-height: 90vh;
+  
 }
 
 /* ХЕДЕР */
@@ -35,31 +35,14 @@
   display: flex;
   justify-content: center;         /* центрируем заголовок */
   align-items: center;
-  margin-bottom: 14px;
+  
 }
 
 /* Заголовок */
 .ui-modal-title {
-  font-size: 22px;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #6a5acd, #1339d3, #ac1010);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
+  align-content: center;
   user-select: none;               /* нельзя выделить */
   pointer-events: none;            /* нельзя кликнуть */
-}
-
-/* Кнопка Х — всегда справа */
-.ui-modal-close {
-  position: absolute;
-  right: 0;                        /* прижимаем к правому краю */
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ТЕЛО МОДАЛКИ — СКРОЛЛ */

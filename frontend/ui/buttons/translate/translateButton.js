@@ -1,7 +1,7 @@
 export class TranslateButton {
   constructor({ 
     label, 
-    type = type, 
+    type = "", 
     icon = null, 
     action = null, 
     handler = null 

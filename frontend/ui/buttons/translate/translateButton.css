@@ -1,10 +1,6 @@
-.translate {
-  border: 1px solid black;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-}
-
+/* ===============================
+   Кнопка Translate, Save 
+   ===============================
 /*  
   Основной стиль кнопки:
   - position: relative — нужно для ripple-эффекта (::after)
@@ -13,6 +9,10 @@
   - box-shadow — мягкая объёмная тень (современный стиль)
 */
 .ui-btn {
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+
   position: relative;
   overflow: hidden;
   transition: 

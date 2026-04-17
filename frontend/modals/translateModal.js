@@ -15,7 +15,7 @@ export function createTranslateModal() {
   root.innerHTML = `
     <div class="modal-header ui-modal-header">
       <span class="modal-title ui-modal-title">Translate</span>
-      <div class="ui-modal-close" data-role="close-btn"></div>
+      <div class="ui-modal-btn" data-role="close-btn"></div>
 
     </div>
 
@@ -90,7 +90,7 @@ export function createTranslateModal() {
 
   const translateBtn = new TranslateButton({
     label: "Translate",
-    type: "translate ui-btn btn btn-translate",
+    type: "ui-btn btn btn-translate",
     icon: "🌐",
     action: "click",
     handler: doTranslate
@@ -98,7 +98,7 @@ export function createTranslateModal() {
 
   const saveBtn = new TranslateButton({
     label: "Save",
-    type: "translate ui-btn btn btn-save",
+    type: "ui-btn btn btn-save",
     icon: "💾",
     action: "click",
     handler: doSave

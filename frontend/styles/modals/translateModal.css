@@ -1,50 +1,26 @@
 .translate-modal {
-  background: rgb(218, 181, 255);
-  border-radius: 16px;
   margin-top: 5px;
   padding: 16px;
   width: 420px;
+  height: auto;
   min-width: 420px;
   min-height: 320px;
-  height: auto;
   max-height: 90vh;
-  position: absolute;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-sizing: border-box;
-  overflow: hidden;
   resize: none;          /* мы используем свой resize */
 
 }
 
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 14px;
 }
 
 .modal-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
-  color: #242097;
-  align-content: center;
-}
-
-.modal-close {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-[data-role="close-btn"] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+  background: linear-gradient(90deg, #6a5acd, #1339d3, #ac1010);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
 }
 
 .buttons-row {
@@ -62,12 +38,10 @@
 
 .btn-translate {
   background: linear-gradient(180deg, #6da6e8, #7062ec);
-
 }
 
 .btn-save {
   background: linear-gradient(180deg, #6da6e8, #7062ec);
-
 }
 
 .results {
