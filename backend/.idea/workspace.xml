@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/curriculum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/curriculum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/translateModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +136,8 @@
       <workItem from="1775910592683" duration="639000" />
       <workItem from="1775998755028" duration="709000" />
       <workItem from="1776065418340" duration="644000" />
-      <workItem from="1776076526635" duration="632000" />
+      <workItem from="1776076526635" duration="1247000" />
+      <workItem from="1776414596529" duration="652000" />
     </task>
     <servers />
   </component>

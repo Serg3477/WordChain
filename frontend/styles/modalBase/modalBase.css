@@ -6,6 +6,11 @@
   flex-direction: column;
   padding: 12px;
   box-sizing: border-box;
+
+  background-image: url("../../assets/images/Canva/WC\ Words\ chain_20251030_201557_0000.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* NAVBAR */
@@ -18,6 +23,17 @@
   justify-content: space-between;
   padding: 0 12px;
   color: white;
+
+  /* Свет справа-сверху, тень слева-снизу */
+  box-shadow:
+  inset 10px 10px 22px rgba(0,0,0,0.55),      /* глубокая тень справа-снизу */
+
+    6px 6px 10px rgba(0,0,0,0.45),     /* внутренняя мягкая тень */
+    -2px -2px 4px rgba(255,255,255,0.8); /* внутренний свет */
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px) saturate(150%);
+
 }
 
 .navbar-left .logo {
@@ -31,7 +47,7 @@
 }
 
 .nav-btn {
-  width: 120px;
+  width: auto;
   height: 40px;
   padding: 8px 16px;
   border-radius: 6px;
@@ -42,6 +58,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
+
+  background: rgba(30, 17, 203, 0.35); /* мягкая матовость */
 }
 
 .navbar-right {

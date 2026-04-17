@@ -1,17 +1,22 @@
 .translate-modal {
   background: rgb(218, 181, 255);
-  border: 2px solid blue;
   border-radius: 16px;
+  margin-top: 5px;
   padding: 16px;
   width: 420px;
-  height: 320px;
   min-width: 420px;
   min-height: 320px;
+  height: auto;
+  max-height: 90vh;
   position: absolute;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
   resize: none;          /* мы используем свой resize */
+
 }
 
 .modal-header {
@@ -23,6 +28,8 @@
 .modal-title {
   font-size: 20px;
   font-weight: 600;
+  color: #242097;
+  align-content: center;
 }
 
 .modal-close {
@@ -32,14 +39,12 @@
   cursor: pointer;
 }
 
-.input-word {
+[data-role="close-btn"] {
   display: flex;
-  width: 95%;
-  height: 48px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 0 12px;
-  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
 }
 
 .buttons-row {
@@ -49,19 +54,20 @@
   margin-bottom: 12px;
 }
 
+/* основные параметры кнопок */
 .btn {
   flex: 1;
   height: 48px;
 }
 
 .btn-translate {
-  background: linear-gradient(180deg, #4cf05a, #3bd04b);
-  color: #242097;
+  background: linear-gradient(180deg, #6da6e8, #7062ec);
+
 }
 
 .btn-save {
-  background: linear-gradient(180deg, #4cf05a, #3bd04b);
-  color: #666;
+  background: linear-gradient(180deg, #6da6e8, #7062ec);
+
 }
 
 .results {
@@ -69,21 +75,26 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   padding: 12px;
   margin-bottom: 10px;
+
+  
 }
 .result-container {
   flex: 0 0 auto; /* НЕ растягивается */
   max-height: none;
   min-height: 120px;     /* минимальный размер */
-  border: 1px solid #ddd;
-  border-radius: 8px;
   padding: 12px;
-  background: #fafafa;
   overflow-y: auto;      /* длинный текст — скролл */
   box-sizing: border-box;
+  margin-bottom: 10px;
+
+  background: #e6e6e6;
+  box-shadow:
+    inset 3px 3px 6px rgba(0,0,0,0.25),
+    inset -3px -3px 6px rgba(255,255,255,0.8);
+
+  transition: all 0.2s ease;
 }
 
 /* Эффект закрытия модалки (анимация) */
