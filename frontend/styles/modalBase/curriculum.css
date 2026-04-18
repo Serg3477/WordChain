@@ -4,53 +4,53 @@
 */
 
 .dropdown-menu {
-  position: absolute;
-  background: rgb(22, 229, 232);
-  border-radius: 12px;
-  border-color: blue;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.55);
-  margin-top: 15px;
-  padding: 8px 0;
-  width: 200px;
-  z-index: 9999;
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  position: absolute;                           /* позиционируется относительно окна */
+  background: rgb(22, 229, 232);              /* фон меню */
+  border-radius: 12px;                          /* скругление углов */
+  border-color: blue;                         /* цвет рамки (без border-style не виден) */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.55);    /* тень под меню */
+  margin-top: 15px;                             /* отступ сверху */
+  padding: 8px 0;                               /* вертикальные внутренние отступы */
+  width: 200px;                                 /* ширина меню */
+  z-index: 9999;                                /* поверх всех элементов */
+  opacity: 0;                                   /* скрыто по умолчанию */
+  transform: translateY(-8px);                  /* смещение вверх (анимация появления) */
+  pointer-events: none;                         /* клики отключены, пока скрыто */
+  transition: opacity 0.18s ease, transform 0.18s ease;         /* плавная анимация */
 }
 
 .dropdown-menu.hidden {
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
+  opacity: 0;                         /* скрыто */
+  transform: translateY(-8px);        /* поднято вверх */
+  pointer-events: none;               /* клики отключены */
 }
 
 .dropdown-menu:not(.hidden) {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  opacity: 1;                         /* видно */
+  transform: translateY(0);           /* возвращается на место */
+  pointer-events: auto;               /* клики включены */
 }
 
 /* === MENU ITEMS === */
 
 .menu-item {
-  padding: 12px 16px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: background 0.15s ease;
+  padding: 12px 16px;                 /* внутренние отступы */
+  cursor: pointer;                    /* курсор — кнопка */
+  font-size: 16px;                    /* размер текста */
+  display: flex;                      /* горизонтальный layout */
+  align-items: center;                /* выравнивание по вертикали */
+  gap: 10px;                          /* расстояние между иконкой и текстом */
+  transition: background 0.15s ease;  /* плавный hover */
 }
 
 .menu-item:hover {
-  background: #f3f0ff;
+  background: #f3f0ff;                /* подсветка при наведении */
 }
 
 /* === ICONS === */
 
 .menu-item .icon {
-  font-size: 18px;
-  width: 22px;
-  text-align: center;
+  font-size: 18px;                    /* размер иконки */
+  width: 22px;                        /* фиксированная ширина для выравнивания */
+  text-align: center;                 /* центрирование иконки */
 }

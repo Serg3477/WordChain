@@ -1,89 +1,91 @@
 .modal-base {
-  position: fixed;
-  inset: 0;
-  background: #4b2e83;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  box-sizing: border-box;
+  position: fixed;                                 /* фиксируется на весь экран */
+  inset: 0;                                        /* растягивается от края до края */
+  background: #4b2e83;                           /* фоновый цвет */
+  display: flex;                                   /* вертикальный layout */
+  flex-direction: column;                          /* элементы сверху вниз */
+  padding: 12px;                                   /* внутренние отступы */
+  box-sizing: border-box;                          /* учитывает padding в размерах */
 
-  background-image: url("../../assets/images/Canva/WC\ Words\ chain_20251030_201557_0000.gif");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-image: url("../../assets/images/Canva/WC\ Words\ chain_20251030_201557_0000.gif"); /* фон-картинка */
+  background-repeat: no-repeat;                    /* не повторять */
+  background-position: center;                     /* центрировать */
+  background-size: cover;                          /* растянуть по контейнеру */
 }
 
 /* NAVBAR */
 .navbar {
-  height: 56px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  color: white;
+  height: 56px;                                    /* высота панели */
+  background: rgba(255, 255, 255, 0.15);         /* полупрозрачный фон */
+  border-radius: 12px;                             /* скругление */
+  display: flex;                                   /* горизонтальный layout */
+  align-items: center;                             /* выравнивание по вертикали */
+  justify-content: space-between;                  /* элементы по краям */
+  padding: 0 12px;                                 /* горизонтальные отступы */
+  color: white;                                  /* цвет текста */
 
-  /* Свет справа-сверху, тень слева-снизу */
+  /* Свет/тени */
   box-shadow:
-  inset 10px 10px 22px rgba(0,0,0,0.55),      /* глубокая тень справа-снизу */
+    inset 10px 10px 22px rgba(0,0,0,0.55),       /* внутренняя тень снизу-справа */
+    6px 6px 10px rgba(0,0,0,0.45),               /* внешняя тень снизу-справа */
+    -2px -2px 4px rgba(255,255,255,0.8);         /* свет сверху-слева */
 
-    6px 6px 10px rgba(0,0,0,0.45),     /* внутренняя мягкая тень */
-    -2px -2px 4px rgba(255,255,255,0.8); /* внутренний свет */
-
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px) saturate(150%);
-
+  background: rgba(255,255,255,0.25);            /* стеклянный фон */
+  backdrop-filter: blur(12px) saturate(150%);      /* размытие + насыщенность */
 }
 
 .navbar-left .logo {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 18px;                /* размер текста */
+  font-weight: 600;               /* жирность */
+  user-select: none;              /* запрет выделения */
 }
 
 .navbar-center {
-  display: flex;
-  gap: 12px;
+  display: flex;                  /* горизонтальный layout */
+  gap: 12px;                      /* расстояние между кнопками */
 }
 
 .nav-btn {
-  width: auto;
-  height: 40px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  flex: 1;                        /* растягиваются равномерно */
+  height: 40px;                   /* высота кнопки */
+  padding: 8px 20px;              /* внутренние отступы */
+  border-radius: 8px;             /* скругление */
+  border: none;                   /* без рамки */
+  cursor: pointer;                /* курсор — кнопка */
 
-  background: rgba(30, 17, 203, 0.35); /* мягкая матовость */
+  display: flex;                  /* горизонтальный layout */
+  align-items: center;            /* центр по вертикали */
+  justify-content: center;        /* центр по горизонтали */
+  gap: 6px;                       /* расстояние между иконкой и текстом */
+
+  background: rgba(30, 17, 203, 0.35);       /* матовый фон */
+}
+
+.nav-btn,
+.nav-btn * {
+  user-select: none;              /* запрет выделения текста */
 }
 
 .navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: flex;                  /* горизонтальный layout */
+  align-items: center;            /* центрирование */
+  gap: 8px;                       /* расстояние между элементами */
+  user-select: none;              /* запрет выделения */
 }
 
 .avatar {
-  width: 32px;
+  width: 32px;                    /* размер аватара */
   height: 32px;
-  background: white;
-  border-radius: 50%;
+  background: white;            /* фон */
+  border-radius: 50%;             /* круг */
 }
-
-
 
 /* MOBILE */
 @media (max-width: 600px) {
   .navbar-center {
-    display: none;
+    display: none;                /* скрыть кнопки */
   }
   .user-name {
-    display: none;
+    display: none;                /* скрыть имя */
   }
 }
-

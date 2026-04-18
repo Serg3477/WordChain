@@ -5,6 +5,7 @@ import { makeResizable } from "./utils/resize.js";
 import { TranslateButton } from "../ui/buttons/translate/translateButton.js";
 import { CloseButton } from "../ui/buttons/close/closeButton.js";
 import { setupWordInput } from "../ui/inputs/wordInput/wordInput.js";
+import { EraseInputButton } from "../ui/buttons/erase/eraseInput.js";
 
 
 
@@ -20,7 +21,10 @@ export function createTranslateModal() {
     </div>
 
     <div class="modal-body ui-modal-body">
-      <input data-role="word" class="input-word" placeholder="Enter word...">
+      <div class="input-row">
+        <input data-role="word" class="input-word" placeholder="Enter word...">
+        <div data-role="erase-container"></div>
+      </div>
 
       <div class="buttons-row" data-role="buttons-row"></div>
 
@@ -34,8 +38,12 @@ export function createTranslateModal() {
   const resultDiv = root.querySelector('[data-role="result"]');
   const buttonsRow = root.querySelector('[data-role="buttons-row"]');
   const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
+  const eraseContainer = root.querySelector('[data-role="erase-container"]');
+
 
   setupWordInput(wordInput);
+  wordInput.addEventListener("enterPressed", doTranslate);
+
 
   let result = null;
 
@@ -106,6 +114,20 @@ export function createTranslateModal() {
 
   buttonsRow.appendChild(translateBtn);
   buttonsRow.appendChild(saveBtn);
+
+  // ---------------------------
+  // КНОПКА ОЧИСТКИ ПОЛЯ ВВОДА
+  // ---------------------------
+  const eraseBtn = new EraseInputButton({
+    handler: () => {
+      wordInput.value = "";
+      wordInput.classList.remove("clearable");
+      wordInput.focus();
+    }
+  }).render();
+
+eraseContainer.appendChild(eraseBtn);
+
 
   // ---------------------------
   // КНОПКА ЗАКРЫТИЯ

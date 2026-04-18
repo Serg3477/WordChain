@@ -9,19 +9,20 @@
   - box-shadow — мягкая объёмная тень (современный стиль)
 */
 .ui-btn {
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
+  border-radius: 8px;                                         /* скругление кнопки */
+  border: none;                                               /* без рамки */
+  font-size: 16px;                                            /* размер текста */
 
-  position: relative;
-  overflow: hidden;
-  transition: 
-    background 0.2s ease,
-    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), /* пружинная анимация */
-    box-shadow 0.2s ease;
+  position: relative;                                         /* нужно для ripple (::after) */
+  overflow: hidden;                                           /* скрывает выход ripple за края */
+  transition:                              
+    background 0.2s ease,                                     /* плавная смена фона */
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),        /* пружинная анимация */
+    box-shadow 0.2s ease;                                     /* плавная смена тени */
+
   box-shadow:
-    0 3px 6px rgba(0,0,0,0.15), /* основная мягкая тень */
-    0 1px 2px rgba(0,0,0,0.1);  /* дополнительная глубина */
+    0 3px 6px rgba(0,0,0,0.15),           /* основная мягкая тень */
+    0 1px 2px rgba(0,0,0,0.1);            /* дополнительная глубина */
 }
 
 /*  
@@ -31,11 +32,11 @@
   - animation — лёгкая вибрация (микро-обратная связь)
 */
 .ui-btn:active {
-  transform: translateY(2px) scale(0.98);
+  transform: translateY(2px) scale(0.98);     /* утопание кнопки */
   box-shadow:
-    0 1px 2px rgba(0,0,0,0.2),
+    0 1px 2px rgba(0,0,0,0.2),              /* уменьшенная тень */
     0 0 1px rgba(0,0,0,0.1);
-  animation: btn-press 0.1s ease;
+  animation: btn-press 0.1s ease;             /* микро-вибрация */
 }
 
 /*  
@@ -43,10 +44,10 @@
   - лёгкий подъём кнопки вверх
   - мягкая подсветка (неоновая, но аккуратная)
 */
-.ui-btn:hover {
-  transform: translateY(-1px);
+ui-btn:hover {
+  transform: translateY(-1px);              /* лёгкий подъём */
   box-shadow:
-    0 0 8px rgba(67, 226, 83, 0.5), /* зелёное свечение */
+    0 0 8px rgba(67, 226, 83, 0.5),       /* зелёное свечение */
     0 0 4px rgba(67, 226, 83, 0.3);
 }
 
@@ -57,16 +58,16 @@
   - при клике расширяется до 200% и исчезает
 */
 .ui-btn::after {
-  content: "";
-  position: absolute;
-  left: 50%;
+  content: "";                            /* создаёт круг */
+  position: absolute;                     /* позиционируется внутри кнопки */
+  left: 50%;                              /* центр */
   top: 50%;
-  width: 0;
+  width: 0;                               /* начальный размер */
   height: 0;
-  background: rgba(255,255,255,0.4); /* белая волна */
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
+  background: rgba(255,255,255,0.4);    /* белая волна */
+  border-radius: 50%;                     /* круг */
+  transform: translate(-50%, -50%);       /* центрирование */
+  opacity: 0;                             /* невидим */
   transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
 }
 
@@ -77,10 +78,10 @@
   - transition: 0s — мгновенное появление
 */
 .ui-btn:active::after {
-  width: 200%;
+  width: 200%;                            /* расширение волны */
   height: 200%;
-  opacity: 1;
-  transition: 0s;
+  opacity: 1;                             /* становится видимой */
+  transition: 0s;                         /* мгновенное появление */
 }
 
 /*  
@@ -89,7 +90,7 @@
   - используется в :active
 */
 @keyframes btn-press {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.97); }
-  100% { transform: scale(1); }
+  0% { transform: scale(1); }             /* нормальный размер */
+  50% { transform: scale(0.97); }         /* лёгкое сжатие */
+  100% { transform: scale(1); }           /* возврат */
 }

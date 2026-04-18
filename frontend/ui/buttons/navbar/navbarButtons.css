@@ -1,15 +1,25 @@
-.navbar {
-  transition:
-    background 0.2s ease,
-    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.2s ease;
+/* ===============================
+   Кнопки в меню NAVBAR
+   =============================== 
+*/
+.ui-btn {
+  transition:                                               /* плавные анимации */
+    background 0.2s ease,                                   /* изменение фона */
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),      /* пружинное движение */
+    box-shadow 0.2s ease;                                   /* плавная смена тени */
+}
+
+.ui-btn-title {
+  user-select: none;          /* запрет выделения текста */
+  pointer-events: none;       /* текст не перехватывает клики */
+  cursor: default;            /* обычный курсор */
 }
 
 .ui-btn:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.2);          /* подсветка при наведении */
+  transform: translateY(-1px);                  /* лёгкий подъём */
 }
 
 .ui-btn:active {
-  transform: translateY(1px) scale(0.97);
+  transform: translateY(1px) scale(0.97);       /* эффект нажатия */
 }

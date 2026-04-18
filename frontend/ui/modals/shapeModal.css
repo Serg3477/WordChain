@@ -5,73 +5,69 @@
 */
 
 .ui-modal {
-  background: #e3e3e3;
-  border-radius: 20px;
-  padding: 20px;
+  background: #e3e3e3;                          /* базовый фон */
+  border-radius: 20px;                            /* скругление */
+  padding: 20px;                                  /* внутренние отступы */
 
   /* ГЛУБОКИЙ ВЫПУКЛЫЙ ЭФФЕКТ */
   box-shadow:
-    inset 10px 10px 22px rgba(0,0,0,0.55),      /* глубокая тень справа-снизу */
+    inset 10px 10px 22px rgba(0,0,0,0.55),      /* глубокая внутренняя тень */
+    6px 6px 10px rgba(0,0,0,0.45),              /* внешняя мягкая тень */
+    -2px -2px 4px rgba(255,255,255,0.8);        /* свет сверху-слева */
 
-    6px 6px 10px rgba(0,0,0,0.45),     /* внутренняя мягкая тень */
-    -2px -2px 4px rgba(255,255,255,0.8); /* внутренний свет */
+  background: rgba(255,255,255,0.25);           /* стеклянный фон */
+  backdrop-filter: blur(12px) saturate(150%);     /* размытие + насыщенность */
 
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px) saturate(150%);
-
-  transition: all 0.25s ease;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-sizing: border-box;
-
-  
+  transition: all 0.25s ease;                     /* плавные эффекты */
+  position: absolute;                             /* свободное позиционирование */
+  display: flex;                                  /* вертикальный layout */
+  flex-direction: column;                         /* элементы сверху вниз */
+  overflow: hidden;                               /* скрыть выходящие элементы */
+  box-sizing: border-box;                         /* учитывать padding */
 }
 
 /* ХЕДЕР */
 .ui-modal-header {
-  position: relative;              /* нужно для абсолютного позиционирования Х */
+  position: relative;                            /* нужно для кнопки Х */
   display: flex;
-  justify-content: center;         /* центрируем заголовок */
-  align-items: center;
-  
+  justify-content: center;                       /* центрируем заголовок */
+  align-items: center;                           /* вертикальное центрирование */
 }
 
 /* Заголовок */
 .ui-modal-title {
-  align-content: center;
-  user-select: none;               /* нельзя выделить */
-  pointer-events: none;            /* нельзя кликнуть */
+  align-content: center;                         /* выравнивание */
+  user-select: none;                             /* нельзя выделить */
+  pointer-events: none;                          /* не перехватывает клики */
 }
 
 /* ТЕЛО МОДАЛКИ — СКРОЛЛ */
 .ui-modal-body {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  padding-right: 6px;
+  flex: 1 1 auto;                                /* растягивается */
+  overflow-y: auto;                              /* вертикальный скролл */
+  padding-right: 6px;                            /* место под скроллбар */
   box-sizing: border-box;
 }
 
 /* ТОНКИЙ АККУРАТНЫЙ СКРОЛЛ */
 .ui-modal-body::-webkit-scrollbar {
-  width: 6px;
+  width: 6px;                                    /* тонкий скролл */
 }
 
 .ui-modal-body::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.25);
-  border-radius: 6px;
+  background: rgba(0,0,0,0.25);                  /* цвет ползунка */
+  border-radius: 6px;                            /* скругление */
 }
 
 .ui-modal-body::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent;                       /* прозрачный трек */
 }
 
 /* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 480px) {
   .ui-modal {
-    width: 92vw;
+    width: 92vw;                                 /* адаптивная ширина */
     min-width: 92vw;
-    max-height: 92vh;
+    max-height: 92vh;                            /* ограничение высоты */
   }
 }

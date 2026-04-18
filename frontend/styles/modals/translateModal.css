@@ -1,82 +1,90 @@
-.translate-modal {
-  margin-top: 5px;
-  padding: 16px;
-  width: 420px;
-  height: auto;
-  min-width: 420px;
-  min-height: 320px;
-  max-height: 90vh;
-  resize: none;          /* мы используем свой resize */
+/* ===============================
+   Модальное окно TRANSLATE
+   =============================== 
+*/
 
+.translate-modal {
+  margin-top: 5px;            /* отступ сверху */
+  padding: 16px;              /* внутренние отступы */
+  width: 420px;               /* ширина модалки */
+  height: auto;               /* высота по содержимому */
+  min-width: 420px;           /* минимальная ширина */
+  min-height: 320px;          /* минимальная высота */
+  max-height: 90vh;           /* ограничение по высоте экрана */
+  resize: none;               /* отключаем стандартный resize */
 }
 
 .modal-header {
-  margin-bottom: 14px;
+  margin-bottom: 14px;        /* отступ под заголовком */
 }
 
 .modal-title {
-  font-size: 22px;
-  font-weight: 600;
-  background: linear-gradient(90deg, #6a5acd, #1339d3, #ac1010);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
+  font-size: 22px;                                                        /* размер текста */
+  font-weight: 600;                                                       /* жирность */
+  background: linear-gradient(90deg, #6a5acd, #1339d3, #ac1010);    /* градиент */
+  -webkit-background-clip: text;                                          /* обрезка фона по тексту */
+  -webkit-text-fill-color: transparent;                                   /* прозрачный текст поверх градиента */
 }
 
-.buttons-row {
+.input-row {
   display: flex;
-  gap: 12px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  align-items: center;
+  gap: 5px;                   /* расстояние между input и кнопкой */
+  margin-top: 16px;
+  height: 48px; /* высота строки */
+}
+
+
+.buttons-row {
+  display: flex;              /* горизонтальное расположение */
+  gap: 12px;                  /* расстояние между кнопками */
+  margin-top: 12px;           /* отступ сверху */
+  margin-bottom: 12px;        /* отступ снизу */
 }
 
 /* основные параметры кнопок */
 .btn {
-  flex: 1;
-  height: 48px;
+  flex: 1;                    /* кнопки растягиваются равномерно */
+  height: 48px;               /* высота кнопки */
 }
 
 .btn-translate {
-  background: linear-gradient(180deg, #6da6e8, #7062ec);
+  background: linear-gradient(180deg, #6da6e8, #7062ec);            /* фон кнопки */
 }
 
 .btn-save {
-  background: linear-gradient(180deg, #6da6e8, #7062ec);
+  background: linear-gradient(180deg, #6da6e8, #7062ec);            /* фон кнопки */
 }
 
 .results {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 12px;
-  margin-bottom: 10px;
-
-  
+  margin-top: 10px;           /* отступ сверху */
+  display: flex;              /* вертикальный layout */
+  flex-direction: column;     /* элементы сверху вниз */
+  gap: 18px;                  /* расстояние между блоками */
+  padding: 12px;              /* внутренние отступы */
+  margin-bottom: 10px;        /* отступ снизу */
 }
-.result-container {
-  flex: 0 0 auto; /* НЕ растягивается */
-  max-height: none;
-  min-height: 120px;     /* минимальный размер */
-  padding: 12px;
-  overflow-y: auto;      /* длинный текст — скролл */
-  box-sizing: border-box;
-  margin-bottom: 10px;
 
-  background: #e6e6e6;
-  box-shadow:
+.result-container {
+  flex: 0 0 auto;             /* не растягивается */
+  max-height: none;           /* без ограничения высоты */
+  min-height: 120px;          /* минимальная высота */
+  padding: 12px;              /* внутренние отступы */
+  overflow-y: auto;           /* вертикальный скролл */
+  box-sizing: border-box;     /* учитывает padding */
+  margin-bottom: 10px;        /* отступ снизу */
+
+  background: #e6e6e6;        /* фон */
+  box-shadow:                   /* впуклая тень */
     inset 3px 3px 6px rgba(0,0,0,0.25),
     inset -3px -3px 6px rgba(255,255,255,0.8);
 
-  transition: all 0.2s ease;
+  transition: all 0.2s ease;                /* плавные изменения */
 }
 
 /* Эффект закрытия модалки (анимация) */
 .modal-scale-out {
-  opacity: 0;
-  transform: scale(0.7);
-  transition: all 0.35s ease;
+  opacity: 0;                               /* исчезновение */
+  transform: scale(0.7);                    /* уменьшение */
+  transition: all 0.35s ease;               /* плавная анимация */
 }
-
-
-

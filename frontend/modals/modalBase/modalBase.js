@@ -46,7 +46,7 @@ export class ModalBase {
     // Progress
     const progressBtn = new NavbarButton({
       label: "Progress",
-      type: "nav-btn navbar ui-btn",
+      type: "nav-btn ui-btn",
       icon: "📊",
       dataAction: "progress"
     }).render();
@@ -54,7 +54,7 @@ export class ModalBase {
     // Options
     const optionsBtn = new NavbarButton({
       label: "Options",
-      type: "nav-btn navbar ui-btn",
+      type: "nav-btn ui-btn",
       icon: "⚙️",
       dataAction: "options"
     }).render();

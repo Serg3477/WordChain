@@ -1,3 +1,8 @@
+/* ===============================
+   Кнопка Translate
+   =============================== 
+*/
+
 export class TranslateButton {
   constructor({ 
     label, 
