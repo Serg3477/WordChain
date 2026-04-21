@@ -1,0 +1,56 @@
+/* ===============================
+   Модальные окна
+   =============================== 
+*/
+:root {
+  /* Базовые размеры модалки */
+  --modal-padding: 16px;
+  --modal-width: 420px;
+  --modal-min-width: 420px;
+  --modal-min-height: 320px;
+  --modal-max-height: 90vh;
+
+  /* Заголовок */
+  --modal-title-font-size: 22px;
+  --modal-title-font-weight: 600;
+
+  /* Отступы */
+  --modal-header-margin-bottom: 14px;
+
+  /* Фон и тени */
+  --modal-bg: #e6e6e6;
+  --modal-shadow-dark: inset 3px 3px 6px rgba(0,0,0,0.25);
+  --modal-shadow-light: inset -3px -3px 6px rgba(255,255,255,0.8);
+
+  /* Анимации */
+  --modal-transition-fast: 0.2s ease;
+  --modal-transition-close: 0.35s ease;
+}
+
+/* ===============================
+   Выпадающее меню для Curriculum
+   =============================== 
+*/
+:root {
+  /* Dropdown menu */
+  --dropdown-bg: rgb(22, 229, 232);
+  --dropdown-radius: 12px;
+  --dropdown-shadow: 0 8px 20px rgba(0,0,0,0.55);
+  --dropdown-width: 200px;
+  --dropdown-margin-top: 15px;
+  --dropdown-padding-y: 8px;
+
+  /* Анимации */
+  --dropdown-transition: 0.18s ease;
+
+  /* Menu item */
+  --menu-item-padding-y: 12px;
+  --menu-item-padding-x: 16px;
+  --menu-item-font-size: 16px;
+  --menu-item-gap: 10px;
+
+  /* Icons */
+  --menu-icon-size: 18px;
+  --menu-icon-width: 22px;
+}
+

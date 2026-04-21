@@ -1,0 +1,72 @@
+/* ===============================
+   Модальные окна
+   =============================== 
+*/
+/* Базовый layout модалки */
+.translate-modal {
+  margin-top: 5px;
+  padding: var(--modal-padding);
+  width: var(--modal-width);
+  min-width: var(--modal-min-width);
+  min-height: var(--modal-min-height);
+  max-height: var(--modal-max-height);
+  height: auto;
+  resize: none;
+}
+
+/* Заголовок */
+.modal-header {
+  margin-bottom: var(--modal-header-margin-bottom);
+}
+
+/* ===============================
+   Выпадающее меню для Curriculum
+   =============================== 
+*/
+/* Базовый layout dropdown-меню */
+.dropdown-menu {
+  position: absolute;
+  width: var(--dropdown-width);
+  margin-top: var(--dropdown-margin-top);
+  padding: var(--dropdown-padding-y) 0;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+
+  transition:
+    opacity var(--dropdown-transition),
+    transform var(--dropdown-transition);
+}
+
+/* Состояния */
+.dropdown-menu.hidden {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.dropdown-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Layout пунктов меню */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-item-gap);
+  padding: var(--menu-item-padding-y) var(--menu-item-padding-x);
+  font-size: var(--menu-item-font-size);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+/* Layout иконок */
+.menu-item .icon {
+  width: var(--menu-icon-width);
+  font-size: var(--menu-icon-size);
+  text-align: center;
+}
+

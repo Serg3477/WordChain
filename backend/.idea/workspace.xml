@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/curriculum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/curriculum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/layout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/curriculum.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modalBase/curriculum.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/modalBase.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modalBase/modalBase.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/modals/shapeModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/modals/shapeModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/variables.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +139,9 @@
       <workItem from="1776065418340" duration="644000" />
       <workItem from="1776076526635" duration="1247000" />
       <workItem from="1776414596529" duration="1260000" />
-      <workItem from="1776502432435" duration="2702000" />
+      <workItem from="1776502432435" duration="3127000" />
+      <workItem from="1776694998817" duration="2460000" />
+      <workItem from="1776769210632" duration="1313000" />
     </task>
     <servers />
   </component>
