@@ -1,7 +1,8 @@
-import { API_URL } from "../api/config.js"; 
+import { API_URL } from "../api/config.js";
+import { state } from "../../core/state.js";
 
 export async function translateWord({ word, sourceLang, targetLang }) {
-  const token = localStorage.getItem("guest_token");
+  const token = state.user.token;
 
   console.log("URL:", `${API_URL}/translate`);
 
@@ -13,8 +14,8 @@ export async function translateWord({ word, sourceLang, targetLang }) {
     },
     body: JSON.stringify({
       word,
-      source_lang: sourceLang,
-      target_lang: targetLang
+      source_lang: state.sourceLang,
+      target_lang: state.targetLang
     })
   });
 
@@ -29,13 +30,16 @@ export async function translateWord({ word, sourceLang, targetLang }) {
     throw e;
   }
 
+  // сохраняем в state
+  state.addToHistory(word);
+
   console.log("Data:", data);
 
   return data;
 }
 
 export async function saveWord(word, result) {
-  const token = localStorage.getItem("guest_token");
+  const token = state.user.token;
 
   console.log("URL:", `${API_URL}/saveWord`);
 

@@ -1,6 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from app.db.session import async_session
 from app.db.models.user import User
+from app.routers.dependencies import get_current_user
 from app.schemas.user import UserRead
 from app.services.jwt_service import create_access_token
 import random
@@ -30,3 +31,8 @@ async def create_guest():
         "token_type": "bearer",
         "user": UserRead.model_validate(user)
     }
+
+@auth_router.get("/me", response_model=UserRead)
+async def get_me(user = Depends(get_current_user)):
+    return user
+

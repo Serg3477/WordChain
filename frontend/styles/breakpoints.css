@@ -1,0 +1,44 @@
+/* ===============================
+   BREAKPOINTS
+   =============================== */
+
+/* Desktop (по умолчанию) — ничего менять не нужно */
+
+
+/* Tablet (768px–1023px)
+   Пока оставляем как desktop, но место для будущих правок есть */
+@media (max-width: 1023px) {
+  .translate-modal {
+    /* можно будет расширить или изменить */
+  }
+}
+
+/* Mobile — портрет */
+@media (max-width: 480px) and (orientation: portrait) {
+  .translate-modal {
+    width: 100vw;
+    min-width: 100vw;
+    height: calc(100vh - var(--navbar-height));
+    min-height: calc(100vh - var(--navbar-height));
+    max-height: calc(100vh - var(--navbar-height));
+
+    margin-top: var(--navbar-height);
+    border-radius: 0;
+    padding: 12px;
+  }
+}
+
+/* Mobile — альбомная ориентация */
+@media (max-width: 812px) and (max-height: 480px) and (orientation: landscape) {
+  .translate-modal {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+
+    margin-top: 0;
+    border-radius: 0;
+    padding: 10px;
+  }
+}

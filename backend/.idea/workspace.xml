@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/curriculum.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modalBase/curriculum.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/variables.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/features/api/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/api/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/breakpoints.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/breakpoints.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,12 @@
     &quot;accountId&quot;: &quot;e2bec620-9003-4edb-9ad4-b609b8cceac6&quot;
   }
 }</component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;71e2c5e6965a98dfaf54c18ca4a7baa9a80dda54&quot; value=&quot;&amp;#10;GET http://localhost:8000/me&amp;#10;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNzc5NDM2Nzg4fQ.mKa2tc8_e4m824YRthdnl3QfxhGr6_rnMI2Hpp56LxU&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
+  <component name="HttpClientOnboardingState"><![CDATA[{
+  "isOnboardingCommentShown": true
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -141,7 +147,8 @@
       <workItem from="1776414596529" duration="1260000" />
       <workItem from="1776502432435" duration="3127000" />
       <workItem from="1776694998817" duration="2460000" />
-      <workItem from="1776769210632" duration="1313000" />
+      <workItem from="1776769210632" duration="3646000" />
+      <workItem from="1776840011063" duration="12139000" />
     </task>
     <servers />
   </component>

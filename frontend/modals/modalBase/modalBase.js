@@ -1,3 +1,4 @@
+import { state } from "../../core/state.js";
 import { CurriculumMenu } from "./curriculum.js";
 import { NavbarButton } from "../../ui/buttons/navbar/navbarButtons.js";
 
@@ -22,8 +23,8 @@ export class ModalBase {
         </nav>
 
         <div class="navbar-right">
-          <span class="user-name">Guest</span>
-          <div class="avatar"></div>
+          <span id="nickname" class="user-name">Guest</span>
+          <img id="avatar" class="avatar"></img>
         </div>
       </header>
 
@@ -68,6 +69,23 @@ export class ModalBase {
 
     // ВАЖНО: передаём кнопку в меню
     this.curriculumMenu.button = curriculumBtn;
+
+    const avatarEl = document.getElementById("avatar");
+    const nicknameEl = document.getElementById("nickname");
+
+    // Функция обновления UI
+    function updateNavbar(user) {
+      if (!user) return;
+
+      nicknameEl.textContent = user.nickname || "Guest";
+      avatarEl.src = `/assets/icons/${user.avatar_url}`;
+    }
+
+    // Подписываемся на изменения user
+    state.on("user", updateNavbar);
+
+    // Инициализация при загрузке страницы
+    updateNavbar(state.user);
   }
 
   mountModal(modalElement) {
@@ -75,4 +93,7 @@ export class ModalBase {
     container.innerHTML = "";
     container.appendChild(modalElement);
   }
+  
+
 }
+

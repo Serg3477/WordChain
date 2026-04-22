@@ -1,9 +1,9 @@
-import { ensureGuest } from "./features/user/guest.js";
+import { initGuest } from "./features/user/guest.js";
 import { windowManager } from "./core/windowManager.js";
 import { createTranslateModal } from "./modals/translateModal.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await ensureGuest();
+  await initGuest();
 
   windowManager.init();
   windowManager.register("translateModal", createTranslateModal);
@@ -21,4 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // document.getElementById("app").appendChild(btn);
 
 });
+
+
 
