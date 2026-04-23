@@ -1,11 +1,13 @@
 import { state } from "../../core/state.js";
 import { CurriculumMenu } from "./curriculum.js";
+import { UserMenu } from "./userMenu.js";
 import { NavbarButton } from "../../ui/buttons/navbar/navbarButtons.js";
 
 export class ModalBase {
   constructor() {
     this.root = null;
     this.curriculumMenu = null;
+    this.userMenu = null
   }
 
   create() {
@@ -15,7 +17,7 @@ export class ModalBase {
     this.root.innerHTML = `
       <header class="navbar">
         <div class="navbar-left">
-          <div class="logo">LOGO</div>
+          <img id="logo" class="logo"></img>
         </div>
 
         <nav class="navbar-center">
@@ -33,6 +35,9 @@ export class ModalBase {
 
     document.body.appendChild(this.root);
 
+    const logoEl = document.getElementById("logo");
+    logoEl.src = "../assets/icons/Beige.png";
+
     const navbarCenter = this.root.querySelector(".navbar-center");
 
     // Curriculum
@@ -49,7 +54,7 @@ export class ModalBase {
       label: "Progress",
       type: "nav-btn ui-btn",
       icon: "📊",
-      dataAction: "progress"
+      action: "click"
     }).render();
 
     // Options
@@ -57,7 +62,7 @@ export class ModalBase {
       label: "Options",
       type: "nav-btn ui-btn",
       icon: "⚙️",
-      dataAction: "options"
+      action: "click"
     }).render();
 
     navbarCenter.appendChild(curriculumBtn);
@@ -70,8 +75,16 @@ export class ModalBase {
     // ВАЖНО: передаём кнопку в меню
     this.curriculumMenu.button = curriculumBtn;
 
+    // подключаем меню userMenu
+    this.userMenu = new UserMenu(this.root);
+
     const avatarEl = document.getElementById("avatar");
     const nicknameEl = document.getElementById("nickname");
+
+    // ВАЖНО: передаём кнопку в меню
+    this.userMenu.button = avatarEl;
+
+    avatarEl.addEventListener("click", () => this.userMenu.toggle());
 
     // Функция обновления UI
     function updateNavbar(user) {

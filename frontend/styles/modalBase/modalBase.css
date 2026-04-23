@@ -73,6 +73,12 @@
   user-select: none;              /* запрет выделения */
 }
 
+.logo {
+  width: 46px;                    /* размер аватара */
+  height: 52px;
+  background: blue;            /* фон */
+}
+
 .avatar {
   width: 32px;                    /* размер аватара */
   height: 32px;

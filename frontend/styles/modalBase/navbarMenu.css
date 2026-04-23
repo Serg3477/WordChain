@@ -1,0 +1,88 @@
+/* ===============================
+   UNIVERSAL DROPDOWN MENU
+   =============================== */
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 9999;
+
+  min-width: 180px;
+  max-width: calc(100vw - 20px);
+
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 6px 0;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 3px 6px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+
+  overflow: hidden;
+
+  /* macOS animation start state */
+  opacity: 0;
+  transform: scale(0.96);
+  transform-origin: top right;
+
+  transition:
+    opacity 0.16s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.16s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.dropdown-menu:not(.hidden) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===============================
+   MENU ITEMS
+   =============================== */
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: background 0.15s ease;
+}
+
+.menu-item .icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Hover — стиль Telegram / macOS */
+.menu-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Danger item (Delete account) */
+.menu-item[data-action="deleteAccount"] {
+  color: #d9534f;
+}
+
+.menu-item[data-action="deleteAccount"]:hover {
+  background: rgba(217, 83, 79, 0.12);
+}
+
+/* ===============================
+   HIDDEN STATE
+   =============================== */
+
+.hidden {
+  display: none;
+}
+
