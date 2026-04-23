@@ -1,3 +1,4 @@
+import { state } from "../../core/state.js";
 import { translateWord, saveWord } from "../features/translator/translate.js";
 import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
@@ -40,9 +41,11 @@ export function createTranslateModal() {
   const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
   const eraseContainer = root.querySelector('[data-role="erase-container"]');
 
-
+ 
   setupWordInput(wordInput);
   wordInput.addEventListener("enterPressed", doTranslate);
+  wordInput.addEventListener("arrowDownPressed", () => listTranslations("down"));
+  wordInput.addEventListener("arrowUpPressed", () => listTranslations("up"));
 
 
   let result = null;
@@ -127,6 +130,28 @@ export function createTranslateModal() {
   }).render();
 
 eraseContainer.appendChild(eraseBtn);
+
+  // ---------------------------
+  // КНОПКА ВВЕРХ ВНИЗ
+  // ---------------------------
+  let historyIndex = null;
+
+  function listTranslations(key) {
+    const history = state.history;
+    if (history.length === 0) return;
+
+    // первый вызов — ставим на последний элемент
+    if (historyIndex === null) {
+      historyIndex = history.length - 1;
+    } else {
+      if (key === "down") historyIndex--;
+      if (key === "up") historyIndex++;
+    }
+    if (historyIndex < 0) historyIndex = 0;
+    if (historyIndex >= history.length) historyIndex = history.length - 1;
+
+    wordInput.value = history[historyIndex];
+  }
 
 
   // ---------------------------

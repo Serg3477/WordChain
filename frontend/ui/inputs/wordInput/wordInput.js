@@ -11,5 +11,13 @@ export function setupWordInput(inputEl) {
       inputEl.dispatchEvent(new CustomEvent("enterPressed"));
     }
   });
+
+  // Обработчик переключения вариантов предыдущего перевода
+  inputEl.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown")
+      inputEl.dispatchEvent(new CustomEvent("arrowDownPressed"));
+    if (e.key === "ArrowUp")
+      inputEl.dispatchEvent(new CustomEvent("arrowUpPressed"));
+  });
 }
 
