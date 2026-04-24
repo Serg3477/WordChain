@@ -16,8 +16,6 @@ export class UserMenu {
   toggle() {
     this.dropdown.classList.toggle("hidden");
 
-    // Берём координаты и размеры кнопки (аватара или никнейма), к которой привязано меню.
-    // rect содержит: top, left, right, bottom, width, height — в координатах окна.
     const rect = this.button.getBoundingClientRect();
     const menuRect = this.dropdown.getBoundingClientRect();
 
@@ -67,7 +65,7 @@ export class UserMenu {
       this.dropdown.classList.add("hidden");
 
       if (action === "profile") windowManager.open("profileModal");
-      if (action === "registerAccount") windowManager.open("registerModal");
+      if (action === "registerAccount") windowManager.open("registrationModal");
       if (action === "loginAccount") windowManager.open("loginModal");
       if (action === "quitAccount") windowManager.open("quitModal");
       if (action === "deleteAccount") windowManager.open("loginModal");

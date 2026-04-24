@@ -3,22 +3,7 @@
    =============================== 
 */
 
-/* Уникальный градиент заголовка */
-.modal-title {
-  font-size: var(--modal-title-font-size);
-  font-weight: var(--modal-title-font-weight);
 
-  background: linear-gradient(90deg, #6a5acd, #1339d3, #ac1010);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Уникальная анимация закрытия */
-.modal-scale-out {
-  opacity: 0;
-  transform: scale(0.7);
-  transition: var(--modal-transition-close);
-}
 
 /* Уникальные элементы TranslateModal */
 .input-row {

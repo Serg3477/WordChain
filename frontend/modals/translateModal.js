@@ -12,7 +12,7 @@ import { EraseInputButton } from "../ui/buttons/erase/eraseInput.js";
 
 export function createTranslateModal() {
   const root = document.createElement("div");
-  root.className = "translate-modal ui-modal";
+  root.className = "overall-modal ui-modal";
 
   root.innerHTML = `
     <div class="modal-header ui-modal-header">

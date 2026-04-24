@@ -38,6 +38,7 @@
   font-size: 18px;                /* размер текста */
   font-weight: 600;               /* жирность */
   user-select: none;              /* запрет выделения */
+  background: transparent !important;
 }
 
 .navbar-center {
@@ -76,7 +77,7 @@
 .logo {
   width: 46px;                    /* размер аватара */
   height: 52px;
-  background: blue;            /* фон */
+  display: block;
 }
 
 .avatar {

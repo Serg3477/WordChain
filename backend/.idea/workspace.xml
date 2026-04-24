@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/translateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/userMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/modalBase/userMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +148,7 @@
       <workItem from="1776840011063" duration="12788000" />
       <workItem from="1776926130750" duration="638000" />
       <workItem from="1776946772749" duration="502000" />
+      <workItem from="1776948545954" duration="629000" />
     </task>
     <servers />
   </component>

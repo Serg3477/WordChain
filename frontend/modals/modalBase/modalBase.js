@@ -36,7 +36,7 @@ export class ModalBase {
     document.body.appendChild(this.root);
 
     const logoEl = document.getElementById("logo");
-    logoEl.src = "../assets/icons/Beige.png";
+    logoEl.src = "../assets/icons/Beige2.png";
 
     const navbarCenter = this.root.querySelector(".navbar-center");
 
