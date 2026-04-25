@@ -16,7 +16,7 @@ export function createRegistrationModal() {
             <div class="ui-modal-btn" data-role="close-btn"></div>
         </div>
 
-        <div class = "modal-body ui-modal-body">
+        <div class = "registration-body ui-modal-body">
             <!-- EMAIL REGISTRATION FORM -->
             <form class="reg-form">
 
@@ -32,7 +32,7 @@ export function createRegistrationModal() {
                 <label class="ui-checkbox">
                     <input type="checkbox" id="reg-terms">
                     <span>I agree to the Terms of Service</span>
-                </label>
+                </label><br>
 
                 <button type="submit" class="ui-btn">
                     Create Account
@@ -58,6 +58,24 @@ export function createRegistrationModal() {
         </div>
     `;
 
+    const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
+
+    // ---------------------------
+    // КНОПКА ЗАКРЫТИЯ
+    // ---------------------------
+    const closeBtn = new CloseButton({
+        action: "click",
+        handler: closeWithScale
+    }).render();
+
+    function closeWithScale() {
+        root.classList.add("modal-scale-out");
+        setTimeout(() => {
+        windowManager.close("translateModal");
+        }, 350);
+    }
+
+    closeBtnContainer.appendChild(closeBtn);
 
     // ---------------------------
     // УТИЛИТЫ

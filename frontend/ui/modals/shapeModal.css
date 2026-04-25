@@ -47,6 +47,7 @@
   overflow-y: auto;                              /* вертикальный скролл */
   padding-right: 6px;                            /* место под скроллбар */
   box-sizing: border-box;
+  align-content: center;
 }
 
 /* ТОНКИЙ АККУРАТНЫЙ СКРОЛЛ */
