@@ -1,11 +1,11 @@
-from openai import OpenAI
+from openai import AsyncOpenAI
 import json
 from redis.asyncio import Redis
 from app.db.config import settings
 from fastapi import HTTPException
 
 
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 
 redis = Redis.from_url("redis://localhost:6379", decode_responses=True)
 
@@ -38,7 +38,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
     )
 
     # ❗ ВАЖНО: без await
-    response = client.responses.create(
+    response = await client.responses.create(
         model="gpt-4o-mini",
         input=prompt,
         max_output_tokens = 120

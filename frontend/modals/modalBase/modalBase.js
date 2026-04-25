@@ -43,7 +43,7 @@ export class ModalBase {
     // Curriculum
     const curriculumBtn = new NavbarButton({
       label: "Curriculum",
-      type: "nav-btn navbar ui-btn",
+      type: "nav-btn ui-nav-btn",
       icon: "📘",
       action: "click",
       handler: () => this.curriculumMenu.toggle()  // ← curriculum.js
@@ -52,7 +52,7 @@ export class ModalBase {
     // Progress
     const progressBtn = new NavbarButton({
       label: "Progress",
-      type: "nav-btn ui-btn",
+      type: "nav-btn ui-nav-btn",
       icon: "📊",
       action: "click"
     }).render();
@@ -60,7 +60,7 @@ export class ModalBase {
     // Options
     const optionsBtn = new NavbarButton({
       label: "Options",
-      type: "nav-btn ui-btn",
+      type: "nav-btn ui-nav-btn",
       icon: "⚙️",
       action: "click"
     }).render();

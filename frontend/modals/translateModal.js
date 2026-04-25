@@ -101,7 +101,7 @@ export function createTranslateModal() {
 
   const translateBtn = new TranslateButton({
     label: "Translate",
-    type: "ui-btn btn btn-translate",
+    type: "trans-btn trans-btn-translate ui-trans-btn btn",
     icon: "🌐",
     action: "click",
     handler: doTranslate
@@ -109,7 +109,7 @@ export function createTranslateModal() {
 
   const saveBtn = new TranslateButton({
     label: "Save",
-    type: "ui-btn btn btn-save",
+    type: "trans-btn trans-btn-save ui-trans-btn btn",
     icon: "💾",
     action: "click",
     handler: doSave

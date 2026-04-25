@@ -21,16 +21,16 @@
   margin-bottom: 12px;
 }
 
-.btn {
+.trans-btn {
   flex: 1;
   height: 48px;
 }
 
-.btn-translate {
+.trans-btn-translate {
   background: linear-gradient(180deg, #6da6e8, #7062ec);
 }
 
-.btn-save {
+.trans-btn-save {
   background: linear-gradient(180deg, #6da6e8, #7062ec);
 }
 

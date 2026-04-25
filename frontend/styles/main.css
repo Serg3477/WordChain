@@ -9,4 +9,5 @@
 @import "../ui/inputs/wordInput/wordInput.css";
 @import "../ui/modals/shapeModal.css";
 @import "../ui/buttons/erase/eraseInput.css";
-@import "./modals/registrationModal.css"
+@import "./modals/userSignModal.css";
+@import "../ui/buttons/userMenu/userButton.css";

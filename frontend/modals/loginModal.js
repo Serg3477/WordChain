@@ -6,60 +6,57 @@ import { CloseButton } from "../ui/buttons/close/closeButton.js";
 
 
 
-export function createRegistrationModal() {
+export function createLoginModal() {
     const root =document.createElement("div");
     root.className = "overall-modal ui-modal";
 
     root.innerHTML = `
         <div class="modal-header ui-modal-header">
-            <span class="modal-title ui-modal-title">Register account</span>
+            <span class="modal-title ui-modal-title">Sign in</span>
             <div class="ui-modal-btn" data-role="close-btn"></div>
         </div>
 
-        <div class = "user-body ui-modal-body">
-            <!-- EMAIL REGISTRATION FORM -->
+        <div class="user-body ui-modal-body">
+            <!-- EMAIL LOGIN FORM -->
             <form class="user-form">
+                <label class="ui-label" for="login-email">Email</label>
+                <input class="input-word" type="email" id="login-email" placeholder="you@example.com">
 
-                <label class="ui-label">Email</label>
-                <input class="input-word" type="email" id="reg-email" placeholder="you@example.com">
+                <label class="ui-label" for="login-pass">Password</label>
+                <input class="input-word" type="password" id="login-pass" placeholder="••••••••">
 
-                <label class="ui-label">Password</label>
-                <input class="input-word" type="password" id="reg-pass" placeholder="••••••••">
+                <div class="login-row">
+                    <label class="ui-checkbox">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
 
-                <label class="ui-label">Confirm Password</label>
-                <input class="input-word" type="password" id="reg-pass2" placeholder="••••••••"><br>
-
-                <label class="ui-checkbox">
-                    <input type="checkbox" id="reg-terms">
-                    <span>I agree to the Terms of Service</span>
-                </label><br>
+                    <a class="ui-link" data-action="forgot-password">Forgot password?</a>
+                </div>
 
                 <button type="submit" class="ui-user-btn">
-                    Create Account
+                    Sign In
                 </button>
             </form>
 
-            <!-- DIVIDER -->
             <div class="divider">
                 <span>or</span>
             </div>
 
-            <!-- GOOGLE OAUTH -->
-            <button class="ui-user-btn oauth-btn" id="google-auth">
-                <img src="../assets/icons/google.png" class="oauth-icon">
+            <button class="ui-user-btn oauth-btn" id="google-login">
+                <img src="../assets/icons/google.png" class="oauth-icon" alt="Google">
                 Continue with Google
             </button>
+        </div><br>
 
-        </div>
-        <br>
         <div class="modal-footer">
-            <span>Already have an account?</span>
-            <a class="ui-user-link" data-action="open-login">Sign In</a>
+            <span>Don't have an account?</span>
+            <a class="ui-user-link" data-action="open-register">Create one</a>
         </div>
     `;
 
     const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
-    const openLoginLink = root.querySelector('[data-action="open-login"]');
+    const openRegisterLink = root.querySelector('[data-action="open-register"]');
 
     // ---------------------------
     // КНОПКА ЗАКРЫТИЯ
@@ -72,16 +69,16 @@ export function createRegistrationModal() {
     function closeWithScale() {
         root.classList.add("modal-scale-out");
         setTimeout(() => {
-        windowManager.close("registrationModal");
+        windowManager.close("loginModal");
         }, 350);
     }
 
     closeBtnContainer.appendChild(closeBtn);
 
-    if (openLoginLink) {
-        openLoginLink.addEventListener("click", (event) => {
+    if (openRegisterLink) {
+        openRegisterLink.addEventListener("click", (event) => {
             event.preventDefault();
-            windowManager.open("loginModal");
+            windowManager.open("registrationModal");
         });
     }
 
@@ -94,4 +91,3 @@ export function createRegistrationModal() {
 
     return root;
 }
-

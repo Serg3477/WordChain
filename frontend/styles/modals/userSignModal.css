@@ -2,17 +2,18 @@
    Модальное окно REGISTRATION
    =============================== 
 */
-.registration-body {
+.user-body {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.reg-form {
+.user-form {
   display: flex;
   align-items: center;
   gap: 5px;
   flex-direction: column;
+  user-select: none;          /* запрет выделения текста */
 }
 
 .full-width {
@@ -23,6 +24,8 @@
   text-align: center;
   margin: 16px 0;
   position: relative;
+  width: 100%;
+  user-select: none;          /* запрет выделения текста */
 }
 
 .divider span {
@@ -39,7 +42,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--border-color);
+  background: var(--border-color, rgba(0, 0, 0, 0.18));
   z-index: 1;
 }
 
@@ -48,6 +51,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  user-select: none;          /* запрет выделения текста */
 }
 
 .oauth-icon {
@@ -58,5 +62,13 @@
 
 .modal-footer {
   text-align: center;
+  user-select: none;          /* запрет выделения текста */
 }
 
+.ui-user-link {
+  color: blue;
+}
+
+.ui-user-link:hover {
+  color: white;
+}
