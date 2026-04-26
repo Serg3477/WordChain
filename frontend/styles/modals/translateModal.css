@@ -38,9 +38,37 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   padding: 12px;
   margin-bottom: 10px;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-label {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none;
+}
+
+.result-value {
+  margin-left: 30px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #171717;
+  word-break: break-word;
+}
+
+.result-value-strong {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .result-container {

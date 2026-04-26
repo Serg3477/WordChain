@@ -52,8 +52,8 @@ export async function saveWord(word, result) {
     body: JSON.stringify({
       word,
       translation: result.translation,
+      transcription: result.transcription,
       part_of_speech: result.part_of_speech,
-      examples: result.examples
     })
   });
 }

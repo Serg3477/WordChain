@@ -9,6 +9,22 @@ import { setupWordInput } from "../ui/inputs/wordInput/wordInput.js";
 import { EraseInputButton } from "../ui/buttons/erase/eraseInput.js";
 
 
+const LANGUAGE_LABELS = {
+  en: "English",
+  ru: "Russian",
+  uk: "Ukrainian",
+  de: "German",
+  fr: "French",
+  es: "Spanish",
+  it: "Italian",
+  pl: "Polish"
+};
+
+function getLanguageLabel(langCode) {
+  if (!langCode) return "Target language";
+  return LANGUAGE_LABELS[langCode] ?? String(langCode).toUpperCase();
+}
+
 
 export function createTranslateModal() {
   const root = document.createElement("div");
@@ -63,10 +79,21 @@ export function createTranslateModal() {
       targetLang: "ru"
     });
 
+    const targetLanguageLabel = getLanguageLabel(state.targetLang);
+
     resultDiv.innerHTML = `
-      <div><b>${result.translation ?? ""}</b></div>
-      <div>${result.part_of_speech ?? ""}</div>
-      <div>${result.examples?.join("<br>") ?? ""}</div>
+      <div class="result-item">
+        <div class="result-label">Translation: ${targetLanguageLabel}:</div>
+        <div class="result-value result-value-strong">${result.translation ?? ""}</div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">Transcription:</div>
+        <div class="result-value">${result.transcription ?? ""}</div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">Part of speech:</div>
+        <div class="result-value">${result.part_of_speech ?? ""}</div>
+      </div>
     `;
 
     // Авторасширение модалки

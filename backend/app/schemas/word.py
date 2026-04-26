@@ -14,8 +14,8 @@ class TranslationRequest(BaseModel):
 
 class TranslationResponse(BaseModel):
     translation: str
+    transcription: Optional[str] = None
     part_of_speech: Optional[str] = None
-    examples: List[str] = []
 
 
 # ---------------------------------------------------------
