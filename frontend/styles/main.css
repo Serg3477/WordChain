@@ -1,13 +1,19 @@
 @import "./modalBase/modalBase.css";
 @import "./modalBase/navbarMenu.css";
+
 @import "./modals/translateModal.css";
+@import "./modals/userSignModal.css";
+@import "./modals/profileModal.css";
+@import "./modals/accountActionModals.css";
+
 @import "./utils/resize_corner.css";
 @import "./utils/mobile.css";
+
 @import "../ui/buttons/translate/translateButton.css";
 @import "../ui/buttons/navbar/navbarButtons.css";
 @import "../ui/buttons/close/closeButton.css";
+@import "../ui/buttons/userMenu/userButton.css";
+@import "../ui/buttons/erase/eraseInput.css";
 @import "../ui/inputs/wordInput/wordInput.css";
 @import "../ui/modals/shapeModal.css";
-@import "../ui/buttons/erase/eraseInput.css";
-@import "./modals/userSignModal.css";
-@import "../ui/buttons/userMenu/userButton.css";
+

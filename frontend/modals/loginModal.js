@@ -1,4 +1,4 @@
-import { state } from "../../core/state.js";
+import { state } from "../core/state.js";
 import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";

@@ -4,6 +4,7 @@ export const state = {
     id: null,
     nickname: null,
     avatar_url: null,
+    email: null,
     is_guest: true,
     is_premium: false,
     token: null

@@ -67,8 +67,8 @@ export class UserMenu {
       if (action === "profile") windowManager.open("profileModal");
       if (action === "registerAccount") windowManager.open("registrationModal");
       if (action === "loginAccount") windowManager.open("loginModal");
-      if (action === "quitAccount") windowManager.open("quitModal");
-      if (action === "deleteAccount") windowManager.open("loginModal");
+      if (action === "quitAccount") windowManager.open("signOutModal");
+      if (action === "deleteAccount") windowManager.open("deleteAccountModal");
     });
 
     // закрытие при клике вне меню
