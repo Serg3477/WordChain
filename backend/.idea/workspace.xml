@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend/features/user/guest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/user/guest.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +153,8 @@
       <workItem from="1777037219910" duration="633000" />
       <workItem from="1777105894379" duration="2553000" />
       <workItem from="1777188146167" duration="1924000" />
-      <workItem from="1777207925201" duration="4642000" />
+      <workItem from="1777207925201" duration="5142000" />
+      <workItem from="1777386333256" duration="1028000" />
     </task>
     <servers />
   </component>

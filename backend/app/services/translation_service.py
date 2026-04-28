@@ -80,7 +80,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
 
     async def produce_translation():
         prompt = (
-            f"Make several possible translations (no more 6 translations, separated by comas) of word '{norm_word}' from {src} to {tgt}. "
+            f"Make several possible translations (no more 6 translations, separated by comas) of word for all parts of speech '{norm_word}' from {src} to {tgt}. "
             f"Return only translated word or short phrase, no explanations."
         )
         text = await _ask_text(prompt, max_tokens=50)

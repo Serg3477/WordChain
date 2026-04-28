@@ -1,59 +1,33 @@
-import { API_URL } from "../api/config.js";
-import { state } from "../../core/state.js";
+import { apiRequest } from '../api/apiClient.js';  // Добавить импорт
 
 export async function translateWord({ word, sourceLang, targetLang }) {
-  const token = state.user.token;
 
-  console.log("URL:", `${API_URL}/translate`);
-
-  const res = await fetch(`${API_URL}/translate`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { "Authorization": "Bearer " + token } : {})
-    },
-    body: JSON.stringify({
+  const data = await apiRequest('/translate', {
+    method: 'POST',
+    body: {
       word,
       source_lang: state.sourceLang,
-      target_lang: state.targetLang
-    })
+      target_lang: state.targetLang,
+    },
   });
 
-  console.log("Status:", res.status);
-
-  let data;
-  try {
-    data = await res.json();
-  } catch (e) {
-    const raw = await res.text();
-    console.log("Raw response:", raw);
-    throw e;
-  }
-
-  // сохраняем в state
+  // Сохраняем в state
   state.addToHistory(word);
 
-  console.log("Data:", data);
-
+  console.log('Data:', data);
   return data;
 }
 
 export async function saveWord(word, result) {
-  const token = state.user.token;
+  console.log('URL:', `${API_URL}/saveWord`);
 
-  console.log("URL:", `${API_URL}/saveWord`);
-
-  const res = await fetch(`${API_URL}/saveWord`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { "Authorization": "Bearer " + token } : {})
-    },
-    body: JSON.stringify({
+  return await apiRequest('/saveWord', {
+    method: 'POST',
+    body: {
       word,
       translation: result.translation,
       transcription: result.transcription,
       part_of_speech: result.part_of_speech,
-    })
+    },
   });
 }
