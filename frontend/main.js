@@ -1,4 +1,4 @@
-import { initGuest } from "./features/user/guest.js";
+import { initSession } from "./features/user/guest.js";
 import { windowManager } from "./core/windowManager.js";
 import { createTranslateModal } from "./modals/translateModal.js";
 import { createRegistrationModal } from "./modals/registrationModal.js";
@@ -7,7 +7,7 @@ import { createProfileModal } from "./modals/profileModal.js";
 import { createDeleteAccountModal, createSignOutModal } from "./modals/accountActionModals.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await initGuest();
+  await initSession();
 
   windowManager.init();
   windowManager.register("translateModal", createTranslateModal);

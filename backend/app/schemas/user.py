@@ -2,13 +2,31 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
 
+# -------------------------------------------------------------------
+# 1. DTO для регистрации пользователя (используется в /registration)
+# -------------------------------------------------------------------
+
+class RegistrationRequest(BaseModel):
+    name: str
+    email: str
+    password: str
+
+
+class RegistrationResponse(BaseModel):
+    nickname: str
+    avatar_url: Optional[str] = None
+    email: str
+    token: str
+    is_guest: bool = False
+    is_premium: bool = False
+
 
 # Базовая схема — общие поля
 class UserBase(BaseModel):
     nickname: str = Field(..., max_length=50)
     email: str | None = None
     avatar_url: Optional[str] = None
-    is_guest: bool = True,
+    is_guest: bool = True
     is_premium: bool = False
 
 

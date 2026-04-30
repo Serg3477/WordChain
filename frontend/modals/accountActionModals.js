@@ -1,4 +1,6 @@
 import { windowManager } from "../core/windowManager.js";
+import { state } from "../core/state.js";
+import { ensureGuestSession } from "../features/user/guest.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
 
@@ -31,7 +33,7 @@ function createAccountActionModal({ modalName, title, question, yesLabel = "Yes"
         }, 350);
     }
 
-    yesBtn.addEventListener("click", closeModal);
+    yesBtn.addEventListener("click", async () => {await signOutOrDeleteAccount(modalName), closeModal()});
     noBtn.addEventListener("click", closeModal);
 
     const header = root.querySelector(".modal-header");
@@ -56,3 +58,13 @@ export function createDeleteAccountModal() {
         question: "Are you sure you want to delete your account?"
     });
 }
+
+async function signOutOrDeleteAccount(modalName) {
+    if (modalName == "signOutModal") {
+        await ensureGuestSession();
+        state.setUser({token: localStorage.getItem("guest_token")});
+
+    }
+}
+
+
