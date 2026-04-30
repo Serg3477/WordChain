@@ -62,7 +62,6 @@ export function createRegistrationModal() {
         </div>
     `;
 
-    // const formReg = root.forms.registration;
     const formReg = root.querySelector('form[name="registration"]');
     formReg.addEventListener("submit", async (event) => {
         event.preventDefault();

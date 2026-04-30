@@ -3,6 +3,7 @@ import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
 import { CloseButton } from "../ui/buttons/close/closeButton.js";
+import { apiRequest } from "../features/api/apiClient.js";
 
 
 
@@ -18,16 +19,16 @@ export function createLoginModal() {
 
         <div class="user-body ui-modal-body">
             <!-- EMAIL LOGIN FORM -->
-            <form class="user-form">
+            <form class="user-form" name="login">
                 <label class="ui-label" for="login-email">Email</label>
-                <input class="input-word" type="email" id="login-email" placeholder="you@example.com">
+                <input class="input-word" type="email" name="email" required placeholder="you@example.com">
 
                 <label class="ui-label" for="login-pass">Password</label>
-                <input class="input-word" type="password" id="login-pass" placeholder="••••••••">
+                <input class="input-word" type="password" name="password" required placeholder="••••••••">
 
                 <div class="login-row">
                     <label class="ui-checkbox">
-                        <input type="checkbox" id="remember-me">
+                        <input type="checkbox" name="remember_me">
                         <span>Remember me</span>
                     </label>
 
@@ -54,6 +55,31 @@ export function createLoginModal() {
             <a class="ui-user-link" data-action="open-register">Create one</a>
         </div>
     `;
+
+    const formLog = root.querySelector('form[name="login"]');
+    formLog.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const res = await apiRequest('/login', { 
+            method: "POST",
+            body: {
+                email: formLog.email.value,
+                password:formLog.password.value,
+                remember_me: formLog.remember_me.value
+            }
+        })
+
+        if (formLog.remember_me) localStorage.setItem("token", res.token)
+            else sessionStorage.setItem("token", res.token);
+        state.setUser({
+            nickname: res.nickname,
+            avatar_url: res.avatar_url,
+            email: res.email,
+            token: res.token,
+            is_guest: res.is_guest,
+            is_premium: res.is_premium
+        });
+    });
+    
 
     const closeBtnContainer = root.querySelector('[data-role="close-btn"]');
     const openRegisterLink = root.querySelector('[data-action="open-register"]');

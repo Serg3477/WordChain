@@ -20,6 +20,20 @@ class RegistrationResponse(BaseModel):
     is_guest: bool = False
     is_premium: bool = False
 
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+    remember_me: bool = False
+
+
+class LoginResponse(BaseModel):
+    nickname: str
+    avatar_url: Optional[str] = None
+    email: str
+    token: str
+    is_guest: bool = False
+    is_premium: bool = False
+
 
 # Базовая схема — общие поля
 class UserBase(BaseModel):
@@ -39,8 +53,8 @@ class UserCreate(UserBase):
 
 # Схема для логина
 class UserLogin(BaseModel):
-    nickname: str
-    pin: str
+    email: str
+    password: str
 
 
 # Схема для ответа API (чтение)

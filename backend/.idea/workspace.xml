@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/features/user/guest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/user/guest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/accountActionModals.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/accountActionModals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/registrationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/registrationModal.js" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,6 +156,8 @@
       <workItem from="1777460801211" duration="8224000" />
       <workItem from="1777539001776" duration="4520000" />
       <workItem from="1777551555238" duration="651000" />
+      <workItem from="1777556896868" duration="630000" />
+      <workItem from="1777558669262" duration="6756000" />
     </task>
     <servers />
   </component>
