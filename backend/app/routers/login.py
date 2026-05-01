@@ -13,11 +13,11 @@ login_router = APIRouter()
 async def login(req: LoginRequest):
     async with async_session() as session:
         user = await get_user_by_email(session, req.email)
-        is_valid = check_by_password(req.password, user.hashed_password)
+        is_valid = await check_by_password(req.password, user.hashed_password)
         if not is_valid:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid credentials",
+                detail="Invalid email or password",
             )
         new_token = create_access_token({"user_id": user.id})
 

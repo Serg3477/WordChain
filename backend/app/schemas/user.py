@@ -2,9 +2,9 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
 
-# -------------------------------------------------------------------
-# 1. DTO для регистрации пользователя (используется в /registration)
-# -------------------------------------------------------------------
+# ---------------------------------------------------------------------------------
+# 1. DTO для регистрации пользователя (используется в /registration /login /delete)
+# ---------------------------------------------------------------------------------
 
 class RegistrationRequest(BaseModel):
     name: str
@@ -33,6 +33,9 @@ class LoginResponse(BaseModel):
     token: str
     is_guest: bool = False
     is_premium: bool = False
+
+class DeleteRequest(BaseModel):
+    email: str
 
 
 # Базовая схема — общие поля

@@ -19,11 +19,12 @@
   backdrop-filter: blur(12px) saturate(150%);     /* размытие + насыщенность */
 
   transition: all 0.25s ease;                     /* плавные эффекты */
-  position: absolute;                             /* свободное позиционирование */
+  position: fixed;                             /* свободное позиционирование */
   display: flex;                                  /* вертикальный layout */
   flex-direction: column;                         /* элементы сверху вниз */
   overflow: hidden;                               /* скрыть выходящие элементы */
   box-sizing: border-box;                         /* учитывать padding */
+
 }
 
 /* ХЕДЕР */

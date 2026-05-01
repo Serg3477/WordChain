@@ -3,6 +3,7 @@ import { state } from "../core/state.js";
 import { ensureGuestSession } from "../features/user/guest.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
+import { apiRequest } from "../features/api/apiClient.js";
 
 function createAccountActionModal({ modalName, title, question, yesLabel = "Yes", noLabel = "No" }) {
     const root = document.createElement("div");
@@ -62,8 +63,18 @@ export function createDeleteAccountModal() {
 async function signOutOrDeleteAccount(modalName) {
     if (modalName == "signOutModal") {
         await ensureGuestSession();
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         state.setUser({token: localStorage.getItem("guest_token")});
-
+    }
+    if (modalName == "deleteAccountModal") {
+        const delUser = state.user.nickname;
+        const ans = await apiRequest("/delete", { method: "DELETE", body: { email: state.user.email }});
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
+        await ensureGuestSession();
+        state.setUser({token: localStorage.getItem("guest_token")});
+        console.log(`User ${delUser} ${ans.message} `);
     }
 }
 

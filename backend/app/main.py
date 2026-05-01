@@ -8,6 +8,7 @@ from app.routers.saveWord import save_router
 from app.routers.translation import translation_router as translation_router
 from app.routers.registration import registration_router
 from app.routers.login import login_router
+from app.routers.delete_user import delete_router
 
 app = FastAPI(
     title="WordChain",
@@ -32,6 +33,7 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(registration_router)
 app.include_router(login_router)
+app.include_router(delete_router)
 app.include_router(translation_router)
 app.include_router(save_router)
 

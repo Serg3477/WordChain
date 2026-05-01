@@ -17,6 +17,8 @@
 /* Заголовок */
 .modal-header {
   margin-bottom: var(--modal-header-margin-bottom);
+  position: relative;
+  width: 100%;
 }
 
 /* Уникальный градиент заголовка */

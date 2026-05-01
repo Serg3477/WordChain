@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from app.db.session import async_session
 from app.schemas.user import RegistrationRequest, RegistrationResponse
-from app.db.repositories.registration_repository import RegistrationRepository
+from app.db.repositories.user_repository import UserRepository
 from app.services.registration_service import (
     ensure_email_unique,
     hash_password,
@@ -15,7 +15,7 @@ async def registration(req: RegistrationRequest):
     async with async_session() as session:
         await ensure_email_unique(session, req.email)
 
-        user = await RegistrationRepository.create(
+        user = await UserRepository.create(
             session=session,
             nickname=req.name,
             email=req.email,

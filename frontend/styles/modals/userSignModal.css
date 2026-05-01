@@ -2,6 +2,13 @@
    Модальное окно REGISTRATION
    =============================== 
 */
+
+.reg-login-modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .user-body {
   display: flex;
   align-items: center;

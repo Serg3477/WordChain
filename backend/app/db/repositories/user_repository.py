@@ -1,7 +1,8 @@
+from sqlalchemy import select
 from app.db.models.user import User
 
 
-class RegistrationRepository:
+class UserRepository:
 
     @staticmethod
     async def create(session, nickname, email, hashed_password, avatar_url, is_guest, is_premium):
@@ -17,3 +18,15 @@ class RegistrationRepository:
         await session.commit()
         await session.refresh(obj)
         return obj
+
+    @staticmethod
+    async def delete(session, email) -> bool:
+        result = await session.execute(select(User).where(User.email == email))
+        obj = result.scalar_one_or_none()
+        print(obj)
+        if not obj:
+            return False
+        await session.delete(obj)
+        await session.commit()
+        return True
+
