@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/accountActionModals.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/accountActionModals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/loginModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/loginModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/profileModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/profileModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/registrationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/registrationModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/translateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/accountActionModals.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/accountActionModals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/profileModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/profileModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/userSignModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/userSignModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/modals/shapeModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/modals/shapeModal.css" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -172,7 +161,8 @@
       <workItem from="1777558669262" duration="6756000" />
       <workItem from="1777622939486" duration="5619000" />
       <workItem from="1777632893048" duration="1937000" />
-      <workItem from="1777640054466" duration="5052000" />
+      <workItem from="1777640054466" duration="5486000" />
+      <workItem from="1777721887211" duration="2720000" />
     </task>
     <servers />
   </component>

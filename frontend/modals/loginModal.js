@@ -10,6 +10,7 @@ import { apiRequest } from "../features/api/apiClient.js";
 export function createLoginModal() {
     const root =document.createElement("div");
     root.className = "overall-modal reg-login-modal ui-modal";
+    
 
     root.innerHTML = `
         <div class="modal-header ui-modal-header">

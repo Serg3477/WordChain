@@ -103,7 +103,7 @@ export class ModalBase {
 
   mountModal(modalElement) {
     const container = this.root.querySelector(".modal-container");
-    container.innerHTML = "";
+    // container.innerHTML = "";
     container.appendChild(modalElement);
   }
   

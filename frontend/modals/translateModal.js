@@ -29,6 +29,7 @@ function getLanguageLabel(langCode) {
 export function createTranslateModal() {
   const root = document.createElement("div");
   root.className = "overall-modal trans-modal ui-modal";
+  
 
   root.innerHTML = `
     <div class="modal-header ui-modal-header">

@@ -1,44 +1,73 @@
 /* ===============================
    BREAKPOINTS
+   Адаптив модалок без конфликта с .ui-modal
    =============================== */
 
-/* Desktop (по умолчанию) — ничего менять не нужно */
-
-
-/* Tablet (768px–1023px)
-   Пока оставляем как desktop, но место для будущих правок есть */
-@media (max-width: 1023px) {
-  .translate-modal {
-    /* можно будет расширить или изменить */
+/* Desktop */
+@media (min-width: 1024px) {
+  .overall-modal {
+    /* базовые стили */
   }
 }
 
-/* Mobile — портрет */
-@media (max-width: 480px) and (orientation: portrait) {
-  .translate-modal {
-    width: 100vw;
-    min-width: 100vw;
-    height: calc(100vh - var(--navbar-height));
-    min-height: calc(100vh - var(--navbar-height));
-    max-height: calc(100vh - var(--navbar-height));
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .overall-modal {
+    max-width: min(92vw, 760px);
+    max-height: 90vh;
+  }
+}
 
-    margin-top: var(--navbar-height);
-    border-radius: 0;
+/* Mobile portrait */
+@media (max-width: 767px) and (orientation: portrait) {
+  .overall-modal {
+    position: fixed;
+    left: 50% !important;
+    top: 27px;                 /* navbar + 10px */
+    transform: translateX(-50%) !important; /* сброс translateY(-50%) из .ui-modal */
+
+    width: min(96vw, 560px);
+    min-width: 0;
+    height: auto;
+    max-height: calc(100vh - 77px - 10px);
+
+    margin: 0;
+    border-radius: 14px;
     padding: 12px;
   }
+
+  .ui-modal-body {
+    overflow-y: auto;
+  }
+
+  .modal-resizer {
+    display: none;
+  }
 }
 
-/* Mobile — альбомная ориентация */
-@media (max-width: 812px) and (max-height: 480px) and (orientation: landscape) {
-  .translate-modal {
-    width: 100vw;
-    min-width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
+/* Mobile landscape */
+@media (max-width: 1023px) and (max-height: 600px) and (orientation: landscape) {
+  .overall-modal {
+    position: fixed;
+    left: 50% !important;
+    top: 66px !important;                 /* немного ниже navbar в landscape */
+    transform: translateX(-50%) !important;
 
-    margin-top: 0;
-    border-radius: 0;
+    width: min(96vw, 760px);
+    min-width: 0;
+    height: auto;
+    max-height: calc(100vh - 66px - 8px);
+
+    margin: 0;
+    border-radius: 12px;
     padding: 10px;
+  }
+
+  .ui-modal-body {
+    overflow-y: auto;
+  }
+
+  .modal-resizer {
+    display: none;
   }
 }

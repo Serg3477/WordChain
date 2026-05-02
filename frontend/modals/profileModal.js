@@ -9,6 +9,7 @@ import { CloseButton } from "../ui/buttons/close/closeButton.js";
 export function createProfileModal() {
     const root =document.createElement("div");
     root.className = "overall-modal profile-modal ui-modal";
+    
 
     const user = state.user || {};
     const nickname = user.nickname || "Guest";

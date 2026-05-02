@@ -8,6 +8,7 @@ import { apiRequest } from "../features/api/apiClient.js";
 function createAccountActionModal({ modalName, title, question, yesLabel = "Yes", noLabel = "No" }) {
     const root = document.createElement("div");
     root.className = "overall-modal ui-modal confirm-modal";
+    
 
     root.innerHTML = `
         <div class="modal-header ui-modal-header">
