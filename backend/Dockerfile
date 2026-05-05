@@ -2,10 +2,15 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY pyproject.toml /app/pyproject.toml
-RUN pip install --no-cache-dir poetry && poetry config virtualenvs.create false
-RUN poetry install --no-interaction --no-ansi
+# Копируем только файлы зависимостей
+COPY pyproject.toml poetry.lock* /app/
 
+# Устанавливаем Poetry и зависимости (без установки проекта)
+RUN pip install --no-cache-dir poetry \
+    && poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi --no-root
+
+# Теперь копируем весь проект
 COPY . /app
 
 EXPOSE 8000

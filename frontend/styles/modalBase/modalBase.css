@@ -7,7 +7,6 @@
   padding: 12px;                                   /* внутренние отступы */
   box-sizing: border-box;                          /* учитывает padding в размерах */
 
-  background-image: url("../../assets/images/Canva/WC\ Words\ chain_20251030_201557_0000.gif"); /* фон-картинка */
   background-repeat: no-repeat;                    /* не повторять */
   background-position: center;                     /* центрировать */
   background-size: cover;                          /* растянуть по контейнеру */

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/WC Words chain_20251029_235356_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/WC Words chain_20251102_074557_0000.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/features/api/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/features/api/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/breakpoints.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/breakpoints.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/modalBase.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modalBase/modalBase.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,13 +95,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/db/models" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.23567.174" />
+        <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
       </set>
     </attachedChunks>
   </component>
@@ -162,7 +174,13 @@
       <workItem from="1777622939486" duration="5619000" />
       <workItem from="1777632893048" duration="1937000" />
       <workItem from="1777640054466" duration="5486000" />
-      <workItem from="1777721887211" duration="2720000" />
+      <workItem from="1777721887211" duration="3384000" />
+      <workItem from="1777791001619" duration="2168000" />
+      <workItem from="1777799509223" duration="1496000" />
+      <workItem from="1777801627313" duration="1753000" />
+      <workItem from="1777894773253" duration="1282000" />
+      <workItem from="1777904590135" duration="2559000" />
+      <workItem from="1777981987377" duration="7751000" />
     </task>
     <servers />
   </component>

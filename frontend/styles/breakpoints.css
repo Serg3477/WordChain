@@ -5,6 +5,9 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
+  .modal-base {
+    background-image: url("../../assets/images/Canva/WC\ Words\ chain_20251030_201557_0000.gif");
+  }
   .overall-modal {
     /* базовые стили */
   }
@@ -20,11 +23,15 @@
 
 /* Mobile portrait */
 @media (max-width: 767px) and (orientation: portrait) {
+  .modal-base {
+    background-image: url("../../assets/images/Canva/wc_italy.jpg");
+  }
   .overall-modal {
     position: fixed;
     left: 50% !important;
-    top: 27px;                 /* navbar + 10px */
+    top: 77px;                 /* navbar + 10px */
     transform: translateX(-50%) !important; /* сброс translateY(-50%) из .ui-modal */
+    
 
     width: min(96vw, 560px);
     min-width: 0;

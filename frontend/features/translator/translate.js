@@ -1,4 +1,7 @@
-import { apiRequest } from '../api/apiClient.js';  // Добавить импорт
+import { apiRequest } from '../api/apiClient.js';
+import { state } from "../../core/state.js";
+import { API_URL } from "../api/config.js";
+
 
 export async function translateWord({ word, sourceLang, targetLang }) {
 

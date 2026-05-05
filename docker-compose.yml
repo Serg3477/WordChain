@@ -1,15 +1,56 @@
+# services:
+#   db:
+#     image: postgres:16-alpine
+#     container_name: wordchain-db
+#     environment:
+#       POSTGRES_DB: wordchain
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: 1234
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+#     ports:
+#       - "5440:5432"
+
+#   backend:
+#     build:
+#       context: ./backend
+#     container_name: wordchain-backend
+#     depends_on:
+#       - db
+#     env_file:
+#       - ./backend/.env
+    
+
+#   frontend:
+#     build:
+#       context: ./frontend
+#     container_name: wordchain-frontend
+#     depends_on:
+#       - backend
+#     ports:
+#       - "8000:80"
+
+# volumes:
+#   pgdata:
+
+
 services:
   db:
     image: postgres:16-alpine
     container_name: wordchain-db
     environment:
       POSTGRES_DB: wordchain
-      POSTGRES_USER: wordchain_user
-      POSTGRES_PASSWORD: wordchain_pass
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5440:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: wordchain-redis
+
 
   backend:
     build:
@@ -17,10 +58,10 @@ services:
     container_name: wordchain-backend
     depends_on:
       - db
+      - redis
     env_file:
       - ./backend/.env
-    ports:
-      - "8000:8000"
+
 
   frontend:
     build:
@@ -29,7 +70,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "8080:80"
+      - "8000:80"
 
 volumes:
   pgdata:
