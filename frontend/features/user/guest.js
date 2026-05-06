@@ -79,7 +79,7 @@ export async function ensureGuestSession() {
 
 // Главная инициализация при старте приложения
 export async function initSession() {
-  const userToken = localStorage.getItem("token"); // токен зарегистрированного юзера
+  const userToken = localStorage.getItem("token") || sessionStorage.getItem("token"); // токен зарегистрированного юзера
 
   if (userToken) {
     try {
@@ -89,6 +89,7 @@ export async function initSession() {
     } catch (e) {
       // пользовательский токен невалиден -> удаляем и падаем в гостя
       localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
     }
   }
 
@@ -101,4 +102,3 @@ export async function logoutToGuest() {
   localStorage.removeItem("token");
   await ensureGuestSession();
 }
-

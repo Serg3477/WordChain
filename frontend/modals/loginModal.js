@@ -65,11 +65,11 @@ export function createLoginModal() {
             body: {
                 email: formLog.email.value,
                 password: formLog.password.value,
-                remember_me: formLog.remember_me.value
+                remember_me: formLog.remember_me.checked
             }
         })
 
-        if (formLog.remember_me) localStorage.setItem("token", res.token)
+        if (formLog.remember_me.checked) localStorage.setItem("token", res.token)
             else sessionStorage.setItem("token", res.token);
         state.setUser({
             nickname: res.nickname,

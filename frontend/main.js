@@ -1,4 +1,4 @@
-import { initSession } from "./features/user/guest.js";
+import { ensureGuestSession, initSession } from "./features/user/guest.js";
 import { windowManager } from "./core/windowManager.js";
 import { createTranslateModal } from "./modals/translateModal.js";
 import { createRegistrationModal } from "./modals/registrationModal.js";
@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initSession();
   } catch (error) {
     console.error("Session init failed:", error);
+    try {
+      await ensureGuestSession();
+    } catch (guestError) {
+      console.error("Guest session fallback failed:", guestError);
+    }
   }
 
   windowManager.init();
@@ -43,4 +48,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.windowManager = windowManager;
   windowManager.open("translateModal");
 });
-

@@ -91,7 +91,7 @@ export class ModalBase {
       if (!user) return;
 
       nicknameEl.textContent = user.nickname || "Guest";
-      avatarEl.src = `/assets/icons/${user.avatar_url}`;
+      avatarEl.src = `/assets/icons/${user.avatar_url || "default.png"}`;
     }
 
     // Подписываемся на изменения user
@@ -109,4 +109,3 @@ export class ModalBase {
   
 
 }
-

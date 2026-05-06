@@ -42,10 +42,15 @@ services:
       POSTGRES_DB: wordchain
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5440:5432"
+      - 5440:5432
 
   redis:
     image: redis:7-alpine
@@ -57,10 +62,12 @@ services:
       context: ./backend
     container_name: wordchain-backend
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
     env_file:
-      - ./backend/.env
+        ./backend/.env
 
 
   frontend:
@@ -70,7 +77,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "8000:80"
+      - 8000:80
 
 volumes:
   pgdata:

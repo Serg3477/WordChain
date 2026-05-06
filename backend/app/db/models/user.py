@@ -9,7 +9,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     nickname = Column(String(50), unique=True, nullable=False, default="Guest")
-    email = Column(String(100), unique=True, nullable=False)
+    email = Column(String(100), unique=True, nullable=True)
     hashed_password = Column(String(255), nullable=True, default=None)
     avatar_url = Column(String(255), nullable=True, default="default.png")
 

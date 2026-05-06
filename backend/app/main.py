@@ -1,6 +1,6 @@
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.db.init_db import init_models
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
@@ -15,6 +15,10 @@ app = FastAPI(
     description="Async backend for translation and vocabulary learning",
     version="1.0.0"
 )
+
+@app.on_event("startup")
+async def on_startup():
+    await init_models()
 
 # -----------------------------
 # CORS (для фронтенда)
@@ -37,10 +41,4 @@ app.include_router(delete_router)
 app.include_router(translation_router)
 app.include_router(save_router)
 
-# -----------------------------
-# Тестовый эндпоинт
-# -----------------------------
-@app.get("/")
-async def root():
-    return {"status": "ok", "message": "WordChain backend is running"}
 

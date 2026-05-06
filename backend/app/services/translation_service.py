@@ -10,8 +10,8 @@ from redis.asyncio import Redis
 from app.db.config import settings
 
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
-# redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
+# redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
+redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
 
 
 MODEL = "gpt-4o-mini"
