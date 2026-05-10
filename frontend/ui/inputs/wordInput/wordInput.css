@@ -5,14 +5,15 @@
 
 .input-word {
   width: 100%;                               /* занимает всю ширину контейнера */
+  height: 42px;
   box-sizing: border-box;                    /* учитывает padding в ширине */
   padding: 12px 40px 12px 16px;              /* справа место под кнопку Х */
   font-size: 16px;                           /* размер текста */
   border-radius: 12px;                       /* скругление */
   border: none;                              /* без рамки */
   outline: none;                             /* убираем синюю рамку */
-  
 
+  
   background: #e6e6e6;                                          /* фон */
   box-shadow:                                                     /* впуклая тень */
     inset 3px 3px 6px rgba(0,0,0,0.25),

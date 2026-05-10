@@ -1,10 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
+from openai.types.audio import transcription
+
 from app.db.session import async_session
 from app.db.repositories.word_repository import WordRepository
 from app.schemas.word import TranslationResponse
 from app.routers.dependencies import get_current_user
 from app.schemas.word import WordBase
 from app.logger.logger import backend_logger
+from app.services.set_service import check_and_create_set
 
 save_router = APIRouter()
 
@@ -24,7 +27,7 @@ async def save_word(
                 word=result.word,
                 translation=result.translation,
                 part_of_speech=result.part_of_speech,
-                transcription=None,
+                transcription=result.transcription,
                 examples=result.examples,
                 synonyms=[]
             )
@@ -33,4 +36,5 @@ async def save_word(
         raise
 
     backend_logger.info(f"Word saved success: {word_obj.word}")
+    await check_and_create_set(user.id)
     return word_obj

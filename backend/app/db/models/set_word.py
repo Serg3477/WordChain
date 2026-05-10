@@ -1,0 +1,9 @@
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func
+from app.db.base import Base
+
+class SetWord(Base):
+    __tablename__ = "set_words"
+
+    set_id = Column(Integer, ForeignKey("sets.id"), primary_key=True)
+    word_id = Column(Integer, ForeignKey("words.id"), primary_key=True)
+    added_at = Column(DateTime(timezone=True), server_default=func.now())

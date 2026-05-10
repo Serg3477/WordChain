@@ -33,7 +33,7 @@ export function createLoginModal() {
                         <span>Remember me</span>
                     </label>
 
-                    <a class="ui-link" data-action="forgot-password">Forgot password?</a>
+                    <a class="ui-user-link" data-action="forgot-password">Forgot password?</a>
                 </div>
 
                 <button type="submit" class="ui-user-btn">

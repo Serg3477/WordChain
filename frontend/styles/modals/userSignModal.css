@@ -28,6 +28,10 @@
   width: 100%;
 }
 
+.input-word {
+  margin-bottom: 10px;
+}
+
 .divider {
   text-align: center;
   margin: 16px 0;
@@ -73,7 +77,12 @@
   user-select: none;          /* запрет выделения текста */
 }
 
+.ui-user-btn {
+  margin-top: 10px;
+}
+
 .ui-user-link {
+  margin: 10px;
   color: blue;
 }
 

@@ -13,7 +13,7 @@
 /* Уникальные элементы TranslateModal */
 .input-row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 5px;
   margin-top: 16px;
   height: 48px;

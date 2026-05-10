@@ -3,7 +3,7 @@ import { translateWord, saveWord } from "../features/translator/translate.js";
 import { windowManager } from "../core/windowManager.js";
 import { makeDraggable } from "./utils/drag.js";
 import { makeResizable } from "./utils/resize.js";
-import { TranslateButton } from "../ui/buttons/translate/translateButton.js";
+import { BaseButton } from "../ui/buttons/baseButton/baseButton.js";
 import { CloseButton } from "../ui/buttons/close/closeButton.js";
 import { setupWordInput } from "../ui/inputs/wordInput/wordInput.js";
 import { EraseInputButton } from "../ui/buttons/erase/eraseInput.js";
@@ -127,17 +127,17 @@ export function createTranslateModal() {
   // КНОПКИ ЧЕРЕЗ TranslateButton
   // ---------------------------
 
-  const translateBtn = new TranslateButton({
+  const translateBtn = new BaseButton({
     label: "Translate",
-    type: "trans-btn trans-btn-translate ui-trans-btn btn",
+    type: "trans-btn trans-btn-translate ui-btn",
     icon: "🌐",
     action: "click",
     handler: doTranslate
   }).render();
 
-  const saveBtn = new TranslateButton({
+  const saveBtn = new BaseButton({
     label: "Save",
-    type: "trans-btn trans-btn-save ui-trans-btn btn",
+    type: "trans-btn trans-btn-save ui-btn",
     icon: "💾",
     action: "click",
     handler: doSave

@@ -7,7 +7,7 @@ from app.logger.logging_intercept import setup_sqlalchemy_logging
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
-from app.routers.saveWord import save_router
+from app.routers.save_word import save_router
 from app.routers.translation import translation_router as translation_router
 from app.routers.registration import registration_router
 from app.routers.login import login_router
@@ -52,7 +52,7 @@ app.include_router(delete_router)
 app.include_router(translation_router)
 app.include_router(save_router)
 
-# Логирование?
+# Логирование операций SQLAlchemy
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     backend_logger.info(f"Incoming request: {request.method} {request.url}")
@@ -67,4 +67,4 @@ async def log_requests(request: Request, call_next):
     return response
 
 # Логирование SQLAlchemy SQL-запросов
-setup_sqlalchemy_logging()
+# setup_sqlalchemy_logging()

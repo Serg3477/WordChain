@@ -21,4 +21,4 @@ class User(Base):
 
     settings = relationship("Settings", back_populates="user", uselist=False)
     words = relationship("Word", back_populates="user")
-    sets = relationship("Set", back_populates="user")
+    # sets = relationship("Set", back_populates="user")
