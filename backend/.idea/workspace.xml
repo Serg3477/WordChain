@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/loginModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/loginModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/modals/translateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/userSignModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/modals/userSignModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/translate/translateButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +199,8 @@
       <workItem from="1778313979058" duration="610000" />
       <workItem from="1778314602908" duration="16749000" />
       <workItem from="1778400462281" duration="318000" />
-      <workItem from="1778401077008" duration="10801000" />
+      <workItem from="1778401077008" duration="21256000" />
+      <workItem from="1778584454482" duration="11331000" />
     </task>
     <servers />
   </component>

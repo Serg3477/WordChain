@@ -19,7 +19,7 @@ MODEL = "gpt-4o-mini"
 TTL_FULL = 60 * 60 * 24 * 30
 TTL_PARTS = 60 * 60 * 24 * 30
 
-
+# TODO: добавить нормализацию слов (убрать лишние пробелы, знаки препинания в конце, привести к нижнему регистру)
 def _normalize_word(word: str) -> str:
     value = unicodedata.normalize("NFKC", word or "")
     value = value.strip().lower()
@@ -27,7 +27,7 @@ def _normalize_word(word: str) -> str:
     value = value.rstrip("!?.,;:")
     return value
 
-
+# TODO: добавить нормализацию языков (en, eng, english -> en; ru, rus, рус -> ru)
 def _normalize_lang(lang: str, default: str = "auto") -> str:
     aliases = {
         "eng": "en",
@@ -40,7 +40,7 @@ def _normalize_lang(lang: str, default: str = "auto") -> str:
         return default
     return aliases.get(value, value)
 
-
+# TODO: добавить обработку ошибок от OpenAI (например, если модель не может перевести слово, или если превышен лимит токенов)
 async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
     resp = await client.responses.create(
         model=MODEL,
@@ -49,7 +49,7 @@ async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
     )
     return (resp.output_text or "").strip()
 
-
+# TODO: добавить кэширование в Redis для каждого из запросов (перевод, транскрипция, часть речи), а также для полного результата. Ключи должны быть уникальными для каждой комбинации слова и языков. TTL для кэша можно установить в 30 дней.
 async def _get_or_set(key: str, producer, ttl: int):
     cached = await redis.get(key)
     if cached is not None:
@@ -105,7 +105,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
         return text
 
 
-
+    # TODO: оптимизировать параллельные запросы к Redis, чтобы не ждать последовательно каждый из них. Можно использовать asyncio.gather для одновременного получения всех трёх частей (перевод, транскрипция, часть речи) из кэша, а если чего-то нет, то запустить соответствующий producer.
     translation, transcription, part_of_speech = await asyncio.gather(
         _get_or_set(translation_key, produce_translation, TTL_PARTS),
         _get_or_set(transcription_key, produce_transcription, TTL_PARTS),

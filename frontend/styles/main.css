@@ -5,6 +5,7 @@
 @import "./modals/userSignModal.css";
 @import "./modals/profileModal.css";
 @import "./modals/accountActionModals.css";
+@import "./modals/setModal.css";
 
 @import "./utils/resize_corner.css";
 

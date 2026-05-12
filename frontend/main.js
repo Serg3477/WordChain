@@ -5,6 +5,7 @@ import { createRegistrationModal } from "./modals/registrationModal.js";
 import { createLoginModal } from "./modals/loginModal.js";
 import { createProfileModal } from "./modals/profileModal.js";
 import { createDeleteAccountModal, createSignOutModal } from "./modals/accountActionModals.js";
+import { createSetModal } from "./modals/setModal.js";
 
 
 
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   windowManager.register("profileModal", createProfileModal);
   windowManager.register("signOutModal", createSignOutModal);
   windowManager.register("deleteAccountModal", createDeleteAccountModal);
+  windowManager.register("setsModal", createSetModal);
 
   // Делаем доступным в консоли
   window.windowManager = windowManager;

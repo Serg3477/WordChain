@@ -2,6 +2,43 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
 
+from sqlalchemy.dialects.mssql import JSON
+
+
+# ---------------------------------------------------------
+# 1. DTO запроса сетов (используется в /get_sets)
+# ---------------------------------------------------------
+
+class SetsRequest(BaseModel):
+    name: str
+
+
+class SetItem(BaseModel):
+    id: int
+    name: str
+    word_ids: list[int]
+
+class SetsResponse(BaseModel):
+    sets: List[SetItem]
+
+
+# ---------------------------------------------------------
+# 1. DTO запроса сетов (используется в /get_sets)
+# ---------------------------------------------------------
+
+class WordsFromSetRequest(BaseModel):
+    word_ids: list[int]
+
+class WordsItem(BaseModel):
+    id: int
+    word: str
+
+class WordsFromSetResponse(BaseModel):
+    word_list: list[WordsItem]
+
+
+
+
 # Базовая схема — общие поля
 class SetBase(BaseModel):
     name: str = Field(..., max_length=50)

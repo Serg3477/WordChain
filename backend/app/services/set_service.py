@@ -1,85 +1,8 @@
-# from sqlalchemy import select, func
-# from datetime import datetime
-#
-# from app.db.models.set_word import SetWord
-# from app.db.repositories.set_repository import SetRepository
-# from app.db.repositories.set_word_repository import SetWordRepository
-# from app.db.session import async_session
-# from app.db.models.word import Word
-# from app.logger.logger import backend_logger
-#
-#
-# SET_SIZE = 6  # потом вынесем в настройки
-#
-#
-# async def check_and_create_set(user_id: int):
-#     async with async_session() as session:
-#         # считаем слова пользователя
-#         result = await session.execute(
-#             select(func.count())
-#             .select_from(Word)
-#             .where(
-#                 Word.user_id == user_id,
-#                 Word.id.not_in(select(SetWord.word_id))
-#             )
-#         )
-#         count = result.scalar()
-#
-#         backend_logger.info(f"User {user_id} has {count} unused words")
-#
-#         if count < SET_SIZE:
-#             return  # не хватает слов для сета
-#
-#         if count % SET_SIZE != 0:
-#             return  # не пора создавать сет
-#
-#         backend_logger.info(f"Creating new set for user {user_id}")
-#         await create_set_from_last_words(session, user_id, SET_SIZE)
-#
-#
-# async def create_set_from_last_words(session, user_id: int, size: int):
-#     # берём последние N слов
-#     result = await session.execute(
-#         select(Word)
-#         .where(
-#             Word.user_id == user_id,
-#             Word.id.not_in(select(SetWord.word_id))
-#         )
-#         .order_by(Word.id.desc())
-#         .limit(size)
-#     )
-#     words = result.scalars().all()
-#
-#     # получаем номер последнего сета
-#     last_number = await SetRepository.get_last_set_number(session, user_id)
-#     next_number = last_number + 1
-#
-#     # формируем имя
-#     name = f"Set-{next_number}"
-#     description = f"Создан {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-#
-#     # создаём Set через репозиторий
-#     new_set = await SetRepository.create(
-#         session=session,
-#         user_id=user_id,
-#         name=name,
-#         description=description
-#     )
-#
-#     # добавляем слова в set_words
-#     for w in words:
-#         await SetWordRepository.add_word_to_set(
-#             session=session,
-#             set_id=new_set.id,
-#             word_id=w.id
-#         )
-#
-#     return new_set
-
-
 from sqlalchemy import select, func
 from datetime import datetime
 
+from app.db.models import User
+from app.db.models import Set
 from app.db.repositories.set_repository import SetRepository
 from app.db.repositories.set_word_repository import SetWordRepository
 from app.db.session import async_session
@@ -178,3 +101,43 @@ async def create_set_from_last_words(session, user_id: int, size: int):
     backend_logger.info(f"[SET] Set {new_set.id} created successfully with words: {[w.id for w in words]}")
 
     return new_set
+
+async def get_user_sets(session, name: str):
+    user = await session.scalar(select(User).where(User.nickname == name))
+    if not user:
+        return []
+    sets = await session.scalars(
+        select(Set).where(Set.user_id == user.id)
+    )
+    sets = list(sets)
+    # Для каждого сета — получаем word_ids
+    result = []
+    for s in sets:
+        word_ids = await session.scalars(
+            select(SetWord.word_id).where(SetWord.set_id == s.id)
+        )
+        result.append({
+            "id": s.id,
+            "name": s.name,
+            "word_ids": list(word_ids)
+        })
+
+    return result
+
+async def get_words_from_set(session, word_ids: list[int]):
+    backend_logger.info(f"[GET WORDS] Start fetching words for IDs: {word_ids}")
+    result_list = []
+    for i in word_ids:
+        backend_logger.info(f"[GET WORDS] Fetching words for ID: {i}")
+        item = (await session.scalars(select(Word).where(Word.id == i))).first()
+
+        if item is not None:
+            result_list.append({
+                "id": item.id,
+                "word": item.word
+            })
+            backend_logger.info(f"[GET WORDS] Found word: id={item.id}, word='{item.word}'")
+
+    backend_logger.info(f"[GET WORDS] Final result list: {result_list}")
+    return result_list
+
