@@ -1,38 +1,35 @@
-import { ensureGuestSession, initSession } from "./features/user/guest.js";
+import { createBaseLayout } from "./core/base.js";
 import { windowManager } from "./core/windowManager.js";
-import { createTranslateModal } from "./modals/translateModal.js";
-import { createRegistrationModal } from "./modals/registrationModal.js";
-import { createLoginModal } from "./modals/loginModal.js";
-import { createProfileModal } from "./modals/profileModal.js";
-import { createDeleteAccountModal, createSignOutModal } from "./modals/accountActionModals.js";
-import { createSetModal } from "./modals/setModal.js";
+import { subscribe, state } from "./core/state.js";
+import { initLayoutWatcher } from "./core/layoutDetector.js";
+
+import { renderMobile } from "./layouts/mobile/index.js";
 
 
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    await initSession();
-  } catch (error) {
-    console.error("Session init failed:", error);
-    try {
-      await ensureGuestSession();
-    } catch (guestError) {
-      console.error("Guest session fallback failed:", guestError);
-    }
-  }
+// 1. Создаём DOM
+createBaseLayout();
 
-  windowManager.init();
-  windowManager.register("translateModal", createTranslateModal);
-  windowManager.register("registrationModal", createRegistrationModal);
-  windowManager.register("loginModal", createLoginModal);
-  windowManager.register("profileModal", createProfileModal);
-  windowManager.register("signOutModal", createSignOutModal);
-  windowManager.register("deleteAccountModal", createDeleteAccountModal);
-  windowManager.register("setsModal", createSetModal);
+// 2. Инициализируем менеджер окон
+windowManager.init();
 
-  // Делаем доступным в консоли
-  window.windowManager = windowManager;
+// 3. Подписываемся на изменения state
+subscribe((state) => {
+  const contentRoot = document.getElementById("content-root");
+  if (!contentRoot) return; // защита
 
-  // Открывать модалку автоматически
-  windowManager.open("translateModal");
+  contentRoot.innerHTML = "";
+
+  // if (state.layout === "desktop") {
+  //   renderDesktop(state);
+  // } else {
+  //   renderMobile(state);
+  // }
+
+  // Временный безопасный fallback:
+  // пока desktop-ветка не реализована, рендерим mobile для обоих layout.
+  renderMobile(state);
 });
+
+// 4. Только теперь запускаем layoutDetector
+initLayoutWatcher();

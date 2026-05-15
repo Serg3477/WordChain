@@ -7646,3 +7646,67 @@ AttributeError: 'coroutine' object has no attribute 'first'
 2026-05-12 18:19:25.412 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
 2026-05-12 18:19:25.412 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-2 request sent {}
 2026-05-12 18:19:25.413 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 12:12:19.752 | INFO     | app.main:log_requests:62 - Incoming request: GET http://127.0.0.1:8000/
+2026-05-15 12:12:19.754 | INFO     | app.main:root:27 - Root endpoint called
+2026-05-15 12:12:19.754 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 12:12:19.812 | INFO     | app.main:log_requests:62 - Incoming request: GET http://127.0.0.1:8000/favicon.ico
+2026-05-15 12:12:19.813 | INFO     | app.main:log_requests:70 - Response status: 404
+2026-05-15 14:06:26.406 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-05-15 14:06:26.407 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 14:06:26.410 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 14:06:26.413 | INFO     | app.routers.translation:translate:10 - Translation attempt: ring
+2026-05-15 14:06:35.832 | SUCCESS  | app.routers.translation:translate:19 - Translation success: ring
+2026-05-15 14:06:35.832 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 14:06:35.839 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-15 14:06:35.840 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 14:06:35.842 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 14:06:35.845 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 14:06:35.846 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 14:58:20.484 | INFO     | app.main:log_requests:62 - Incoming request: GET http://127.0.0.1:8000/
+2026-05-15 14:58:20.485 | INFO     | app.main:root:27 - Root endpoint called
+2026-05-15 14:58:20.485 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 14:58:20.543 | INFO     | app.main:log_requests:62 - Incoming request: GET http://127.0.0.1:8000/favicon.ico
+2026-05-15 14:58:20.543 | INFO     | app.main:log_requests:70 - Response status: 404
+2026-05-15 15:06:22.698 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-05-15 15:06:22.699 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:06:22.701 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 15:06:22.702 | INFO     | app.routers.translation:translate:10 - Translation attempt: let
+2026-05-15 15:06:32.030 | SUCCESS  | app.routers.translation:translate:19 - Translation success: let
+2026-05-15 15:06:32.030 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:06:32.035 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-15 15:06:32.035 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:06:32.037 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 15:06:32.038 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 15:06:32.038 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:18:42.737 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-05-15 15:18:42.738 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:18:42.740 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 15:18:42.741 | INFO     | app.routers.translation:translate:10 - Translation attempt: take
+2026-05-15 15:18:51.616 | SUCCESS  | app.routers.translation:translate:19 - Translation success: take
+2026-05-15 15:18:51.616 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:18:51.620 | INFO     | app.main:log_requests:62 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-15 15:18:51.620 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:18:51.622 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 15:18:51.623 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 15:18:51.623 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:20:15.269 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 15:20:15.270 | INFO     | app.routers.translation:translate:10 - Translation attempt: link
+2026-05-15 15:20:16.639 | SUCCESS  | app.routers.translation:translate:19 - Translation success: link
+2026-05-15 15:20:16.640 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:20:16.644 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 15:20:16.645 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 15:20:16.645 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:24:51.022 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 15:24:51.022 | INFO     | app.routers.translation:translate:10 - Translation attempt: switch
+2026-05-15 15:24:52.934 | SUCCESS  | app.routers.translation:translate:19 - Translation success: switch
+2026-05-15 15:24:52.935 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:24:52.940 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 15:24:52.941 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 15:24:52.941 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:27:36.775 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-15 15:27:36.776 | INFO     | app.routers.translation:translate:10 - Translation attempt: переключать
+2026-05-15 15:27:41.051 | SUCCESS  | app.routers.translation:translate:19 - Translation success: переключать
+2026-05-15 15:27:41.052 | INFO     | app.main:log_requests:70 - Response status: 200
+2026-05-15 15:27:41.055 | INFO     | app.main:log_requests:62 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-15 15:27:41.056 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translation request sent {}
+2026-05-15 15:27:41.056 | INFO     | app.main:log_requests:70 - Response status: 200

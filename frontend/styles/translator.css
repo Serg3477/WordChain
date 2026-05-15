@@ -1,0 +1,103 @@
+/* ===============================
+   TRANSLATOR SCREEN
+   =============================== */
+
+.translator-screen {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* INPUT FIELD */
+.input-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-placeholder {
+  color: #888;
+  font-size: 16px;
+  user-select: none;
+  flex: 1; /* занимает доступную ширину */
+}
+
+.input-placeholder.active {
+  color: #222;
+}
+
+.erase-container {
+  flex: 0 0 auto; /* кнопка всегда справа, не сжимается */
+}
+
+/* BUTTONS ROW */
+.buttons-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* OUTPUT FIELD */
+.output-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 14px;
+  min-height: 60px;
+}
+
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-label {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none;
+}
+
+.result-value {
+  margin-left: 30px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #171717;
+  word-break: break-word;
+}
+
+.result-value-strong {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+/* LANGUAGE SWITCHER */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.lang-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.lang-arrow {
+  font-size: 20px;
+}
+

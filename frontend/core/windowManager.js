@@ -1,62 +1,46 @@
-import { ModalBase } from "../modals/modalBase/modalBase.js";
-
-const registry = {};
-let base = null;
-
-let topZ = 1000;
+let screenStack = [];
+let modalContainer = null;
 
 export const windowManager = {
   init() {
-    base = new ModalBase();
-    base.create();
+    modalContainer = document.getElementById("modal-root");
   },
 
-  bringToFront(modal) {
-    if (!modal) return;
-    modal.style.zIndex = ++topZ;
+  // -----------------------------
+  // ЭКРАНЫ (mobile)
+  // -----------------------------
+  showScreen(id) {
+    document.querySelectorAll("[data-screen]").forEach(el => {
+      el.style.display = "none";
+    });
+
+    const screen = document.querySelector(`[data-screen="${id}"]`);
+    if (screen) screen.style.display = "block";
   },
 
-  register(name, factory) {
-    registry[name] = { factory, instances: [] };
+  pushScreen(id) {
+    screenStack.push(id);
+    this.showScreen(id);
   },
 
-  open(name) {
-    const record = registry[name];
-    if (!record) return;
-
-    const modal = record.factory();
-
-    this.bringToFront(modal);
-    // общий обработчик для всех модалок
-    modal.addEventListener("mousedown", () => this.bringToFront(modal));
-
-    record.instances.push(modal);
-    base.mountModal(modal);
-
-    /* Ориентация в mobile portrait */
-    const isPortraitMobile =
-      window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches;
-
-    if (isPortraitMobile) {
-      const openCount = Object.values(registry)
-        .reduce((acc, r) => acc + r.instances.length, 0);
-
-      const navbar = document.querySelector(".navbar");
-      const navbarBottom = navbar ? navbar.getBoundingClientRect().bottom : 56;
-
-      const baseTop = Math.round(navbarBottom + 10);
-      const step = 50;
-
-      modal.style.top = `${baseTop + openCount * step}px`;
+  back() {
+    if (screenStack.length > 1) {
+      screenStack.pop();
+      const id = screenStack[screenStack.length - 1];
+      this.showScreen(id);
     }
   },
 
-  close(name) {
-    const record = registry[name];
-    if (!record || record.instances.length === 0) return;
+  // -----------------------------
+  // МОДАЛКИ (универсальные)
+  // -----------------------------
+  openModal(element) {
+    if (!modalContainer) return;
+    modalContainer.appendChild(element);
+  },
 
-    const modal = record.instances.pop();
-    modal.remove();
+  closeModal(element) {
+    if (!modalContainer) return;
+    element.remove();
   }
 };
-

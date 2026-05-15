@@ -22,7 +22,7 @@ export const state = {
   setLanguages(src, tgt) {
     this.sourceLang = src;
     this.targetLang = tgt;
-    // this.notify("languages");
+    this.notify("languages");
   },
 
   // --- HISTORY ---
@@ -31,22 +31,35 @@ export const state = {
   addToHistory(word) {
     if (!word) return;
     this.history.push(word);
-    // this.notify("history");
+    this.notify("history");
   },
 
+  // --- OLD LISTENERS (per-key) ---
   listeners: {},
 
-    on(key, fn) {
-        if (!this.listeners[key]) this.listeners[key] = [];
-        this.listeners[key].push(fn);
-    },
+  on(key, fn) {
+    if (!this.listeners[key]) this.listeners[key] = [];
+    this.listeners[key].push(fn);
+  },
 
-    notify(key) {
-        (this.listeners[key] || []).forEach(fn => fn(this[key]));
-    }
-
+  notify(key) {
+    (this.listeners[key] || []).forEach(fn => fn(this[key]));
+  }
 };
 
+// ===============================
+// NEW GLOBAL REACTIVE SYSTEM
+// ===============================
 
+let globalListeners = [];
+
+export function subscribe(fn) {
+  globalListeners.push(fn);
+}
+
+export function setState(patch) {
+  Object.assign(state, patch);
+  globalListeners.forEach(fn => fn(state));
+}
 
 window.state = state;
