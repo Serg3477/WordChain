@@ -46,7 +46,7 @@ export class CurriculumMenu {
       const action = item.dataset.action;
       this.dropdown.classList.add("hidden");
 
-      if (action === "translation") windowManager.open("translateModal");
+      if (action === "translation") windowManager.pushScreen("translator");
       if (action === "sets") windowManager.open("setsModal");
       if (action === "exams") windowManager.open("examsModal");
     });

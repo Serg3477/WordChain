@@ -1,82 +1,98 @@
-import { state } from "../../core/state.js";
+import { state } from "../core/state.js";
 import { apiRequest } from "../core/api.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
-
 function setActiveUser(user, token) {
-  state.setUser({
-    ...user,
-    token,
-  });
+  state.setUser({ ...user, token });
 }
 
 async function fetchMeByToken(token) {
-  return apiRequest("/me", { token });
+  logInfo("Me request shape", {
+    endpoint: "/me",
+    method: "GET",
+    hasToken: !!token
+  });
+
+  try {
+    const res = await apiRequest("/me", { token });
+    logInfo("Me response shape", {
+      keys: res ? Object.keys(res) : [],
+      isGuest: !!res?.is_guest
+    });
+    return res;
+  } catch (e) {
+    logError("Me request failed", { error: e.message });
+    throw e;
+  }
 }
 
-// Создать/восстановить гостя (guest_token живет постоянно)
 export async function ensureGuestSession() {
   let guestToken = localStorage.getItem("guest_token");
 
   if (guestToken) {
     try {
-      logInfo("Guest token exists");
       const guestUser = await fetchMeByToken(guestToken);
-      if (guestUser) logInfo("Check guest user");
       setActiveUser(guestUser, guestToken);
-      logInfo("Guest user defined {user}")
       return { user: guestUser, token: guestToken };
     } catch (e) {
-      // guest_token битый/просрочен/пользователь удален -> создаем нового гостя
-      logError("Guest user undefined.");
+      logError("Guest token invalid", { error: e.message });
       localStorage.removeItem("guest_token");
       guestToken = null;
     }
   }
 
+  logInfo("Guest create request shape", {
+    endpoint: "/guest",
+    method: "POST",
+    bodyShape: []
+  });
+
   try {
     const data = await apiRequest("/guest", { method: "POST" });
-    guestToken = data.access_token; // как в твоем /guest
-    logInfo("Guest create request sent", { status: data.status });
-    localStorage.setItem("guest_token", guestToken);
+    logInfo("Guest create response shape", {
+      keys: data ? Object.keys(data) : [],
+      hasAccessToken: !!data?.access_token,
+      hasUser: !!data?.user
+    });
 
+    guestToken = data.access_token;
+    localStorage.setItem("guest_token", guestToken);
     setActiveUser(data.user, guestToken);
+
     return { user: data.user, token: guestToken };
   } catch (e) {
     logError("Guest create request failed", { error: e.message });
+    throw e;
   }
 }
 
-// Главная инициализация при старте приложения
 export async function initSession() {
-  const userToken = localStorage.getItem("token") || sessionStorage.getItem("token"); // токен зарегистрированного юзера
+  const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
 
   if (userToken) {
     try {
       const user = await fetchMeByToken(userToken);
-      logInfo("Init user success", { user });
+      logInfo("Init user success", { hasUser: !!user });
       setActiveUser(user, userToken);
       return;
     } catch (e) {
-      // пользовательский токен невалиден -> удаляем и падаем в гостя
       logError("Init user failed", { error: e.message });
       localStorage.removeItem("token");
       sessionStorage.removeItem("token");
     }
   }
 
-  // fallback на гостевую сессию
   await ensureGuestSession();
 }
 
-// Выход из зарегистрированного аккаунта -> возврат в того же гостя
 export async function logoutToGuest() {
   try {
     localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     await ensureGuestSession();
-    logInfo("Log out success");
+    logInfo("Logout to guest success");
   } catch (e) {
-    logError("Guest request failed", { error: e.message });
+    logError("Logout to guest failed", { error: e.message });
+    throw e;
   }
 }
-

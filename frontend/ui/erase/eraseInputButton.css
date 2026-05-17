@@ -3,8 +3,8 @@
    =============================== 
 */
 .ui-erase-btn {
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   border-radius: 10px;
   border: none;
   background: #e6e6e6;
@@ -29,3 +29,10 @@
     inset -2px -2px 4px rgba(255,255,255,0.9);
   transform: scale(0.92);
 }
+
+.ui-erase-btn.is-invisible {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+

@@ -4,6 +4,7 @@ import { translateWord, saveWord } from "../../../api/translate.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
+import { logInfo, logError } from "../../../utils/logger/logger.js";
 
 
 
@@ -26,15 +27,22 @@ function getLanguageLabel(langCode) {
 
 
 export function renderTranslator(state) {
-  const screen = document.querySelector('[data-screen="translator"]');
+  logInfo("Translate screen render start");
 
+  const screen = document.querySelector('[data-screen="translator"]');
+  logInfo("Translate screen node", { found: !!screen });
+
+    if (!screen) {
+        logError("Translate screen not found");
+        return;
+    }
   screen.innerHTML = `
     <div class="translator-screen">
 
       <!-- INPUT FIELD -->
       <div class="input-container">
-        <div class="input-placeholder">Enter a word...</div>
-        <button class="erase-container"></button>
+        <input class="input-placeholder" placeholder="Enter word...">
+        <div class="erase-container"></div>
       </div>
 
       <!-- BUTTONS ROW -->
@@ -72,45 +80,57 @@ export function renderTranslator(state) {
   // ---------------------------
   const eraseBtn = new EraseInputButton({
     handler: () => {
-      currentWord = "";
-      placeholder.textContent = "Enter a word...";
-      placeholder.classList.remove("active");
-      eraseBtn.classList.add("hidden");
-      output.textContent = "";
+      placeholder.value = "";
+      placeholder.classList.remove("clearable");
+      placeholder.focus();
     }
   }).render();
 
   eraseContainer.appendChild(eraseBtn);
-  eraseBtn.classList.add("hidden");
-
-  // ---------------------------
-  // ОБРАБОТКА ВВОДА (клик по placeholder)
-  // ---------------------------
-  placeholder.addEventListener("click", () => {
-    const word = prompt("Enter a word:");
-    if (!word) return;
-
-    currentWord = word;
-    placeholder.textContent = word;
-    placeholder.classList.add("active");
-    eraseBtn.classList.remove("hidden");
+  eraseBtn.classList.add("is-invisible");
+  placeholder.addEventListener("input", () => {
+    const hasValue = placeholder.value.trim().length > 0;
+    eraseBtn.classList.toggle("is-invisible", !hasValue);
   });
 
+
+  let result = null;
   // ---------------------------
   // КНОПКА TRANSLATE
   // ---------------------------
   const translateBtn = new BaseButton({
     label: "Translate",
-    type: "trans-btn trans-btn-translate",
+    type: "trans-btn trans-btn-translate ui-btn",
     icon: "🌐",
-    handler: async () => {
-      if (!currentWord) return;
+    action: "click",
+    handler: doTranslate
+  }).render();
 
-      const result = await translateWord({
-        word: currentWord,
+  async function doTranslate() {
+    logInfo("Translate button clicked");
+    const word = placeholder.value.trim();
+    if (!word) {
+      logInfo("Translate aborted: empty input");
+      return;
+    }
+
+    try {
+      logInfo("Translate request start", {
+        word,
         sourceLang: state.sourceLang,
-        targetLang: state.targetLang,
+        targetLang: state.targetLang
       });
+      result = await translateWord({
+        word,
+        sourceLang: "en",
+        targetLang: "ru"
+      });
+      logInfo("Translate request success", {
+        hasTranslation: !!result?.translation
+      });
+    } catch (e) {
+      logError("Translate request failed in UI", { error: e.message });
+    }
 
       const targetLanguageLabel = getLanguageLabel(state.targetLang);
 
@@ -119,39 +139,40 @@ export function renderTranslator(state) {
       <div class="result-item">
         <div class="result-label">Translation: ${targetLanguageLabel}:</div>
         <div class="result-value result-value-strong">${result.translation ?? ""}</div>
-      </div>
+      </div><br>
       <div class="result-item">
         <div class="result-label">Transcription:</div>
         <div class="result-value">${result.transcription ?? ""}</div>
-      </div>
+      </div><br>
       <div class="result-item">
         <div class="result-label">Part of speech:</div>
         <div class="result-value">${result.part_of_speech ?? ""}</div>
-      </div>
+      </div><br>
     `;
       }
-    }
-  }).render();
-
-
-
+  }
+ 
   // ---------------------------
   // КНОПКА SAVE
   // ---------------------------
   const saveBtn = new BaseButton({
     label: "Save",
-    type: "trans-btn trans-btn-save",
+    type: "trans-btn trans-btn-save ui-btn",
     icon: "💾",
-    handler: async () => {
-      if (!currentWord || !output.textContent) return;
-
-      await saveWord(currentWord, {
-        translation: output.textContent,
-        transcription: "",
-        part_of_speech: "",
-      });
-    }
+    action: "click",
+    handler: doSave
   }).render();
+
+  async function doSave() {
+    logInfo("Save button clicked", { hasResult: !!result });
+    if (!result) return;
+    try {
+      await saveWord(placeholder.value.trim(), result);
+      logInfo("Save request success");
+    } catch (e) {
+      logError("Save request failed in UI", { error: e.message });
+    }
+  }
 
   buttonsRow.appendChild(translateBtn);
   buttonsRow.appendChild(saveBtn);
@@ -163,6 +184,10 @@ export function renderTranslator(state) {
   const rightBtn = screen.querySelector("#lang-right");
 
   leftBtn.addEventListener("click", () => {
+    logInfo("Language swap clicked", {
+      sourceLang: state.sourceLang,
+      targetLang: state.targetLang
+    });
     const tmp = state.sourceLang;
     state.sourceLang = state.targetLang;
     state.targetLang = tmp;

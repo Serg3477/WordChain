@@ -1,0 +1,126 @@
+/* ===============================
+   REGISTER SCREEN (mobile)
+   =============================== */
+
+
+
+.ui-label {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.input-word {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #171717;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-word::placeholder {
+  color: #9a9a9a;
+}
+
+.input-word:focus {
+  border-color: #7e9cff;
+  box-shadow: 0 0 0 3px rgba(126, 156, 255, 0.2);
+}
+
+.ui-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #3a3a3a;
+}
+
+.ui-checkbox input[type="checkbox"] {
+  margin-top: 2px;
+}
+
+.register-submit-slot,
+.register-google-slot {
+  width: 100%;
+}
+
+.ui-user-btn {
+  width: 100%;
+  margin-top: 6px;
+  min-height: 44px;
+  border-radius: 10px;
+}
+
+.divider {
+  position: relative;
+  margin: 4px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%);
+}
+
+.divider span {
+  position: relative;
+  z-index: 1;
+  padding: 0 10px;
+  background: #fff;
+  color: #7a7a7a;
+  font-size: 13px;
+}
+
+.oauth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.oauth-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #666;
+}
+
+.ui-user-link {
+  color: #2e5bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ui-user-link:hover {
+  text-decoration: underline;
+  color: #1f46da;
+}

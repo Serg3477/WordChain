@@ -2,11 +2,15 @@
 @import "./base.css";
 @import "./layout.css";
 @import "./navbar.css";
+@import "./modal.css";
 @import "./desktop.css";
 @import "./mobile.css";
 @import "./animations.css";
 
 @import "./translator.css";
+@import "./dropdownMenu.css";
+@import "./register.css";
+@import "./profile.css";
+
 @import "../ui/baseButton/baseButton.css";
 @import "../ui/erase/eraseInputButton.css";
-@import "./dropdownMenu.css";

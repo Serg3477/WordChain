@@ -5,73 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/.codex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/.github/instructions/code-changes.instructions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/Beige2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/default_user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/1_20251102_073806_0000.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/2_20251102_073806_0001.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/3_20251102_073806_0002.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/4_20251102_073806_0003.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/5_20251102_073806_0004.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/Angeles_20251110_170512_0000.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/WC Words chain_20251030_201557_0000.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/WC_Word_chain.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/WC_Wordchain.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/images/Canva/wc_italy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/logger/logger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/windowManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/windowManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/api/apiClient.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/api/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/sets/getSets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/translator/translate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/user/guest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/features/user/register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/api/guest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/guest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/api/translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/translate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/Black Minimalist Global Tech Logo_20260513_112651_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/assets/icons/White Modern Financial Logo_20260513_113539_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/f.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/f.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/userMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/userMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/accountActionModals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/loginModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/curriculum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/modalBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/modalBase/userMenu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/profileModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/registrationModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/setModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/translateModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/utils/drag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/modals/utils/resize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/breakpoints.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/layout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/modalBase.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modalBase/navbarMenu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/accountActionModals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/profileModal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/setModal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/translateModal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/modals/userSignModal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/utils/resize_corner.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/variables.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/baseButton/baseButton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/baseButton/baseButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/close/closeButton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/close/closeButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/erase/eraseInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/navbar/navbarButtons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/buttons/userMenu/userButton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/langInput/langInput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/langInput/langInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/inputs/wordInput/wordInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/modals/shapeModal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/translator.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/translator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/ui/erase/eraseInputButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/erase/eraseInputButton.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,8 +130,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.23567.174" />
-        <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
       </set>
     </attachedChunks>
   </component>
@@ -268,6 +218,10 @@
       <workItem from="1778401077008" duration="21256000" />
       <workItem from="1778584454482" duration="11331000" />
       <workItem from="1778836255219" duration="839000" />
+      <workItem from="1778846269905" duration="647000" />
+      <workItem from="1778922957842" duration="4785000" />
+      <workItem from="1779002488182" duration="5151000" />
+      <workItem from="1779016748311" duration="1979000" />
     </task>
     <servers />
   </component>

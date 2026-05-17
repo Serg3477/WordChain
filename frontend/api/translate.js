@@ -3,50 +3,83 @@ import { state } from "../../core/state.js";
 import { API_URL } from "../core/config.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
-
 export async function translateWord({ word, sourceLang, targetLang }) {
+  const requestBody = {
+    word,
+    source_lang: state.sourceLang,
+    target_lang: state.targetLang,
+  };
+
+  // Форма запроса (что отправляем)
+  logInfo("Translate request shape", {
+    endpoint: "/translate",
+    method: "POST",
+    bodyShape: Object.keys(requestBody),
+    bodyPreview: requestBody
+  });
 
   try {
     const data = await apiRequest('/translate', {
       method: 'POST',
-      body: {
-        word,
-        source_lang: state.sourceLang,
-        target_lang: state.targetLang,
-      },
+      body: requestBody,
     });
-    logInfo("Translation request sent", { status: data.status });
+    console.log("Translate:  ", data);
 
-    // сохраняем в историю
-    if (state.addToHistory) {
-      state.addToHistory(word);
-    }
+    // Форма ответа (что получили)
+    logInfo("Translate response shape", {
+      status: data?.status ?? null,
+      keys: data ? Object.keys(data) : [],
+      hasTranslation: !!data?.translation,
+      hasTranscription: !!data?.transcription,
+      hasPartOfSpeech: !!data?.part_of_speech
+    });
 
-      console.log('Data:', data);
-      return data;
-
+    if (state.addToHistory) state.addToHistory(word);
+    return data;
   } catch (e) {
-    logError("Translation request failed", { error: e.message });
+    logError("Translate request failed", {
+      endpoint: "/translate",
+      method: "POST",
+      error: e.message
+    });
     throw e;
   }
 }
 
 export async function saveWord(word, result) {
-  try {
-    console.log('URL:', `${API_URL}/saveWord`);
+  const requestBody = {
+    word,
+    translation: result?.translation,
+    transcription: result?.transcription,
+    part_of_speech: result?.part_of_speech,
+  };
 
-    return await apiRequest('/saveWord', {
+  logInfo("SaveWord request shape", {
+    endpoint: "/saveWord",
+    method: "POST",
+    bodyShape: Object.keys(requestBody),
+    bodyPreview: requestBody
+  });
+
+  try {
+    const data = await apiRequest('/saveWord', {
       method: 'POST',
-      body: {
-        word,
-        translation: result.translation,
-        transcription: result.transcription,
-        part_of_speech: result.part_of_speech,
-      },
+      body: requestBody,
     });
-    logInfo("SaveWord request sent", { status: data.status });
+    console.log("Save:  ", data);
+
+    logInfo("SaveWord response shape", {
+      status: data?.status ?? null,
+      keys: data ? Object.keys(data) : []
+    });
+
+    return data;
   } catch (e) {
-    logError("SaveWord request failed", { error: e.message });
+    logError("SaveWord request failed", {
+      endpoint: "/saveWord",
+      method: "POST",
+      error: e.message
+    });
     throw e;
   }
 }

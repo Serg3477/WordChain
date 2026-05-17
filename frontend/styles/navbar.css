@@ -19,19 +19,28 @@
   z-index: 100;
 }
 
-.navbar-left,
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .navbar-title {
   font-size: 18px;
   font-weight: 600;
 }
 
-.navbar-btn {
+.navbar-logo {
+  width: 96px;                    /* размер аватара */
+  height: 96px;
+  display: block;
+  background: none;
+  border: none;
+
+  cursor: pointer;
+  padding: 6px;
+
+  transition: background 0.15s ease;
+}
+
+.navbar-avatar {
+  width: 42px;                    /* размер аватара */
+  height: 42px;
+  display: block;
   background: none;
   border: none;
   font-size: 22px;
@@ -44,3 +53,31 @@
 .navbar-btn:hover {
   background: rgba(0, 0, 0, 0.06);
 }
+
+.navbar-right {
+  display: flex;                  /* горизонтальный layout */
+  align-items: center;            /* центрирование */
+  gap: 8px;                       /* расстояние между элементами */
+  user-select: none;              /* запрет выделения */
+}
+
+.logo {
+  width: 46px;                    /* размер аватара */
+  height: 52px;
+  display: block;
+}
+
+.avatar {
+  width: 32px;                    /* размер аватара */
+  height: 32px;
+  background: white;            /* фон */
+  border-radius: 50%;             /* круг */
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .navbar-title {
+    display: none;                /* скрыть кнопки */
+  }
+}
+

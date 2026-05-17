@@ -1,9 +1,11 @@
+import { initSession, ensureGuestSession } from "./api/guest.js"
 import { createBaseLayout } from "./core/base.js";
 import { windowManager } from "./core/windowManager.js";
 import { subscribe, state } from "./core/state.js";
 import { initLayoutWatcher } from "./core/layoutDetector.js";
 
 import { renderMobile } from "./layouts/mobile/index.js";
+import { createSignOutModal, createDeleteAccountModal } from "./layouts/mobile/components/accountActionModal.js"
 
 
 
@@ -33,3 +35,21 @@ subscribe((state) => {
 
 // 4. Только теперь запускаем layoutDetector
 initLayoutWatcher();
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    await initSession();
+  } catch (error) {
+    console.error("Session init failed:", error);
+    try {
+      await ensureGuestSession();
+    } catch (guestError) {
+      console.error("Guest session fallback failed:", guestError);
+    }
+  }
+});
+
+// Модальные окна
+windowManager.register("signOutModal", createSignOutModal);
+windowManager.register("deleteAccountModal", createDeleteAccountModal);

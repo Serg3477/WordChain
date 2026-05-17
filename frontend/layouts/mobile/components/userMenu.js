@@ -1,7 +1,13 @@
 // ===============================
 // USERMENU — меню аватара и никнейма
 // ===============================
+import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js";
+import { renderRegister } from "./register.js";
+import { renderLogin } from "./login.js";
+import { renderProfile } from "./profile.js";
+
+
 
 export class UserMenu {
   constructor(baseRoot) {
@@ -57,18 +63,18 @@ export class UserMenu {
     document.body.appendChild(this.dropdown);
 
     // логика выбора пункта меню
-    this.dropdown.addEventListener("click", (e) => {
+    this.dropdown.addEventListener("click", async (e) => {
       const item = e.target.closest(".menu-item");
       if (!item) return;
 
       const action = item.dataset.action;
       this.dropdown.classList.add("hidden");
 
-      if (action === "profile") windowManager.open("profileModal");
-      if (action === "registerAccount") windowManager.open("registrationModal");
-      if (action === "loginAccount") windowManager.open("loginModal");
-      if (action === "quitAccount") windowManager.open("signOutModal");
-      if (action === "deleteAccount") windowManager.open("deleteAccountModal");
+      if (action === "profile") {windowManager.pushScreen("profile"); renderProfile(state);};
+      if (action === "registerAccount") {windowManager.pushScreen("register"); renderRegister(state);};
+      if (action === "loginAccount") {windowManager.pushScreen("login"); renderLogin(state);};
+      if (action === "quitAccount") windowManager.open("signOutModal");;
+      if (action === "deleteAccount") windowManager.open("deleteAccountModal");;
     });
 
     // закрытие при клике вне меню

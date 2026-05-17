@@ -18,21 +18,30 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  box-sizing: border-box;
+  min-height: 56px; /* подберите под ваш UI */
 }
 
 .input-placeholder {
-  color: #888;
   font-size: 16px;
-  user-select: none;
-  flex: 1; /* занимает доступную ширину */
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
 }
 
-.input-placeholder.active {
-  color: #222;
+.input-placeholder:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .erase-container {
-  flex: 0 0 auto; /* кнопка всегда справа, не сжимается */
+  flex: 0 0 36px;   /* фиксированная ширина */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* BUTTONS ROW */
@@ -73,11 +82,7 @@
   word-break: break-word;
 }
 
-.result-value-strong {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-}
+
 
 
 /* LANGUAGE SWITCHER */

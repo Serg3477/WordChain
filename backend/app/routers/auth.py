@@ -21,7 +21,7 @@ async def create_guest():
         user = User(
             is_guest=True,
             nickname=nickname,
-            avatar_url="default.png",
+            avatar_url="user-icon.png",
             is_premium=False
         )
         session.add(user)
