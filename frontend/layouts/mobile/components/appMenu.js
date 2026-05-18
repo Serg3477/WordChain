@@ -47,7 +47,7 @@ export class CurriculumMenu {
       this.dropdown.classList.add("hidden");
 
       if (action === "translation") windowManager.pushScreen("translator");
-      if (action === "sets") windowManager.open("setsModal");
+      if (action === "sets") {windowManager.pushScreen("sets"); renderSets(state);};
       if (action === "exams") windowManager.open("examsModal");
     });
 

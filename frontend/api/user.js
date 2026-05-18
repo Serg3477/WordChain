@@ -83,9 +83,7 @@ export async function loginUser(data) {
 }
 
 export async function deleteUser(data) {
-  const requestBody = {
-    email: data.email
-  };
+  const requestBody = data;
 
   logInfo("Delete account request shape", {
     endpoint: "/delete",
@@ -96,7 +94,7 @@ export async function deleteUser(data) {
 
   try {
     const res = await apiRequest("/delete", {
-      method: "POST",
+      method: "DELETE",
       body: requestBody,
     });
     console.log("Login:  ", res);

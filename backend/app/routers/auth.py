@@ -27,14 +27,21 @@ async def create_guest():
         session.add(user)
         await session.commit()
         await session.refresh(user)
-    try:
-        token = create_access_token({"user_id": user.id})
-        backend_logger.success(f"Creating guest token OK: {user.id}")
-    except Exception as e:
-        backend_logger.error(f"Creation guest token failed: {user.id}, error={e}")
-        raise
+        try:
+            token = create_access_token({"user_id": user.id})
+            backend_logger.success(f"Creating guest token OK: {user.id}")
+        except Exception as e:
+            backend_logger.error(f"Creation guest token failed: {user.id}, error={e}")
+            raise
 
-    backend_logger.info(f"Guest user created: ID: {user.id}, nick: {user.nickname}")
+        guest_email = f"{token}@example.com"
+        user.email = guest_email
+
+        # Сохраняем email в БД
+        await session.commit()
+        await session.refresh(user)
+
+    backend_logger.info(f"Guest user created: ID: {user.id}, nick: {user.nickname}, email: {user.email}")
     return {
         "access_token": token,
         "token_type": "bearer",

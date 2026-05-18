@@ -21,6 +21,11 @@ export function renderProfile(state) {
     const user = state.user || {};
     const nickname = user.nickname || "Guest";
     const email = user.email || "example@gmail.com";
+    // email, который показываем пользователю
+    const displayEmail = user.is_guest
+        ? "Guest account (no email)"
+        : email;
+
     const avatarSrc = user.avatar_url
         ? `../../../assets/icons/${user.avatar_url}`
         : "../../../assets/icons/default.png";
@@ -37,7 +42,7 @@ export function renderProfile(state) {
 
                 <div class="profile-identity">
                     <h2 class="profile-name">${nickname}</h2>
-                    <p class="profile-email">${email}</p>
+                    <p class="profile-email">${displayEmail}</p>
                     <span class="profile-badge">Active learner</span>
                 </div>
             </section>
@@ -55,7 +60,7 @@ export function renderProfile(state) {
 
                     <label class="profile-field">
                         <span class="ui-label">Email</span>
-                        <input class="input-word" type="email" value="${email}" placeholder="you@example.com">
+                        <input class="input-word" type="email" value="${displayEmail}" placeholder="you@example.com">
                     </label>
                 </div>
             </section>
@@ -120,6 +125,7 @@ export function renderProfile(state) {
             logInfo("Sign Out button clicked");
             console.log("Sign Out button click");
             windowManager.open("signOutModal");
+            windowManager.back();
         }
     }).render();
 
@@ -132,6 +138,7 @@ export function renderProfile(state) {
             logInfo("Login with Google button clicked");
             console.log("Delete button click");
             windowManager.open("deleteAccountModal");
+            windowManager.back();
         }
     }).render();
 

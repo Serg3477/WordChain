@@ -23,4 +23,4 @@ class Word(Base):
 
     user = relationship("User", back_populates="words")
 
-    sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin")
+    sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin", cascade="all")
