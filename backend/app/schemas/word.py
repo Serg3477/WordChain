@@ -13,10 +13,16 @@ class TranslationRequest(BaseModel):
 
 
 class TranslationResponse(BaseModel):
+    word: str
     translation: str
     transcription: Optional[str] = None
     part_of_speech: Optional[str] = None
 
+class AnyWordRequest(BaseModel):
+    source_lang: str
+
+class AnyWordResponse(BaseModel):
+    word: str
 
 # ---------------------------------------------------------
 # 2. DTO для создания/обновления слова (используется в /saveWord)

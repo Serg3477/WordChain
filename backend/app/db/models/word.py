@@ -10,10 +10,10 @@ class Word(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
-    word = Column(String(100), nullable=False, unique=True)
-    translation = Column(String(255), nullable=False)
-    part_of_speech = Column(String(50))
-    transcription = Column(String(50))
+    word = Column(String(30), nullable=False, unique=True)
+    translation = Column(String(50), nullable=False)
+    part_of_speech = Column(String(20))
+    transcription = Column(String(20))
 
     examples = Column(JSONB, default=list)
     synonyms = Column(JSONB, default=list)

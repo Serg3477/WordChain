@@ -1,7 +1,8 @@
 // ===============================
-// CURRICULUM — меню кнопки Curriculum
+// APP MENU — меню кнопки Logo
 // ===============================
 import { windowManager } from "../../../core/windowManager.js";
+import { renderSets } from "./sets.js";
 
 export class CurriculumMenu {
   constructor(baseRoot) {

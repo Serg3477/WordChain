@@ -1,6 +1,4 @@
-// layouts/mobile/components/translator.js
-
-import { translateWord, saveWord } from "../../../api/translate.js";
+import { translateWord, saveWord, anyWord } from "../../../api/translate.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
@@ -100,64 +98,92 @@ export function renderTranslator(state) {
   // ---------------------------
   const translateBtn = new BaseButton({
     label: "Translate",
-    type: "trans-btn trans-btn-translate ui-btn",
+    type: "ui-btn",
     icon: "🌐",
     action: "click",
     handler: doTranslate
   }).render();
 
   async function doTranslate() {
-    logInfo("Translate button clicked");
-    const word = placeholder.value.trim();
-    if (!word) {
-      logInfo("Translate aborted: empty input");
+  logInfo("Translate button clicked");
+
+  const word = placeholder.value.trim();
+  if (!word) {
+    logInfo("Translate aborted: empty input");
+    return;
+  }
+
+  try {
+    logInfo("Translate request start", {
+      word,
+      sourceLang: state.sourceLang,
+      targetLang: state.targetLang
+    });
+
+    const translationResult = await translateWord({
+      word,
+      sourceLang: "en",
+      targetLang: "ru"
+    });
+
+    if (!translationResult || !translationResult.word) {
+      logError("Translate returned invalid payload", { translationResult });
       return;
     }
 
-    try {
-      logInfo("Translate request start", {
-        word,
-        sourceLang: state.sourceLang,
-        targetLang: state.targetLang
-      });
-      result = await translateWord({
-        word,
-        sourceLang: "en",
-        targetLang: "ru"
-      });
-      logInfo("Translate request success", {
-        hasTranslation: !!result?.translation
-      });
-    } catch (e) {
-      logError("Translate request failed in UI", { error: e.message });
+    translationResult.part_of_speech = String(translationResult.part_of_speech ?? "")
+      .split("\n")[0]
+      .replace(/[^a-zA-Zа-яА-ЯёЁ]/g, " ")
+      .trim()
+      .toLowerCase();
+
+    result = translationResult;
+
+    const targetLanguageLabel = getLanguageLabel(state.targetLang);
+    const isSameWord = result.word === word;
+    const correctLabel = isSameWord
+      ? "Translation of:"
+      : "The correct spelling of this word is:";
+    const correctWord = isSameWord ? word : result.word;
+
+    placeholder.value = result.word;
+
+    if (result.translation) {
+      output.innerHTML = `
+        <div class="result-item">
+          <div class="result-label">${correctLabel}</div>
+          <div class="result-value result-value-strong">${correctWord ?? ""}</div>
+        </div><br>
+        <div class="result-item">
+          <div class="result-label">Translation: ${targetLanguageLabel}:</div>
+          <div class="result-value result-value-strong">${result.translation ?? ""}</div>
+        </div><br>
+        <div class="result-item">
+          <div class="result-label">Transcription:</div>
+          <div class="result-value">${result.transcription ?? ""}</div>
+        </div><br>
+        <div class="result-item">
+          <div class="result-label">Part of speech:</div>
+          <div class="result-value">${result.part_of_speech ?? ""}</div>
+        </div><br>
+      `;
     }
 
-      const targetLanguageLabel = getLanguageLabel(state.targetLang);
-
-      if (result?.translation) {
-        output.innerHTML = `
-      <div class="result-item">
-        <div class="result-label">Translation: ${targetLanguageLabel}:</div>
-        <div class="result-value result-value-strong">${result.translation ?? ""}</div>
-      </div><br>
-      <div class="result-item">
-        <div class="result-label">Transcription:</div>
-        <div class="result-value">${result.transcription ?? ""}</div>
-      </div><br>
-      <div class="result-item">
-        <div class="result-label">Part of speech:</div>
-        <div class="result-value">${result.part_of_speech ?? ""}</div>
-      </div><br>
-    `;
-      }
+    logInfo("Translate request success", {
+      hasTranslation: !!result.translation
+    });
+  } catch (e) {
+    logError("Translate request failed in UI", { error: e.message });
+    return;
   }
+}
  
   // ---------------------------
   // КНОПКА SAVE
   // ---------------------------
   const saveBtn = new BaseButton({
     label: "Save",
-    type: "trans-btn trans-btn-save ui-btn",
+    type: "ui-btn",
     icon: "💾",
     action: "click",
     handler: doSave
@@ -167,15 +193,39 @@ export function renderTranslator(state) {
     logInfo("Save button clicked", { hasResult: !!result });
     if (!result) return;
     try {
-      await saveWord(placeholder.value.trim(), result);
+      await saveWord(result);
       logInfo("Save request success");
     } catch (e) {
       logError("Save request failed in UI", { error: e.message });
     }
   }
 
+  // ---------------------------
+  // КНОПКА ANY WORD
+  // ---------------------------
+  const anyWordBtn = new BaseButton({
+    label: "Any Word",
+    type: "ui-btn",
+    icon: "",
+    action: "click",
+    handler: doAnyWord
+  }).render();
+
+  async function doAnyWord() {
+    logInfo("Any Word button clicked", { hasResult: !!result });
+    const language = getLanguageLabel(state.sourceLang);
+    try {
+      const data = await anyWord(language);
+      logInfo("Any Word request success");
+      placeholder.value = data.word;
+    } catch (e) {
+      logError("Any Word request failed in UI", { error: e.message });
+    }
+  }
+
   buttonsRow.appendChild(translateBtn);
   buttonsRow.appendChild(saveBtn);
+  buttonsRow.appendChild(anyWordBtn)
 
   // ---------------------------
   // ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ

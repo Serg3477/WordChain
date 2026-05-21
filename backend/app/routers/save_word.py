@@ -15,8 +15,9 @@ save_router = APIRouter()
 async def save_word(
     result: WordBase,
     user = Depends(get_current_user),
-
 ):
+    print("SAVE_WORD BODY:", result.dict())
+    print("USER:", user)
     backend_logger.info(f"Saving attempt: {result.word}")
     # сохраняем в БД
     try:

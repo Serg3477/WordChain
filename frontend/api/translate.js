@@ -46,9 +46,9 @@ export async function translateWord({ word, sourceLang, targetLang }) {
   }
 }
 
-export async function saveWord(word, result) {
+export async function saveWord(result) {
   const requestBody = {
-    word,
+    word: result.word,
     translation: result?.translation,
     transcription: result?.transcription,
     part_of_speech: result?.part_of_speech,
@@ -77,6 +77,41 @@ export async function saveWord(word, result) {
   } catch (e) {
     logError("SaveWord request failed", {
       endpoint: "/saveWord",
+      method: "POST",
+      error: e.message
+    });
+    throw e;
+  }
+}
+
+export async function anyWord( lang ) {
+  const requestBody = {
+    source_lang: lang,
+  };
+
+  logInfo("Any Word request shape", {
+    endpoint: "/anyWord",
+    method: "POST",
+    bodyShape: Object.keys(requestBody),
+    bodyPreview: requestBody
+  });
+
+  try {
+    const data = await apiRequest('/anyWord', {
+      method: 'POST',
+      body: requestBody,
+    });
+    console.log("Any Word:  ", data);
+
+    logInfo("Any Word response shape", {
+      status: data?.status ?? null,
+      keys: data ? Object.keys(data) : []
+    });
+
+    return data;
+  } catch (e) {
+    logError("Any Word request failed", {
+      endpoint: "/anyWord",
       method: "POST",
       error: e.message
     });

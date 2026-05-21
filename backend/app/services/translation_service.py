@@ -8,18 +8,25 @@ from openai import AsyncOpenAI
 from redis.asyncio import Redis
 
 from app.db.config import settings
+from app.utils.atomic_cache import AtomicCache
+from app.utils.word_unrepeat_cache import generate_any_word
+
 
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 
 redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
 # redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
 
-
-MODEL = "gpt-4o-mini"
+MODEL = "gpt-5.4-mini"
 TTL_FULL = 60 * 60 * 24 * 30
 TTL_PARTS = 60 * 60 * 24 * 30
 
-# TODO: добавить нормализацию слов (убрать лишние пробелы, знаки препинания в конце, привести к нижнему регистру)
+cache = AtomicCache(redis, default_ttl=TTL_PARTS)
+
+
+# -----------------------------
+# Normalization helpers
+# -----------------------------
 def _normalize_word(word: str) -> str:
     value = unicodedata.normalize("NFKC", word or "")
     value = value.strip().lower()
@@ -27,7 +34,7 @@ def _normalize_word(word: str) -> str:
     value = value.rstrip("!?.,;:")
     return value
 
-# TODO: добавить нормализацию языков (en, eng, english -> en; ru, rus, рус -> ru)
+
 def _normalize_lang(lang: str, default: str = "auto") -> str:
     aliases = {
         "eng": "en",
@@ -40,7 +47,10 @@ def _normalize_lang(lang: str, default: str = "auto") -> str:
         return default
     return aliases.get(value, value)
 
-# TODO: добавить обработку ошибок от OpenAI (например, если модель не может перевести слово, или если превышен лимит токенов)
+
+# -----------------------------
+# OpenAI wrapper
+# -----------------------------
 async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
     resp = await client.responses.create(
         model=MODEL,
@@ -49,16 +59,12 @@ async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
     )
     return (resp.output_text or "").strip()
 
-# TODO: добавить кэширование в Redis для каждого из запросов (перевод, транскрипция, часть речи), а также для полного результата. Ключи должны быть уникальными для каждой комбинации слова и языков. TTL для кэша можно установить в 30 дней.
-async def _get_or_set(key: str, producer, ttl: int):
-    cached = await redis.get(key)
-    if cached is not None:
-        return json.loads(cached)
-    value = await producer()
-    await redis.set(key, json.dumps(value, ensure_ascii=False), ex=ttl)
-    return value
 
 
+
+# -----------------------------
+# Main translation function
+# -----------------------------
 async def translate_word(word: str, source_lang: str, target_lang: str):
     if not target_lang:
         raise HTTPException(400, "Target language is required")
@@ -69,6 +75,9 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
     tgt = _normalize_lang(target_lang, default="ru")
     norm_word = _normalize_word(word)
 
+    # -----------------------------
+    # 1. FULL RESULT CACHE
+    # -----------------------------
     base_key = f"translate:v2:{src}:{tgt}:{norm_word}"
     full_key = f"{base_key}:full"
 
@@ -76,47 +85,90 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
     if full_cached:
         return json.loads(full_cached)
 
-    translation_key = f"{base_key}:translation"
-    transcription_key = f"{base_key}:transcription"
-    pos_key = f"{base_key}:part_of_speech"
-
+    # -----------------------------
+    # 2. PRODUCERS
+    # -----------------------------
+    async def produce_correctness():
+        prompt = (
+            f"Check the spelling of the '{norm_word}' in {src}. "
+            f"Return only the corrected word, or '{norm_word}' if already correct. No explanations."
+        )
+        return await _ask_text(prompt, max_tokens=20)
 
     async def produce_translation():
         prompt = (
-            f"Make several possible translations (no more 6 translations, separated by comas) of word for all parts of speech '{norm_word}' from {src} to {tgt}. "
-            f"Return only translated word or short phrase, no explanations."
+            f"Make several possible translations (max 6, comma-separated) of '{norm_word}' "
+            f"from {src} to {tgt}. Return only translations, no explanations."
         )
-        text = await _ask_text(prompt, max_tokens=50)
-        return text
+        return await _ask_text(prompt, max_tokens=50)
 
     async def produce_transcription():
         prompt = (
-            f"Provide IPA transcription for the word '{norm_word}' in {src}. "
-            f"Return only transcription string, no explanations, no slashes."
+            f"Provide IPA transcription for '{norm_word}' in {src}. "
+            f"Return only transcription, no slashes, no explanations."
         )
         return await _ask_text(prompt, max_tokens=20)
 
     async def produce_part_of_speech():
         prompt = (
-            f"Determine part of speech (or several parts of speech separated by ' / ') for word '{norm_word}' in {src}. "
-            f"Return only one short value like noun/verb/adjective."
+            f"Determine part of speech and return only short value like noun/verb/adjective/etc  for '{norm_word}' in {src}. "
         )
-        text = await _ask_text(prompt, max_tokens=20)
-        return text
+        return await _ask_text(prompt, max_tokens=20)
 
-
-    # TODO: оптимизировать параллельные запросы к Redis, чтобы не ждать последовательно каждый из них. Можно использовать asyncio.gather для одновременного получения всех трёх частей (перевод, транскрипция, часть речи) из кэша, а если чего-то нет, то запустить соответствующий producer.
-    translation, transcription, part_of_speech = await asyncio.gather(
-        _get_or_set(translation_key, produce_translation, TTL_PARTS),
-        _get_or_set(transcription_key, produce_transcription, TTL_PARTS),
-        _get_or_set(pos_key, produce_part_of_speech, TTL_PARTS),
+    # -----------------------------
+    # REDIS. FIRST: CORRECTNESS
+    # -----------------------------
+    correctness_key = f"{base_key}:v2:correctness"
+    correctness = await cache.get_or_set(
+        correctness_key,
+        produce_correctness,
+        ttl=TTL_PARTS
     )
 
+    # If corrected → update norm_word and rebuild keys
+    if correctness and correctness != norm_word:
+        norm_word = correctness.strip()
+        base_key = f"translate:v2:{src}:{tgt}:{norm_word}"
+
+    # -----------------------------
+    # REDIS. KEYS FOR OTHER PARTS
+    # -----------------------------
+    translation_key = f"{base_key}:translation"
+    transcription_key = f"{base_key}:transcription"
+    pos_key = f"{base_key}:part_of_speech"
+
+    # -----------------------------
+    # REDIS. PARALLEL FETCH (ATOMIC)
+    # -----------------------------
+    translation, transcription, part_of_speech = await asyncio.gather(
+        cache.get_or_set(translation_key, produce_translation, TTL_PARTS),
+        cache.get_or_set(transcription_key, produce_transcription, TTL_PARTS),
+        cache.get_or_set(pos_key, produce_part_of_speech, TTL_PARTS),
+    )
+
+    # -----------------------------
+    # FINAL RESULT
+    # -----------------------------
     result = {
+        "word": correctness or "",
         "translation": translation or "",
         "transcription": transcription or "",
         "part_of_speech": part_of_speech or "",
     }
-
     await redis.set(full_key, json.dumps(result, ensure_ascii=False), ex=TTL_FULL)
     return result
+
+
+    # -----------------------------
+    # Get Any Word function
+    # -----------------------------
+async def get_any_word(req):
+    if not req:
+        raise HTTPException(400, "Source language is required")
+    return await generate_any_word(
+        source_lang=req,
+        redis=redis,
+        client=client,
+        model=MODEL,
+        )
+
