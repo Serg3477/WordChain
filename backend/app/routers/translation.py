@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.schemas.word import TranslationRequest, TranslationResponse
-from app.services.translation_service import translate_word
+from app.services.word_service import translate_word
 from app.logger.logger import backend_logger
 
 translation_router = APIRouter()

@@ -19,6 +19,7 @@ export function renderMobile(state) {
       <div data-screen="login" style="display:none"></div>
       <div data-screen="sets" style="display:none"></div>
       <div data-screen="exams" style="display:none"></div>
+      <div data-screen="word" style="display:none"></div>
     </div>
   `;
 

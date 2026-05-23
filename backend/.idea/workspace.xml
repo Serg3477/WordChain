@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/api/translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/translate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +212,9 @@
       <workItem from="1779189682980" duration="9451000" />
       <workItem from="1779200762577" duration="6334000" />
       <workItem from="1779260128066" duration="12621000" />
-      <workItem from="1779365461581" duration="825000" />
+      <workItem from="1779365461581" duration="8631000" />
+      <workItem from="1779431170354" duration="12691000" />
+      <workItem from="1779515905674" duration="20462000" />
     </task>
     <servers />
   </component>

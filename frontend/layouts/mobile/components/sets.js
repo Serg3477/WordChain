@@ -1,6 +1,8 @@
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { getSets, getWordsFromSet } from "../../../api/sets.js";
+import { renderWord } from "./word.js";
+import { windowManager } from "../../../core/windowManager.js";
 
 export function renderSets(state) {
   logInfo("Sets screen render start");
@@ -19,9 +21,6 @@ export function renderSets(state) {
   const container = screen.querySelector(".sets-container");
   loadSets(container);
 
-  // ============================================================================
-  //  ЗАГРУЗКА СПИСКА СЕТОВ
-  // ============================================================================
   async function loadSets(container) {
     const sets = await getSets();
 
@@ -53,21 +52,18 @@ export function renderSets(state) {
         const isOpen = !wordsList.classList.contains("hidden");
 
         if (isOpen) {
-          // свернуть
           wordsList.classList.add("hidden");
           arrow.classList.remove("open");
           return;
         }
 
-        // раскрыть
         arrow.classList.add("open");
 
-        // если слова ещё не загружены — грузим
         if (!wordsList.dataset.loaded) {
           const words = await getWordsFromSet(set);
 
           wordsList.innerHTML = words
-            .map(w => `<li class="word-item">${w.word}</li>`)
+            .map(w => `<li class="word-item" data-word="${w.word}">${w.word}</li>`)
             .join("");
 
           wordsList.dataset.loaded = "true";
@@ -76,9 +72,31 @@ export function renderSets(state) {
         wordsList.classList.remove("hidden");
       });
 
+      wordsList.addEventListener("click", async (event) => {
+        const wordItem = event.target.closest(".word-item");
+        if (!wordItem) return;
+
+        const word = wordItem.dataset.word;
+        await onWordClick(word);
+      });
+
       list.appendChild(li);
     });
 
     container.appendChild(list);
+  }
+
+  async function onWordClick(word) {
+    try {
+      logInfo(`Word ${ word } clicked`, { word });
+      windowManager.pushScreen("word"); 
+      const data = await renderWord(state, word);
+      logInfo("Word details loaded", { word, hasData: !!data });
+
+      // Здесь дальше делай нужное отображение ответа
+      // console.log("Word details:", data);
+    } catch (e) {
+      logError("Word details request failed", { word, error: e.message });
+    }
   }
 }

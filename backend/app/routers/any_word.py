@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.schemas.word import AnyWordRequest, AnyWordResponse
-from app.services.translation_service import get_any_word
+from app.services.word_service import get_any_word
 from app.logger.logger import backend_logger
 
 anyword_router = APIRouter()

@@ -1,0 +1,87 @@
+
+.word-screen {
+    margin: 20px 10px 10px 20px;
+    user-select: none;
+    padding-bottom: 110px; /* чтобы текст не уходил под панель */
+}
+
+.word-bottom-nav {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  background: #fff;
+  z-index: 50;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.14),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+
+  scrollbar-width: none;         /* Firefox */
+}
+.word-bottom-nav::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari */
+}
+
+.word-nav-btn {
+  flex: 0 0 auto;                /* ширина по контенту */
+  width: auto;
+  min-width: max-content;
+  padding: 0 16px;               /* нормальная ширина по тексту */
+  height: 42px;
+
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  color: #1f2937;
+  font-weight: 600;
+  cursor: pointer;
+
+  scroll-snap-align: start;
+}
+
+.result-label-synonyms {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.result-label-antonyms {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.result-label-sentences {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.result-label-better-translation {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}

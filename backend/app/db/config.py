@@ -12,6 +12,7 @@ class Settings(BaseSettings):
 
     SECRET_KEY: str
     OPENAI_API_KEY: str
+    MODEL: str
 
     @property
     def database_url(self):

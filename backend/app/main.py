@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.db.init_db import init_models
 from app.logger.logger import backend_logger
 from app.logger.logging_intercept import setup_sqlalchemy_logging
-from app.routers.any_word import anyword_router
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
@@ -16,6 +15,7 @@ from app.routers.logs import logs_router
 from app.routers.get_sets import sets_router
 from app.routers.get_words_from_set import words_from_set_router
 from app.routers.any_word import anyword_router
+from app.routers.get_word import read_router, get_better_translation_router, get_synonyms_router, get_antonyms_router, get_sentences_router
 
 app = FastAPI(
     title="WordChain",
@@ -57,6 +57,11 @@ app.include_router(save_router)
 app.include_router(sets_router)
 app.include_router(words_from_set_router)
 app.include_router(anyword_router)
+app.include_router(read_router)
+app.include_router(get_better_translation_router)
+app.include_router(get_synonyms_router)
+app.include_router(get_antonyms_router)
+app.include_router(get_sentences_router)
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")

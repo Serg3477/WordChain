@@ -12,6 +12,7 @@
 @import "./register.css";
 @import "./profile.css";
 @import "./sets.css";
+@import "./word.css";
 
 @import "../ui/baseButton/baseButton.css";
 @import "../ui/erase/eraseInputButton.css";
