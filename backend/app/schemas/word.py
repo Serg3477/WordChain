@@ -6,9 +6,19 @@ from datetime import datetime
 # -----------------------------
 # 0. Базовые типы и общие поля
 # -----------------------------
+class TranslationJSON(BaseModel):
+    definite_translation: List[str] = Field(default_factory=list)
+    plural: Optional[str] = None
+    verb_forms: List[str] = Field(default_factory=list)
+    passive_form: Optional[str] = None
+    phrasal_verbs: List[str] = Field(default_factory=list)
+    usage_notes: Optional[str] = None
+
+
 class WordBase(BaseModel):
     word: str = Field(..., max_length=100)
     translation: str = Field(..., max_length=255)
+    translation_json: Optional[TranslationJSON] = TranslationJSON()
     part_of_speech: Optional[str] = Field(None, max_length=50)
     transcription: Optional[str] = Field(None, max_length=50)
 
@@ -23,13 +33,18 @@ class WordCreate(WordBase):
 
 
 class WordUpdate(BaseModel):
-    word: Optional[str] = None
+    user_id: int
+    word: str
     translation: Optional[str] = None
+    translation_json: Optional[TranslationJSON] = None
     part_of_speech: Optional[str] = None
     transcription: Optional[str] = None
     examples: Optional[List[str]] = None
     synonyms: Optional[List[str]] = None
     antonyms: Optional[List[str]] = None
+
+    class Config:
+        from_attributes = True
 
 
 # -----------------------------
@@ -43,7 +58,8 @@ class TranslationRequest(BaseModel):
 
 class TranslationResponse(BaseModel):
     word: str
-    translation: str
+    translation: str = None
+    translation_json: Optional[TranslationJSON] = None
     transcription: Optional[str] = None
     part_of_speech: Optional[str] = None
 
@@ -59,11 +75,12 @@ class WordReadRequest(BaseModel):
 class WordReadResponse(BaseModel):
     word: str
     translation: Optional[str] = None
+    translation_json: Optional[TranslationJSON] = None
     part_of_speech: Optional[str] = None
     transcription: Optional[str] = None
-    examples: Optional[List[str]] = None
-    synonyms: Optional[List[str]] = None
-    antonyms: Optional[List[str]] = None
+    examples: List[str] = Field(default_factory=list)
+    synonyms: List[str] = Field(default_factory=list)
+    antonyms: List[str] = Field(default_factory=list)
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 

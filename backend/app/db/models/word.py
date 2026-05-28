@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import JSONB, ARRAY
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
@@ -11,6 +11,7 @@ class Word(Base):
 
     word = Column(String(30), nullable=False, unique=True)
     translation = Column(String(300), nullable=False)
+    translation_json = Column(JSONB, nullable=True)
     part_of_speech = Column(String(50))
     transcription = Column(String(50))
 
@@ -23,3 +24,6 @@ class Word(Base):
 
     user = relationship("User", back_populates="words")
     sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin", cascade="all")
+
+
+

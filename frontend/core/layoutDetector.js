@@ -1,9 +1,35 @@
 // core/layoutDetector.js
+
+
+// import { setState } from "./state.js";
+
+// export function detectLayout() {
+//   const w = window.innerWidth;
+//   return w < 600 ? "mobile" : "desktop";
+// }
+
+// export function initLayoutWatcher() {
+//   function update() {
+//     const layout = detectLayout();
+//     setState({ layout });
+//   }
+
+//   window.addEventListener("resize", update);
+//   update();
+// }
+
+
+// core/layoutDetector.js
 import { setState } from "./state.js";
 
 export function detectLayout() {
-  const w = window.innerWidth;
-  return w < 600 ? "mobile" : "desktop";
+  // primary: по ширине вьюпорта
+  if (window.matchMedia && window.matchMedia("(max-width: 600px)").matches) {
+    return "mobile";
+  }
+  // fallback по userAgent (на случай, если viewport не применился)
+  const uaMobile = /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+  return uaMobile ? "mobile" : "desktop";
 }
 
 export function initLayoutWatcher() {
@@ -12,6 +38,15 @@ export function initLayoutWatcher() {
     setState({ layout });
   }
 
+  // слушаем изменения ширины
+  if (window.matchMedia) {
+    const mq = window.matchMedia("(max-width: 600px)");
+    // modern browsers
+    if (mq.addEventListener) mq.addEventListener("change", update);
+    else mq.addListener(update);
+  }
   window.addEventListener("resize", update);
+  // сразу вычисляем
   update();
 }
+

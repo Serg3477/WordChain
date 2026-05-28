@@ -25,6 +25,28 @@ export const state = {
     this.notify("languages");
   },
 
+  // --- WORD --- 
+  currentWord: {
+    "user_id": "",
+    "word": "",
+    "translation": "",
+    "transcription": "",
+    "part_of_speech": "",
+    "translation_json": {
+      "definite_translation": [],
+      "plural": "-",
+      "verb_forms": [],
+      "passive_form": "-",
+      "phrasal_verbs": []
+    },
+    "examples": [],
+    "synonyms": [],
+    "antonyms": []
+  },
+  setField(key, value) {
+    this.currentWord[key] = value;
+  },
+
   // --- HISTORY ---
   history: [],
 

@@ -53,3 +53,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Модальные окна
 windowManager.register("signOutModal", createSignOutModal);
 windowManager.register("deleteAccountModal", createDeleteAccountModal);
+
+
+// универсальный debug: ловим любые focus/blur на документе
+// document.addEventListener('focusin', (e) => {
+//   console.log('FOCUSIN target:', e.target);
+// }, true);
+
+// document.addEventListener('focusout', (e) => {
+//   console.log('FOCUSOUT target:', e.target, 'activeElement:', document.activeElement);
+//   console.trace();
+// }, true);
+
+// console.log('Global focus debug attached');
+
+
+

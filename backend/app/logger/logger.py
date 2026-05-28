@@ -17,17 +17,8 @@ logger.add(
 )
 
 # Отдельный файл для логов фронтенда
-logger.add(
-    f"{LOG_DIR}/frontend.log",
-    rotation="10 MB",
-    retention="10 days",
-    compression="zip",
-    enqueue=True,
-    level="INFO"
-)
-# Режим - всё в одном файле
 # logger.add(
-#     "logs/all.log",
+#     f"{LOG_DIR}/frontend.log",
 #     rotation="10 MB",
 #     retention="10 days",
 #     compression="zip",
@@ -36,5 +27,14 @@ logger.add(
 # )
 
 
+# Режим - всё в одном файле
+logger.add(
+    f"{LOG_DIR}/all.log",
+    rotation="10 MB",
+    retention="10 days",
+    compression="zip",
+    enqueue=True,
+    level="INFO"
+)
 backend_logger = logger.bind(source="backend")
 frontend_logger = logger.bind(source="frontend")

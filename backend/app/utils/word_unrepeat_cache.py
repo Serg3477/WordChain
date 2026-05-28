@@ -6,6 +6,13 @@ import re
 from fastapi import HTTPException
 from redis.asyncio import Redis
 from openai import AsyncOpenAI
+from app.db.config import settings
+
+
+DEFAULT_CLIENT = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+DEFAULT_REDIS = Redis.from_url("redis://localhost:6379", decode_responses=True)
+DEFAULT_MODEL = "gpt-4o-mini"
+
 
 ANY_WORD_HISTORY_KEY = "any_word:history"
 ANY_WORD_HISTORY_SIZE = 30
@@ -38,13 +45,19 @@ async def _ask_text(client: AsyncOpenAI, model: str, prompt: str, max_tokens: in
 async def generate_any_word(
     *,
     source_lang: str,
-    redis: Redis,
-    client: AsyncOpenAI,
-    model: str = "gpt-4o-mini",
+    redis: Redis | None = None,
+    client: AsyncOpenAI | None = None,
+    model: str | None = None,
     retries: int = 3,
 ) -> dict:
+    # подставляем дефолты, если не переданы
+    redis = redis or DEFAULT_REDIS
+    client = client or DEFAULT_CLIENT
+    model = model or DEFAULT_MODEL
+
+
     if not source_lang:
-        raise HTTPException(400, "Source language is required")
+            raise HTTPException(400, "Source language is required")
 
     recent_words = await _get_recent_words(redis)
     banned = ", ".join(recent_words) if recent_words else "none"
@@ -72,3 +85,4 @@ async def generate_any_word(
         return {"word": candidate}
 
     raise HTTPException(502, "Failed to generate a non-repeating word")
+

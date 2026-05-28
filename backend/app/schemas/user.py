@@ -27,6 +27,7 @@ class LoginRequest(BaseModel):
 
 
 class LoginResponse(BaseModel):
+    id: int
     nickname: str
     avatar_url: Optional[str] = None
     email: str

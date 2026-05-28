@@ -39,6 +39,7 @@ async def login(req: LoginRequest):
         backend_logger.success(f"User logged in: {user.id} - {user.nickname}")
 
         return  LoginResponse(
+            id=user.id,
             nickname=user.nickname,
             avatar_url=user.avatar_url,
             email=user.email,

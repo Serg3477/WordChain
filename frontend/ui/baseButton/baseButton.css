@@ -21,8 +21,13 @@
 
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-
+  outline: none;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.ui-btn.active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(15,23,42,0.14);
 }
 
 /* Иконка */
@@ -46,6 +51,8 @@
   transform: scale(0);
   animation: ripple 0.6s ease-out;
   pointer-events: none;  
+  left: 0;
+  top: 0;
 }
 
 @keyframes ripple {

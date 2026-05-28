@@ -110,6 +110,7 @@ export function renderLogin(state) {
             if (formLog.remember_me.checked) localStorage.setItem("token", res.token)
             else sessionStorage.setItem("token", res.token);
             state.setUser({
+                id: res.id,
                 nickname: res.nickname,
                 avatar_url: res.avatar_url,
                 email: res.email,

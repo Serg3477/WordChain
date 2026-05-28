@@ -255,3 +255,12 @@ export function renderTranslator(state) {
     rightBtn.textContent = state.targetLang;
   });
 }
+
+// универсальный debug: ловим любые focus/blur на документе
+// document.addEventListener('touchstart', function t(e){
+//   const x = e.touches[0].clientX, y = e.touches[0].clientY;
+//   console.log('touch at', x, y, 'elementFromPoint:', document.elementFromPoint(x,y));
+//   document.removeEventListener('touchstart', t);
+// }, {passive:true});
+
+

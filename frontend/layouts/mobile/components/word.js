@@ -1,9 +1,14 @@
 import { windowManager } from "../../../core/windowManager.js";
 import { state } from "../../../core/state.js";
-import { wordRequest, betterTransRequest } from "../../../api/word.js"
+import { wordRequest, betterTransRequest, wordUpdateRequest } from "../../../api/word.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { translateWord } from "../../../api/translate.js";
+import { createScrollButtonsArea } from "../../../ui/scrollButtonsArea/scrollButtonsArea.js"
+
+
+
+
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -73,16 +78,23 @@ export async function renderWord(state, word) {
   try {
     logInfo("Word request start", {
       endpoint: "/get_word",
+      method: "POST",
       word: word,
       user_id: state.user.id,
-      languge: "",
     });
 
     result = await wordRequest({
       endpoint: "/get_word",
+      method: "POST",
       word,
       user_id: state.user.id,
     });
+    state.setField('user_id', state.user.id);
+    state.setField('word', result.word);
+    state.setField('translation', result.translation);
+    state.setField('transcription', result.transcription);
+    state.setField('part_of_speech', result.part_of_speech);
+
 
   } catch (e) {
     logError("Word request failed in UI", { error: e.message });
@@ -108,7 +120,7 @@ export async function renderWord(state, word) {
         <!-- TRANSLATION FIELD -->
         <div class="result-item">
           <div class="result-label">Translation: ${escapeHtml(targetLanguageLabel)}:</div>
-          <div class="result-value-translation result-value-strong">${escapeHtml(translationText)}</div>
+          <div class="result-value result-value-strong">${escapeHtml(translationText)}</div>
         </div><br>
 
         <!-- TRANSCRIPTION FIELD -->
@@ -141,17 +153,17 @@ export async function renderWord(state, word) {
           <div class="result-value result-value-examples"></div>
         </div><br>
 
-        <!-- SENTENCES FIELD -->
+        <!-- BETTER TRANSLATION FIELD -->
         <div class="result-item">
           <div class="result-label-better-translation hidden">Better translation:</div>
           <div class="result-value result-value-better-translation"></div>
         </div><br>
-
     </div>
   `;
 
-  const nav = document.createElement("div");
-  nav.className = "word-bottom-nav";
+  // Добавление BOTTOM NAVBAR
+  const area = createScrollButtonsArea({ id: "global-scroll-buttons-area" });
+  area.mount();
 
   const saveBtn = new BaseButton({
     label: "Save",
@@ -159,7 +171,17 @@ export async function renderWord(state, word) {
     icon: "💾",
     action: "click",
     handler: async () => {
-      // TODO prev word
+      try {
+        const result = await wordUpdateRequest({
+          endpoint: "/update_word",
+          method: "PUT",
+          currentWord: state.currentWord
+        });
+        logInfo("Update Word success", { result });
+
+      } catch (e) {
+        logError("Update Word failed", { error: e.message });
+      }
     }
   }).render();
 
@@ -173,33 +195,86 @@ export async function renderWord(state, word) {
       try {
         const result = await betterTransRequest({
           endpoint: "/get_better_translation",
+          method: "POST",
           word,
           sourceLang: "en",
           targetLang: "ru"
         });
 
-        // raw — строка вида "noun, verb ... | множественное число - suits | формы глагола - ... | примеры - ... | related words - ..."
-        const raw = (result.translation ?? res.result?.translation ?? "").trim();
-
-        // разбиваем по '|' и очищаем
-        const parts = raw.split("|").map(s => s.trim()).filter(Boolean);
-
-        // контейнер в твоём HTML
         const container = document.querySelector('.result-value-better-translation');
         container.innerHTML = '';
 
-        // создаём <ul> и добавляем <li> для каждой части
-        const ul = document.createElement('ul');
-        for (const part of parts) {
-          const li = document.createElement('li');
-          li.textContent = part;
-          ul.appendChild(li);
+        // helper: create label + item pair
+        function makeLabel(text) {
+          const label = document.createElement('label');
+          label.classList.add('result-label');
+          label.textContent = text;
+          return label;
         }
-        container.appendChild(ul);
+        function makeItem(text) {
+          const div = document.createElement('div');
+          div.classList.add('result-item');
+          div.textContent = text;
+          return div;
+        }
 
-      
+        // safety: ensure translation_json exists
+        const tj = result && result.translation_json ? result.translation_json : {
+          definite_translation: [],
+          plural: '-',
+          verb_forms: [],
+          passive_form: '-',
+          phrasal_verbs: []
+        };
+
+        // 1) Translations by POS
+        if (Array.isArray(tj.definite_translation) && tj.definite_translation.length) {
+          container.appendChild(makeLabel('Translation by parts of speech:'));
+          const ul = document.createElement('ul');
+          for (const part of tj.definite_translation) {
+            const li = document.createElement('li');
+            li.textContent = part;
+            ul.appendChild(li);
+          }
+          container.appendChild(ul);
+        }
+
+        // 2) Plural
+        if (tj.plural && tj.plural !== '-') {
+          container.appendChild(makeLabel('Plural form:'));
+          container.appendChild(makeItem(tj.plural));
+        }
+
+        // 3) Verb forms
+        if (Array.isArray(tj.verb_forms) && tj.verb_forms.length) {
+          container.appendChild(makeLabel('Verb forms:'));
+          // render as comma-separated or as list
+          container.appendChild(makeItem(tj.verb_forms.join(', ')));
+        }
+
+        // 4) Passive form
+        if (tj.passive_form && tj.passive_form !== '-') {
+          container.appendChild(makeLabel('Passive form:'));
+          container.appendChild(makeItem(tj.passive_form));
+        }
+
+        // 5) Phrasal verbs
+        if (Array.isArray(tj.phrasal_verbs) && tj.phrasal_verbs.length) {
+          container.appendChild(makeLabel('Phrasal verbs:'));
+          const ul2 = document.createElement('ul');
+          for (const pv of tj.phrasal_verbs) {
+            const li = document.createElement('li');
+            li.textContent = pv;
+            ul2.appendChild(li);
+          }
+          container.appendChild(ul2);
+        }
+
         document.querySelector('.result-label-better-translation').classList.remove('hidden');
         logInfo("Better translation result", { result });
+
+        state.setField('translation_json', result.translation_json);
+
       } catch (e) {
         logError("Better translation failed", { error: e.message });
       }
@@ -215,12 +290,16 @@ export async function renderWord(state, word) {
       try {
         const res = await wordRequest({
           endpoint: "/get_synonyms",
+          method: "POST",
           word,
           user_id: state.user.id,
         });
         const list = Array.isArray(res.synonyms) ? res.synonyms : (res.synonyms ? String(res.synonyms).split(",").map(s => s.trim()) : []);
         document.querySelector('.result-value-synonyms').textContent = list.join(", ");
         document.querySelector('.result-label-synonyms').classList.remove('hidden');
+
+        state.setField('synonyms', res.synonyms);
+
       } catch (e) {
         logError("Synonyms fetch failed", { error: e.message });
       }
@@ -236,12 +315,16 @@ export async function renderWord(state, word) {
       try {
         const res = await wordRequest({
           endpoint: "/get_antonyms",
+          method: "POST",
           word,
           user_id: state.user.id,
         });
         const list = Array.isArray(res.antonyms) ? res.antonyms : (res.antonyms ? String(res.antonyms).split(",").map(s => s.trim()) : []);
         document.querySelector('.result-value-antonyms').textContent = list.join(", ");
         document.querySelector('.result-label-antonyms').classList.remove('hidden');
+
+        state.setField('antonyms', res.antonyms);
+
       } catch (e) {
         logError("Antonyms fetch failed", { error: e.message });
       }
@@ -257,6 +340,7 @@ export async function renderWord(state, word) {
       try {
         const res = await wordRequest({
           endpoint: "/get_sentences",
+          method: "POST",
           word,
           user_id: state.user.id,
         });
@@ -272,6 +356,8 @@ export async function renderWord(state, word) {
         }
         container.appendChild(ul);
         document.querySelector('.result-label-sentences').classList.remove('hidden');
+
+        state.setField('examples', res.examples);
         
       } catch (e) {
         logError("Sentences fetch failed", { error: e.message });
@@ -279,11 +365,13 @@ export async function renderWord(state, word) {
     }
   }).render();
 
-  nav.appendChild(saveBtn);
-  nav.appendChild(betterTransBtn);
-  nav.appendChild(synonymsBtn);
-  nav.appendChild(antonymsBtn);
-  nav.appendChild(sentencesBtn);
+  // Добавление кнопок в BOTTOM NAVBAR
+  area.trackEl.innerHTML = ""; // очистить перед добавлением (идемпотентно)
+  area.addButton(saveBtn);
+  area.addButton(betterTransBtn);
+  area.addButton(synonymsBtn);
+  area.addButton(antonymsBtn);
+  area.addButton(sentencesBtn);
 
-  screen.querySelector(".word-screen").appendChild(nav);
+  
 }

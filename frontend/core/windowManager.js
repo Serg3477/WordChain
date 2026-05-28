@@ -1,3 +1,5 @@
+import { destroyScrollButtonsArea } from "../ui/scrollButtonsArea/scrollButtonsArea.js"
+
 let screenStack = [];
 let modalContainer = null;
 const modalRegistry = {};
@@ -18,6 +20,11 @@ export const windowManager = {
 
     const screen = document.querySelector(`[data-screen="${id}"]`);
     if (screen) screen.style.display = "block";
+
+    // если уходим с word — уничтожаем панель кнопок
+    if (id !== "word") {
+      destroyScrollButtonsArea();
+    }
   },
 
   pushScreen(id) {

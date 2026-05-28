@@ -11,6 +11,8 @@ html, body {
   font-family: system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
+
+  padding-top: var(--ic); /* отступ контента равен высоте header */
 }
 
 #app {

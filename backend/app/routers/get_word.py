@@ -36,11 +36,10 @@ async def get_better_translation(req: TranslationRequest):
         raise HTTPException(status_code=401, detail="Translation failed")
 
     backend_logger.success(f"Translation success: {req.word}")
-    # result — строка с переводами (или dict). TranslationResponse ожидает поля: word, translation, ...
-    # Возвращаем корректно:
+
     return TranslationResponse(
         word=req.word,
-        translation=result,
+        translation_json=result,
     )
 
 

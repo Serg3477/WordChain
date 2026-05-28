@@ -12,15 +12,17 @@ export function logError(message, data = {}) {
 
 async function sendLog(level, message, data) {
     try {
-        await apiRequest('/frontend-log', {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: {
-                level,
-                message,
-                data,
-                timestamp: new Date().toISOString()
-            }
-        });
+        // if (false) {
+            await apiRequest('/frontend-log', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: {
+                    level,
+                    message,
+                    data,
+                    timestamp: new Date().toISOString()
+                }
+            });
+        // }
     } catch(e) {logError("Translation request failed", { error: e.message });};
 }

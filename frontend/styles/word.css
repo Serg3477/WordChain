@@ -1,43 +1,16 @@
+/* ===============================
+   Screen word
+   ===============================
+*/  
+
 
 .word-screen {
-    margin: 20px 10px 10px 20px;
-    user-select: none;
-    padding-bottom: 110px; /* чтобы текст не уходил под панель */
+  margin: 20px 10px 10px 20px;
+  user-select: none;
+  padding-bottom: 110px; /* чтобы текст не уходил под панель */
 }
 
 .word-bottom-nav {
-  position: fixed;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-
-  padding: 10px;
-  border: 1px solid #d9d9d9;
-  border-radius: 16px;
-  background: #fff;
-  z-index: 50;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
-
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.14),
-    0 2px 6px rgba(0, 0, 0, 0.08);
-
-  scrollbar-width: none;         /* Firefox */
-}
-.word-bottom-nav::-webkit-scrollbar {
-  display: none;                 /* Chrome/Safari */
-}
-
-.word-nav-btn {
   flex: 0 0 auto;                /* ширина по контенту */
   width: auto;
   min-width: max-content;

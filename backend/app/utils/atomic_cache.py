@@ -9,6 +9,10 @@ class AtomicCache:
         self.default_ttl = default_ttl
         self.lock_ttl = lock_ttl
 
+    async def get(self, key: str):
+        """Возвращает raw value из redis или None (не десериализует)."""
+        return await self.redis.get(key)
+
     async def get_or_set(
         self,
         key: str,

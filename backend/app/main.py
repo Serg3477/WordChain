@@ -16,6 +16,7 @@ from app.routers.get_sets import sets_router
 from app.routers.get_words_from_set import words_from_set_router
 from app.routers.any_word import anyword_router
 from app.routers.get_word import read_router, get_better_translation_router, get_synonyms_router, get_antonyms_router, get_sentences_router
+from app.routers.update_word import update_router
 
 app = FastAPI(
     title="WordChain",
@@ -62,6 +63,7 @@ app.include_router(get_better_translation_router)
 app.include_router(get_synonyms_router)
 app.include_router(get_antonyms_router)
 app.include_router(get_sentences_router)
+app.include_router(update_router)
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")
@@ -78,4 +80,4 @@ async def log_requests(request: Request, call_next):
     return response
 
 # Логирование SQLAlchemy SQL-запросов
-# setup_sqlalchemy_logging()
+setup_sqlalchemy_logging()

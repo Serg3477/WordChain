@@ -115,6 +115,7 @@ export function renderRegister(state) {
             const res = await registerUser(data);
             localStorage.setItem("token", res.token);
             state.setUser({
+                id: res.id,
                 nickname: res.nickname,
                 avatar_url: res.avatar_url,
                 email: res.email,
