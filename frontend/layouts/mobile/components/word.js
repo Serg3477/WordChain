@@ -94,6 +94,10 @@ export async function renderWord(state, word) {
     state.setField('translation', result.translation);
     state.setField('transcription', result.transcription);
     state.setField('part_of_speech', result.part_of_speech);
+    state.setField('translation_json', result.translation_json);
+    state.setField('synonyms', result.synonyms);
+    state.setField('antonyms', result.antonyms);
+    state.setField('examples', result.examples);
 
 
   } catch (e) {
@@ -104,9 +108,10 @@ export async function renderWord(state, word) {
   const translationText = result?.translation ?? "";
   const transcriptionText = result?.transcription ?? "";
   const posText = result?.part_of_speech ?? "";
-  const synonymsText = renderList(result?.synonyms);
-  const antonymsText = renderList(result?.antonyms);
-  const examplesHtml = renderSentences(result?.examples);
+  // const synonymsText = renderList(result?.synonyms);
+  // const antonymsText = renderList(result?.antonyms);
+  // const examplesHtml = renderSentences(result?.examples);
+ 
 
   screen.innerHTML = `
     <div class="word-screen">
@@ -138,13 +143,13 @@ export async function renderWord(state, word) {
         <!-- SYNONYMS FIELD -->
         <div class="result-item">
           <div class="result-label-synonyms hidden">Synonyms:</div>
-          <div class="result-value result-value-synonyms">${escapeHtml(synonymsText)}</div>
+          <div class="result-value result-value-synonyms"></div>
         </div><br>
 
         <!-- ANTONYMS FIELD -->
         <div class="result-item">
           <div class="result-label-antonyms hidden">Antonyms:</div>
-          <div class="result-value result-value-antonyms">${escapeHtml(antonymsText)}</div>
+          <div class="result-value result-value-antonyms"></div>
         </div><br>
 
         <!-- SENTENCES FIELD -->
@@ -200,8 +205,18 @@ export async function renderWord(state, word) {
           sourceLang: "en",
           targetLang: "ru"
         });
+        resultBetterTrans(result);
+        state.setField('translation_json', result.translation_json);
 
-        const container = document.querySelector('.result-value-better-translation');
+      } catch (e) {
+        logError("Better translation failed", { error: e.message });
+      }
+    }
+  }).render();
+
+  //  Функция рендера result.teranslation_json (Better Translaion)
+  function resultBetterTrans(result) {
+    const container = document.querySelector('.result-value-better-translation');
         container.innerHTML = '';
 
         // helper: create label + item pair
@@ -270,16 +285,14 @@ export async function renderWord(state, word) {
           container.appendChild(ul2);
         }
 
-        document.querySelector('.result-label-better-translation').classList.remove('hidden');
+        if (result.synonyms.length > 0) document.querySelector('.result-label-better-translation').classList.remove('hidden');
         logInfo("Better translation result", { result });
 
         state.setField('translation_json', result.translation_json);
+  }
 
-      } catch (e) {
-        logError("Better translation failed", { error: e.message });
-      }
-    }
-  }).render();
+  // Рендер result.translation_json, если есть в БД
+  resultBetterTrans(result);
 
   const synonymsBtn = new BaseButton({
     label: "Synonyms",
@@ -287,6 +300,7 @@ export async function renderWord(state, word) {
     icon: "💾",
     action: "click",
     handler: async () => {
+      
       try {
         const res = await wordRequest({
           endpoint: "/get_synonyms",
@@ -306,12 +320,18 @@ export async function renderWord(state, word) {
     }
   }).render();
 
+  // Рендер result.synonyms, если есть в БД
+  const listSynonyms = Array.isArray(result.synonyms) ? result.synonyms : (result.synonyms ? String(result.synonyms).split(",").map(s => s.trim()) : []);
+  document.querySelector('.result-value-synonyms').textContent = listSynonyms.join(", ");
+  if(result.synonyms.length > 0) document.querySelector('.result-label-synonyms').classList.remove('hidden');
+
   const antonymsBtn = new BaseButton({
     label: "Antonyms",
     type: "word-nav-btn ui-btn",
     icon: "💾",
     action: "click",
     handler: async () => {
+      
       try {
         const res = await wordRequest({
           endpoint: "/get_antonyms",
@@ -331,6 +351,11 @@ export async function renderWord(state, word) {
     }
   }).render();
 
+  // Рендер result.antonyms, если есть в БД
+  const listAntonyms = Array.isArray(result.antonyms) ? result.antonyms : (result.antonyms ? String(result.antonyms).split(",").map(s => s.trim()) : []);
+  document.querySelector('.result-value-antonyms').textContent = listAntonyms.join(", ");
+  if (result.antonyms.length > 0) document.querySelector('.result-label-antonyms').classList.remove('hidden');
+
   const sentencesBtn = new BaseButton({
     label: "Sentences",
     type: "word-nav-btn ui-btn",
@@ -344,19 +369,7 @@ export async function renderWord(state, word) {
           word,
           user_id: state.user.id,
         });
-
-        const container = document.querySelector('.result-value-examples');
-        container.innerHTML = ''; // очистить
-
-        const ul = document.createElement('ul');
-        for (const item of (res.examples || [])) {
-          const li = document.createElement('li');
-          li.textContent = String(item).trim();
-          ul.appendChild(li);
-        }
-        container.appendChild(ul);
-        document.querySelector('.result-label-sentences').classList.remove('hidden');
-
+        resultSentences(res); 
         state.setField('examples', res.examples);
         
       } catch (e) {
@@ -364,6 +377,26 @@ export async function renderWord(state, word) {
       }
     }
   }).render();
+
+  //  Функция рендера result.examples (sentences)
+  function resultSentences(word) {
+    if (!word.examples.length > 0) return
+    const container = document.querySelector('.result-value-examples');
+        container.innerHTML = ''; // очистить
+
+        const ul = document.createElement('ul');
+        for (const item of (word.examples || [])) {
+          const li = document.createElement('li');
+          li.textContent = String(item).trim();
+          ul.appendChild(li);
+        }
+        container.appendChild(ul);
+        document.querySelector('.result-label-sentences').classList.remove('hidden');
+
+        state.setField('examples', word.examples);
+  }
+  // Рендер result.examples, если есть в БД
+  resultSentences(result);
 
   // Добавление кнопок в BOTTOM NAVBAR
   area.trackEl.innerHTML = ""; // очистить перед добавлением (идемпотентно)

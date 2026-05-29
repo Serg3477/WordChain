@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/api/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/word.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/layoutDetector.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/layoutDetector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/windowManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/windowManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/variables.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/word.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/word.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/baseButton/baseButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/baseButton/baseButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ui/baseButton/baseButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/baseButton/baseButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/utils/logger/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/utils/logger/logger.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +220,8 @@
       <workItem from="1779882360296" duration="2172000" />
       <workItem from="1779884610742" duration="2997000" />
       <workItem from="1779887762532" duration="1002000" />
-      <workItem from="1779952949956" duration="7617000" />
+      <workItem from="1779952949956" duration="10020000" />
+      <workItem from="1780051839201" duration="3788000" />
     </task>
     <servers />
   </component>

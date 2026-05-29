@@ -210,6 +210,7 @@ async def word_read(session, word: str, user_id: int) -> Word:
         Word.word == word
     )
     result = await session.execute(stmt)
+    backend_logger.info(f"Reading word from the base: {stmt}")
     return result.scalar_one_or_none()
 
 # ---------------------------------
@@ -309,6 +310,7 @@ async def word_better_translation(word: str, src: str, tgt: str):
         parsed = None
         try:
             parsed = json.loads(raw)
+
         except Exception:
             # Попытка извлечь JSON-подстроку
             try:
@@ -318,38 +320,38 @@ async def word_better_translation(word: str, src: str, tgt: str):
             except Exception:
                 parsed = None
 
-        # Fallback: эвристический парсинг текста (разделители '|' и запятые)
-        if parsed is None:
-            parts = [p.strip() for p in re.split(r"\||\n", raw) if p.strip()]
-            fallback = {
-                "definite_translation": [],
-                "plural": "-",
-                "verb_forms": [],
-                "passive_form": "-",
-                "phrasal_verbs": []
-            }
-            for p in parts:
-                low = p.lower()
-                if "множествен" in low or "plural" in low:
-                    val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
-                    fallback["plural"] = val
-                elif "форм" in low or "verb forms" in low:
-                    val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
-                    fallback["verb_forms"] = to_list(val)
-                elif "пассив" in low or "passive" in low:
-                    val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
-                    fallback["passive_form"] = val
-                elif "-" in p and len(p.split("-")[0].split()) <= 4:
-                    # вероятная фраза: "phrasal - перевод"
-                    fallback["phrasal_verbs"].append(p)
-                else:
-                    # первая подходящая часть — noun, вторая — verb
-                    if not fallback["definite_translation"]:
-                        fallback["definite_translation"].append(p)
-                    elif len(fallback["definite_translation"]) == 1:
-                        fallback["definite_translation"].append(p)
-            parsed = fallback
+        if parsed is not None:
             return parsed
+
+        parts = [p.strip() for p in re.split(r"\||\n", raw) if p.strip()]
+        fallback = {
+            "definite_translation": [],
+            "plural": "-",
+            "verb_forms": [],
+            "passive_form": "-",
+            "phrasal_verbs": []
+        }
+
+        for p in parts:
+            low = p.lower()
+            if "множествен" in low or "plural" in low:
+                val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
+                fallback["plural"] = val
+            elif "форм" in low or "verb forms" in low:
+                val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
+                fallback["verb_forms"] = to_list(val)
+            elif "пассив" in low or "passive" in low:
+                val = re.split(r"[-:]", p, maxsplit=1)[-1].strip()
+                fallback["passive_form"] = val
+            elif "-" in p and len(p.split("-")[0].split()) <= 4:
+                fallback["phrasal_verbs"].append(p)
+            else:
+                if not fallback["definite_translation"]:
+                    fallback["definite_translation"].append(p)
+                elif len(fallback["definite_translation"]) == 1:
+                    fallback["definite_translation"].append(p)
+
+        return fallback
 
     cached_obj = await _get_cached_json(better_key, produce_better, ttl=TTL_PARTS)
 
