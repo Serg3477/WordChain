@@ -285,8 +285,20 @@ export async function renderWord(state, word) {
           container.appendChild(ul2);
         }
 
-        if (result.synonyms.length > 0) document.querySelector('.result-label-better-translation').classList.remove('hidden');
-        logInfo("Better translation result", { result });
+        state.setField('translation_json', result.translation_json);
+
+        if (
+          result?.translation_json &&
+          (
+            (Array.isArray(result.translation_json.definite_translation) && result.translation_json.definite_translation.length) ||
+            (Array.isArray(result.translation_json.verb_forms) && result.translation_json.verb_forms.length) ||
+            (Array.isArray(result.translation_json.phrasal_verbs) && result.translation_json.phrasal_verbs.length) ||
+            (result.translation_json.plural && result.translation_json.plural !== '-') ||
+            (result.translation_json.passive_form && result.translation_json.passive_form !== '-')
+          )
+        ) {
+          document.querySelector('.result-label-better-translation')?.classList.remove('hidden');
+        }
 
         state.setField('translation_json', result.translation_json);
   }

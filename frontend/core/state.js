@@ -80,8 +80,18 @@ export function subscribe(fn) {
 }
 
 export function setState(patch) {
-  Object.assign(state, patch);
-  globalListeners.forEach(fn => fn(state));
+  let changed = false;
+
+  for (const key of Object.keys(patch)) {
+    if (state[key] !== patch[key]) {
+      changed = true;
+      state[key] = patch[key];
+    }
+  }
+
+  if (changed) {
+    globalListeners.forEach(fn => fn(state));
+  }
 }
 
 window.state = state;
