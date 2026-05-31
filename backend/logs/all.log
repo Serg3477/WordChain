@@ -27194,3 +27194,1245 @@ WHERE words.user_id = :user_id_1 AND words.word = :word_1
 2026-05-31 11:18:54.180 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Update Word success {'result': {'user_id': 2, 'word': 'seize', 'translation': 'захватывать, поймать, овладеть, завладеть, взять, схватить', 'translation_json': {'definite_translation': ['захват, изъятие', 'захватывать, изымать'], 'plural': None, 'verb_forms': ['seize', 'seized', 'seized', 'seizing'], 'passive_form': 'be seized', 'phrasal_verbs': ['seize on/upon - ухватиться за, воспользоваться'], 'usage_notes': None}, 'part_of_speech': 'verb', 'transcription': 'siːz', 'examples': ['She seizes every chance to learn from experienced colleagues.', 'We are seizing the moment before the offer disappears.', 'The police seized the stolen paintings last night.', 'Will they seize this opportunity to expand abroad?', 'The ship has seized too much water to stay afloat.', 'The suspect was seized by officers at the border.'], 'synonyms': ['capture', 'grab', 'snatch', 'take', 'apprehend', 'secure', 'appropriate', 'confiscate', 'assume', 'clutch', 'seize hold', 'commandeer'], 'antonyms': ['release', 'relinquish', 'yield', 'surrender', 'abandon', 'free', 'forsake', 'renounce', 'let go', 'unhand', 'disown', 'restore']}}
 2026-05-31 11:18:54.180 | INFO     | app.main:log_requests:79 - Response status: 200
 2026-05-31 11:18:54.181 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:21.050 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:21.051 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 11:25:21.053 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 11:25:21.053 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 11:25:21.054 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:21.060 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 11:25:21.060 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:21.063 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:21.064 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 11:25:21.064 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:21.978 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 11:25:21.979 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[60, 59, 58, 57, 56, 55]
+2026-05-31 11:25:21.979 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [60, 59, 58, 57, 56, 55]
+2026-05-31 11:25:21.979 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 60
+2026-05-31 11:25:21.983 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=60, word='currently'
+2026-05-31 11:25:21.983 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 59
+2026-05-31 11:25:21.984 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=59, word='route'
+2026-05-31 11:25:21.984 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 58
+2026-05-31 11:25:21.985 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=58, word='wardrobe'
+2026-05-31 11:25:21.985 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 57
+2026-05-31 11:25:21.987 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=57, word='welfare'
+2026-05-31 11:25:21.987 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 56
+2026-05-31 11:25:21.988 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=56, word='intelligence'
+2026-05-31 11:25:21.989 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 55
+2026-05-31 11:25:21.990 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=55, word='satisfaction'
+2026-05-31 11:25:21.990 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 60, 'word': 'currently'}, {'id': 59, 'word': 'route'}, {'id': 58, 'word': 'wardrobe'}, {'id': 57, 'word': 'welfare'}, {'id': 56, 'word': 'intelligence'}, {'id': 55, 'word': 'satisfaction'}]
+2026-05-31 11:25:21.991 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 60, 'word': 'currently'}, {'id': 59, 'word': 'route'}, {'id': 58, 'word': 'wardrobe'}, {'id': 57, 'word': 'welfare'}, {'id': 56, 'word': 'intelligence'}, {'id': 55, 'word': 'satisfaction'}]
+2026-05-31 11:25:21.991 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:21.994 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:21.995 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-8 request sent {}
+2026-05-31 11:25:21.995 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.611 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:36.612 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:36.612 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:36.613 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-05-31 11:25:36.613 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-05-31 11:25:36.613 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.614 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'currently', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-05-31 11:25:36.614 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.615 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'currently', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-05-31 11:25:36.615 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.616 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.618 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-31 11:25:36.619 | INFO     | app.routers.translation:translate:10 - Translation attempt: currently
+2026-05-31 11:25:36.620 | SUCCESS  | app.routers.translation:translate:19 - Translation success: currently
+2026-05-31 11:25:36.620 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.623 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:36.624 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:36.624 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-05-31 11:25:36.625 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-05-31 11:25:36.625 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:36.625 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.163 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:45.164 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:45.164 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/saveWord
+2026-05-31 11:25:45.165 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save button clicked {'hasResult': True}
+2026-05-31 11:25:45.165 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.166 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord request shape {'endpoint': '/saveWord', 'method': 'POST', 'bodyShape': ['word', 'translation', 'transcription', 'part_of_speech'], 'bodyPreview': {'word': 'currently', 'translation': 'сейчас, в настоящее время, на данный момент, ныне, теперь, сегодня', 'transcription': 'ˈkʌrəntli', 'part_of_speech': 'adverb'}}
+2026-05-31 11:25:45.167 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.168 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.170 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/saveWord
+2026-05-31 11:25:45.173 | INFO     | app.routers.save_word:save_word:16 - Saving attempt: currently
+2026-05-31 11:25:45.184 | INFO     | app.routers.save_word:save_word:38 - Word saved success: currently
+2026-05-31 11:25:45.184 | INFO     | app.services.set_service:check_and_create_set:17 - [SET] Checking if user 2 needs a new set...
+2026-05-31 11:25:45.190 | INFO     | app.services.set_service:check_and_create_set:26 - [SET] User 2 has total words: 49
+2026-05-31 11:25:45.191 | INFO     | app.services.set_service:check_and_create_set:33 - [SET] User 2 has used words (in sets): 48
+2026-05-31 11:25:45.192 | INFO     | app.services.set_service:check_and_create_set:38 - [SET] User 2 has FREE words: 1
+2026-05-31 11:25:45.192 | INFO     | app.services.set_service:check_and_create_set:42 - [SET] Not enough free words (1/6). No new set.
+2026-05-31 11:25:45.193 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.196 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:45.197 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:45.198 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-05-31 11:25:45.198 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save request success {}
+2026-05-31 11:25:45.198 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:45.199 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:59.392 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:59.393 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:25:59.393 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/anyWord
+2026-05-31 11:25:59.394 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:59.394 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word button clicked {'hasResult': True}
+2026-05-31 11:25:59.395 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word request shape {'endpoint': '/anyWord', 'method': 'POST', 'bodyShape': ['source_lang'], 'bodyPreview': {'source_lang': 'English'}}
+2026-05-31 11:25:59.395 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:59.396 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:25:59.399 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/anyWord
+2026-05-31 11:25:59.400 | INFO     | app.routers.any_word:translate:10 - Get Any Word attempt: English
+2026-05-31 11:26:02.185 | SUCCESS  | app.routers.any_word:translate:17 - Get Any Word success: English
+2026-05-31 11:26:02.185 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:02.189 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:02.190 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:02.190 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word response shape {'status': None, 'keys': ['word']}
+2026-05-31 11:26:02.190 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word request success {}
+2026-05-31 11:26:02.190 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:02.191 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:03.961 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:03.962 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:03.962 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/anyWord
+2026-05-31 11:26:03.963 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word button clicked {'hasResult': True}
+2026-05-31 11:26:03.963 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:03.964 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word request shape {'endpoint': '/anyWord', 'method': 'POST', 'bodyShape': ['source_lang'], 'bodyPreview': {'source_lang': 'English'}}
+2026-05-31 11:26:03.965 | INFO     | app.routers.any_word:translate:10 - Get Any Word attempt: English
+2026-05-31 11:26:03.965 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:06.387 | SUCCESS  | app.routers.any_word:translate:17 - Get Any Word success: English
+2026-05-31 11:26:06.388 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:06.392 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:06.393 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:06.394 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word response shape {'status': None, 'keys': ['word']}
+2026-05-31 11:26:06.394 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Any Word request success {}
+2026-05-31 11:26:06.394 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:06.396 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:14.545 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:14.545 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:14.546 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:14.547 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-05-31 11:26:14.547 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-05-31 11:26:14.548 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'light', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-05-31 11:26:14.548 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:14.549 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'light', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-05-31 11:26:14.549 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:14.550 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:14.550 | INFO     | app.routers.translation:translate:10 - Translation attempt: light
+2026-05-31 11:26:17.479 | SUCCESS  | app.routers.translation:translate:19 - Translation success: light
+2026-05-31 11:26:17.480 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:17.483 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:17.484 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:17.484 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-05-31 11:26:17.484 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-05-31 11:26:17.485 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:17.487 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:31.020 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:31.021 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 11:26:31.022 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 11:26:31.023 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 11:26:31.025 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:31.033 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 11:26:31.033 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:31.036 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:31.037 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 11:26:31.037 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:43.238 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 11:26:43.239 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 11:26:43.239 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 11:26:43.239 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 11:26:43.245 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 11:26:43.245 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 11:26:43.247 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 11:26:43.247 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 11:26:43.248 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 11:26:43.248 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 11:26:43.249 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 11:26:43.249 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 11:26:43.251 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 11:26:43.251 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 11:26:43.253 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 11:26:43.253 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 11:26:43.254 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 11:26:43.254 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:26:43.258 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:26:43.258 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 11:26:43.259 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.402 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.403 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.404 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.404 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 11:49:48.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.406 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.406 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.411 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.412 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.413 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.413 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 11:49:48.417 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:49:48.417 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 11:49:48.417 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:49:48.418 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.418 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.419 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.421 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 11:49:48.421 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.463 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.464 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:49:48.465 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 11:49:48.465 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 11:49:48.465 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:49:48.465 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.895 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:50:58.895 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:50:58.896 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.898 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:50:58.899 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:50:58.899 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 11:50:58.901 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:50:58.902 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 11:50:58.902 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.903 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.904 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 11:50:58.905 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.907 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:50:58.908 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:50:58.909 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 11:50:58.909 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 11:50:58.909 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:50:58.910 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.984 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:51:50.985 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:51:50.985 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:51:50.985 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 11:51:50.987 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:51:50.988 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:51:50.988 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 11:51:50.988 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.989 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.989 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.990 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 11:51:50.991 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.993 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:51:50.993 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:51:50.994 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 11:51:50.994 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 11:51:50.994 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:51:50.995 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.621 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:58:55.622 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:58:55.622 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:58:55.623 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 11:58:55.624 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:58:55.625 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:58:55.625 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 11:58:55.625 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.626 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.626 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.627 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 11:58:55.627 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.631 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:58:55.631 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 11:58:55.632 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:58:55.633 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:58:55.634 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 11:58:55.634 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.081 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.082 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.082 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.083 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 12:03:56.083 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.085 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.089 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.090 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.090 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.090 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:03:56.093 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:03:56.093 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:03:56.093 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:03:56.094 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.094 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.095 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.096 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:03:56.096 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.141 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.142 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:03:56.143 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:03:56.143 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:03:56.144 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:03:56.144 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.493 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.494 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.494 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.495 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.497 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.498 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.498 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 12:04:45.499 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.503 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.504 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:04:45.506 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.507 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.508 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.508 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:04:45.513 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:04:45.514 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:04:45.514 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.515 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.516 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:04:45.517 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.560 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.560 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:04:45.561 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:04:45.562 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:04:45.562 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:04:45.562 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.124 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:05:16.125 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:05:16.126 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:05:16.126 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:05:16.127 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:05:16.128 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.129 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:05:16.130 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.130 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:05:16.131 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.132 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:05:16.132 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.134 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:05:16.135 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:05:16.136 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:05:16.136 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:05:16.136 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:05:16.137 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.454 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:08:18.455 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:08:18.456 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:08:18.456 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:08:18.456 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:08:18.458 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.459 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:08:18.460 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.460 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:08:18.461 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.462 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:08:18.462 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.465 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:08:18.466 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:08:18.467 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:08:18.467 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:08:18.467 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:08:18.468 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:53.218 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:17:53.218 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 12:17:53.219 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:53.221 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:53.223 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 12:17:53.224 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:17:53.225 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 12:17:53.226 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 12:17:53.226 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:53.233 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 12:17:53.233 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:53.276 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:17:53.277 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 12:17:53.277 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:59.383 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 12:17:59.384 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:59.388 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 12:17:59.389 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 12:17:59.389 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 12:17:59.389 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 12:17:59.392 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 12:17:59.392 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 12:17:59.393 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 12:17:59.393 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 12:17:59.395 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 12:17:59.395 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 12:17:59.396 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 12:17:59.396 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 12:17:59.397 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 12:17:59.397 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 12:17:59.399 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 12:17:59.399 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 12:17:59.399 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 12:17:59.400 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:17:59.403 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:17:59.404 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 12:17:59.404 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:29.305 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 12:18:29.305 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[54, 53, 52, 51, 50, 49]
+2026-05-31 12:18:29.306 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [54, 53, 52, 51, 50, 49]
+2026-05-31 12:18:29.306 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 54
+2026-05-31 12:18:29.310 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=54, word='entity'
+2026-05-31 12:18:29.310 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 53
+2026-05-31 12:18:29.311 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=53, word='library'
+2026-05-31 12:18:29.311 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 52
+2026-05-31 12:18:29.313 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=52, word='genius'
+2026-05-31 12:18:29.313 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 51
+2026-05-31 12:18:29.314 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=51, word='ongoing'
+2026-05-31 12:18:29.314 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 50
+2026-05-31 12:18:29.315 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=50, word='inner'
+2026-05-31 12:18:29.315 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 49
+2026-05-31 12:18:29.316 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=49, word='fish'
+2026-05-31 12:18:29.316 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 54, 'word': 'entity'}, {'id': 53, 'word': 'library'}, {'id': 52, 'word': 'genius'}, {'id': 51, 'word': 'ongoing'}, {'id': 50, 'word': 'inner'}, {'id': 49, 'word': 'fish'}]
+2026-05-31 12:18:29.317 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 54, 'word': 'entity'}, {'id': 53, 'word': 'library'}, {'id': 52, 'word': 'genius'}, {'id': 51, 'word': 'ongoing'}, {'id': 50, 'word': 'inner'}, {'id': 49, 'word': 'fish'}]
+2026-05-31 12:18:29.317 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:29.320 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:29.321 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-7 request sent {}
+2026-05-31 12:18:29.321 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.972 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.974 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.975 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.976 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.976 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word fish clicked {'word': 'fish'}
+2026-05-31 12:18:30.977 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.977 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:30.978 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.979 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 12:18:30.979 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 12:18:30.979 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 12:18:30.980 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'fish', 'user_id': 2}
+2026-05-31 12:18:30.980 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 12:18:30.980 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.981 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.981 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.982 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.983 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.983 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 12:18:30.984 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:30.987 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 12:18:30.988 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='fish'
+2026-05-31 12:18:30.991 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 12:18:30.991 | INFO     | app.routers.get_word:get_word:22 - Reading word success: fish
+2026-05-31 12:18:30.992 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:31.035 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:31.036 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 12:18:31.036 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:31.037 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:31.038 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'fish', 'hasData': False}
+2026-05-31 12:18:31.039 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:50.182 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:50.183 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_better_translation
+2026-05-31 12:18:50.183 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:50.183 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation request shape {'endpoint': '/get_better_translation', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True}
+2026-05-31 12:18:50.184 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:50.185 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_better_translation
+2026-05-31 12:18:50.186 | INFO     | app.routers.get_word:get_better_translation:29 - Get better word translation attempt: word='fish' source_lang='en' target_lang='ru'
+2026-05-31 12:18:50.189 | INFO     | app.services.word_service:word_better_translation:371 - Made better translation attempt for %s: %s
+2026-05-31 12:18:50.189 | SUCCESS  | app.routers.get_word:get_better_translation:38 - Translation success: fish
+2026-05-31 12:18:50.190 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:18:50.195 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:18:50.195 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation response shape {'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-05-31 12:18:50.196 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.620 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.621 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.622 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.622 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 12:37:27.622 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.623 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.624 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.624 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.628 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.629 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.629 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:37:27.631 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.632 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:37:27.632 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:37:27.632 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.633 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:37:27.633 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.634 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.634 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:37:27.635 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.677 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.678 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:37:27.679 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:37:27.679 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:37:27.679 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:37:27.680 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.446 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:16.447 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:16.448 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:16.448 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:38:16.448 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:38:16.450 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.451 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:38:16.451 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.452 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:38:16.452 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.453 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:38:16.454 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.456 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:16.457 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:16.457 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:38:16.457 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:38:16.458 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:16.458 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.041 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:33.042 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:38:33.042 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.045 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:33.045 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:33.045 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:38:33.047 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:38:33.048 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:38:33.048 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.048 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.050 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:38:33.050 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.052 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:33.053 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:33.054 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:38:33.054 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:38:33.054 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:33.055 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.947 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:45.948 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:45.949 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:45.949 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:38:45.949 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:38:45.951 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.951 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:38:45.952 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.952 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:38:45.953 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.954 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:38:45.954 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.957 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:45.957 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:45.958 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:38:45.958 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:45.959 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:38:45.959 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.449 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:59.450 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:38:59.450 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.452 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:59.453 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:59.453 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:38:59.456 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:38:59.457 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.457 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:38:59.458 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.459 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:38:59.460 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.462 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:59.466 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:38:59.467 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:38:59.467 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:38:59.467 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:38:59.468 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.251 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:39:17.252 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:39:17.252 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:39:17.253 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.253 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:39:17.254 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.255 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:39:17.255 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:39:17.257 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:39:17.257 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.258 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:39:17.258 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.261 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:39:17.262 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:39:17.263 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:39:17.263 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:39:17.264 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:39:17.264 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.369 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:43:08.370 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:43:08.371 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:43:08.372 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:43:08.372 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:43:08.374 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.375 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:43:08.375 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.376 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:43:08.377 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.378 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:43:08.379 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.382 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:43:08.383 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:43:08.384 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:43:08.384 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:43:08.384 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:43:08.385 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.143 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.144 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.145 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.145 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 12:49:51.145 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.146 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.147 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.148 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.152 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.153 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.153 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:49:51.156 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.157 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:49:51.157 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:49:51.157 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.158 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:49:51.159 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.160 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.161 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:49:51.161 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.205 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.206 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:49:51.207 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:49:51.207 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:49:51.208 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:49:51.208 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.189 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:53:51.190 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:53:51.190 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:53:51.191 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:53:51.193 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:53:51.193 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:53:51.193 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:53:51.193 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.194 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.195 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.196 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:53:51.196 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.208 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:53:51.209 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:53:51.210 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:53:51.210 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:53:51.210 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:53:51.210 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.791 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:01.792 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:01.792 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:01.793 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:57:01.796 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:57:01.797 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:57:01.797 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:57:01.797 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.798 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.799 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.800 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:57:01.800 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.805 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:01.805 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:01.806 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:57:01.806 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:57:01.806 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:01.807 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.790 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:21.791 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:21.792 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:21.793 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:57:21.793 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:57:21.794 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:57:21.794 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.795 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.795 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.796 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:57:21.799 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:57:21.799 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.802 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:21.802 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:21.803 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:57:21.803 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:57:21.803 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:21.804 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.765 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:32.766 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:32.767 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:57:32.767 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:57:32.768 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.769 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.774 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:32.775 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:57:32.777 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:57:32.777 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.779 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:57:32.779 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.782 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:32.783 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:32.783 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:57:32.784 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:57:32.784 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:32.785 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.471 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:43.472 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:43.472 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:43.472 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 12:57:43.474 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 12:57:43.474 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 12:57:43.475 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 12:57:43.475 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.476 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.476 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.477 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 12:57:43.477 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.480 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:43.481 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 12:57:43.482 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 12:57:43.482 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 12:57:43.482 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 12:57:43.483 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.596 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.597 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.597 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.598 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 13:03:17.598 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.599 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.599 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.599 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.607 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.608 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.609 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:03:17.611 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.612 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:03:17.612 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:03:17.613 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.615 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:03:17.616 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.619 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.619 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:03:17.620 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.662 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.663 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:03:17.664 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:03:17.665 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:03:17.665 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:03:17.666 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.444 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:04:47.445 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:04:47.445 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:04:47.446 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:04:47.448 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:04:47.448 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:04:47.449 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:04:47.449 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.450 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.450 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.451 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:04:47.451 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.459 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:04:47.460 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:04:47.460 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:04:47.461 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:04:47.461 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:04:47.461 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:57.405 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:57.405 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 13:05:57.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:57.408 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:57.410 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 13:05:57.411 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:57.411 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 13:05:57.412 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 13:05:57.413 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:57.419 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 13:05:57.420 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:57.464 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:57.465 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 13:05:57.465 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:58.421 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 13:05:58.422 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:58.425 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 13:05:58.426 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 13:05:58.426 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 13:05:58.426 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 13:05:58.428 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 13:05:58.428 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 13:05:58.430 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 13:05:58.430 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 13:05:58.431 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 13:05:58.431 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 13:05:58.433 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 13:05:58.433 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 13:05:58.434 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 13:05:58.434 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 13:05:58.436 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 13:05:58.436 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 13:05:58.436 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 13:05:58.437 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:58.439 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:58.440 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 13:05:58.440 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.612 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.613 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.614 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.616 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word seize clicked {'word': 'seize'}
+2026-05-31 13:05:59.617 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.617 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.617 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.617 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.618 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 13:05:59.618 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 13:05:59.618 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.619 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.620 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 13:05:59.620 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'seize', 'user_id': 2}
+2026-05-31 13:05:59.620 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 13:05:59.621 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 13:05:59.621 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.621 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.622 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.623 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.625 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 13:05:59.625 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='seize'
+2026-05-31 13:05:59.628 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 13:05:59.629 | INFO     | app.routers.get_word:get_word:22 - Reading word success: seize
+2026-05-31 13:05:59.629 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.672 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.673 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:05:59.674 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 13:05:59.674 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:05:59.675 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'seize', 'hasData': False}
+2026-05-31 13:05:59.676 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:24.832 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:24.832 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:24.832 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:24.833 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:24.835 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:24.836 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:24.837 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Profile screen node {'found': True}
+2026-05-31 13:25:24.837 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Profile screen render start {}
+2026-05-31 13:25:24.837 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:24.838 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:49.665 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:49.666 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:49.666 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:25:49.667 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Register screen render start {}
+2026-05-31 13:25:49.667 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Register screen node {'found': True}
+2026-05-31 13:25:49.668 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Register form node {'found': True}
+2026-05-31 13:25:49.669 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:49.670 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:25:49.671 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:26:02.290 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:26:02.291 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 13:26:02.293 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 13:26:02.293 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:26:02.294 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:26:02.296 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 13:26:02.297 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 13:26:02.303 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 13:26:02.303 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:26:02.306 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:26:02.307 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 13:26:02.308 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.567 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.568 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.568 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.569 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 13:37:54.569 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.569 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.570 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.570 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.577 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.578 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.579 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:37:54.579 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.581 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:37:54.581 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:37:54.581 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:37:54.581 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.582 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.582 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.584 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:37:54.584 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.627 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.628 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:37:54.628 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:37:54.628 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:37:54.629 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:37:54.629 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.315 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:38:06.316 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:38:06.316 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:38:06.316 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:38:06.318 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:38:06.318 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:38:06.319 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:38:06.319 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.320 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.320 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.321 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:38:06.322 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.326 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:38:06.326 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:38:06.327 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:38:06.327 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:38:06.327 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:38:06.328 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.573 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:40:25.574 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:40:25.574 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:40:25.575 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:40:25.577 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:40:25.578 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:40:25.578 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:40:25.578 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.579 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.579 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.580 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:40:25.581 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.586 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:40:25.588 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:40:25.588 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:40:25.589 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:40:25.589 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:40:25.590 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.469 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:44:42.470 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:44:42.470 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:44:42.471 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:44:42.473 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:44:42.474 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:44:42.474 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:44:42.475 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.476 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.477 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.480 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:44:42.480 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.491 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:44:42.492 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:44:42.492 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:44:42.493 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:44:42.493 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:44:42.494 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.937 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.937 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.938 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.938 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 13:48:50.939 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.939 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.940 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.941 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.947 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.948 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.949 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:48:50.949 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:50.952 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:48:50.952 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:48:50.953 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:48:50.953 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.954 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.954 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:50.956 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:48:50.956 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:51.001 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:51.002 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:48:51.003 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:48:51.003 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:48:51.003 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:48:51.004 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.401 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:55:34.402 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:55:34.402 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:55:34.403 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 13:55:34.406 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 13:55:34.406 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 13:55:34.407 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 13:55:34.407 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.408 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.408 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.410 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 13:55:34.410 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.417 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:55:34.418 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:55:34.418 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 13:55:34.419 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 13:55:34.419 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:55:34.420 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:58.234 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 13:58:58.234 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 13:58:58.235 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:58.237 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:58.239 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 13:58:58.240 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:58:58.241 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 13:58:58.242 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 13:58:58.242 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:58.249 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 13:58:58.249 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:58.292 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:58:58.293 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 13:58:58.293 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:59.626 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 13:58:59.626 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:59.630 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 13:58:59.631 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 13:58:59.631 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 13:58:59.631 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 13:58:59.634 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 13:58:59.634 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 13:58:59.636 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 13:58:59.636 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 13:58:59.637 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 13:58:59.637 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 13:58:59.638 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 13:58:59.638 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 13:58:59.639 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 13:58:59.639 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 13:58:59.641 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 13:58:59.641 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 13:58:59.641 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 13:58:59.642 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:58:59.645 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:58:59.645 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 13:58:59.646 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.341 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.342 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.343 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.346 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word enterprise clicked {'word': 'enterprise'}
+2026-05-31 13:59:01.346 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.346 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.346 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.347 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 13:59:01.347 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.348 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 13:59:01.348 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.349 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.349 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 13:59:01.349 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'enterprise', 'user_id': 2}
+2026-05-31 13:59:01.350 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 13:59:01.350 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.350 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.351 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.353 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 13:59:01.354 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.355 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 13:59:01.356 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='enterprise'
+2026-05-31 13:59:01.358 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 13:59:01.359 | INFO     | app.routers.get_word:get_word:22 - Reading word success: enterprise
+2026-05-31 13:59:01.359 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.402 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.403 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 13:59:01.403 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 13:59:01.404 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 13:59:01.404 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'enterprise', 'hasData': False}
+2026-05-31 13:59:01.404 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.969 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:01:51.970 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:01:51.970 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:01:51.971 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 14:01:51.972 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:01:51.972 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.973 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:01:51.973 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:01:51.973 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.974 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.974 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.978 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:01:51.980 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:01:51.981 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.988 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:01:51.989 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:01:51.990 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:01:51.990 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:01:51.990 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:01:51.991 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.888 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:18.889 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:18.889 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:18.890 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:02:18.892 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:02:18.892 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:02:18.892 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:02:18.893 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.893 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.894 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.895 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:02:18.895 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.903 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:18.904 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:18.905 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:02:18.905 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:02:18.905 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:18.906 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.405 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:34.406 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:34.406 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:34.407 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:02:34.409 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:02:34.409 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:02:34.409 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:02:34.410 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.410 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.410 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.412 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:02:34.412 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.418 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:34.419 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:34.419 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:02:34.420 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:02:34.420 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:34.421 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.971 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:43.972 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:43.973 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:02:43.974 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:02:43.974 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.975 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.981 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:43.982 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:02:43.984 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:02:43.985 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.986 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:02:43.986 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.992 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:43.993 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:02:43.994 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:02:43.994 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:02:43.995 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:02:43.996 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.840 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:07.841 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:07.842 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:07.842 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:04:07.844 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:04:07.844 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:04:07.845 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.845 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:04:07.846 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.847 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.848 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:04:07.848 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.855 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:07.855 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:07.857 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:04:07.857 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:04:07.857 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:07.858 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.296 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:32.297 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:32.297 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:32.297 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:04:32.301 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:04:32.301 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:04:32.302 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:04:32.302 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.303 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.304 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.305 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:04:32.306 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.310 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:32.311 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:04:32.311 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:04:32.312 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:04:32.312 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:04:32.312 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.818 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.818 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.819 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.819 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:10:33.820 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.821 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.821 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.823 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:10:33.823 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.831 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.832 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.833 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.833 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.833 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:10:33.835 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:10:33.836 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:10:33.836 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.837 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.837 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:10:33.838 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:10:33.838 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:10:33.838 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.839 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:10:33.839 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.305 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:10.306 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:10.307 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:10.307 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 14:11:10.309 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 14:11:10.309 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 14:11:10.309 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.310 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 14:11:10.310 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.311 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.312 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 14:11:10.312 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.317 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:10.318 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:10.318 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 14:11:10.319 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 14:11:10.319 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:10.319 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:18.315 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:18.318 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 14:11:18.318 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:18.318 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:18.321 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 14:11:18.321 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:18.322 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 14:11:18.323 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 14:11:18.323 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:18.330 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 14:11:18.330 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:18.373 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:18.374 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 14:11:18.374 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:19.513 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 14:11:19.513 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:19.518 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 14:11:19.518 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 14:11:19.519 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 14:11:19.519 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 14:11:19.521 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 14:11:19.522 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 14:11:19.523 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 14:11:19.523 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 14:11:19.524 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 14:11:19.524 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 14:11:19.526 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 14:11:19.526 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 14:11:19.527 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 14:11:19.527 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 14:11:19.528 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 14:11:19.528 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 14:11:19.529 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 14:11:19.529 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:19.532 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:19.533 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 14:11:19.533 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.755 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.756 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.757 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.760 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word enterprise clicked {'word': 'enterprise'}
+2026-05-31 14:11:20.760 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.760 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.760 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.760 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 14:11:20.761 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.762 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 14:11:20.762 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.762 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.763 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 14:11:20.763 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'enterprise', 'user_id': 2}
+2026-05-31 14:11:20.763 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 14:11:20.763 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.764 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.764 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.768 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 14:11:20.768 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.770 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 14:11:20.771 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='enterprise'
+2026-05-31 14:11:20.774 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 14:11:20.774 | INFO     | app.routers.get_word:get_word:22 - Reading word success: enterprise
+2026-05-31 14:11:20.775 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.820 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.820 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 14:11:20.821 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 14:11:20.822 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 14:11:20.822 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'enterprise', 'hasData': False}
+2026-05-31 14:11:20.823 | INFO     | app.main:log_requests:79 - Response status: 200

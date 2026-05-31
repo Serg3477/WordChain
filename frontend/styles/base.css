@@ -9,7 +9,8 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: system-ui, sans-serif;
-  background: var(--bg);
+  background:
+    url("../assets/images/w26mob.jpg") center center / cover no-repeat fixed;
   color: var(--text);
 
   padding-top: var(--ic); /* отступ контента равен высоте header */

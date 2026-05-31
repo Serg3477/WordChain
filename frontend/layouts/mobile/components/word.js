@@ -194,7 +194,7 @@ export async function renderWord(state, word) {
   const betterTransBtn = new BaseButton({
     label: "Better translation",
     type: "word-nav-btn ui-btn",
-    icon: "◀",
+    icon: `<img src="/assets/icons/Fire.png" alt="◀">`,
     action: "click",
     handler: async () => {
       try {
@@ -309,7 +309,7 @@ export async function renderWord(state, word) {
   const synonymsBtn = new BaseButton({
     label: "Synonyms",
     type: "word-nav-btn ui-btn",
-    icon: "💾",
+    icon: `<img src="/assets/icons/Link.png" alt="💾">`,
     action: "click",
     handler: async () => {
       
@@ -340,7 +340,7 @@ export async function renderWord(state, word) {
   const antonymsBtn = new BaseButton({
     label: "Antonyms",
     type: "word-nav-btn ui-btn",
-    icon: "💾",
+    icon: `<img src="/assets/icons/Exchange.png" alt="🌐">`,
     action: "click",
     handler: async () => {
       
@@ -371,7 +371,7 @@ export async function renderWord(state, word) {
   const sentencesBtn = new BaseButton({
     label: "Sentences",
     type: "word-nav-btn ui-btn",
-    icon: "▶",
+    icon: `<img src="/assets/icons/List.png" alt="🌐">`,
     action: "click",
     handler: async() => {
       try {

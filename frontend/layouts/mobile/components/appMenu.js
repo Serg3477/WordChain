@@ -27,13 +27,24 @@ export class CurriculumMenu {
 
     this.dropdown.innerHTML = `
       <div class="menu-item" data-action="translation">
-        <span class="icon">🌐</span> Translation
+        <span>
+          <img class="icon" src="/assets/icons/Text.png">
+        </span> Translation
       </div>
       <div class="menu-item" data-action="sets">
-        <span class="icon">📚</span> Sets
+        <span>
+          <img class="icon" src="/assets/icons/books.png">
+        </span> Sets
       </div>
       <div class="menu-item" data-action="exams">
-        <span class="icon">📝</span> Exams
+        <span>
+          <img class="icon" src="/assets/icons/Shield.png">
+        </span> Exams
+      </div>
+      <div class="menu-item" data-action="options">
+        <span>
+          <img class="icon" src="/assets/icons/Settings.png">
+        </span> Settings
       </div>
     `;
 
@@ -50,6 +61,7 @@ export class CurriculumMenu {
       if (action === "translation") windowManager.pushScreen("translator");
       if (action === "sets") {windowManager.pushScreen("sets"); renderSets(state);};
       if (action === "exams") windowManager.open("examsModal");
+      if (action === "settings") windowManager.open("settingsModal");
     });
 
     // закрытие при клике вне меню

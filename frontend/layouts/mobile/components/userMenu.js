@@ -44,19 +44,29 @@ export class UserMenu {
 
     this.dropdown.innerHTML = `
       <div class="menu-item" data-action="profile">
-        <span class="icon">👤</span> Profile
+        <span>
+          <img class="icon" src="/assets/icons/default.png">
+        </span> Profile
       </div>
       <div class="menu-item" data-action="registerAccount">
-        <span class="icon">➕</span> Sign Up
+        <span>
+          <img class="icon" src="/assets/icons/Key.png">
+        </span> Sign Up
       </div>
       <div class="menu-item" data-action="loginAccount">
-        <span class="icon">➡️</span> Sign In
+        <span>
+          <img class="icon" src="/assets/icons/Fingerprint.png">
+        </span> Sign In
       </div>
       <div class="menu-item" data-action="quitAccount">
-        <span class="icon">↩️</span> Sign Out
+        <span>
+          <img class="icon" src="/assets/icons/Error.png">
+        </span> Sign Out
       </div>
       <div class="menu-item" data-action="deleteAccount">
-        <span class="icon">🗑️</span> Delete Account
+        <span>
+          <img class="icon" src="/assets/icons/Bomb.png">
+        </span> Delete Account
       </div>
     `;
 

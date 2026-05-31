@@ -69,6 +69,14 @@
   background: rgba(0, 0, 0, 0.06);
 }
 
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
 /* Danger item (Delete account) */
 .menu-item[data-action="deleteAccount"] {
   color: #d9534f;

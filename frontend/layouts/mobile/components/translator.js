@@ -99,7 +99,7 @@ export function renderTranslator(state) {
   const translateBtn = new BaseButton({
     label: "Translate",
     type: "ui-btn",
-    icon: "🌐",
+    icon:  `<img src="/assets/icons/Text.png" alt="🌐">`,
     action: "click",
     handler: doTranslate
   }).render();
@@ -184,7 +184,7 @@ export function renderTranslator(state) {
   const saveBtn = new BaseButton({
     label: "Save",
     type: "ui-btn",
-    icon: "💾",
+    icon:  `<img src="/assets/icons/Check.png" alt="💾">`,
     action: "click",
     handler: doSave
   }).render();
@@ -206,7 +206,7 @@ export function renderTranslator(state) {
   const anyWordBtn = new BaseButton({
     label: "Any Word",
     type: "ui-btn",
-    icon: "",
+    icon: `<img src="/assets/icons/Magnifier.png">`,
     action: "click",
     handler: doAnyWord
   }).render();
