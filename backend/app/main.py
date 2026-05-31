@@ -80,4 +80,4 @@ async def log_requests(request: Request, call_next):
     return response
 
 # Логирование SQLAlchemy SQL-запросов
-setup_sqlalchemy_logging()
+# setup_sqlalchemy_logging()

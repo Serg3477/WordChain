@@ -23364,3 +23364,286 @@ WHERE words.user_id = :user_id_1 AND words.word = :word_1
 2026-05-29 17:56:19.522 | INFO     | app.main:log_requests:79 - Response status: 200
 2026-05-29 17:56:19.523 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'quiet', 'hasData': False}
 2026-05-29 17:56:19.525 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-30 16:39:05.940 | INFO     | sqlalchemy.log:info:159 - select pg_catalog.version()
+2026-05-30 16:39:05.940 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-30 16:39:05.950 | INFO     | sqlalchemy.log:info:159 - select current_schema()
+2026-05-30 16:39:05.951 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-30 16:39:05.953 | INFO     | sqlalchemy.log:info:159 - show standard_conforming_strings
+2026-05-30 16:39:05.953 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-30 16:39:05.954 | INFO     | sqlalchemy.log:info:159 - BEGIN (implicit)
+2026-05-30 16:39:05.956 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-30 16:39:05.956 | INFO     | sqlalchemy.log:info:159 - [generated in 0.00025s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-30 16:39:05.971 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-30 16:39:05.971 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01507s ago] ('words', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-30 16:39:05.972 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-30 16:39:05.972 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01586s ago] ('settings', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-30 16:39:05.972 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-30 16:39:05.972 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01645s ago] ('sets', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-30 16:39:05.973 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-30 16:39:05.973 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01699s ago] ('set_words', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-30 16:39:05.973 | INFO     | sqlalchemy.log:info:159 - COMMIT
+2026-05-31 10:56:43.636 | INFO     | sqlalchemy.log:info:159 - select pg_catalog.version()
+2026-05-31 10:56:43.637 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-31 10:56:43.647 | INFO     | sqlalchemy.log:info:159 - select current_schema()
+2026-05-31 10:56:43.648 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-31 10:56:43.650 | INFO     | sqlalchemy.log:info:159 - show standard_conforming_strings
+2026-05-31 10:56:43.650 | INFO     | sqlalchemy.log:info:159 - [raw sql] ()
+2026-05-31 10:56:43.651 | INFO     | sqlalchemy.log:info:159 - BEGIN (implicit)
+2026-05-31 10:56:43.654 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-31 10:56:43.654 | INFO     | sqlalchemy.log:info:159 - [generated in 0.00026s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-31 10:56:43.668 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-31 10:56:43.668 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01464s ago] ('words', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-31 10:56:43.669 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-31 10:56:43.669 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01571s ago] ('settings', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-31 10:56:43.670 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-31 10:56:43.670 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01662s ago] ('sets', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-31 10:56:43.671 | INFO     | sqlalchemy.log:info:159 - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2026-05-31 10:56:43.671 | INFO     | sqlalchemy.log:info:159 - [cached since 0.01734s ago] ('set_words', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2026-05-31 10:56:43.671 | INFO     | sqlalchemy.log:info:159 - COMMIT
+2026-05-31 10:58:09.899 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/
+2026-05-31 10:58:09.901 | INFO     | app.main:root:29 - Root endpoint called
+2026-05-31 10:58:09.905 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:09.921 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/favicon.ico
+2026-05-31 10:58:09.922 | INFO     | app.main:log_requests:79 - Response status: 404
+2026-05-31 10:58:19.873 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.874 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.874 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.875 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.875 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-05-31 10:58:19.875 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.876 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.877 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.880 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.881 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.881 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.882 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 10:58:19.892 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 10:58:19.893 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 10:58:19.893 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 10:58:19.893 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.895 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.896 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.900 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 10:58:19.901 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.944 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.944 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 10:58:19.945 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 10:58:19.945 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 10:58:19.946 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 10:58:19.946 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:41.521 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:41.522 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:41.522 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:41.523 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:41.526 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:41.526 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:41.527 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:01:41.527 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:01:41.528 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:41.528 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:45.954 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:45.955 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 11:01:45.955 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 11:01:45.955 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:45.956 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:45.958 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 11:01:45.961 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 11:01:45.981 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 11:01:45.981 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:45.985 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:45.985 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 11:01:45.986 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:47.305 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 11:01:47.305 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:47.309 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 11:01:47.310 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[30, 29, 28, 27, 26, 25]
+2026-05-31 11:01:47.311 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [30, 29, 28, 27, 26, 25]
+2026-05-31 11:01:47.311 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 30
+2026-05-31 11:01:47.317 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=30, word='pace'
+2026-05-31 11:01:47.317 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 29
+2026-05-31 11:01:47.319 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=29, word='vehicle'
+2026-05-31 11:01:47.319 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 28
+2026-05-31 11:01:47.321 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=28, word='advantage'
+2026-05-31 11:01:47.321 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 27
+2026-05-31 11:01:47.323 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=27, word='voyage'
+2026-05-31 11:01:47.323 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 26
+2026-05-31 11:01:47.325 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=26, word='herritage'
+2026-05-31 11:01:47.325 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 25
+2026-05-31 11:01:47.327 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=25, word='justice'
+2026-05-31 11:01:47.327 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 30, 'word': 'pace'}, {'id': 29, 'word': 'vehicle'}, {'id': 28, 'word': 'advantage'}, {'id': 27, 'word': 'voyage'}, {'id': 26, 'word': 'herritage'}, {'id': 25, 'word': 'justice'}]
+2026-05-31 11:01:47.328 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 30, 'word': 'pace'}, {'id': 29, 'word': 'vehicle'}, {'id': 28, 'word': 'advantage'}, {'id': 27, 'word': 'voyage'}, {'id': 26, 'word': 'herritage'}, {'id': 25, 'word': 'justice'}]
+2026-05-31 11:01:47.329 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:47.332 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:47.333 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-3 request sent {}
+2026-05-31 11:01:47.333 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.546 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.547 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.548 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.551 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word advantage clicked {'word': 'advantage'}
+2026-05-31 11:01:49.552 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.552 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.552 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.553 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.553 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 11:01:49.555 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 11:01:49.555 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.556 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.557 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 11:01:49.557 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'advantage', 'user_id': 2}
+2026-05-31 11:01:49.557 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 11:01:49.557 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 11:01:49.558 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.558 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.559 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.560 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.562 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 11:01:49.563 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='advantage'
+2026-05-31 11:01:49.566 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 11:01:49.567 | INFO     | app.routers.get_word:get_word:22 - Reading word success: advantage
+2026-05-31 11:01:49.567 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.610 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.611 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 11:01:49.611 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:01:49.612 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:01:49.613 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'advantage', 'hasData': False}
+2026-05-31 11:01:49.613 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.853 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:07:55.854 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:07:55.854 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:07:55.856 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-05-31 11:07:55.858 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-05-31 11:07:55.859 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-05-31 11:07:55.859 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-05-31 11:07:55.860 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.860 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.861 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.863 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-05-31 11:07:55.863 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.867 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:07:55.868 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:07:55.869 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-05-31 11:07:55.869 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-05-31 11:07:55.870 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:07:55.871 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:44.167 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:44.167 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-05-31 11:18:44.167 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:44.170 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:44.172 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-05-31 11:18:44.173 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:44.173 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-05-31 11:18:44.174 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-05-31 11:18:44.174 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:44.181 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}]
+2026-05-31 11:18:44.181 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:44.224 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:44.225 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-05-31 11:18:44.225 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:45.441 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-05-31 11:18:45.441 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:45.445 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-05-31 11:18:45.446 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[6, 5, 4, 3, 2, 1]
+2026-05-31 11:18:45.446 | INFO     | app.services.set_service:get_words_from_set:128 - [GET WORDS] Start fetching words for IDs: [6, 5, 4, 3, 2, 1]
+2026-05-31 11:18:45.446 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 6
+2026-05-31 11:18:45.448 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=6, word='seize'
+2026-05-31 11:18:45.449 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 5
+2026-05-31 11:18:45.450 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=5, word='settle'
+2026-05-31 11:18:45.450 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 4
+2026-05-31 11:18:45.452 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=4, word='suit'
+2026-05-31 11:18:45.452 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 3
+2026-05-31 11:18:45.453 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=3, word='request'
+2026-05-31 11:18:45.453 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 2
+2026-05-31 11:18:45.455 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=2, word='rise'
+2026-05-31 11:18:45.455 | INFO     | app.services.set_service:get_words_from_set:131 - [GET WORDS] Fetching words for ID: 1
+2026-05-31 11:18:45.456 | INFO     | app.services.set_service:get_words_from_set:139 - [GET WORDS] Found word: id=1, word='enterprise'
+2026-05-31 11:18:45.456 | INFO     | app.services.set_service:get_words_from_set:141 - [GET WORDS] Final result list: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 11:18:45.457 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 6, 'word': 'seize'}, {'id': 5, 'word': 'settle'}, {'id': 4, 'word': 'suit'}, {'id': 3, 'word': 'request'}, {'id': 2, 'word': 'rise'}, {'id': 1, 'word': 'enterprise'}]
+2026-05-31 11:18:45.457 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:45.461 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:45.461 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-1 request sent {}
+2026-05-31 11:18:45.461 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.391 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.393 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.395 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.396 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word seize clicked {'word': 'seize'}
+2026-05-31 11:18:46.396 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.396 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.397 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.397 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.398 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-05-31 11:18:46.398 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-05-31 11:18:46.398 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.399 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.399 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-05-31 11:18:46.400 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'word': 'seize', 'user_id': 2}
+2026-05-31 11:18:46.400 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True, 'hasUser': True}
+2026-05-31 11:18:46.400 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.401 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.401 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.405 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-05-31 11:18:46.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.406 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-05-31 11:18:46.407 | INFO     | app.routers.get_word:get_word:16 - Reading Word attempt: user_id=2 word='seize'
+2026-05-31 11:18:46.410 | INFO     | app.services.word_service:word_read:213 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.user_id = :user_id_1 AND words.word = :word_1
+2026-05-31 11:18:46.410 | INFO     | app.routers.get_word:get_word:22 - Reading word success: seize
+2026-05-31 11:18:46.410 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.453 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.454 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:46.454 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-05-31 11:18:46.455 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:46.455 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'seize', 'hasData': False}
+2026-05-31 11:18:46.456 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:50.364 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:50.365 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_better_translation
+2026-05-31 11:18:50.365 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:50.365 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation request shape {'endpoint': '/get_better_translation', 'method': 'POST', 'hasEndpoint': True, 'hasWord': True}
+2026-05-31 11:18:50.366 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:50.367 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_better_translation
+2026-05-31 11:18:50.368 | INFO     | app.routers.get_word:get_better_translation:29 - Get better word translation attempt: word='seize' source_lang='en' target_lang='ru'
+2026-05-31 11:18:50.370 | INFO     | app.services.word_service:word_better_translation:371 - Made better translation attempt for %s: %s
+2026-05-31 11:18:50.370 | SUCCESS  | app.routers.get_word:get_better_translation:38 - Translation success: seize
+2026-05-31 11:18:50.371 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:50.380 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:50.381 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation response shape {'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-05-31 11:18:50.381 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:54.152 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:54.152 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/update_word
+2026-05-31 11:18:54.153 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:54.154 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] update_word request shape {'method': 'PUT', 'hasEndpoint': True, 'hasCurrentWord': True}
+2026-05-31 11:18:54.154 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:54.156 | INFO     | app.main:log_requests:71 - Incoming request: PUT http://127.0.0.1:8000/update_word
+2026-05-31 11:18:54.157 | INFO     | app.routers.update_word:get_word:11 - Update Word attempt: user_id=2 word='seize' translation='захватывать, поймать, овладеть, завладеть, взять, схватить' translation_json=TranslationJSON(definite_translation=['захват, изъятие', 'захватывать, изымать'], plural='-', verb_forms=['seize', 'seized', 'seized', 'seizing'], passive_form='be seized', phrasal_verbs=['seize on/upon - ухватиться за, воспользоваться'], usage_notes=None) part_of_speech='verb' transcription='siːz' examples=['She seizes every chance to learn from experienced colleagues.', 'We are seizing the moment before the offer disappears.', 'The police seized the stolen paintings last night.', 'Will they seize this opportunity to expand abroad?', 'The ship has seized too much water to stay afloat.', 'The suspect was seized by officers at the border.'] synonyms=['capture', 'grab', 'snatch', 'take', 'apprehend', 'secure', 'appropriate', 'confiscate', 'assume', 'clutch', 'seize hold', 'commandeer'] antonyms=['release', 'relinquish', 'yield', 'surrender', 'abandon', 'free', 'forsake', 'renounce', 'let go', 'unhand', 'disown', 'restore']
+2026-05-31 11:18:54.157 | INFO     | app.routers.update_word:get_word:13 - Raw update request body: {'user_id': 2, 'word': 'seize', 'translation': 'захватывать, поймать, овладеть, завладеть, взять, схватить', 'translation_json': {'definite_translation': ['захват, изъятие', 'захватывать, изымать'], 'plural': '-', 'verb_forms': ['seize', 'seized', 'seized', 'seizing'], 'passive_form': 'be seized', 'phrasal_verbs': ['seize on/upon - ухватиться за, воспользоваться'], 'usage_notes': None}, 'part_of_speech': 'verb', 'transcription': 'siːz', 'examples': ['She seizes every chance to learn from experienced colleagues.', 'We are seizing the moment before the offer disappears.', 'The police seized the stolen paintings last night.', 'Will they seize this opportunity to expand abroad?', 'The ship has seized too much water to stay afloat.', 'The suspect was seized by officers at the border.'], 'synonyms': ['capture', 'grab', 'snatch', 'take', 'apprehend', 'secure', 'appropriate', 'confiscate', 'assume', 'clutch', 'seize hold', 'commandeer'], 'antonyms': ['release', 'relinquish', 'yield', 'surrender', 'abandon', 'free', 'forsake', 'renounce', 'let go', 'unhand', 'disown', 'restore']}
+2026-05-31 11:18:54.158 | INFO     | app.services.word_service:word_update:225 - word_update stmt: {stmt}
+2026-05-31 11:18:54.176 | INFO     | app.routers.update_word:get_word:21 - Reading word success: seize
+2026-05-31 11:18:54.176 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:54.179 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:54.179 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-05-31 11:18:54.180 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] update_word response shape {'keys': ['user_id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms']}
+2026-05-31 11:18:54.180 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Update Word success {'result': {'user_id': 2, 'word': 'seize', 'translation': 'захватывать, поймать, овладеть, завладеть, взять, схватить', 'translation_json': {'definite_translation': ['захват, изъятие', 'захватывать, изымать'], 'plural': None, 'verb_forms': ['seize', 'seized', 'seized', 'seizing'], 'passive_form': 'be seized', 'phrasal_verbs': ['seize on/upon - ухватиться за, воспользоваться'], 'usage_notes': None}, 'part_of_speech': 'verb', 'transcription': 'siːz', 'examples': ['She seizes every chance to learn from experienced colleagues.', 'We are seizing the moment before the offer disappears.', 'The police seized the stolen paintings last night.', 'Will they seize this opportunity to expand abroad?', 'The ship has seized too much water to stay afloat.', 'The suspect was seized by officers at the border.'], 'synonyms': ['capture', 'grab', 'snatch', 'take', 'apprehend', 'secure', 'appropriate', 'confiscate', 'assume', 'clutch', 'seize hold', 'commandeer'], 'antonyms': ['release', 'relinquish', 'yield', 'surrender', 'abandon', 'free', 'forsake', 'renounce', 'let go', 'unhand', 'disown', 'restore']}}
+2026-05-31 11:18:54.180 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-05-31 11:18:54.181 | INFO     | app.main:log_requests:79 - Response status: 200

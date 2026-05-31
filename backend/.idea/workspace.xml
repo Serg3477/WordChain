@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/core/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/nginx.conf" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,7 +219,8 @@
       <workItem from="1779884610742" duration="2997000" />
       <workItem from="1779887762532" duration="1002000" />
       <workItem from="1779952949956" duration="10020000" />
-      <workItem from="1780051839201" duration="7437000" />
+      <workItem from="1780051839201" duration="8241000" />
+      <workItem from="1780147987672" duration="458000" />
     </task>
     <servers />
   </component>
