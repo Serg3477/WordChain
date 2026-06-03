@@ -1,0 +1,53 @@
+/* notification.css */
+.notify-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+    z-index: 9999;
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 2px rgb(4, 125, 0);
+    border-radius: 6px;
+    background: #4c4c4c;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .25s ease, transform .25s ease;
+    max-width: 260px;
+}
+
+.notify.show {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+}
+
+.notify-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.notify-image {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.notify-success { background: #1f7a1f; }
+.notify-error   { background: #8b1e1e; }
+.notify-warning { background: #8b6a1e; }
+.notify-info    { background: #1e4f8b; }

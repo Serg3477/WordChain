@@ -1,22 +1,22 @@
-import { state } from "../core/state.js";
 import { apiRequest } from "../core/api.js";
+import { state } from "../core/state.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
 
-export async function wordRequest ({endpoint, method, id, word, user_id}) {
+export async function wordRequest ({endpoint, method, id, user_id}) {
 
     logInfo(`${endpoint.slice(1)} request shape`, {
       endpoint: endpoint,
       method: method,
       hasEndpoint: !!endpoint,
-      hasWord: !!word,
+      hasId: !!id,
       hasUser: !!user_id
     });
 
     try {
       const res = await apiRequest(endpoint, {
         method: method,
-        body: { id, word, user_id },
+        body: { id, user_id },
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
         keys: res ? Object.keys(res) : [],
@@ -29,13 +29,14 @@ export async function wordRequest ({endpoint, method, id, word, user_id}) {
   
 }
 
-export async function betterTransRequest ({endpoint, method, id, word, sourceLang, targetLang}) {
+export async function betterTransRequest ({endpoint, method, id, user_id, sourceLang, targetLang}) {
 
     logInfo(`${endpoint.slice(1)} request shape`, {
       endpoint: endpoint,
       method: method,
       hasEndpoint: !!endpoint,
-      hasWord: !!word,
+      hasId: !!id,
+      hasUser: !!user_id,
     });
 
     try {
@@ -43,7 +44,7 @@ export async function betterTransRequest ({endpoint, method, id, word, sourceLan
         method: method,
         body: { 
           id,
-          word, 
+          user_id,
           source_lang: sourceLang, 
           target_lang: targetLang 
         },
@@ -69,9 +70,23 @@ export async function wordUpdateRequest ({endpoint, method, currentWord}) {
     });
 
     try {
+      const requestBody = state.getCurrentWordUpdatePayload
+        ? state.getCurrentWordUpdatePayload(currentWord)
+        : {
+            id: currentWord?.id,
+            user_id: currentWord?.user_id,
+            translation: currentWord?.translation,
+            translation_json: currentWord?.translation_json,
+            part_of_speech: currentWord?.part_of_speech,
+            transcription: currentWord?.transcription,
+            examples: currentWord?.examples,
+            synonyms: currentWord?.synonyms,
+            antonyms: currentWord?.antonyms,
+          };
+
       const res = await apiRequest(endpoint, {
         method: method,
-        body: currentWord,
+        body: requestBody,
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
         keys: res ? Object.keys(res) : [],

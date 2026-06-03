@@ -3,6 +3,7 @@ import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 
 
 
@@ -70,9 +71,6 @@ export function renderTranslator(state) {
   const output = screen.querySelector("#translation-output");
   const buttonsRow = screen.querySelector(".buttons-row");
 
-  // Внутреннее состояние поля ввода
-  let currentWord = "";
-
   // ---------------------------
   // КНОПКА ОЧИСТКИ
   // ---------------------------
@@ -122,9 +120,10 @@ export function renderTranslator(state) {
 
     const translationResult = await translateWord({
       word,
-      sourceLang: "en",
-      targetLang: "ru"
+      sourceLang: state.sourceLang,
+      targetLang: state.targetLang
     });
+    Notification.show({ type: "success", message: "Translation success!"})
 
     if (!translationResult || !translationResult.word) {
       logError("Translate returned invalid payload", { translationResult });
@@ -195,6 +194,7 @@ export function renderTranslator(state) {
     try {
       await saveWord(result);
       logInfo("Save request success");
+      Notification.show({ type: "success", message: "Saved success!"})
     } catch (e) {
       logError("Save request failed in UI", { error: e.message });
     }
@@ -262,5 +262,3 @@ export function renderTranslator(state) {
 //   console.log('touch at', x, y, 'elementFromPoint:', document.elementFromPoint(x,y));
 //   document.removeEventListener('touchstart', t);
 // }, {passive:true});
-
-

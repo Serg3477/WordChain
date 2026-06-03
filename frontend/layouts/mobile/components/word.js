@@ -1,9 +1,6 @@
-import { windowManager } from "../../../core/windowManager.js";
-import { state } from "../../../core/state.js";
 import { wordRequest, betterTransRequest, wordUpdateRequest } from "../../../api/word.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
-import { translateWord } from "../../../api/translate.js";
 import { createScrollButtonsArea } from "../../../ui/scrollButtonsArea/scrollButtonsArea.js"
 
 
@@ -14,32 +11,7 @@ function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-function renderList(value) {
-  if (!value) return "";
-  if (Array.isArray(value)) {
-    return value.length ? value.map(v => String(v).trim()).join(", ") : "";
-  }
-  return String(value);
-}
-
-function renderSentences(value) {
-  if (!value) return "";
-  let arr;
-  if (Array.isArray(value)) {
-    arr = value.map(s => String(s).trim()).filter(Boolean);
-  } else {
-    // если пришла строка — разбиваем по переносам или по запятым как fallback
-    if (value.includes("\n")) {
-      arr = value.split("\n").map(s => s.trim()).filter(Boolean);
-    } else {
-      arr = String(value).split(/(?:\.\s+)|(?:,)|(?:\n)/).map(s => s.trim()).filter(Boolean);
-    }
-  }
-  // возвращаем HTML с <br> между предложениями, экранируя содержимое
-  return arr.map(s => escapeHtml(s)).join("<br>");
-}
-
-export async function renderWord(state, id, word) {
+export async function renderWord(appState, id, word) {
   logInfo("Word screen render start");
 
   const screen = document.querySelector('[data-screen="word"]');
@@ -65,13 +37,13 @@ export async function renderWord(state, id, word) {
     if (!langCode) return "Target language";
     return LANGUAGE_LABELS[langCode] ?? String(langCode).toUpperCase();
   }
-  const targetLanguageLabel = getLanguageLabel(state.targetLang);
+  const targetLanguageLabel = getLanguageLabel(appState.targetLang);
 
   let result;
   logInfo("Word request from the base");
 
-  if (!word) {
-    logInfo("Word request aborted: no word in the base");
+  if (id == null) {
+    logInfo("Word request aborted: no id in the base");
     return;
   }
 
@@ -79,27 +51,26 @@ export async function renderWord(state, id, word) {
     logInfo("Word request start", {
       endpoint: "/get_word",
       method: "POST",
-      word: word,
-      user_id: state.user.id,
+      id,
+      user_id: appState.user.id,
     });
 
     result = await wordRequest({
       endpoint: "/get_word",
       method: "POST",
       id,
-      word,
-      user_id: state.user.id,
+      user_id: appState.user.id,
     });
-    state.setField('id', result.id)
-    state.setField('user_id', state.user.id);
-    state.setField('word', result.word);
-    state.setField('translation', result.translation);
-    state.setField('transcription', result.transcription);
-    state.setField('part_of_speech', result.part_of_speech);
-    state.setField('translation_json', result.translation_json);
-    state.setField('synonyms', result.synonyms);
-    state.setField('antonyms', result.antonyms);
-    state.setField('examples', result.examples);
+    appState.setField('id', result.id)
+    appState.setField('user_id', appState.user.id);
+    appState.setField('word', result.word ?? word ?? "");
+    appState.setField('translation', result.translation);
+    appState.setField('transcription', result.transcription);
+    appState.setField('part_of_speech', result.part_of_speech);
+    appState.setField('translation_json', result.translation_json);
+    appState.setField('synonyms', result.synonyms);
+    appState.setField('antonyms', result.antonyms);
+    appState.setField('examples', result.examples);
 
 
   } catch (e) {
@@ -107,6 +78,7 @@ export async function renderWord(state, id, word) {
     return;
   }
 
+  const displayWord = result?.word ?? word ?? "";
   const translationText = result?.translation ?? "";
   const transcriptionText = result?.transcription ?? "";
   const posText = result?.part_of_speech ?? "";
@@ -121,7 +93,7 @@ export async function renderWord(state, id, word) {
         <!-- WORD FIELD -->
         <div class="result-item">
           <div class="result-label">Translation of:</div>
-          <div class="result-value result-value-strong">${escapeHtml(word ?? "")}</div>
+          <div class="result-value result-value-strong">${escapeHtml(displayWord)}</div>
         </div><br>
 
         <!-- TRANSLATION FIELD -->
@@ -182,7 +154,7 @@ export async function renderWord(state, id, word) {
         const result = await wordUpdateRequest({
           endpoint: "/update_word",
           method: "PUT",
-          currentWord: state.currentWord
+          currentWord: appState.currentWord
         });
         logInfo("Update Word success", { result });
 
@@ -204,12 +176,12 @@ export async function renderWord(state, id, word) {
           endpoint: "/get_better_translation",
           method: "POST",
           id,
-          word,
-          sourceLang: "en",
-          targetLang: "ru"
+          user_id: appState.user.id,
+          sourceLang: appState.sourceLang,
+          targetLang: appState.targetLang
         });
         resultBetterTrans(result);
-        state.setField('translation_json', result.translation_json);
+        appState.setField('translation_json', result.translation_json);
 
       } catch (e) {
         logError("Better translation failed", { error: e.message });
@@ -288,7 +260,7 @@ export async function renderWord(state, id, word) {
           container.appendChild(ul2);
         }
 
-        state.setField('translation_json', result.translation_json);
+        appState.setField('translation_json', result.translation_json);
 
         if (
           result?.translation_json &&
@@ -321,14 +293,13 @@ export async function renderWord(state, id, word) {
           endpoint: "/get_synonyms",
           method: "POST",
           id,
-          word,
           user_id: state.user.id,
         });
         const list = Array.isArray(res.synonyms) ? res.synonyms : (res.synonyms ? String(res.synonyms).split(",").map(s => s.trim()) : []);
         document.querySelector('.result-value-synonyms').textContent = list.join(", ");
         document.querySelector('.result-label-synonyms').classList.remove('hidden');
 
-        state.setField('synonyms', res.synonyms);
+        appState.setField('synonyms', res.synonyms);
 
       } catch (e) {
         logError("Synonyms fetch failed", { error: e.message });
@@ -353,14 +324,13 @@ export async function renderWord(state, id, word) {
           endpoint: "/get_antonyms",
           method: "POST",
           id,
-          word,
           user_id: state.user.id,
         });
         const list = Array.isArray(res.antonyms) ? res.antonyms : (res.antonyms ? String(res.antonyms).split(",").map(s => s.trim()) : []);
         document.querySelector('.result-value-antonyms').textContent = list.join(", ");
         document.querySelector('.result-label-antonyms').classList.remove('hidden');
 
-        state.setField('antonyms', res.antonyms);
+        appState.setField('antonyms', res.antonyms);
 
       } catch (e) {
         logError("Antonyms fetch failed", { error: e.message });
@@ -384,11 +354,10 @@ export async function renderWord(state, id, word) {
           endpoint: "/get_sentences",
           method: "POST",
           id,
-          word,
           user_id: state.user.id,
         });
         resultSentences(res); 
-        state.setField('examples', res.examples);
+        appState.setField('examples', res.examples);
         
       } catch (e) {
         logError("Sentences fetch failed", { error: e.message });
@@ -423,6 +392,8 @@ export async function renderWord(state, id, word) {
   area.addButton(synonymsBtn);
   area.addButton(antonymsBtn);
   area.addButton(sentencesBtn);
+
+  return result;
 
   
 }

@@ -6281,3 +6281,1247 @@ WHERE words.id = :id_1 AND words.user_id = :user_id_1 AND words.word = :word_1 O
 2026-06-03 14:09:12.424 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
 2026-06-03 14:09:12.424 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'perfect', 'hasData': False}
 2026-06-03 14:09:12.425 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.663 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.664 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.664 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.665 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.666 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.666 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 15:24:12.667 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.667 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.670 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.671 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.671 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.672 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 15:24:12.683 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 15:24:12.684 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.685 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 15:24:12.686 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 15:24:12.686 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.687 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.690 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 15:24:12.692 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.736 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.736 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:12.737 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 15:24:12.737 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 15:24:12.738 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:12.738 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:17.669 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:17.670 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:17.670 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:17.671 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:17.673 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:17.674 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:17.674 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 15:24:17.674 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:17.675 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 15:24:17.675 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:48.090 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:48.092 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:48.092 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:48.092 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-06-03 15:24:48.093 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:48.093 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 15:24:48.094 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'herritage', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 15:24:48.095 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'herritage', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 15:24:48.095 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:48.096 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:48.096 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:48.097 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 15:24:48.099 | INFO     | app.routers.translation:translate:10 - Translation attempt: herritage
+2026-06-03 15:24:52.743 | SUCCESS  | app.routers.translation:translate:19 - Translation success: herritage
+2026-06-03 15:24:52.744 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:52.788 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:52.789 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:24:52.790 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 15:24:52.791 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 15:24:52.791 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:24:52.791 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.403 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:00.404 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save button clicked {'hasResult': True}
+2026-06-03 15:25:00.404 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:00.404 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/saveWord
+2026-06-03 15:25:00.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.405 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.406 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord request shape {'endpoint': '/saveWord', 'method': 'POST', 'bodyShape': ['word', 'translation', 'transcription', 'part_of_speech'], 'bodyPreview': {'word': 'heritage', 'translation': 'наследие, достояние, культурное наследие, традиция, наследство, родовое имущество', 'transcription': 'ˈhɛrɪtɪdʒ', 'part_of_speech': 'noun'}}
+2026-06-03 15:25:00.406 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.410 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/saveWord
+2026-06-03 15:25:00.414 | INFO     | app.routers.save_word:save_word:16 - Saving attempt: heritage
+2026-06-03 15:25:00.432 | INFO     | app.routers.save_word:save_word:38 - Word saved success: heritage
+2026-06-03 15:25:00.432 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 15:25:00.436 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63]
+2026-06-03 15:25:00.436 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63]
+2026-06-03 15:25:00.436 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.479 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:00.479 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:00.480 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-06-03 15:25:00.480 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save request success {}
+2026-06-03 15:25:00.480 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:00.481 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:05.170 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:05.171 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-06-03 15:25:05.171 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-03 15:25:05.172 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:05.172 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:05.177 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-06-03 15:25:05.178 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-06-03 15:25:05.184 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 15:25:05.203 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63]
+2026-06-03 15:25:05.203 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63]
+2026-06-03 15:25:05.213 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}] /n  Unassigned_words [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]
+2026-06-03 15:25:05.213 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:05.216 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:05.217 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:05.217 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-06-03 15:25:05.217 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:05.218 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets payload {'setsCount': 8, 'unassignedCount': 3, 'unassigned_words': [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]}
+2026-06-03 15:25:05.218 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.468 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.470 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.470 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.473 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word heritage clicked {'word': 'heritage'}
+2026-06-03 15:25:07.474 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.475 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.476 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.476 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.476 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-06-03 15:25:07.477 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-06-03 15:25:07.478 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.479 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.480 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-06-03 15:25:07.481 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'id': '63', 'user_id': 2}
+2026-06-03 15:25:07.481 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:25:07.481 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-06-03 15:25:07.482 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.482 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.483 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.484 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.486 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-06-03 15:25:07.487 | INFO     | app.routers.get_word:get_word:29 - Reading Word attempt: id=63 user_id=2
+2026-06-03 15:25:07.492 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:25:07.493 | INFO     | app.routers.get_word:get_word:33 - Reading word success: heritage
+2026-06-03 15:25:07.493 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.537 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.538 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:25:07.538 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:07.538 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:07.539 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'heritage', 'hasData': True}
+2026-06-03 15:25:07.539 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:09.280 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:09.281 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_better_translation
+2026-06-03 15:25:09.281 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:09.282 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation request shape {'endpoint': '/get_better_translation', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:25:09.283 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:09.284 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_better_translation
+2026-06-03 15:25:09.285 | INFO     | app.routers.get_word:get_better_translation:40 - Get better word translation attempt: id=63 user_id=2 source_lang='en' target_lang='ru'
+2026-06-03 15:25:09.290 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:25:10.639 | INFO     | app.services.word_service:word_better_translation:372 - Made better translation attempt for %s: %s
+2026-06-03 15:25:10.640 | SUCCESS  | app.routers.get_word:get_better_translation:48 - Translation success: heritage
+2026-06-03 15:25:10.640 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:10.644 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:10.645 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_better_translation response shape {'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-06-03 15:25:10.645 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:12.197 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:12.197 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_synonyms
+2026-06-03 15:25:12.198 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:12.198 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_synonyms request shape {'endpoint': '/get_synonyms', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:25:12.198 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:12.201 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_synonyms
+2026-06-03 15:25:12.202 | INFO     | app.routers.get_word:get_synonyms:58 - Get synonyms attempt: id=63 user_id=2
+2026-06-03 15:25:12.205 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:25:15.972 | INFO     | app.routers.get_word:get_synonyms:64 - Get synonyms success: heritage
+2026-06-03 15:25:15.972 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:15.976 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:15.976 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_synonyms response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:25:15.977 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:17.234 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:17.235 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_antonyms request shape {'endpoint': '/get_antonyms', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:25:17.235 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_antonyms
+2026-06-03 15:25:17.235 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:17.236 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:17.239 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_antonyms
+2026-06-03 15:25:17.239 | INFO     | app.routers.get_word:get_antonyms:80 - Get antonyms attempt: id=63 user_id=2
+2026-06-03 15:25:17.243 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:25:20.382 | INFO     | app.routers.get_word:get_antonyms:86 - Get antonyms success: heritage
+2026-06-03 15:25:20.383 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:20.427 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:20.428 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_antonyms response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:25:20.428 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:21.347 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:21.348 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sentences
+2026-06-03 15:25:21.348 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:21.349 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_sentences request shape {'endpoint': '/get_sentences', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:25:21.350 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:21.353 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sentences
+2026-06-03 15:25:21.354 | INFO     | app.routers.get_word:get_sentences:102 - Get sentences attempt: id=63 user_id=2
+2026-06-03 15:25:21.357 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:25:25.390 | INFO     | app.routers.get_word:get_sentences:108 - Get sentences success: heritage
+2026-06-03 15:25:25.391 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:25.396 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:25.397 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_sentences response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:25:25.398 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:30.480 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:30.481 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/update_word
+2026-06-03 15:25:30.481 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:30.482 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] update_word request shape {'method': 'PUT', 'hasEndpoint': True, 'hasCurrentWord': True}
+2026-06-03 15:25:30.482 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:30.485 | INFO     | app.main:log_requests:71 - Incoming request: PUT http://127.0.0.1:8000/update_word
+2026-06-03 15:25:30.486 | INFO     | app.routers.update_word:update_word:11 - Update Word attempt: id=63 user_id=2 translation='наследие, достояние, культурное наследие, традиция, наследство, родовое имущество' translation_json=TranslationJSON(definite_translation=['наследие'], plural='-', verb_forms=[], passive_form='-', phrasal_verbs=[], usage_notes=None) part_of_speech='noun' transcription='ˈhɛrɪtɪdʒ' examples=['Our city celebrates its heritage every spring with music and food.', 'How do we preserve our heritage for future generations?', 'The old temple was restored to protect its heritage.', 'She is studying her family heritage while visiting her grandparents.', 'By next year, the museum will have expanded its heritage collection.', 'Many communities have cherished their heritage through centuries of change.'] synonyms=['legacy', 'tradition', 'inheritance', 'patrimony', 'estate', 'legacy asset', 'cultural legacy', 'bequest', 'birthright', 'endowment', 'inheritance right', 'ancestral legacy'] antonyms=['forgetting', 'modernity', 'innovation', 'novelty', 'change', 'abandonment', 'desertion', 'dispossession', 'disinheritance', 'exile', 'rootlessness', 'homelessness']
+2026-06-03 15:25:30.486 | INFO     | app.routers.update_word:update_word:13 - Raw update request body: {'id': 63, 'user_id': 2, 'translation': 'наследие, достояние, культурное наследие, традиция, наследство, родовое имущество', 'translation_json': {'definite_translation': ['наследие'], 'plural': '-', 'verb_forms': [], 'passive_form': '-', 'phrasal_verbs': [], 'usage_notes': None}, 'part_of_speech': 'noun', 'transcription': 'ˈhɛrɪtɪdʒ', 'examples': ['Our city celebrates its heritage every spring with music and food.', 'How do we preserve our heritage for future generations?', 'The old temple was restored to protect its heritage.', 'She is studying her family heritage while visiting her grandparents.', 'By next year, the museum will have expanded its heritage collection.', 'Many communities have cherished their heritage through centuries of change.'], 'synonyms': ['legacy', 'tradition', 'inheritance', 'patrimony', 'estate', 'legacy asset', 'cultural legacy', 'bequest', 'birthright', 'endowment', 'inheritance right', 'ancestral legacy'], 'antonyms': ['forgetting', 'modernity', 'innovation', 'novelty', 'change', 'abandonment', 'desertion', 'dispossession', 'disinheritance', 'exile', 'rootlessness', 'homelessness']}
+2026-06-03 15:25:30.488 | INFO     | app.services.word_service:word_update:227 - word_update stmt: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1
+2026-06-03 15:25:30.498 | INFO     | app.routers.update_word:update_word:21 - Reading word success: heritage
+2026-06-03 15:25:30.499 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:30.502 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:30.502 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:25:30.503 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] update_word response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:25:30.503 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Update Word success {'result': {'id': 63, 'word': 'heritage', 'translation': 'наследие, достояние, культурное наследие, традиция, наследство, родовое имущество', 'translation_json': {'definite_translation': ['наследие'], 'plural': None, 'verb_forms': [], 'passive_form': None, 'phrasal_verbs': [], 'usage_notes': None}, 'part_of_speech': 'noun', 'transcription': 'ˈhɛrɪtɪdʒ', 'examples': ['Our city celebrates its heritage every spring with music and food.', 'How do we preserve our heritage for future generations?', 'The old temple was restored to protect its heritage.', 'She is studying her family heritage while visiting her grandparents.', 'By next year, the museum will have expanded its heritage collection.', 'Many communities have cherished their heritage through centuries of change.'], 'synonyms': ['legacy', 'tradition', 'inheritance', 'patrimony', 'estate', 'legacy asset', 'cultural legacy', 'bequest', 'birthright', 'endowment', 'inheritance right', 'ancestral legacy'], 'antonyms': ['forgetting', 'modernity', 'innovation', 'novelty', 'change', 'abandonment', 'desertion', 'dispossession', 'disinheritance', 'exile', 'rootlessness', 'homelessness'], 'created_at': '2026-06-03T15:25:00.417747', 'updated_at': '2026-06-03T15:25:30.489960'}}
+2026-06-03 15:25:30.503 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:25:30.504 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:16.568 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:16.568 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-06-03 15:26:16.569 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-03 15:26:16.569 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-06-03 15:26:16.570 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:16.574 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 15:26:16.576 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63]
+2026-06-03 15:26:16.576 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63]
+2026-06-03 15:26:16.584 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}] /n  Unassigned_words [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]
+2026-06-03 15:26:16.584 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:16.589 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:16.590 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-06-03 15:26:16.591 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:16.593 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:16.594 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets payload {'setsCount': 8, 'unassignedCount': 3, 'unassigned_words': [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]}
+2026-06-03 15:26:16.594 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:17.998 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:17.999 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.000 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.002 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.002 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.002 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.003 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word currently clicked {'word': 'currently'}
+2026-06-03 15:26:18.004 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-06-03 15:26:18.004 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.005 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.006 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-06-03 15:26:18.006 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-06-03 15:26:18.006 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'id': '61', 'user_id': 2}
+2026-06-03 15:26:18.007 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:26:18.007 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.008 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.009 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.009 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.013 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-06-03 15:26:18.014 | INFO     | app.routers.get_word:get_word:29 - Reading Word attempt: id=61 user_id=2
+2026-06-03 15:26:18.017 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:26:18.018 | INFO     | app.routers.get_word:get_word:33 - Reading word success: currently
+2026-06-03 15:26:18.018 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.062 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.063 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:26:18.063 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:18.063 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:18.064 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'currently', 'hasData': True}
+2026-06-03 15:26:18.065 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:21.406 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:21.409 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-06-03 15:26:21.410 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-03 15:26:21.410 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-06-03 15:26:21.411 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:21.412 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 15:26:21.414 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63]
+2026-06-03 15:26:21.415 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63]
+2026-06-03 15:26:21.423 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}] /n  Unassigned_words [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]
+2026-06-03 15:26:21.424 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:21.427 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:21.427 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:21.428 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-06-03 15:26:21.428 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets payload {'setsCount': 8, 'unassignedCount': 3, 'unassigned_words': [{'id': 61, 'word': 'currently'}, {'id': 62, 'word': 'perfect'}, {'id': 63, 'word': 'heritage'}]}
+2026-06-03 15:26:21.428 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:21.429 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.493 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.494 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.495 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.497 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.498 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.498 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.499 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word heritage clicked {'word': 'heritage'}
+2026-06-03 15:26:22.500 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-06-03 15:26:22.500 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-06-03 15:26:22.500 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.501 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-06-03 15:26:22.501 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'id': '63', 'user_id': 2}
+2026-06-03 15:26:22.502 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 15:26:22.502 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.503 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.503 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.504 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.505 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.506 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-06-03 15:26:22.507 | INFO     | app.routers.get_word:get_word:29 - Reading Word attempt: id=63 user_id=2
+2026-06-03 15:26:22.511 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 15:26:22.511 | INFO     | app.routers.get_word:get_word:33 - Reading word success: heritage
+2026-06-03 15:26:22.512 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.554 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.555 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:26:22.556 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 15:26:22.556 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:26:22.556 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'heritage', 'hasData': True}
+2026-06-03 15:26:22.557 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.458 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.458 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.470 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.470 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.471 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 15:37:44.471 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.471 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.472 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.473 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.474 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 15:37:44.475 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.485 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.486 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.487 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 15:37:44.490 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 15:37:44.490 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 15:37:44.491 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.492 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.493 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 15:37:44.494 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.538 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.538 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:37:44.539 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 15:37:44.540 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 15:37:44.540 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:37:44.541 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.476 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:38:05.478 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:38:05.478 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:38:05.478 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 15:38:05.482 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 15:38:05.483 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 15:38:05.483 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 15:38:05.484 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.485 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.485 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.488 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 15:38:05.489 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.495 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:38:05.496 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 15:38:05.496 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 15:38:05.497 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 15:38:05.497 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 15:38:05.498 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.521 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.521 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.522 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.523 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.526 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.526 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 16:08:22.527 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.527 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.527 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.529 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.531 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:08:22.532 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:08:22.532 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.533 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.541 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.542 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:08:22.544 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:08:22.545 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.547 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:08:22.548 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.590 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.591 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:08:22.592 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:08:22.592 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:08:22.592 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:08:22.593 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.079 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.080 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.081 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.081 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.083 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.083 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.084 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 16:20:09.084 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.085 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.086 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:20:09.086 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.087 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:20:09.087 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.090 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.091 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:20:09.093 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:20:09.094 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.095 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:20:09.098 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.150 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.151 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:09.151 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:20:09.151 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:09.152 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:20:09.153 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:13.147 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:13.148 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:13.149 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:13.150 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:13.153 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:13.154 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:13.155 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:20:13.155 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:13.156 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate aborted: empty input {}
+2026-06-03 16:20:13.156 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:43.740 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:43.741 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:43.741 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:43.742 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-06-03 16:20:43.742 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:20:43.742 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:43.743 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'rednex', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:20:43.743 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'rednex', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:20:43.744 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:43.745 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:43.745 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:43.748 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:20:43.749 | INFO     | app.routers.translation:translate:10 - Translation attempt: rednex
+2026-06-03 16:20:48.084 | SUCCESS  | app.routers.translation:translate:19 - Translation success: rednex
+2026-06-03 16:20:48.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:48.128 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:48.128 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:48.129 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:20:48.131 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:20:48.131 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:48.132 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.884 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:59.885 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:59.885 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/saveWord
+2026-06-03 16:20:59.886 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save button clicked {'hasResult': True}
+2026-06-03 16:20:59.886 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.886 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.887 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord request shape {'endpoint': '/saveWord', 'method': 'POST', 'bodyShape': ['word', 'translation', 'transcription', 'part_of_speech'], 'bodyPreview': {'word': 'rednecks', 'translation': 'деревенщины, колхозники, быдло, деревенские, сельские, мужланы', 'transcription': 'ˈrɛdˌnɛks', 'part_of_speech': 'noun'}}
+2026-06-03 16:20:59.887 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.890 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/saveWord
+2026-06-03 16:20:59.892 | INFO     | app.routers.save_word:save_word:16 - Saving attempt: rednecks
+2026-06-03 16:20:59.899 | INFO     | app.routers.save_word:save_word:38 - Word saved success: rednecks
+2026-06-03 16:20:59.899 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 16:20:59.902 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63, 64]
+2026-06-03 16:20:59.902 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63, 64]
+2026-06-03 16:20:59.903 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.946 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:59.947 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:20:59.947 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-06-03 16:20:59.948 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save request success {}
+2026-06-03 16:20:59.948 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:20:59.949 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:34.975 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:34.976 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:34.976 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:34.977 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:21:34.977 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:21:34.977 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'rampage', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:21:34.978 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'rampage', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:21:34.978 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:34.978 | INFO     | app.routers.translation:translate:10 - Translation attempt: rampage
+2026-06-03 16:21:34.979 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:34.979 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:46.515 | SUCCESS  | app.routers.translation:translate:19 - Translation success: rampage
+2026-06-03 16:21:46.515 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:46.521 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:46.523 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:46.523 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:21:46.524 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:46.527 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:21:46.528 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:50.154 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:50.154 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:50.155 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save button clicked {'hasResult': True}
+2026-06-03 16:21:50.155 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/saveWord
+2026-06-03 16:21:50.156 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:50.156 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord request shape {'endpoint': '/saveWord', 'method': 'POST', 'bodyShape': ['word', 'translation', 'transcription', 'part_of_speech'], 'bodyPreview': {'word': 'rampage', 'translation': 'набег, буйство, бесчинство, погром, разнузданность, дикий разгул', 'transcription': 'ˈræm.pɪdʒ', 'part_of_speech': 'noun'}}
+2026-06-03 16:21:50.157 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:50.159 | INFO     | app.routers.save_word:save_word:16 - Saving attempt: rampage
+2026-06-03 16:21:50.166 | INFO     | app.routers.save_word:save_word:38 - Word saved success: rampage
+2026-06-03 16:21:50.166 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 16:21:50.168 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63, 64, 65]
+2026-06-03 16:21:50.168 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: [61, 62, 63, 64, 65]
+2026-06-03 16:21:50.168 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:50.172 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:50.172 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:21:50.173 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-06-03 16:21:50.173 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save request success {}
+2026-06-03 16:21:50.173 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:21:50.174 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:12.081 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:12.082 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:12.082 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:12.082 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:27:12.083 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:27:12.083 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'tweak', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:27:12.083 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'tweak', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:27:12.083 | INFO     | app.routers.translation:translate:10 - Translation attempt: tweak
+2026-06-03 16:27:12.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:12.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:12.084 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:22.735 | SUCCESS  | app.routers.translation:translate:19 - Translation success: tweak
+2026-06-03 16:27:22.735 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:22.738 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:22.739 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:22.740 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:27:22.740 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:22.741 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:27:22.741 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:30.776 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:30.776 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:30.777 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/saveWord
+2026-06-03 16:27:30.778 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save button clicked {'hasResult': True}
+2026-06-03 16:27:30.779 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord request shape {'endpoint': '/saveWord', 'method': 'POST', 'bodyShape': ['word', 'translation', 'transcription', 'part_of_speech'], 'bodyPreview': {'word': 'tweak', 'translation': 'подправить, отрегулировать, слегка изменить, подкорректировать, поднастроить, чуть изменить', 'transcription': 'twiːk', 'part_of_speech': 'verb'}}
+2026-06-03 16:27:30.780 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:30.781 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:30.782 | INFO     | app.routers.save_word:save_word:16 - Saving attempt: tweak
+2026-06-03 16:27:30.788 | INFO     | app.routers.save_word:save_word:38 - Word saved success: tweak
+2026-06-03 16:27:30.788 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 16:27:30.790 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: [61, 62, 63, 64, 65, 66]
+2026-06-03 16:27:30.790 | INFO     | app.services.set_service:create_set_from_last_words:66 - [SET] create_set_from_last_words for user 2, words: [61, 62, 63, 64, 65, 66]
+2026-06-03 16:27:30.799 | INFO     | app.services.set_service:create_set_from_last_words:89 - [SET] Created set 11 for user 2
+2026-06-03 16:27:30.819 | INFO     | app.services.set_service:create_set_from_last_words:98 - [SET] Set 11 filled with words: [61, 62, 63, 64, 65, 66]
+2026-06-03 16:27:30.819 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: []
+2026-06-03 16:27:30.820 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:30.824 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:30.825 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:27:30.825 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] SaveWord response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech']}
+2026-06-03 16:27:30.826 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Save request success {}
+2026-06-03 16:27:30.826 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:27:30.826 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.864 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.865 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.865 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.866 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.876 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.878 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.878 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 16:35:33.878 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.878 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.879 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.881 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:35:33.882 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:35:33.882 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.883 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.888 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.889 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:35:33.892 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:35:33.893 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.895 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:35:33.895 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.938 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.939 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:35:33.939 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:35:33.940 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:35:33.940 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:35:33.940 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.436 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:48.437 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:48.437 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:36:48.438 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.439 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:36:48.439 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.444 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:48.446 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:36:48.448 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:36:48.449 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.451 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:36:48.452 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.465 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:48.468 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:48.468 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:36:48.469 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:48.472 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:36:48.472 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.811 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.812 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.812 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.813 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-06-03 16:36:59.813 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.814 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.814 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.815 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.820 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.820 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.820 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:36:59.821 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:36:59.822 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'dive', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:36:59.822 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:36:59.822 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'dive', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:36:59.823 | INFO     | app.routers.translation:translate:10 - Translation attempt: dive
+2026-06-03 16:36:59.823 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.823 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:36:59.824 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:37:07.639 | SUCCESS  | app.routers.translation:translate:19 - Translation success: dive
+2026-06-03 16:37:07.640 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:37:07.683 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:37:07.684 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:37:07.684 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:37:07.685 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:37:07.685 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:37:07.686 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:24.794 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:38:24.795 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:38:24.796 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:38:24.796 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:38:24.797 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:38:24.797 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'drive', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:38:24.797 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'drive', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:38:24.798 | INFO     | app.routers.translation:translate:10 - Translation attempt: drive
+2026-06-03 16:38:24.798 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:24.799 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:24.799 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:35.779 | SUCCESS  | app.routers.translation:translate:19 - Translation success: drive
+2026-06-03 16:38:35.780 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:35.784 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:38:35.785 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:38:35.786 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:38:35.786 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:38:35.787 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:38:35.787 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.065 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:43:23.066 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:43:23.067 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.074 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:43:23.075 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:43:23.076 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:43:23.081 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:43:23.082 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:43:23.082 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.083 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.086 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:43:23.086 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.096 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:43:23.097 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:43:23.098 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:43:23.098 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:43:23.099 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:43:23.099 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.096 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:34.097 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-03 16:46:34.097 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.104 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:34.105 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:34.105 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/me
+2026-06-03 16:46:34.106 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.107 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-03 16:46:34.107 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me request shape {'endpoint': '/me', 'method': 'GET', 'hasToken': True}
+2026-06-03 16:46:34.108 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.109 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.115 | INFO     | app.main:log_requests:71 - Incoming request: GET http://127.0.0.1:8000/me
+2026-06-03 16:46:34.122 | INFO     | app.routers.auth:get_me:53 - Get current user. 2 - Sergey
+2026-06-03 16:46:34.122 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.165 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:34.166 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:34.166 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Me response shape {'keys': ['nickname', 'email', 'avatar_url', 'is_guest', 'is_premium', 'id', 'created_at', 'last_login'], 'isGuest': False}
+2026-06-03 16:46:34.167 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Init user success {'hasUser': True}
+2026-06-03 16:46:34.167 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:34.167 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:49.982 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:49.983 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:49.983 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:46:49.983 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:46:49.984 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:46:49.984 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'sword', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:46:49.984 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'sword', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:46:49.985 | INFO     | app.routers.translation:translate:10 - Translation attempt: sword
+2026-06-03 16:46:49.985 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:49.985 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:46:49.986 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:47:03.281 | SUCCESS  | app.routers.translation:translate:19 - Translation success: sword
+2026-06-03 16:47:03.281 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:47:03.284 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:47:03.284 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:47:03.285 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:47:03.285 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:47:03.288 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:47:03.289 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:47:03.289 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:47:03.290 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:47:03.292 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:47:03.292 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:03.313 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:51:03.314 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:51:03.314 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:51:03.314 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/translate
+2026-06-03 16:51:03.315 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:03.315 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:51:03.316 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'swarm', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:51:03.316 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'swarm', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:51:03.316 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:03.317 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:03.317 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:03.319 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:51:03.320 | INFO     | app.routers.translation:translate:10 - Translation attempt: swarm
+2026-06-03 16:51:06.160 | SUCCESS  | app.routers.translation:translate:19 - Translation success: swarm
+2026-06-03 16:51:06.161 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:06.164 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:51:06.165 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:51:06.165 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:51:06.166 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:51:06.166 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:51:06.166 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:15.022 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:52:15.023 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:52:15.025 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:52:15.025 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:52:15.026 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:52:15.026 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'warm', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:52:15.026 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:15.027 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'warm', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:52:15.027 | INFO     | app.routers.translation:translate:10 - Translation attempt: warm
+2026-06-03 16:52:15.028 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:15.028 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:20.689 | SUCCESS  | app.routers.translation:translate:19 - Translation success: warm
+2026-06-03 16:52:20.690 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:20.694 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:52:20.696 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:52:20.696 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:52:20.696 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:52:20.697 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:52:20.697 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:54:15.615 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:54:15.616 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:54:15.616 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:54:15.617 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:54:15.618 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:54:15.618 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'winter', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:54:15.619 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'winter', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:54:15.619 | INFO     | app.routers.translation:translate:10 - Translation attempt: winter
+2026-06-03 16:54:15.619 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:54:15.620 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:54:15.620 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:54:31.924 | ERROR    | app.main:log_requests:76 - Unhandled error: Request timed out.
+Traceback (most recent call last):
+
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+                 │    │     │                    └ <Request [b'POST']>
+                 │    │     └ <function AsyncConnectionPool.handle_async_request at 0x7f421fb1b880>
+                 │    └ <AsyncConnectionPool [Requests: 0 active, 0 queued | Connections: 0 active, 0 idle]>
+                 └ <httpx.AsyncHTTPTransport object at 0x7f421fb3fda0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+                     │          └ <function AsyncHTTPConnection.handle_async_request at 0x7f421fb1aa20>
+                     └ <AsyncHTTPConnection [CONNECTION FAILED]>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+                   │    │        └ <Request [b'POST']>
+                   │    └ <function AsyncHTTPConnection._connect at 0x7f421fb1aac0>
+                   └ <AsyncHTTPConnection [CONNECTION FAILED]>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+                   │    │                │             └ {'host': 'api.openai.com', 'port': 443, 'local_address': None, 'timeout': 5.0, 'socket_options': None}
+                   │    │                └ <function AutoBackend.connect_tcp at 0x7f421fb18900>
+                   │    └ <httpcore._backends.auto.AutoBackend object at 0x7f421fb3fe00>
+                   └ <AsyncHTTPConnection [CONNECTION FAILED]>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+                 │    │        └ <function AnyIOBackend.connect_tcp at 0x7f421fb32980>
+                 │    └ <httpcore.AnyIOBackend object at 0x7f420f91c2c0>
+                 └ <httpcore._backends.auto.AutoBackend object at 0x7f421fb3fe00>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         │              └ {<class 'TimeoutError'>: <class 'httpcore.ConnectTimeout'>, <class 'OSError'>: <class 'httpcore.ConnectError'>, <class 'anyio...
+         └ <function map_exceptions at 0x7f421fac3ec0>
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+    │    │   │     └ TimeoutError()
+    │    │   └ <method 'throw' of 'generator' objects>
+    │    └ <generator object map_exceptions at 0x7f420f6497b0>
+    └ <contextlib._GeneratorContextManager object at 0x7f420ea66090>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+          └ <class 'httpcore.ConnectTimeout'>
+
+httpcore.ConnectTimeout
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1648, in request
+    response = await self._send_request(
+                     │    └ <function AsyncOpenAI._send_request at 0x7f421d0cfce0>
+                     └ <openai.AsyncOpenAI object at 0x7f421d8c2a80>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_client.py", line 946, in _send_request
+    return await self._send_with_auth_retry(request, stream=stream, **kwargs)
+                 │    │                     │               │         └ {}
+                 │    │                     │               └ False
+                 │    │                     └ <Request('POST', 'https://api.openai.com/v1/responses')>
+                 │    └ <function AsyncOpenAI._send_with_auth_retry at 0x7f421d0cfc40>
+                 └ <openai.AsyncOpenAI object at 0x7f421d8c2a80>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_client.py", line 924, in _send_with_auth_retry
+    response = await super()._send_request(request, stream=stream, **kwargs)
+                                           │               │         └ {}
+                                           │               └ False
+                                           └ <Request('POST', 'https://api.openai.com/v1/responses')>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1571, in _send_request
+    return await self._client.send(request, stream=stream, **kwargs)
+                 │    │       │    │               │         └ {}
+                 │    │       │    │               └ False
+                 │    │       │    └ <Request('POST', 'https://api.openai.com/v1/responses')>
+                 │    │       └ <function AsyncClient.send at 0x7f421d651940>
+                 │    └ <openai._base_client.AsyncHttpxClientWrapper object at 0x7f421d8c2ab0>
+                 └ <openai.AsyncOpenAI object at 0x7f421d8c2a80>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+                     │    └ <function AsyncClient._send_handling_auth at 0x7f421d6519e0>
+                     └ <openai._base_client.AsyncHttpxClientWrapper object at 0x7f421d8c2ab0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+                     │    └ <function AsyncClient._send_handling_redirects at 0x7f421d651a80>
+                     └ <openai._base_client.AsyncHttpxClientWrapper object at 0x7f421d8c2ab0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+                     │    │                    └ <Request('POST', 'https://api.openai.com/v1/responses')>
+                     │    └ <function AsyncClient._send_single_request at 0x7f421d651b20>
+                     └ <openai._base_client.AsyncHttpxClientWrapper object at 0x7f421d8c2ab0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+                     │         │                    └ <Request('POST', 'https://api.openai.com/v1/responses')>
+                     │         └ <function AsyncHTTPTransport.handle_async_request at 0x7f421d6325c0>
+                     └ <httpx.AsyncHTTPTransport object at 0x7f421fb3fda0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         └ <function map_httpcore_exceptions at 0x7f421d631bc0>
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+    │    │   │     └ ConnectTimeout(TimeoutError())
+    │    │   └ <method 'throw' of 'generator' objects>
+    │    └ <generator object map_httpcore_exceptions at 0x7f420f3be640>
+    └ <contextlib._GeneratorContextManager object at 0x7f420ea661b0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+          │          └ ''
+          └ <class 'httpx.ConnectTimeout'>
+
+httpx.ConnectTimeout
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7f42218e5c60>
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7f42219c3f60>
+           └ <SpawnProcess name='SpawnProcess-15' parent=3593 started>
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7f42219c34c0>
+    └ <SpawnProcess name='SpawnProcess-15' parent=3593 started>
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7f4220d8b980>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-15' parent=3593 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-15' parent=3593 started>
+    │    └ <function subprocess_started at 0x7f4220ba1b20>
+    └ <SpawnProcess name='SpawnProcess-15' parent=3593 started>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7f4220be6360>>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7f4220d90d60>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7f4220d8b980>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7f4220be6360>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 8000)>]
+           │           │    └ <function Server.serve at 0x7f4220ba0ea0>
+           │           └ <uvicorn.server.Server object at 0x7f4220be6360>
+           └ <function run at 0x7f4220f0ec00>
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f42219489e0>
+           │      └ <function Runner.run at 0x7f4220f6e340>
+           └ <asyncio.runners.Runner object at 0x7f4220dab530>
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7f4220f67f60>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4220dab530>
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f4220f67ec0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f4220f6dd00>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1987, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f42216fa200>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/usr/lib/python3.12/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7f4220c282f0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x7f421fd89700>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7f4220c282f0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7f421c887c20>
+          └ <fastapi.applications.FastAPI object at 0x7f421fd89700>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7f420f4116c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7f420f458740>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7f421c887bf0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7f421c887c20>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7f420f448e00>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7f420f45be00>
+                     │    └ <function log_requests at 0x7f421c87b2e0>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7f421c887bf0>
+
+> File "/home/serg/PycharmProjects/WordChain/backend/app/main.py", line 74, in log_requests
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7f420f45be00>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7f420f448e00>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ APITimeoutError('Request timed out.')
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ APITimeoutError('Request timed out.')
+          └ APITimeoutError('Request timed out.')
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7f420f448ae0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x7f421c887b90>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7f421c887bf0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+          │    │               │      │        │                     └ Headers({'host': '127.0.0.1:8000', 'connection': 'keep-alive', 'content-length': '55', 'sec-ch-ua-platform': '"Linux"', 'auth...
+          │    │               │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7f420f448ae0>
+          │    │               │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │               └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function CORSMiddleware.simple_response at 0x7f421fdd7740>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x7f421c887b90>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+          │    │   │      │        └ functools.partial(<bound method CORSMiddleware.send of <starlette.middleware.cors.CORSMiddleware object at 0x7f421c887b90>>, ...
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7f421c887b00>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x7f421c887b90>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ functools.partial(<bound method CORSMiddleware.send of <starlette.middleware.cors.CORSMiddleware object at 0x7f421c887b90>>, ...
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x7f420ea7c6e0>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7f421c887b60>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7f421c887b00>
+          └ <function wrap_app_handling_exceptions at 0x7f421fd856c0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7f421c887b60>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x7f421c81a960>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7f421c887b60>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7f421c81a960>>
+          └ <fastapi.routing.APIRouter object at 0x7f421c81a960>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x7f421fd86ca0>
+          └ APIRoute(path='/translate', name='translate', methods=['POST'])
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x7f421c879120>
+          └ APIRoute(path='/translate', name='translate', methods=['POST'])
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420f5154e0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x7f420ea7fa70>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7f420ead0040>
+          └ <function wrap_app_handling_exceptions at 0x7f421fd856c0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7f420ead0180>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7f420ff913a0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7f420ead0040>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7f420ea7fa70>
+                     └ <function get_request_handler.<locals>.app at 0x7f421c878fe0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 427, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7f421fda0c20>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 313, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'req': TranslationRequest(word='winter', source_lang='en', target_lang='ru')}
+                 │         └ <function translate at 0x7f421d8fc680>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "/home/serg/PycharmProjects/WordChain/backend/app/routers/translation.py", line 11, in translate
+    translation_json = await translate_word(
+                             └ <function translate_word at 0x7f421fb50220>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/app/services/word_service.py", line 152, in translate_word
+    correctness = await cache.get_or_set(
+                        │     └ <function AtomicCache.get_or_set at 0x7f421cea9da0>
+                        └ <app.utils.atomic_cache.AtomicCache object at 0x7f421fb3f860>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/app/utils/atomic_cache.py", line 36, in get_or_set
+    value = await producer()
+                  └ <function translate_word.<locals>.produce_correctness at 0x7f420f5142c0>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/app/services/word_service.py", line 126, in produce_correctness
+    return await _ask_text(prompt, max_tokens=20)
+                 │         └ "Check the spelling of the 'winter' in en. Return only the corrected word, or 'winter' if already correct. No explanations."
+                 └ <function _ask_text at 0x7f421fb50180>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/app/services/word_service.py", line 85, in _ask_text
+    resp = await client.responses.create(
+                 │      │         └ <function AsyncResponses.create at 0x7f420f56fc40>
+                 │      └ <openai.resources.responses.responses.AsyncResponses object at 0x7f421c89fbf0>
+                 └ <openai.AsyncOpenAI object at 0x7f421d8c2a80>
+
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/resources/responses/responses.py", line 2622, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f421d8c2a80>>
+                 └ <openai.resources.responses.responses.AsyncResponses object at 0x7f421c89fbf0>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1931, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[typing.Annotated[typing.Union[openai.types.responses.response_audio_delta_event.ResponseAudioDeltaEvent, o...
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/responses', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_GIVEN, ...
+                 │    │       └ <class 'openai.types.responses.response.Response'>
+                 │    └ <function AsyncAPIClient.request at 0x7f421d0cc040>
+                 └ <openai.AsyncOpenAI object at 0x7f421d8c2a80>
+  File "/home/serg/PycharmProjects/WordChain/backend/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1666, in request
+    raise APITimeoutError(request=request) from err
+          │                       └ <Request('POST', 'https://api.openai.com/v1/responses')>
+          └ <class 'openai.APITimeoutError'>
+
+openai.APITimeoutError: Request timed out.
+2026-06-03 16:54:31.961 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:54:31.963 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:54:31.963 | INFO     | app.routers.logs:receive_frontend_logs:10 - [ERROR] Translate request failed in UI {'error': 'Failed to fetch'}
+2026-06-03 16:54:31.963 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:54:31.964 | INFO     | app.routers.logs:receive_frontend_logs:10 - [ERROR] Translate request failed {'endpoint': '/translate', 'method': 'POST', 'error': 'Failed to fetch'}
+2026-06-03 16:54:31.964 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:03.240 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:55:03.241 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:55:03.242 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:55:03.242 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:55:03.243 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:55:03.243 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'worm', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:55:03.244 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:03.244 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'worm', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:55:03.245 | INFO     | app.routers.translation:translate:10 - Translation attempt: worm
+2026-06-03 16:55:03.245 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:03.246 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:33.512 | SUCCESS  | app.routers.translation:translate:19 - Translation success: worm
+2026-06-03 16:55:33.512 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:33.516 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:55:33.517 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:55:33.517 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:55:33.518 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:55:33.520 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:55:33.521 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:56:59.389 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:56:59.389 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-06-03 16:56:59.390 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-03 16:56:59.392 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:56:59.393 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:56:59.395 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-06-03 16:56:59.396 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-06-03 16:56:59.398 | INFO     | app.services.set_service:check_and_create_set:23 - [SET] check_and_create_set started for user 2
+2026-06-03 16:56:59.400 | INFO     | app.services.set_service:check_and_create_set:46 - [SET] User 2 unassigned words: []
+2026-06-03 16:56:59.400 | INFO     | app.services.set_service:check_and_create_set:54 - [SET] check_and_create_set finished for user 2, unassigned: []
+2026-06-03 16:56:59.408 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 1, 'name': 'Set-1', 'word_ids': [6, 5, 4, 3, 2, 1]}, {'id': 2, 'name': 'Set-2', 'word_ids': [12, 11, 10, 9, 8, 7]}, {'id': 5, 'name': 'Set-3', 'word_ids': [30, 29, 28, 27, 26, 25]}, {'id': 6, 'name': 'Set-4', 'word_ids': [36, 35, 34, 33, 32, 31]}, {'id': 7, 'name': 'Set-5', 'word_ids': [42, 41, 40, 39, 38, 37]}, {'id': 8, 'name': 'Set-6', 'word_ids': [48, 47, 46, 45, 44, 43]}, {'id': 9, 'name': 'Set-7', 'word_ids': [54, 53, 52, 51, 50, 49]}, {'id': 10, 'name': 'Set-8', 'word_ids': [60, 59, 58, 57, 56, 55]}, {'id': 11, 'name': 'Set-9', 'word_ids': [61, 62, 63, 64, 65, 66]}] /n  Unassigned_words []
+2026-06-03 16:56:59.408 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:56:59.411 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:56:59.412 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:56:59.412 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-06-03 16:56:59.412 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets payload {'setsCount': 9, 'unassignedCount': 0, 'unassigned_words': []}
+2026-06-03 16:56:59.413 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:56:59.413 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:00.423 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-06-03 16:57:00.423 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:00.427 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-06-03 16:57:00.430 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[36, 35, 34, 33, 32, 31]
+2026-06-03 16:57:00.430 | INFO     | app.services.set_service:get_words_from_set:144 - [GET WORDS] Start fetching words for IDs: [36, 35, 34, 33, 32, 31]
+2026-06-03 16:57:00.430 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 36
+2026-06-03 16:57:00.434 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=36, word='payload'
+2026-06-03 16:57:00.434 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 35
+2026-06-03 16:57:00.436 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=35, word='table'
+2026-06-03 16:57:00.436 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 34
+2026-06-03 16:57:00.437 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=34, word='infinity'
+2026-06-03 16:57:00.438 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 33
+2026-06-03 16:57:00.439 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=33, word='correct'
+2026-06-03 16:57:00.439 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 32
+2026-06-03 16:57:00.440 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=32, word='elephant'
+2026-06-03 16:57:00.440 | INFO     | app.services.set_service:get_words_from_set:147 - [GET WORDS] Fetching words for ID: 31
+2026-06-03 16:57:00.441 | INFO     | app.services.set_service:get_words_from_set:155 - [GET WORDS] Found word: id=31, word='georgious'
+2026-06-03 16:57:00.441 | INFO     | app.services.set_service:get_words_from_set:157 - [GET WORDS] Final result list: [{'id': 36, 'word': 'payload'}, {'id': 35, 'word': 'table'}, {'id': 34, 'word': 'infinity'}, {'id': 33, 'word': 'correct'}, {'id': 32, 'word': 'elephant'}, {'id': 31, 'word': 'georgious'}]
+2026-06-03 16:57:00.442 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 36, 'word': 'payload'}, {'id': 35, 'word': 'table'}, {'id': 34, 'word': 'infinity'}, {'id': 33, 'word': 'correct'}, {'id': 32, 'word': 'elephant'}, {'id': 31, 'word': 'georgious'}]
+2026-06-03 16:57:00.442 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:00.445 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:00.446 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from Set-4 request sent {}
+2026-06-03 16:57:00.446 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.619 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.620 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.621 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.624 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word payload clicked {'word': 'payload'}
+2026-06-03 16:57:01.624 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.624 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.625 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.625 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.625 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen render start {}
+2026-06-03 16:57:01.626 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word screen node {'found': True}
+2026-06-03 16:57:01.626 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.627 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.628 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request from the base {}
+2026-06-03 16:57:01.628 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word request start {'endpoint': '/get_word', 'method': 'POST', 'id': '36', 'user_id': 2}
+2026-06-03 16:57:01.628 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word request shape {'endpoint': '/get_word', 'method': 'POST', 'hasEndpoint': True, 'hasId': True, 'hasUser': True}
+2026-06-03 16:57:01.629 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/get_word
+2026-06-03 16:57:01.629 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.630 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.630 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.631 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.634 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/get_word
+2026-06-03 16:57:01.634 | INFO     | app.routers.get_word:get_word:29 - Reading Word attempt: id=36 user_id=2
+2026-06-03 16:57:01.637 | INFO     | app.services.word_service:word_read:214 - Reading word from the base: SELECT words.id, words.user_id, words.word, words.translation, words.translation_json, words.part_of_speech, words.transcription, words.examples, words.synonyms, words.antonyms, words.created_at, words.updated_at 
+FROM words 
+WHERE words.id = :id_1 AND words.user_id = :user_id_1 ORDER BY words.id DESC
+ LIMIT :param_1
+2026-06-03 16:57:01.637 | INFO     | app.routers.get_word:get_word:33 - Reading word success: payload
+2026-06-03 16:57:01.637 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.680 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.681 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_word response shape {'keys': ['id', 'word', 'translation', 'translation_json', 'part_of_speech', 'transcription', 'examples', 'synonyms', 'antonyms', 'created_at', 'updated_at']}
+2026-06-03 16:57:01.681 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:01.682 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:01.683 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Word details loaded {'word': 'payload', 'hasData': True}
+2026-06-03 16:57:01.683 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.698 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.699 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.699 | INFO     | app.main:log_requests:71 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.699 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/translate
+2026-06-03 16:57:13.700 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.700 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.701 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.701 | INFO     | app.routers.translation:translate:10 - Translation attempt: payload
+2026-06-03 16:57:13.704 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.704 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.705 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:13.705 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request start {'word': 'payload', 'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:57:13.705 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request shape {'endpoint': '/translate', 'method': 'POST', 'bodyShape': ['word', 'source_lang', 'target_lang'], 'bodyPreview': {'word': 'payload', 'source_lang': 'en', 'target_lang': 'ru'}}
+2026-06-03 16:57:13.706 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate button clicked {}
+2026-06-03 16:57:13.706 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.706 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:13.706 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:30.260 | SUCCESS  | app.routers.translation:translate:19 - Translation success: payload
+2026-06-03 16:57:30.261 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:30.264 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:30.265 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:57:30.266 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate response shape {'status': None, 'keys': ['word', 'translation', 'translation_json', 'transcription', 'part_of_speech'], 'hasTranslation': True, 'hasTranscription': True, 'hasPartOfSpeech': True}
+2026-06-03 16:57:30.266 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:57:30.267 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate request success {'hasTranslation': True}
+2026-06-03 16:57:30.269 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:58:00.099 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:58:00.100 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Language swap clicked {'sourceLang': 'en', 'targetLang': 'ru'}
+2026-06-03 16:58:00.100 | INFO     | app.main:log_requests:79 - Response status: 200
+2026-06-03 16:58:00.801 | INFO     | app.main:log_requests:71 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-03 16:58:00.801 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Language swap clicked {'sourceLang': 'ru', 'targetLang': 'en'}
+2026-06-03 16:58:00.802 | INFO     | app.main:log_requests:79 - Response status: 200

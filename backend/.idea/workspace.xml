@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/api/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/api/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/word.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/sets.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/sets.css" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -232,7 +225,7 @@
       <workItem from="1780234050879" duration="9117000" />
       <workItem from="1780297165117" duration="4021000" />
       <workItem from="1780468750707" duration="5122000" />
-      <workItem from="1780483446406" duration="955000" />
+      <workItem from="1780483446406" duration="7757000" />
     </task>
     <servers />
   </component>

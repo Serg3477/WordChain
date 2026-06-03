@@ -1,13 +1,12 @@
 import { apiRequest } from '../core/api.js';
 import { state } from "../../core/state.js";
-import { API_URL } from "../core/config.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
 export async function translateWord({ word, sourceLang, targetLang }) {
   const requestBody = {
     word,
-    source_lang: state.sourceLang,
-    target_lang: state.targetLang,
+    source_lang: sourceLang ?? state.sourceLang,
+    target_lang: targetLang ?? state.targetLang,
   };
 
   // Форма запроса (что отправляем)

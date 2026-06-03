@@ -10,8 +10,8 @@ from app.logger.logger import backend_logger
 TTL_FULL = 60 * 60 * 24 * 30
 TTL_PARTS = 60 * 60 * 24 * 30
 
-redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
-# redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
+# redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
+redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
 
 cache = AtomicCache(redis, default_ttl=TTL_PARTS)
 

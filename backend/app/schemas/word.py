@@ -18,7 +18,7 @@ class TranslationJSON(BaseModel):
 class WordBase(BaseModel):
     word: str = Field(..., max_length=100)
     translation: str = Field(..., max_length=255)
-    translation_json: Optional[TranslationJSON] = TranslationJSON()
+    translation_json: Optional[TranslationJSON] = Field(default_factory=TranslationJSON)
     part_of_speech: Optional[str] = Field(None, max_length=50)
     transcription: Optional[str] = Field(None, max_length=50)
 
@@ -32,10 +32,9 @@ class WordCreate(WordBase):
     antonyms: Optional[List[str]] = None
 
 
-class WordUpdate(BaseModel):
+class WordUpdateByIdRequest(BaseModel):
     id: int
     user_id: int
-    word: str
     translation: Optional[str] = None
     translation_json: Optional[TranslationJSON] = None
     part_of_speech: Optional[str] = None
@@ -68,10 +67,14 @@ class TranslationResponse(BaseModel):
 # -----------------------------
 # 3. DTO для чтения / ответов API
 # -----------------------------
-class WordReadRequest(BaseModel):
+class WordByIdRequest(BaseModel):
     id: int
     user_id: int
-    word: str
+
+
+class BetterTranslationByIdRequest(WordByIdRequest):
+    source_lang: str
+    target_lang: str
 
 
 class WordReadResponse(BaseModel):

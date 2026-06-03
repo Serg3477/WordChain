@@ -26,7 +26,9 @@ export const state = {
   },
 
   // --- WORD --- 
+  // Полное UI-состояние слова. Для API обновления payload собирается отдельно через helper ниже.
   currentWord: {
+    "id": "",
     "user_id": "",
     "word": "",
     "translation": "",
@@ -45,6 +47,33 @@ export const state = {
   },
   setField(key, value) {
     this.currentWord[key] = value;
+  },
+
+  // Строгий payload для /update_word: только поля, которые сервер реально ожидает.
+  getCurrentWordUpdatePayload(currentWord = this.currentWord) {
+    const {
+      id,
+      user_id,
+      translation,
+      translation_json,
+      part_of_speech,
+      transcription,
+      examples,
+      synonyms,
+      antonyms
+    } = currentWord;
+
+    return {
+      id,
+      user_id,
+      translation,
+      translation_json,
+      part_of_speech,
+      transcription,
+      examples,
+      synonyms,
+      antonyms
+    };
   },
 
   // --- HISTORY ---

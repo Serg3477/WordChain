@@ -11,7 +11,7 @@ from sqlalchemy import select
 
 from app.db.models.word import Word
 from app.db.config import settings
-from app.schemas.word import TranslationJSON, WordUpdate
+from app.schemas.word import TranslationJSON, WordUpdateByIdRequest
 from app.utils.atomic_cache import AtomicCache
 from app.utils.word_unrepeat_cache import generate_any_word
 from app.utils.cache import _get_cached_json, get_full_cached, cache, TTL_PARTS, set_full_cache, TTL_FULL
@@ -203,31 +203,28 @@ async def get_any_word(req):
 # ---------------------------------
 # Get Certain Word from db function
 # ---------------------------------
-# TODO: оптимизировать: можно добавить отдельный индекс по (user_id, word) и тогда запрос будет быстрее. Но пока что не критично, так как в рамках одного юзера слов не так много, и оптимизация может подождать.
-async def word_read(session, id: int, word: str, user_id: int) -> Word:
+async def word_read(session, id: int, user_id: int) -> Word:
     stmt = (
         select(Word)
-        .where(Word.id == id, Word.user_id == user_id, Word.word == word)
+        .where(Word.id == id, Word.user_id == user_id)
         .order_by(Word.id.desc())
         .limit(1)
     )
     result = await session.execute(stmt)
     backend_logger.info(f"Reading word from the base: {stmt}")
-    return result.scalars().first()
+    return result.scalar_one_or_none()
 
 # ---------------------------------
 # Update Word into db function
 # ---------------------------------
 # TODO: оптимизировать: не делать лишний запрос на чтение, а сразу пытаться обновить нужные поля через UPDATE и вернуть результат. Но для этого нужно будет вручную замержить translation_json, а это чуть сложнее, чем просто перезаписать. Поэтому пока так, а дальше можно будет оптимизировать.
-async def word_update(session, req: WordUpdate):
+async def word_update(session, req: WordUpdateByIdRequest):
     w = None
-    backend_logger.debug("word_update payload: word=%s", getattr(req, "word", None))
     stmt = select(Word).where(
         Word.id == req.id,
-        Word.user_id == req.user_id,
-        Word.word == req.word)
-    backend_logger.info("word_update stmt: {stmt}")
-    backend_logger.debug(f"word_update payload: word={getattr(req, 'word', None)}")
+        Word.user_id == req.user_id
+    )
+    backend_logger.info(f"word_update stmt: {stmt}")
 
     res = await session.execute(stmt)
     w = res.scalar_one_or_none()
@@ -460,4 +457,3 @@ async def word_sentences(word: str) -> List[str]:
                 return parts[:6]
 
     return await _get_cached_json(key, produce, ttl=TTL_PARTS)
-
