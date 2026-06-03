@@ -204,14 +204,16 @@ async def get_any_word(req):
 # Get Certain Word from db function
 # ---------------------------------
 # TODO: оптимизировать: можно добавить отдельный индекс по (user_id, word) и тогда запрос будет быстрее. Но пока что не критично, так как в рамках одного юзера слов не так много, и оптимизация может подождать.
-async def word_read(session, word: str, user_id: int) -> Word:
-    stmt = select(Word).where(
-        Word.user_id == user_id,
-        Word.word == word
+async def word_read(session, id: int, word: str, user_id: int) -> Word:
+    stmt = (
+        select(Word)
+        .where(Word.id == id, Word.user_id == user_id, Word.word == word)
+        .order_by(Word.id.desc())
+        .limit(1)
     )
     result = await session.execute(stmt)
     backend_logger.info(f"Reading word from the base: {stmt}")
-    return result.scalar_one_or_none()
+    return result.scalars().first()
 
 # ---------------------------------
 # Update Word into db function
@@ -220,7 +222,9 @@ async def word_read(session, word: str, user_id: int) -> Word:
 async def word_update(session, req: WordUpdate):
     w = None
     backend_logger.debug("word_update payload: word=%s", getattr(req, "word", None))
-    stmt = select(Word).where(Word.user_id == req.user_id,
+    stmt = select(Word).where(
+        Word.id == req.id,
+        Word.user_id == req.user_id,
         Word.word == req.word)
     backend_logger.info("word_update stmt: {stmt}")
     backend_logger.debug(f"word_update payload: word={getattr(req, 'word', None)}")

@@ -11,7 +11,10 @@ async def get_sets(req: SetsRequest):
     backend_logger.info(f"Getting Sets attempt: {req}")
 
     async with async_session() as session:
-        sets_list = await get_user_sets(session, req.name)
+        data = await get_user_sets(session, req.name)
 
-    backend_logger.info(f"Getting Sets success: {sets_list}")
-    return SetsResponse(sets=sets_list)
+    backend_logger.info(f"Getting Sets success: {data['sets']} /n  Unassigned_words {data['unassigned_words']}")
+    return SetsResponse(
+        sets=data["sets"],
+        unassigned_words=data["unassigned_words"]
+    )

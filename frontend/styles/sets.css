@@ -11,7 +11,7 @@
   margin-bottom: 10px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.28);
   user-select: none; 
 }
 
@@ -65,3 +65,19 @@
 .word-item:last-child {
   border-bottom: none;
 }
+
+.unassigned-list {
+  list-style: none;
+  padding: 0 16px 12px 32px;
+  margin: 0;
+  max-height: 500px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  user-select: none; 
+}
+
+.word-item:hover {
+  color: #0d05ff;
+}
+

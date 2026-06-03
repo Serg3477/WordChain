@@ -16,7 +16,7 @@ async def get_word(req: WordReadRequest):
     backend_logger.info(f"Reading Word attempt: {req}")
 
     async with async_session() as session:
-        result = await word_read(session, req.word, req.user_id)
+        result = await word_read(session, req.id, req.word, req.user_id)
     if result is None:
         raise HTTPException(status_code=404, detail="Word not found")
     backend_logger.info(f"Reading word success: {result.word}")
@@ -54,6 +54,7 @@ async def get_synonyms(req: WordReadRequest):
     backend_logger.info(f"Get synonyms success: {req.word}")
 
     return WordReadResponse(
+        id=req.id,
         word=req.word,
         translation="",
         transcription=None,
@@ -75,6 +76,7 @@ async def get_antonyms(req: WordReadRequest):
     backend_logger.info(f"Get antonyms success: {req.word}")
 
     return WordReadResponse(
+        id=req.id,
         word=req.word,
         translation="",
         transcription=None,
@@ -96,6 +98,7 @@ async def get_sentences(req: WordReadRequest):
     backend_logger.info(f"Get sentences success: {req.word}")
 
     return WordReadResponse(
+        id=req.id,
         word=req.word,
         translation="",
         transcription=None,

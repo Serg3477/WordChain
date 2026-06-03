@@ -15,11 +15,17 @@ export async function getSets() {
     });
     logInfo(`Get sets of ${state.user.nickname} request sent`, { status: response.status });
     
-      return response.sets;
+    return {
+      sets: response.sets ?? [],
+      unassigned_words: response.unassigned_words ?? [],
+    };
 
   } catch (e) {
     logError(`Get sets of ${state.user.nickname} request failed`, { error: e.message });
-    return [];
+    return {
+      sets: [],
+      unassigned_words: []
+    } 
   }
 }
 

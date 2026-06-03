@@ -3,7 +3,7 @@ import { apiRequest } from "../core/api.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
 
-export async function wordRequest ({endpoint, method, word, user_id}) {
+export async function wordRequest ({endpoint, method, id, word, user_id}) {
 
     logInfo(`${endpoint.slice(1)} request shape`, {
       endpoint: endpoint,
@@ -16,7 +16,7 @@ export async function wordRequest ({endpoint, method, word, user_id}) {
     try {
       const res = await apiRequest(endpoint, {
         method: method,
-        body: { word, user_id },
+        body: { id, word, user_id },
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
         keys: res ? Object.keys(res) : [],
@@ -29,7 +29,7 @@ export async function wordRequest ({endpoint, method, word, user_id}) {
   
 }
 
-export async function betterTransRequest ({endpoint, method, word, sourceLang, targetLang}) {
+export async function betterTransRequest ({endpoint, method, id, word, sourceLang, targetLang}) {
 
     logInfo(`${endpoint.slice(1)} request shape`, {
       endpoint: endpoint,
@@ -42,6 +42,7 @@ export async function betterTransRequest ({endpoint, method, word, sourceLang, t
       const res = await apiRequest(endpoint, {
         method: method,
         body: { 
+          id,
           word, 
           source_lang: sourceLang, 
           target_lang: targetLang 

@@ -4,7 +4,7 @@ import { getSets, getWordsFromSet } from "../../../api/sets.js";
 import { renderWord } from "./word.js";
 import { windowManager } from "../../../core/windowManager.js";
 
-export function renderSets(state) {
+export function renderSets() {
   logInfo("Sets screen render start");
 
   const screen = document.querySelector('[data-screen="sets"]');
@@ -22,9 +22,16 @@ export function renderSets(state) {
   loadSets(container);
 
   async function loadSets(container) {
-    const sets = await getSets();
+    const { sets, unassigned_words } = await getSets();
+    logInfo("Sets payload", {
+      setsCount: sets.length,
+      unassignedCount: unassigned_words.length,
+      unassigned_words
+    });
 
-    if (!sets.length) {
+    container.innerHTML = "";
+
+    if (!sets.length && !unassigned_words.length) {
       container.innerHTML = "<p>No sets yet</p>";
       return;
     }
@@ -63,7 +70,7 @@ export function renderSets(state) {
           const words = await getWordsFromSet(set);
 
           wordsList.innerHTML = words
-            .map(w => `<li class="word-item" data-word="${w.word}">${w.word}</li>`)
+            .map(w => `<li class="word-item" data-word-id="${w.id}" data-word="${w.word}">${w.word}</li>`)
             .join("");
 
           wordsList.dataset.loaded = "true";
@@ -76,21 +83,48 @@ export function renderSets(state) {
         const wordItem = event.target.closest(".word-item");
         if (!wordItem) return;
 
-        const word = wordItem.dataset.word;
-        await onWordClick(word);
+        await onWordClick({ id: wordItem.dataset.wordId, word: wordItem.dataset.word });
       });
 
       list.appendChild(li);
     });
 
-    container.appendChild(list);
+    if (sets.length) {
+      container.appendChild(list);
+    }
+
+    // Показать нераспределенные в сеты слова
+    if (unassigned_words.length) {
+      const unassignedBlock = document.createElement("div");
+      unassignedBlock.className = "unassigned-block";
+
+      unassignedBlock.innerHTML = `
+        <div class="unassigned-list"></div>
+      `;
+
+      const unassignedList = unassignedBlock.querySelector(".unassigned-list");
+
+      unassignedList.innerHTML = unassigned_words
+        .map(unWord => `<li class="word-item" data-word-id="${unWord.id}" data-word="${unWord.word}">${unWord.word}</li>`)
+        .join("");
+
+      unassignedList.addEventListener("click", async (event) => {
+        const wordItem = event.target.closest(".word-item");
+        if (!wordItem) return;
+
+        await onWordClick({ id: wordItem.dataset.wordId, word: wordItem.dataset.word });
+      });
+
+      container.appendChild(unassignedBlock);
+    }
   }
 
-  async function onWordClick(word) {
+  // Обработчик клика по слову
+  async function onWordClick({ id, word }) {
     try {
       logInfo(`Word ${ word } clicked`, { word });
       windowManager.pushScreen("word"); 
-      const data = await renderWord(state, word);
+      const data = await renderWord(state, id, word);
       logInfo("Word details loaded", { word, hasData: !!data });
 
       // Здесь дальше делай нужное отображение ответа

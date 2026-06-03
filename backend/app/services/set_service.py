@@ -14,71 +14,70 @@ SET_SIZE = 6
 
 
 async def check_and_create_set(user_id: int):
-    backend_logger.info(f"[SET] Checking if user {user_id} needs a new set...")
+    """
+        Сравнивает все слова пользователя со словами, уже входящими в сеты.
+        Разница попадает в unassigned_words.
+        Если len(unassigned_words) == SET_SIZE, создается новый сет.
+        В любом случае возвращает unassigned_words.
+        """
+    backend_logger.info(f"[SET] check_and_create_set started for user {user_id}")
 
     async with async_session() as session:
+        all_words_result = await session.execute(
+            select(Word.id, Word.word)
+            .where(Word.user_id == user_id)
+            .order_by(Word.id.asc())
+        )
+        all_words = all_words_result.all()
 
-        # 1. Считаем ВСЕ слова пользователя
-        total_words = await session.scalar(
-            select(func.count()).select_from(Word).where(Word.user_id == user_id)
+        assigned_result = await session.execute(
+            select(SetWord.word_id)
+            .join(Set, Set.id == SetWord.set_id)
+            .where(Set.user_id == user_id)
+        )
+        assigned_word_ids = {row[0] for row in assigned_result.all()}
+
+        unassigned_words = [
+            {"id": word_id, "word": word_text}
+            for word_id, word_text in all_words
+            if word_id not in assigned_word_ids
+        ]
+
+        backend_logger.info(
+            f"[SET] User {user_id} unassigned words: {[w['id'] for w in unassigned_words]}"
         )
 
-        backend_logger.info(f"[SET] User {user_id} has total words: {total_words}")
+        if len(unassigned_words) == SET_SIZE:
+            await create_set_from_last_words(session, user_id, unassigned_words)
+            unassigned_words = []
 
-        # 2. Считаем слова, которые уже в сетах
-        used_words = await session.scalar(
-            select(func.count()).select_from(SetWord).join(Word).where(Word.user_id == user_id)
+        backend_logger.info(
+            f"[SET] check_and_create_set finished for user {user_id}, "
+            f"unassigned: {[w['id'] for w in unassigned_words]}"
         )
 
-        backend_logger.info(f"[SET] User {user_id} has used words (in sets): {used_words}")
+        return unassigned_words
 
-        # 3. Считаем свободные слова
-        free_words = total_words - used_words
-
-        backend_logger.info(f"[SET] User {user_id} has FREE words: {free_words}")
-
-        # 4. Проверяем, пора ли создавать сет
-        if free_words < SET_SIZE:
-            backend_logger.info(f"[SET] Not enough free words ({free_words}/{SET_SIZE}). No new set.")
-            return
-
-        if free_words % SET_SIZE != 0:
-            backend_logger.info(f"[SET] Free words not divisible by {SET_SIZE}. No new set.")
-            return
-
-        backend_logger.info(f"[SET] Conditions met. Creating new set for user {user_id}...")
-        await create_set_from_last_words(session, user_id, SET_SIZE)
-
-
-
-async def create_set_from_last_words(session, user_id: int, size: int):
-    backend_logger.info(f"[SET] Selecting last {size} FREE words for user {user_id}...")
-
-    # 1. Берём последние N свободных слов
-    result = await session.execute(
-        select(Word)
-        .where(
-            Word.user_id == user_id,
-            Word.id.not_in(select(SetWord.word_id))
-        )
-        .order_by(Word.id.desc())
-        .limit(size)
+async def create_set_from_last_words(session, user_id: int, words: list[dict]):
+    """
+        Создаёт новый сет из переданного списка words.
+        Список должен быть длиной SET_SIZE.
+        """
+    backend_logger.info(
+        f"[SET] create_set_from_last_words for user {user_id}, words: {[w['id'] for w in words]}"
     )
-    words = result.scalars().all()
 
-    backend_logger.info(f"[SET] Selected words for new set: {[w.id for w in words]}")
+    if len(words) != SET_SIZE:
+        backend_logger.info(
+            f"[SET] Not enough words for new set: {len(words)}/{SET_SIZE}"
+        )
+        return None
 
-    # 2. Получаем номер нового сета
     last_number = await SetRepository.get_last_set_number(session, user_id)
     next_number = last_number + 1
 
-    backend_logger.info(f"[SET] Last set number: {last_number}, next: {next_number}")
-
-    # 3. Создаём Set
     name = f"Set-{next_number}"
     description = f"Создан {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-
-    backend_logger.info(f"[SET] Creating Set '{name}' for user {user_id}")
 
     new_set = await SetRepository.create(
         session=session,
@@ -87,29 +86,43 @@ async def create_set_from_last_words(session, user_id: int, size: int):
         description=description
     )
 
-    backend_logger.info(f"[SET] Set created with ID {new_set.id}")
+    backend_logger.info(f"[SET] Created set {new_set.id} for user {user_id}")
 
-    # 4. Добавляем слова в set_words
-    for w in words:
-        backend_logger.info(f"[SET] Adding word {w.id} to set {new_set.id}")
+    for word in words:
         await SetWordRepository.add_word_to_set(
             session=session,
             set_id=new_set.id,
-            word_id=w.id
+            word_id=word["id"]
         )
 
-    backend_logger.info(f"[SET] Set {new_set.id} created successfully with words: {[w.id for w in words]}")
+    backend_logger.info(
+        f"[SET] Set {new_set.id} filled with words: {[w['id'] for w in words]}"
+    )
 
     return new_set
 
+
 async def get_user_sets(session, name: str):
+    """
+        Возвращает:
+        - sets
+        - unassigned_words
+        Перед возвратом пересчитывает актуальное состояние через check_and_create_set.
+        """
     user = await session.scalar(select(User).where(User.nickname == name))
     if not user:
-        return []
-    sets = await session.scalars(
+        return {
+            "sets": [],
+            "unassigned_words": []
+        }
+
+    unassigned_words = await check_and_create_set(user.id)
+
+    sets_result = await session.scalars(
         select(Set).where(Set.user_id == user.id)
     )
-    sets = list(sets)
+    sets = list(sets_result)
+
     # Для каждого сета — получаем word_ids
     result = []
     for s in sets:
@@ -122,7 +135,10 @@ async def get_user_sets(session, name: str):
             "word_ids": list(word_ids)
         })
 
-    return result
+    return {
+        "sets": result,
+        "unassigned_words": unassigned_words
+    }
 
 async def get_words_from_set(session, word_ids: list[int]):
     backend_logger.info(f"[GET WORDS] Start fetching words for IDs: {word_ids}")

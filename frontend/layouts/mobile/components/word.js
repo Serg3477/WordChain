@@ -39,7 +39,7 @@ function renderSentences(value) {
   return arr.map(s => escapeHtml(s)).join("<br>");
 }
 
-export async function renderWord(state, word) {
+export async function renderWord(state, id, word) {
   logInfo("Word screen render start");
 
   const screen = document.querySelector('[data-screen="word"]');
@@ -86,9 +86,11 @@ export async function renderWord(state, word) {
     result = await wordRequest({
       endpoint: "/get_word",
       method: "POST",
+      id,
       word,
       user_id: state.user.id,
     });
+    state.setField('id', result.id)
     state.setField('user_id', state.user.id);
     state.setField('word', result.word);
     state.setField('translation', result.translation);
@@ -201,6 +203,7 @@ export async function renderWord(state, word) {
         const result = await betterTransRequest({
           endpoint: "/get_better_translation",
           method: "POST",
+          id,
           word,
           sourceLang: "en",
           targetLang: "ru"
@@ -317,6 +320,7 @@ export async function renderWord(state, word) {
         const res = await wordRequest({
           endpoint: "/get_synonyms",
           method: "POST",
+          id,
           word,
           user_id: state.user.id,
         });
@@ -348,6 +352,7 @@ export async function renderWord(state, word) {
         const res = await wordRequest({
           endpoint: "/get_antonyms",
           method: "POST",
+          id,
           word,
           user_id: state.user.id,
         });
@@ -378,6 +383,7 @@ export async function renderWord(state, word) {
         const res = await wordRequest({
           endpoint: "/get_sentences",
           method: "POST",
+          id,
           word,
           user_id: state.user.id,
         });

@@ -18,8 +18,13 @@ class SetItem(BaseModel):
     name: str
     word_ids: list[int]
 
+class WordItem(BaseModel):
+    id: int
+    word: str
+
 class SetsResponse(BaseModel):
-    sets: List[SetItem]
+    sets: List[SetItem] = Field(default_factory=list)
+    unassigned_words: List[WordItem] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------

@@ -33,6 +33,7 @@ class WordCreate(WordBase):
 
 
 class WordUpdate(BaseModel):
+    id: int
     user_id: int
     word: str
     translation: Optional[str] = None
@@ -68,11 +69,13 @@ class TranslationResponse(BaseModel):
 # 3. DTO для чтения / ответов API
 # -----------------------------
 class WordReadRequest(BaseModel):
+    id: int
     user_id: int
     word: str
 
 
 class WordReadResponse(BaseModel):
+    id: int
     word: str
     translation: Optional[str] = None
     translation_json: Optional[TranslationJSON] = None
