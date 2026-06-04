@@ -218,6 +218,8 @@ export function renderTranslator(state) {
       const data = await anyWord(language);
       logInfo("Any Word request success");
       placeholder.value = data.word;
+
+      doTranslate();
     } catch (e) {
       logError("Any Word request failed in UI", { error: e.message });
     }
@@ -256,9 +258,3 @@ export function renderTranslator(state) {
   });
 }
 
-// универсальный debug: ловим любые focus/blur на документе
-// document.addEventListener('touchstart', function t(e){
-//   const x = e.touches[0].clientX, y = e.touches[0].clientY;
-//   console.log('touch at', x, y, 'elementFromPoint:', document.elementFromPoint(x,y));
-//   document.removeEventListener('touchstart', t);
-// }, {passive:true});

@@ -22,3 +22,4 @@ export async function apiRequest(endpoint, { method, body, token } = {}) {
 
   return res.json();
 }
+

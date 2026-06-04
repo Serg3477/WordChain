@@ -2,7 +2,7 @@
 export const Notification = (() => {
     const ICONS = {
         success: `<img class="notify-image" src="/assets/icons/Check.png" alt="✔️">`,
-        error: "❌",
+        error: `<img class="notify-image" src="/assets/icons/Error.png" alt="❌"`,
         warning: "⚠️",
         info: "ℹ️"
     };
@@ -44,7 +44,7 @@ export const Notification = (() => {
         setTimeout(() => {
             el.classList.remove("show");
             el.addEventListener("transitionend", () => el.remove());
-        }, 3000);
+        }, 4000);
     }
 
     return { show };

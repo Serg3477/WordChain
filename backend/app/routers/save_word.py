@@ -8,7 +8,7 @@ from app.services.set_service import check_and_create_set
 
 save_router = APIRouter()
 
-@save_router.post("/saveWord", response_model=TranslationResponse)
+@save_router.post("/save_word", response_model=TranslationResponse)
 async def save_word(
     result: WordCreate,
     user = Depends(get_current_user),

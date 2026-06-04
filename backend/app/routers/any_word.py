@@ -5,7 +5,7 @@ from app.logger.logger import backend_logger
 
 anyword_router = APIRouter()
 
-@anyword_router.post("/anyWord", response_model=AnyWordResponse)
+@anyword_router.post("/any_word", response_model=AnyWordResponse)
 async def translate( req: AnyWordRequest):
     backend_logger.info(f"Get Any Word attempt: {req.source_lang}")
     any_word_json = await get_any_word(

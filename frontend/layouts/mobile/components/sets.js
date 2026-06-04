@@ -3,6 +3,9 @@ import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { getSets, getWordsFromSet } from "../../../api/sets.js";
 import { renderWord } from "./word.js";
 import { windowManager } from "../../../core/windowManager.js";
+import { itemsMenu } from "../../../ui/itemsMenu/itemsMenu.js";
+
+
 
 export function renderSets() {
   logInfo("Sets screen render start");
@@ -74,6 +77,7 @@ export function renderSets() {
             .join("");
 
           wordsList.dataset.loaded = "true";
+          
         }
 
         wordsList.classList.remove("hidden");
@@ -114,6 +118,8 @@ export function renderSets() {
 
         await onWordClick({ id: wordItem.dataset.wordId, word: wordItem.dataset.word });
       });
+      
+
 
       container.appendChild(unassignedBlock);
     }
@@ -133,4 +139,7 @@ export function renderSets() {
       logError("Word details request failed", { word, error: e.message });
     }
   }
+
+  
 }
+

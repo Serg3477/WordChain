@@ -54,14 +54,14 @@ export async function saveWord(result) {
   };
 
   logInfo("SaveWord request shape", {
-    endpoint: "/saveWord",
+    endpoint: "/save_word",
     method: "POST",
     bodyShape: Object.keys(requestBody),
     bodyPreview: requestBody
   });
 
   try {
-    const data = await apiRequest('/saveWord', {
+    const data = await apiRequest('/save_word', {
       method: 'POST',
       body: requestBody,
     });
@@ -75,7 +75,7 @@ export async function saveWord(result) {
     return data;
   } catch (e) {
     logError("SaveWord request failed", {
-      endpoint: "/saveWord",
+      endpoint: "/save_word",
       method: "POST",
       error: e.message
     });
@@ -89,14 +89,14 @@ export async function anyWord( lang ) {
   };
 
   logInfo("Any Word request shape", {
-    endpoint: "/anyWord",
+    endpoint: "/any_word",
     method: "POST",
     bodyShape: Object.keys(requestBody),
     bodyPreview: requestBody
   });
 
   try {
-    const data = await apiRequest('/anyWord', {
+    const data = await apiRequest('/any_word', {
       method: 'POST',
       body: requestBody,
     });
@@ -110,7 +110,7 @@ export async function anyWord( lang ) {
     return data;
   } catch (e) {
     logError("Any Word request failed", {
-      endpoint: "/anyWord",
+      endpoint: "/any_word",
       method: "POST",
       error: e.message
     });
