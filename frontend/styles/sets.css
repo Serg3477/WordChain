@@ -63,6 +63,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* ← слово слева, кнопки справа */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .word-text {
@@ -75,7 +77,7 @@
 
 .word-actions {
   display: flex;
-  gap: 12px; /* расстояние между кнопками */
+  gap: 16px; /* расстояние между кнопками */
 }
 
 .unassigned-list {
@@ -110,6 +112,7 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   padding: 6px 10px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .set-icon {
@@ -127,11 +130,13 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .word-icon {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
 }
 
 .set-actions-btn.danger {

@@ -9,6 +9,7 @@ from app.db.session import async_session
 from app.db.models.word import Word
 from app.db.models.set_word import SetWord
 from app.logger.logger import backend_logger
+from app.schemas.set import SetDeleteRequest
 
 SET_SIZE = 6
 
@@ -126,13 +127,15 @@ async def get_user_sets(session, name: str):
     # Для каждого сета — получаем word_ids
     result = []
     for s in sets:
-        word_ids = await session.scalars(
+        word_ids = list(await session.scalars(
             select(SetWord.word_id).where(SetWord.set_id == s.id)
-        )
+        ))
+        if not word_ids:
+            continue
         result.append({
             "id": s.id,
             "name": s.name,
-            "word_ids": list(word_ids)
+            "word_ids": word_ids,
         })
 
     return {
@@ -156,4 +159,43 @@ async def get_words_from_set(session, word_ids: list[int]):
 
     backend_logger.info(f"[GET WORDS] Final result list: {result_list}")
     return result_list
+
+
+async def set_delete(session, req: SetDeleteRequest):
+    # 1. Найти сет и проверить владельца
+    set_obj = await session.scalar(
+        select(Set).where(Set.id == req.set_id, Set.user_id == req.user_id)
+    )
+    if not set_obj:
+        return None
+
+    # 2. Слова сета — из БД, не с фронта
+    word_ids = list(await session.scalars(
+        select(SetWord.word_id).where(SetWord.set_id == req.set_id)
+    ))
+
+    # 3. Опциональная сверка с фронтом
+    if req.word_ids is not None and set(req.word_ids) != set(word_ids):
+        backend_logger.warning("word_ids mismatch for set %s", req.set_id)
+
+    # 4. Удаление в одной транзакции
+    await session.execute(
+        SetWord.__table__.delete().where(SetWord.set_id == req.set_id)
+    )
+    if word_ids:
+        await session.execute(
+            Word.__table__.delete().where(
+                Word.id.in_(word_ids),
+                Word.user_id == req.user_id,
+            )
+        )
+    await session.delete(set_obj)
+    await session.commit()
+
+    return {
+        "set_id": req.set_id,
+        "name": set_obj.name,
+        "deleted_word_ids": word_ids,
+        "deleted_words_count": len(word_ids),
+    }
 

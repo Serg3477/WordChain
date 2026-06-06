@@ -22,6 +22,5 @@ class Set(Base):
         "Word",
         secondary="set_words",
         back_populates="sets",
-        lazy = "selectin",
-        cascade="all"
+        lazy="selectin",
     )

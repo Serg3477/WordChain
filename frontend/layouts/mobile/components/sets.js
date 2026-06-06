@@ -1,8 +1,11 @@
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { getSets, getWordsFromSet } from "../../../api/sets.js";
+import { getSets, getWordsFromSet, setDeleteRequest } from "../../../api/sets.js";
+import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";
 import { windowManager } from "../../../core/windowManager.js";
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
+import { questionModal } from "../../../ui/questionModal/questionModal.js";
 
 
 
@@ -22,6 +25,7 @@ export function renderSets() {
 
   const container = screen.querySelector(".sets-container");
   loadSets(container);
+
 
   async function loadSets(container) {
     const { sets, unassigned_words } = await getSets();
@@ -51,9 +55,9 @@ export function renderSets() {
           <span class="set-arrow">▶</span>
         </div>
         <div class="set-actions hidden">
-          <button class="set-actions-btn" data-action="rename"><img class="set-icon" src="/assets/icons/bookmark.png" alt="📤"></button>
-          <button class="set-actions-btn danger" data-action="delete"><img class="set-icon" src="/assets/icons/pencil.png" alt="✏️"></button>
-          <button class="set-actions-btn" data-action="export"><img class="set-icon" src="/assets/icons/trash.png" alt="🗑"></button>
+          <button class="set-actions-btn" data-action="work"><img class="set-icon" src="/assets/icons/bookmark.png" alt="📤"></button>
+          <button class="set-actions-btn danger" data-action="rename"><img class="set-icon" src="/assets/icons/pencil.png" alt="✏️"></button>
+          <button class="set-actions-btn" data-action="delete"><img class="set-icon" src="/assets/icons/trash.png" alt="🗑"></button>
         </div>
         <ul class="set-words hidden"></ul>
       `;
@@ -111,9 +115,9 @@ export function renderSets() {
             console.log("move", word);
           };
 
-          item.querySelector("[data-action='delete']").onclick = (e) => {
+          item.querySelector("[data-action='delete']").onclick = async (e) => {
             e.stopPropagation();
-            console.log("delete", word);
+            await deleteWordItem(item, { wordsList, setItem: li });
           };
         });
           
@@ -122,10 +126,9 @@ export function renderSets() {
         wordsList.classList.remove("hidden");
       });
 
-      // обработчики кнопок
+      actions.querySelector("[data-action='work']").onclick = () => console.log("work", set);
       actions.querySelector("[data-action='rename']").onclick = () => console.log("rename", set);
-      actions.querySelector("[data-action='delete']").onclick = () => console.log("delete", set);
-      actions.querySelector("[data-action='export']").onclick = () => console.log("export", set);
+      actions.querySelector("[data-action='delete']").onclick = () => deleteSetItem(set, li);
 
       wordsList.addEventListener("click", async (event) => {
         const wordItem = event.target.closest(".word-item");
@@ -175,7 +178,14 @@ export function renderSets() {
         const wordItem = event.target.closest(".word-item");
         if (!wordItem) return;
 
-        await onWordClick({ id: wordItem.dataset.wordId, word: wordItem.dataset.word });
+        // если клик был по кнопке — не открываем слово
+        if (event.target.closest(".word-action-btn")) return;
+
+        await onWordClick({
+          id: wordItem.dataset.wordId,
+          word: wordItem.dataset.word
+        });
+      });
 
       unassignedList.querySelectorAll(".word-item").forEach(item => {
         const word = {
@@ -183,19 +193,15 @@ export function renderSets() {
           word: item.dataset.word
         };
 
-        item.querySelector("[data-action='move']").onclick = (e) => {
+        item.querySelector("[data-action='move']").addEventListener("click", (e) => {
           e.stopPropagation();
           console.log("move", word);
-        };
-
-        item.querySelector("[data-action='delete']").onclick = (e) => {
+        });
+        item.querySelector("[data-action='delete']").addEventListener("click", async (e) => {
           e.stopPropagation();
-          console.log("delete", word);
-        };
+          await deleteWordItem(item, { parentBlock: unassignedBlock });
+        });
       });
-      });
-      
-
 
       container.appendChild(unassignedBlock);
     }
@@ -216,5 +222,86 @@ export function renderSets() {
     }
   }
 
-  
+  async function deleteWordItem(item, { wordsList = null, setItem = null, parentBlock = null } = {}) {
+    const wordText = item.dataset.word;
+    const ok = await questionModal({
+      icon: "/assets/icons/Flash.png",
+      text: `Do you want to delete "${wordText}"?`
+    });
+    if (ok) {
+      
+      try {
+        const result = await wordDeleteRequest({
+          endpoint: "/delete_word",
+          method: "POST",
+          id: Number(item.dataset.wordId),
+          user_id: state.user.id,
+          word: wordText,
+        });
+        logInfo(`Delete Word ${wordText} success`, { result });
+        Notification.show({ type: "success", message: `Word "${wordText}" deleted successfully!` });
+        item.remove();
+
+        if (wordsList && !wordsList.querySelector(".word-item")) {
+          delete wordsList.dataset.loaded;
+          if (setItem) {
+            setItem.remove();
+            if (!container.querySelector(".set-item, .unassigned-block")) {
+              container.innerHTML = "<p>No sets yet</p>";
+            }
+          }
+        }
+
+        if (parentBlock && !parentBlock.querySelector(".word-item")) {
+          parentBlock.remove();
+          if (!container.querySelector(".set-item, .unassigned-block")) {
+            container.innerHTML = "<p>No sets yet</p>";
+          }
+        }
+      } catch (e) {
+        logError(`Delete Word ${wordText} failed`, { error: e.message });
+        Notification.show({ type: "error", message: `Failed to delete "${wordText}"` });
+      }
+      console.log("Удаляем:", wordText);
+    } else {
+      console.log("Отмена удаления слова.");
+    }
+  }
+
+  // Функция удаления сета с обращением к ui/questionModal модалке вопроса
+  async function deleteSetItem(set, setItem) {
+    const ok = await questionModal({
+      icon: "/assets/icons/Flash.png",
+      text: `Do you want to delete "${set.name}"?\nThis will delete your words in set.\nYou may remove words before deleting.`
+    });
+
+    if (ok) {
+      const setText = set.name;
+      try {
+        const result = await setDeleteRequest({
+          endpoint: "/delete_set",
+          method: "POST",
+          set_id: set.id,
+          name: set.name,
+          user_id: state.user.id,
+          word_ids: set.word_ids,
+        });
+        logInfo(`Delete Set ${setText} success`, { result });
+        Notification.show({
+          type: "success",
+          message: `Set "${result.name}" deleted (${result.deleted_words_count} words)`,
+        });
+        setItem.remove();
+        if (!container.querySelector(".set-item, .unassigned-block")) {
+          container.innerHTML = "<p>No sets yet</p>";
+        }
+      } catch (e) {
+        logError(`Delete Set ${setText} failed`, { error: e.message });
+        Notification.show({ type: "error", message: `Failed to delete "${setText}"` });
+      }
+      console.log("Удаляем:", set.name);
+    } else {
+      console.log("Отмена удаления сета.");
+    }
+  }
 }

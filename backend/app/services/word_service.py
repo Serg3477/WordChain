@@ -7,9 +7,10 @@ from typing import List, Optional
 from fastapi import HTTPException
 from openai import AsyncOpenAI
 from redis.asyncio import Redis
-from sqlalchemy import select
+from sqlalchemy import select, func
 
 from app.db.models.word import Word
+from app.db.models.set import Set
 from app.db.config import settings
 from app.schemas.word import TranslationJSON, WordUpdateByIdRequest
 from app.utils.atomic_cache import AtomicCache
@@ -17,19 +18,12 @@ from app.utils.word_unrepeat_cache import generate_any_word
 from app.utils.cache import _get_cached_json, get_full_cached, cache, TTL_PARTS, set_full_cache, TTL_FULL
 from app.utils.cache import delete_keys, collect_translation_keys
 from app.logger.logger import backend_logger
+from app.db.models.set_word import SetWord
+from app.db.repositories.set_word_repository import SetWordRepository
+from app.schemas.word import WordDeleteRequest
 
 
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-
-# redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode (desktop)
-# # redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
-#
-# MODEL = "gpt-5.4-mini"
-# TTL_FULL = 60 * 60 * 24 * 30
-# TTL_PARTS = 60 * 60 * 24 * 30
-#
-# cache = AtomicCache(redis, default_ttl=TTL_PARTS)
-
 
 # -----------------------------
 # Normalization helpers
@@ -266,6 +260,60 @@ async def word_update(session, req: WordUpdateByIdRequest):
         backend_logger.exception("Failed to invalidate cache for %s", w.word)
 
     return w
+
+
+async def word_delete(session, req: WordDeleteRequest):
+    # 1. Найти слово (как word_read)
+    w = await word_read(session, req.id, req.user_id)
+    if not w:
+        return None
+    # 2. Опционально: сверить текст слова с запросом
+    if req.word and w.word != req.word:
+        backend_logger.warning(
+            f"word_delete: text mismatch id={req.id}, db={w.word}, req={req.word}"
+        )
+    word_text = w.word
+    # 3. Сохранить данные для ответа до удаления
+    deleted_data = {
+        "id": w.id,
+        "word": word_text,
+        "translation": w.translation,
+        "translation_json": w.translation_json,
+        "part_of_speech": w.part_of_speech,
+        "transcription": w.transcription,
+        "examples": w.examples or [],
+        "synonyms": w.synonyms or [],
+        "antonyms": w.antonyms or [],
+        "created_at": w.created_at,
+        "updated_at": w.updated_at,
+    }
+    # 4. set_words → words → пустые сеты
+    affected_set_ids = list(
+        (await session.scalars(select(SetWord.set_id).where(SetWord.word_id == w.id))).all()
+    )
+    await SetWordRepository.remove_word_from_all_sets(session, w.id)
+    await session.delete(w)
+
+    for set_id in affected_set_ids:
+        remaining = await session.scalar(
+            select(func.count()).select_from(SetWord).where(SetWord.set_id == set_id)
+        )
+        if remaining == 0:
+            set_obj = await session.scalar(
+                select(Set).where(Set.id == set_id, Set.user_id == req.user_id)
+            )
+            if set_obj:
+                await session.delete(set_obj)
+                backend_logger.info(f"[SET] Deleted empty set id={set_id} for user {req.user_id}")
+
+    await session.commit()
+    # 5. Инвалидация кэша (как в word_update)
+    try:
+        keys = collect_translation_keys(word_text, srcs=("auto",), tgts=("ru",))
+        await delete_keys(*keys)
+    except Exception:
+        backend_logger.exception("Failed to invalidate cache for %s", word_text)
+    return deleted_data
 
 
 # ---------------------------------

@@ -17,6 +17,8 @@ from app.routers.get_words_from_set import words_from_set_router
 from app.routers.any_word import anyword_router
 from app.routers.get_word import read_router, get_better_translation_router, get_synonyms_router, get_antonyms_router, get_sentences_router
 from app.routers.update_word import update_router
+from app.routers.delete_word import delete_word_router
+from app.routers.delete_set import delete_set_router
 
 app = FastAPI(
     title="WordChain",
@@ -64,6 +66,9 @@ app.include_router(get_synonyms_router)
 app.include_router(get_antonyms_router)
 app.include_router(get_sentences_router)
 app.include_router(update_router)
+app.include_router(delete_word_router)
+app.include_router(delete_set_router)
+
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")

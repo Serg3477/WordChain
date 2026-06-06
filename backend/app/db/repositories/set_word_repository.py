@@ -39,3 +39,11 @@ class SetWordRepository:
             SetWord.__table__.select().where(SetWord.set_id == set_id)
         )
         return result.fetchall()
+
+    @staticmethod
+    async def remove_word_from_all_sets(session, word_id: int) -> int:
+        """Удаляет все записи set_words для word_id. Возвращает число удалённых строк."""
+        result = await session.execute(
+            SetWord.__table__.delete().where(SetWord.word_id == word_id)
+        )
+        return result.rowcount

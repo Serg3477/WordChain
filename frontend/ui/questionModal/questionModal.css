@@ -1,0 +1,74 @@
+.qm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: qm-fade-in .15s ease;
+}
+
+.qm-window {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 14px;
+  border: 2px, #2563eb;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  animation: qm-pop .15s ease;
+}
+
+.qm-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 12px;
+}
+
+.qm-text {
+  font-size: 15px;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+.qm-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.qm-btn {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.qm-yes {
+  background: #759ef5;
+  color: white;
+}
+
+.qm-no {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.qm-overlay.hide {
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+@keyframes qm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes qm-pop {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

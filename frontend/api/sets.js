@@ -47,3 +47,34 @@ export async function getWordsFromSet(set) {
   } 
 
 }
+
+export async function setDeleteRequest ({endpoint, method, set_id, name, user_id, word_ids}) {
+
+    logInfo(`${endpoint.slice(1)} request shape`, {
+      method: method,
+      hasEndpoint: !!endpoint,
+      hasSetId: !!set_id,
+      hasUser: !!user_id,
+    });
+
+    try {
+      const res = await apiRequest(endpoint, {
+        method: method,
+        body: {
+          set_id,
+          name,
+          user_id,
+          word_ids,
+        },
+      });
+      logInfo(`${endpoint.slice(1)} response shape`, {
+        keys: res ? Object.keys(res) : [],
+      });
+      return res;
+    } catch (e) {
+      logError(`${endpoint.slice(1)} request failed`, { error: e.message });
+      throw e;
+    }
+  
+}
+

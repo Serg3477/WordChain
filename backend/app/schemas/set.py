@@ -73,3 +73,20 @@ class SetRead(SetBase):
 
     class Config:
         from_attributes = True  # позволяет возвращать ORM-модель напрямую
+
+
+# ---------------------------------------------------------
+# 1. DTO удаления сета (используется в /delete_set)
+# ---------------------------------------------------------
+class SetDeleteRequest(BaseModel):
+    set_id: int
+    name: str
+    user_id: int
+    # опционально, только для сверки с БД:
+    word_ids: list[int] | None = None
+
+class SetDeleteResponse(BaseModel):
+    set_id: int
+    name: str
+    deleted_word_ids: List[int] = Field(default_factory=list)
+    deleted_words_count: int = 0

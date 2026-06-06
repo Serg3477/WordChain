@@ -103,3 +103,26 @@ class AnyWordRequest(BaseModel):
 
 class AnyWordResponse(BaseModel):
     word: str
+
+
+# -----------------------------
+# 5. DTO для удаления слов
+# -----------------------------
+class WordDeleteRequest(BaseModel):
+    id: int
+    user_id: int
+    word: str
+
+
+class WordDeleteResponse(BaseModel):
+    id: int
+    word: str
+    translation: Optional[str] = None
+    translation_json: Optional[TranslationJSON] = None
+    part_of_speech: Optional[str] = None
+    transcription: Optional[str] = None
+    examples: List[str] = Field(default_factory=list)
+    synonyms: List[str] = Field(default_factory=list)
+    antonyms: List[str] = Field(default_factory=list)
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None

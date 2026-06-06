@@ -23,5 +23,5 @@ class Word(Base):
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     user = relationship("User", back_populates="words")
-    sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin", cascade="all")
+    sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin")
 
