@@ -60,13 +60,26 @@
   padding: 6px 0;
   color: #374151;
   border-bottom: 1px solid rgba(20, 24, 40, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← слово слева, кнопки справа */
+}
+
+.word-text {
+  flex: 1; /* ← слово занимает всё пространство слева */
 }
 
 .word-item:last-child {
   border-bottom: none;
 }
 
+.word-actions {
+  display: flex;
+  gap: 12px; /* расстояние между кнопками */
+}
+
 .unassigned-list {
+  
   list-style: none;
   padding: 0 16px 12px 32px;
   margin: 0;
@@ -79,5 +92,49 @@
 
 .word-item:hover {
   color: #0d05ff;
+}
+
+/* Cтили кнопок сетов */
+.set-actions {
+  padding-left: 100px;
+  list-style: none;
+  padding: 10px 16px;
+  gap: 12px;
+ 
+}
+
+.set-actions-btn {
+  border: none;
+  margin-left: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.set-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.word-action-btn {
+  border: none;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.word-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.set-actions-btn.danger {
+  color: #b91c1c;
 }
 
