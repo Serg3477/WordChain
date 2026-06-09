@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from sqlalchemy import select
 from app.db.models.set import Set
@@ -17,28 +18,30 @@ class SetRepository:
         await session.refresh(obj)
         return obj
 
+
+
     @staticmethod
     async def get_last_set_number(session, user_id: int) -> int:
         """
-        Возвращает номер последнего сета пользователя.
-        Если сетов нет — возвращает 0.
+        Возвращает максимальный номер сета вида "Set - X".
+        Если таких сетов нет — возвращает 0.
         """
+        SET_PATTERN = re.compile(r"^Set\s*-\s*(\d+)$")
+
+        # 1. Получаем ВСЕ сеты пользователя
         result = await session.execute(
-            select(Set)
-            .where(Set.user_id == user_id)
-            .order_by(Set.id.desc())
-            .limit(1)
+            select(Set.name).where(Set.user_id == user_id)
         )
-        last_set = result.scalar_one_or_none()
+        names = [row[0] for row in result.all()]
 
-        if not last_set:
-            return 0
+        max_number = 0
 
-        # имя вида "Set-12"
-        if last_set.name.startswith("Set-"):
-            try:
-                return int(last_set.name.split("-")[1])
-            except:
-                return 0
+        # 2. Ищем только те, что подходят под шаблон "Set - X"
+        for name in names:
+            match = SET_PATTERN.match(name)
+            if match:
+                num = int(match.group(1))
+                if num > max_number:
+                    max_number = num
 
-        return 0
+        return max_number

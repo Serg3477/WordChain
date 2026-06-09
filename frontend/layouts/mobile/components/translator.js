@@ -4,6 +4,7 @@ import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
+import { initBottomSheet } from "../../../ui/bottomSheet/bottomSheet.js";
 
 
 
@@ -60,6 +61,15 @@ export function renderTranslator(state) {
       </div>
 
     </div>
+
+    <div class="bottom-sheet">
+      <div class="bs-header">
+        <div class="bs-grabber"></div>
+        <div class="bs-title">Words history</div>
+      </div>
+      <div class="bs-content"></div>
+    </div>
+
   `;
 
   // ---------------------------
@@ -70,6 +80,18 @@ export function renderTranslator(state) {
   const eraseContainer = screen.querySelector(".erase-container");
   const output = screen.querySelector("#translation-output");
   const buttonsRow = screen.querySelector(".buttons-row");
+
+  // Реализация списка переведенных слов bottomSheet c подпиской на изменения
+  const sheet = initBottomSheet(state.history, {
+    onSelect: (word) => {
+      placeholder.value = word;
+      doTranslate();
+    }
+  });
+  
+  state.on("history", () => {
+    sheet.update(state.history);
+  });
 
   // ---------------------------
   // КНОПКА ОЧИСТКИ
@@ -167,6 +189,7 @@ export function renderTranslator(state) {
         </div><br>
       `;
     }
+    state.addToHistory(word);
 
     logInfo("Translate request success", {
       hasTranslation: !!result.translation

@@ -126,3 +126,28 @@ class WordDeleteResponse(BaseModel):
     antonyms: List[str] = Field(default_factory=list)
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
+
+
+# -----------------------------
+# 5. DTO для перемещения слов
+# -----------------------------
+class WordMoveRequest(BaseModel):
+    id: int
+    user_id: int
+    word: str
+    old_set: Optional[int] = None
+    new_set: Optional[int] = None
+
+
+class WordMoveResponse(BaseModel):
+    id: int
+    word: str
+    translation: Optional[str] = None
+    translation_json: Optional[TranslationJSON] = None
+    part_of_speech: Optional[str] = None
+    transcription: Optional[str] = None
+    examples: Optional[List[str]] = Field(default_factory=list)
+    synonyms: Optional[List[str]] = Field(default_factory=list)
+    antonyms: Optional[List[str]] = Field(default_factory=list)
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None

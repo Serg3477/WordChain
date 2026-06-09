@@ -1,11 +1,15 @@
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { getSets, getWordsFromSet, setDeleteRequest } from "../../../api/sets.js";
+import { getSets, getWordsFromSet, setDeleteRequest, setRenameRequest } from "../../../api/sets.js";
+import { wordMoveRequest } from "../../../api/word.js";
 import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";
 import { windowManager } from "../../../core/windowManager.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { questionModal } from "../../../ui/questionModal/questionModal.js";
+import { selectModal } from "../../../ui/selectModal/selectModal.js";
+import { renameModal } from "../../../ui/renameModal/renameModal.js";
+
 
 
 
@@ -65,6 +69,7 @@ export function renderSets() {
       const header = li.querySelector(".set-header");
       const actions = li.querySelector(".set-actions");
       const wordsList = li.querySelector(".set-words");
+      const setName = li.querySelector(".set-name");
       const arrow = li.querySelector(".set-arrow");
 
       header.addEventListener("click", async () => {
@@ -110,9 +115,9 @@ export function renderSets() {
             word: item.dataset.word
           };
 
-          item.querySelector("[data-action='move']").onclick = (e) => {
+          item.querySelector("[data-action='move']").onclick = async (e) => {
             e.stopPropagation();
-            console.log("move", word);
+            const mov = await moveWordItem(item, sets, set, wordsList, { setItem: li });
           };
 
           item.querySelector("[data-action='delete']").onclick = async (e) => {
@@ -127,7 +132,7 @@ export function renderSets() {
       });
 
       actions.querySelector("[data-action='work']").onclick = () => console.log("work", set);
-      actions.querySelector("[data-action='rename']").onclick = () => console.log("rename", set);
+      actions.querySelector("[data-action='rename']").onclick = () => renameSetItem(set, li);
       actions.querySelector("[data-action='delete']").onclick = () => deleteSetItem(set, li);
 
       wordsList.addEventListener("click", async (event) => {
@@ -193,10 +198,11 @@ export function renderSets() {
           word: item.dataset.word
         };
 
-        item.querySelector("[data-action='move']").addEventListener("click", (e) => {
+        item.querySelector("[data-action='move']").addEventListener("click", async (e) => {
           e.stopPropagation();
-          console.log("move", word);
+          const mov = await moveWordItem(item, sets, { wordsList: unassignedList });
         });
+
         item.querySelector("[data-action='delete']").addEventListener("click", async (e) => {
           e.stopPropagation();
           await deleteWordItem(item, { parentBlock: unassignedBlock });
@@ -215,8 +221,6 @@ export function renderSets() {
       const data = await renderWord(state, id, word);
       logInfo("Word details loaded", { word, hasData: !!data });
 
-      // Здесь дальше делай нужное отображение ответа
-      // console.log("Word details:", data);
     } catch (e) {
       logError("Word details request failed", { word, error: e.message });
     }
@@ -304,4 +308,97 @@ export function renderSets() {
       console.log("Отмена удаления сета.");
     }
   }
+
+
+  // Функция перемещения слова с обращением к ui/selectModal модалке вопроса
+  async function moveWordItem(item, sets, set, { wordsList = null, setItem = null } = {}) {
+    const currentWord = item.dataset.word;
+    const currentWordId = item.dataset.wordId;
+    const currentSetId = set.id;
+
+    const items = [
+      ...sets.filter(s => s.id !== currentSetId).map(s => ({ label: s.name, value: s.id })),
+      ...(currentSetId !== null ? [{ label: "Beyong sets", value: null }] : []),
+    ];
+    console.log("Items: ", items);
+    const target = await selectModal({ title: "Move to...", items });
+    console.log("Target: ", target)
+    if (target !== null || currentSetId !== null) {
+      try {
+          const result = await wordMoveRequest({
+            endpoint: "/move_word",
+            method: "POST",
+            word_id: currentWordId,
+            user_id: state.user.id,
+            word: currentWord,
+            move_to_set: target,
+            move_from_set: currentSetId,
+          });
+          
+          // 1. Удаляем слово из DOM
+          item.remove();
+
+          // 2. Проверяем, пустой ли список
+          if (wordsList && !wordsList.querySelector(".word-item")) {
+            delete wordsList.dataset.loaded;
+            if (setItem) {
+              
+              // 1. Удаляем сет из DOM
+              setItem.remove();
+              logInfo(`Set ${setText} is empty. Delete Set ${setText} success`, { result });
+              Notification.show({type: "success", message: `Set "${emptySet.name}" deleted because it's empty (${emptySet.deleted_words_count} words)`,
+              });
+            }
+          }
+
+      } catch (e) {
+        logError(`Move Word ${currentWord} failed`, { error: e.message });
+        Notification.show({ type: "error", message: `Failed to delete "${currentWord}"` });
+      }
+      logInfo(`Move Word ${currentWord} from ${currentSetId} to ${target} success`);
+      Notification.show({ type: "success", message: `Word "${currentWord}" moved successfully!` });
+      // обновляем весь экран
+      renderSets();
+      
+      console.log("Moving:", currentWord);
+    } else {
+      console.log("Word moving rejection");
+    }
+  }
+
+
+  // Функция переименования сета с обращением к ui/renameModal модалке вопроса
+  async function renameSetItem(set, setItem) {
+    const newName = await renameModal({
+      setName: set.name,
+      text: `Do you want to rename it?`
+    });
+
+    if (newName) {
+      const setText = set.name;
+      try {
+        const result = await setRenameRequest({
+          endpoint: "/rename_set",
+          method: "PATCH",
+          set_id: set.id,
+          name: newName,
+          user_id: state.user.id,
+        });
+        logInfo(`Rename Set ${setText} success - `, { result });
+        Notification.show({
+          type: "success",
+          message: `Set "${setText}" renamed to ${result}`,
+        });
+
+      } catch (e) {
+        logError(`Rename Set ${setText} failed`, { error: e.message });
+        Notification.show({ type: "error", message: `Failed to rename "${setText}"` });
+      }
+      renderSets();
+      console.log("Rename:", set.name);
+    } else {
+      console.log("Отмена удаления сета.");
+    }
+  }
 }
+

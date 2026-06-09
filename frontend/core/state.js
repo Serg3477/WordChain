@@ -81,7 +81,9 @@ export const state = {
 
   addToHistory(word) {
     if (!word) return;
-    this.history.push(word);
+    const i = this.history.indexOf(word);
+    if (i !== -1) this.history.splice(i, 1);
+    this.history.unshift(word);
     this.notify("history");
   },
 

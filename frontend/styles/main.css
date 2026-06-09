@@ -19,3 +19,6 @@
 @import "../ui/scrollButtonsArea/scrollButtonsArea.css";
 @import "../ui/notificationModal/notificationModal.css";
 @import "../ui/questionModal/questionModal.css";
+@import "../ui/selectModal/selectModal.css";
+@import "../ui/renameModal/renameModal.css";
+@import "../ui/bottomSheet/bottomSheet.css";

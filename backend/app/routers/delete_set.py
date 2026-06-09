@@ -7,8 +7,8 @@ from app.logger.logger import backend_logger
 delete_set_router = APIRouter()
 
 @delete_set_router.post("/delete_set", response_model=SetDeleteResponse)
-async def delete_word(req: SetDeleteRequest):
-    backend_logger.info(f"Delete Word attempt: id={req.set_id}, word={req.name}, user_id={req.user_id}")
+async def delete_set(req: SetDeleteRequest):
+    backend_logger.info(f"Delete Set attempt: id={req.set_id}, word={req.name}, user_id={req.user_id}")
 
     async with async_session() as session:
         result = await set_delete(session, req)

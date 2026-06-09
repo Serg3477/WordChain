@@ -21,6 +21,7 @@ from app.logger.logger import backend_logger
 from app.db.models.set_word import SetWord
 from app.db.repositories.set_word_repository import SetWordRepository
 from app.schemas.word import WordDeleteRequest
+from app.schemas.word import WordMoveRequest
 
 
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
@@ -315,6 +316,66 @@ async def word_delete(session, req: WordDeleteRequest):
         backend_logger.exception("Failed to invalidate cache for %s", word_text)
     return deleted_data
 
+
+async def word_move(session, req: WordMoveRequest):
+    # 1. Найти слово (как word_read)
+    w = await word_read(session, req.id, req.user_id)
+    if not w:
+        return None
+    # 2. Опционально: сверить текст слова с запросом
+    if req.word and w.word != req.word:
+        backend_logger.warning(
+            f"word_delete: text mismatch id={req.id}, db={w.word}, req={req.word}"
+        )
+    word_text = w.word
+    # 3. Сохранить данные для ответа до удаления
+    removed_data = {
+        "id": w.id,
+        "word": word_text,
+        "translation": w.translation,
+        "translation_json": w.translation_json,
+        "part_of_speech": w.part_of_speech,
+        "transcription": w.transcription,
+        "examples": w.examples or [],
+        "synonyms": w.synonyms or [],
+        "antonyms": w.antonyms or [],
+        "created_at": w.created_at,
+        "updated_at": w.updated_at,
+    }
+    # 4. сохранить слово в новом сете (если задан)
+    if req.new_set is not None:
+        await SetWordRepository.add_word_to_set(
+            session=session,
+            set_id=req.new_set,
+            word_id=req.id
+        )
+    # 5. удалить слово из старого сета (если задан)
+    if req.old_set is not None:
+        await SetWordRepository.remove_word_from_set(
+            session=session,
+            set_id=req.old_set,
+            word_id=req.id
+        )
+        # если старый сет опустел — удалить его (как в word_delete)
+        remaining = await session.scalar(
+            select(func.count()).select_from(SetWord).where(SetWord.set_id == req.old_set)
+        )
+        if remaining == 0:
+            set_obj = await session.scalar(
+                select(Set).where(Set.id == req.old_set, Set.user_id == req.user_id)
+            )
+            if set_obj:
+                await session.delete(set_obj)
+                backend_logger.info(f"[SET] Deleted empty set id={req.old_set} for user {req.user_id}")
+
+    await session.commit()
+    # 5. Инвалидация кэша (как в word_update)
+    try:
+        keys = collect_translation_keys(word_text, srcs=("auto",), tgts=("ru",))
+        await delete_keys(*keys)
+    except Exception:
+        backend_logger.exception("Failed to invalidate cache for %s", word_text)
+    return removed_data
 
 # ---------------------------------
 # Get Better Translation of Word function

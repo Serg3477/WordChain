@@ -9,10 +9,11 @@ html, body {
   height: 100%;
   font-family: system-ui, sans-serif;
   background:
-    url("../assets/images/w26mob.jpg") center center / cover no-repeat fixed;
+    url("../assets/images/b3mob.png") center center / cover no-repeat fixed;
   color: var(--text);
 
   padding-top: var(--ic); /* отступ контента равен высоте header */
+
 }
 
 #app {

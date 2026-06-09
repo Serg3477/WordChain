@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend/api/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/sets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/api/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/word.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/core/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/sets.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/sets.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +236,10 @@
       <workItem from="1780468750707" duration="5122000" />
       <workItem from="1780483446406" duration="7879000" />
       <workItem from="1780556384727" duration="3466000" />
-      <workItem from="1780731928872" duration="11127000" />
+      <workItem from="1780731928872" duration="11298000" />
+      <workItem from="1780815334932" duration="5491000" />
+      <workItem from="1780906168132" duration="10756000" />
+      <workItem from="1780991092445" duration="11534000" />
     </task>
     <servers />
   </component>

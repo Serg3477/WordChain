@@ -126,3 +126,33 @@ export async function wordDeleteRequest ({endpoint, method, id, user_id, word}) 
     }
   
 }
+
+export async function wordMoveRequest ({endpoint, method, word_id, user_id, word, move_to_set, move_from_set}) {
+
+    logInfo(`${endpoint.slice(1)} request shape`, {
+      method: method,
+      hasEndpoint: !!endpoint,
+      hasCurrentWord: !!word,
+    });
+
+    try {
+      const res = await apiRequest(endpoint, {
+        method: method,
+        body: { 
+          id: word_id,
+          user_id: user_id,
+          word: word,
+          new_set: move_to_set,
+          old_set: move_from_set,
+        },
+      });
+      logInfo(`${endpoint.slice(1)} response shape`, {
+        keys: res ? Object.keys(res) : [],
+      });
+      return res;
+    } catch (e) {
+      logError(`${endpoint.slice(1)} request failed`, { error: e.message });
+      throw e;
+    }
+  
+}

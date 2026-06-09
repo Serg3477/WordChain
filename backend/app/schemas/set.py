@@ -90,3 +90,17 @@ class SetDeleteResponse(BaseModel):
     name: str
     deleted_word_ids: List[int] = Field(default_factory=list)
     deleted_words_count: int = 0
+
+
+# ---------------------------------------------------------
+# 1. DTO переименования сета (используется в /rename_set)
+# ---------------------------------------------------------
+class SetRenameRequest(BaseModel):
+    set_id: int
+    name: str
+    user_id: int
+
+class SetRenameResponse(BaseModel):
+    set_id: int
+    name: str
+    user_id: int

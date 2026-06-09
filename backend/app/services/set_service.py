@@ -199,3 +199,24 @@ async def set_delete(session, req: SetDeleteRequest):
         "deleted_words_count": len(word_ids),
     }
 
+
+async def set_rename(session, req: SetDeleteRequest):
+    # 1. Найти сет и проверить владельца
+    set_obj = await session.scalar(
+        select(Set).where(Set.id == req.set_id, Set.user_id == req.user_id)
+    )
+    if not set_obj:
+        return None
+
+    # 2. Обновить имя
+    set_obj.name = req.name
+
+    # 3. Сохранить изменения
+    await session.commit()
+    await session.refresh(set_obj)
+
+    return {
+        "set_id": req.set_id,
+        "name": set_obj.name,
+        "user_id": req.user_id,
+    }
