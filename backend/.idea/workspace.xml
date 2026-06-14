@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/api/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/api/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/word.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/core/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/core/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/core/router.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/ui/questionModal/questionModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/ui/questionModal/questionModal.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +71,65 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.00000000000001" />
+      <entry key="S2" value="1.0003160630490526" />
+      <entry key="S5" value="1.0398024211039627" />
+      <entry key="S10" value="1.1995055727853499" />
+      <entry key="S30" value="1.5961690035521015" />
+      <entry key="S60" value="2.044173465521107" />
+      <entry key="M2" value="3.607862530760732" />
+      <entry key="M5" value="7.986409326950943" />
+      <entry key="M10" value="11.482215695751941" />
+      <entry key="M15" value="13.396036320625665" />
+      <entry key="M30" value="17.734610638895326" />
+      <entry key="H1" value="27.229369745834617" />
+      <entry key="H2" value="46.92973723275748" />
+      <entry key="H4" value="71.55010624624775" />
+      <entry key="D1" value="110.12334498261305" />
+      <entry key="W1" value="119.3647414164904" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="3.522706333089522E-213" />
+      <entry key="S2" value="7.704050306950912E-54" />
+      <entry key="S5" value="5.684439439950917E-22" />
+      <entry key="S10" value="2.3842143217313764E-11" />
+      <entry key="S30" value="2.9213759282963893E-4" />
+      <entry key="S60" value="0.019044030410992858" />
+      <entry key="M2" value="0.1758451883653577" />
+      <entry key="M5" value="0.7332795055034395" />
+      <entry key="M10" value="1.204446907992687" />
+      <entry key="M15" value="1.4245704418943133" />
+      <entry key="M30" value="1.7026096834563562" />
+      <entry key="H1" value="2.16373266713258" />
+      <entry key="H2" value="3.424254935865498" />
+      <entry key="H4" value="5.203399486818488" />
+      <entry key="D1" value="8.150405179721611" />
+      <entry key="W1" value="8.87188975326466" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9138314502294005" />
+      <entry key="MS500" value="0.9821395952633915" />
+      <entry key="S2" value="0.9955225799150826" />
+      <entry key="S5" value="1.010822452236529" />
+      <entry key="S10" value="1.1114516241473742" />
+      <entry key="S30" value="1.4942188455492946" />
+      <entry key="S60" value="1.9875959936817589" />
+      <entry key="M2" value="3.7161439144550035" />
+      <entry key="M5" value="8.658950230033598" />
+      <entry key="M10" value="12.642866649867608" />
+      <entry key="M15" value="14.786760695621368" />
+      <entry key="M30" value="19.41574596525211" />
+      <entry key="H1" value="29.378085037917796" />
+      <entry key="H2" value="50.34229421914717" />
+      <entry key="H4" value="76.74509649670092" />
+      <entry key="D1" value="118.27168874661005" />
+      <entry key="W1" value="128.23631423666095" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -239,7 +295,10 @@
       <workItem from="1780731928872" duration="11298000" />
       <workItem from="1780815334932" duration="5491000" />
       <workItem from="1780906168132" duration="10756000" />
-      <workItem from="1780991092445" duration="11534000" />
+      <workItem from="1780991092445" duration="12142000" />
+      <workItem from="1781078175526" duration="1800000" />
+      <workItem from="1781254044592" duration="8035000" />
+      <workItem from="1781438988703" duration="9189000" />
     </task>
     <servers />
   </component>

@@ -104,3 +104,23 @@ class SetRenameResponse(BaseModel):
     set_id: int
     name: str
     user_id: int
+
+
+# ---------------------------------------------------------
+# 1. DTO создания текста из слов сета (используется в /get_text)
+# ---------------------------------------------------------
+class SetTextRequest(BaseModel):
+    set_id: int
+    user_id: int
+    source_lang: str
+    target_lang: str
+    text_size: str
+    level: str
+    words: list[str]
+
+
+class SetTextResponse(BaseModel):
+    text: str
+    text_translation: str
+
+

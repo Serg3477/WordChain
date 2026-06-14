@@ -10,6 +10,11 @@ export const state = {
     token: null
   },
 
+  userSkill: {
+    level: "B2",
+    text_size: "6",
+  },
+
   setUser(user) {
     this.user = { ...this.user, ...user };
     this.notify("user");

@@ -1,0 +1,72 @@
+.word-item {
+  padding: 6px 0;
+  color: #374151;
+  border-bottom: 1px solid rgba(20, 24, 40, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← слово слева, кнопки справа */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.label {
+  margin-left: 16px;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.word-item:hover {
+  color: #0d05ff;
+}
+
+.word-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 40px;
+}
+
+.ui-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-text {
+  margin-left: 16px;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.label-text-translation {
+  margin-left: 16px;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.58);
+  user-select: none; 
+}
+
+.text {
+  margin-left: 40px;
+  margin-right: 30px;
+  text-indent: 20px; /* или 1.5em (абзац) */
+}
+
+.text-translation {
+  margin-left: 40px;
+  margin-right: 30px;
+  text-indent: 20px; /* или 1.5em (абзац) */
+}
+
+.highlight {
+  color: #0d05ff; /* насыщенный синий */
+  font-weight: 600;
+}

@@ -13,6 +13,7 @@
 @import "./profile.css";
 @import "./sets.css";
 @import "./word.css";
+@import "./text.css";
 
 @import "../ui/baseButton/baseButton.css";
 @import "../ui/erase/eraseInputButton.css";
@@ -22,3 +23,4 @@
 @import "../ui/selectModal/selectModal.css";
 @import "../ui/renameModal/renameModal.css";
 @import "../ui/bottomSheet/bottomSheet.css";
+@import "../ui/tipModal/tipModal.css";

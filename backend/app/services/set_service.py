@@ -1,5 +1,8 @@
+from openai import AsyncOpenAI
 from sqlalchemy import select, func
 from datetime import datetime
+
+from app.db.config import settings
 
 from app.db.models import User
 from app.db.models import Set
@@ -9,9 +12,23 @@ from app.db.session import async_session
 from app.db.models.word import Word
 from app.db.models.set_word import SetWord
 from app.logger.logger import backend_logger
-from app.schemas.set import SetDeleteRequest
+from app.schemas.set import SetDeleteRequest, SetTextRequest
 
 SET_SIZE = 6
+
+
+client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+
+# -----------------------------
+# OpenAI wrapper
+# -----------------------------
+async def _ask_text(prompt: str, max_tokens: int = 200) -> str:
+    resp = await client.responses.create(
+        model=settings.MODEL,
+        input=prompt,
+        max_output_tokens=max_tokens,
+    )
+    return (resp.output_text or "").strip()
 
 
 async def check_and_create_set(user_id: int):
@@ -219,4 +236,37 @@ async def set_rename(session, req: SetDeleteRequest):
         "set_id": req.set_id,
         "name": set_obj.name,
         "user_id": req.user_id,
+    }
+
+async def get_text_for_set(req: SetTextRequest):
+    prompt = (
+        f"Write a coherent, natural, engaging text in {req.source_lang}."
+        f"The text must be a single story or explanation on any topic, not a list of sentences."
+        f"Use ALL of these words naturally inside the text, in mixed order, optionally repeating some of them: {req.words}."
+        f"Use each word MULTIPLE times throughout the text, not just once."
+        f"Distribute the words evenly across all sentences so that every sentence contains at least one of these words."
+        f"Do NOT explain the words."
+        f"Do NOT define the words."
+        f"Do NOT create separate sentences for each word."
+        f"Write a single flowing text of {req.text_size} sentences."
+        f"The text must match CEFR level {req.level}."
+        f"Each sentence must be short and concise, no longer than 12–18 words."
+        f"Return only the text."
+    )
+    text = await _ask_text(prompt, max_tokens=200)
+    backend_logger.info(f"[GET TEXT] Final result text: {text}")
+
+    prompt = (
+        f"Translate the {text} into {req.target_lang}. "
+        f"Translate it EXACTLY, preserving meaning, tone, and sentence structure. "
+        f"Do NOT summarize. "
+        f"Do NOT simplify. "
+        f"Do NOT add anything. "
+        f"Return only the translated text."
+    )
+    text_translation = await _ask_text(prompt, max_tokens=200)
+    backend_logger.info(f"[GET TEXT] Final result translation: {text_translation}")
+    return {
+        "text": text,
+        "text_translation": text_translation
     }

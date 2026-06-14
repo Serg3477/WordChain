@@ -4,6 +4,7 @@ import { getSets, getWordsFromSet, setDeleteRequest, setRenameRequest } from "..
 import { wordMoveRequest } from "../../../api/word.js";
 import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";
+import { renderText } from "./text.js";
 import { windowManager } from "../../../core/windowManager.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { questionModal } from "../../../ui/questionModal/questionModal.js";
@@ -87,6 +88,9 @@ export function renderSets() {
         if (!wordsList.dataset.loaded) {
           const words = await getWordsFromSet(set);
 
+          // кешируем слова в объекте сета (для renderText)
+          set._words = words;
+
           wordsList.innerHTML = words
             .map(w => `
               <li class="word-item" data-word-id="${w.id}" data-word="${w.word}">
@@ -131,7 +135,7 @@ export function renderSets() {
         wordsList.classList.remove("hidden");
       });
 
-      actions.querySelector("[data-action='work']").onclick = () => console.log("work", set);
+      actions.querySelector("[data-action='work']").onclick = () => onTextClick(set);
       actions.querySelector("[data-action='rename']").onclick = () => renameSetItem(set, li);
       actions.querySelector("[data-action='delete']").onclick = () => deleteSetItem(set, li);
 
@@ -210,6 +214,21 @@ export function renderSets() {
       });
 
       container.appendChild(unassignedBlock);
+    }
+  }
+
+  // Обработчик клика по кнопке "Текст" сета
+  async function onTextClick(set) {
+    const name = set.name;
+    try {
+      logInfo(`Set ${ name } button "Text" clicked`);
+      windowManager.pushScreen("text"); 
+      const words = set._words;
+      const data = await renderText(set, words);
+      logInfo("Set Text loaded", { name, hasData: !!data });
+
+    } catch (e) {
+      logError("Set Text details request failed", { name, error: e.message });
     }
   }
 
