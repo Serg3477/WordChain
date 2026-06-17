@@ -1,6 +1,7 @@
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { getSets, getWordsFromSet, setDeleteRequest, setRenameRequest } from "../../../api/sets.js";
+import { voiceWord } from "../../../api/translate.js"
 import { wordMoveRequest } from "../../../api/word.js";
 import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";
@@ -10,6 +11,7 @@ import { Notification } from "../../../ui/notificationModal/notificationModal.js
 import { questionModal } from "../../../ui/questionModal/questionModal.js";
 import { selectModal } from "../../../ui/selectModal/selectModal.js";
 import { renameModal } from "../../../ui/renameModal/renameModal.js";
+import { doVoice } from "../../../utils/voice.js";
 
 
 
@@ -97,6 +99,10 @@ export function renderSets() {
                 <span class="word-text">${w.word}</span>
 
                 <div class="word-actions">
+                  <button class="word-action-btn" data-action="voice">
+                    <img class="word-icon" src="/assets/icons/megaphone1.png" alt="↗">
+                  </button>
+
                   <button class="word-action-btn" data-action="move">
                     <img class="word-icon" src="/assets/icons/Arrows.png" alt="↗">
                   </button>
@@ -117,6 +123,13 @@ export function renderSets() {
           const word = {
             id: item.dataset.wordId,
             word: item.dataset.word
+          };
+
+          item.querySelector("[data-action='voice']").onclick = async (e) => {
+            e.stopPropagation();
+            const voiceResult = await voiceWord(word.word, state.sourceLang);
+            state.setVoice(voiceResult?.audio_data || null);
+            doVoice();
           };
 
           item.querySelector("[data-action='move']").onclick = async (e) => {
@@ -170,6 +183,10 @@ export function renderSets() {
             <span class="word-text">${w.word}</span>
 
             <div class="word-actions">
+              <button class="word-action-btn" data-action="voice">
+                <img class="word-icon" src="/assets/icons/megaphone1.png" alt="↗">
+              </button>
+
               <button class="word-action-btn" data-action="move">
                 <img class="word-icon" src="/assets/icons/Arrows.png" alt="↗">
               </button>
@@ -201,6 +218,13 @@ export function renderSets() {
           id: item.dataset.wordId,
           word: item.dataset.word
         };
+
+        item.querySelector("[data-action='voice']").onclick = async (e) => {
+            e.stopPropagation();
+            const voiceResult = await voiceWord(word.word, state.sourceLang);
+            state.setVoice(voiceResult?.audio_data || null);
+            doVoice();
+          };
 
         item.querySelector("[data-action='move']").addEventListener("click", async (e) => {
           e.stopPropagation();

@@ -1,3 +1,15 @@
+""" Предотвращает дублирующие запросы к OpenAI
+   - первый запрос ставит lock
+   - остальные ждут
+   - OpenAI вызывается один раз
+   - все остальные получают результат из Redis
+    Это называется "dogpile prevention" или "cache stampede protection".
+    1. Проверка Redis
+    2. Если нет — попытка взять lock
+    3. Если lock наш — вызываем producer() и сохраняем результат в Redis
+    4. Если lock не наш — ждём появления значения в Redis
+    5. Если lock завис — вызываем producer() и сохраняем результат в Redis (fallback)
+"""
 import asyncio
 import json
 from typing import Callable, Any

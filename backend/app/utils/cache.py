@@ -111,3 +111,5 @@ def collect_translation_keys(word: str, srcs: Iterable[str] = ("auto",), tgts: I
         f"translate:v2:meta:{norm}:sentences",
     ])
     return keys
+
+

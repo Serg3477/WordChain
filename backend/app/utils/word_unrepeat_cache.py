@@ -7,11 +7,11 @@ from fastapi import HTTPException
 from redis.asyncio import Redis
 from openai import AsyncOpenAI
 from app.db.config import settings
+from app.utils.openai import _ask_text
 
 
 DEFAULT_CLIENT = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 DEFAULT_REDIS = Redis.from_url("redis://localhost:6379", decode_responses=True)
-DEFAULT_MODEL = "gpt-4o-mini"
 
 
 ANY_WORD_HISTORY_KEY = "any_word:history"
@@ -33,27 +33,14 @@ async def _push_word(redis: Redis, word: str) -> None:
     await redis.ltrim(ANY_WORD_HISTORY_KEY, 0, ANY_WORD_HISTORY_SIZE - 1)
 
 
-async def _ask_text(client: AsyncOpenAI, model: str, prompt: str, max_tokens: int = 10) -> str:
-    resp = await client.responses.create(
-        model=model,
-        input=prompt,
-        max_output_tokens=max_tokens,
-    )
-    return (resp.output_text or "").strip()
-
-
 async def generate_any_word(
     *,
     source_lang: str,
     redis: Redis | None = None,
-    client: AsyncOpenAI | None = None,
-    model: str | None = None,
     retries: int = 3,
 ) -> dict:
     # подставляем дефолты, если не переданы
     redis = redis or DEFAULT_REDIS
-    client = client or DEFAULT_CLIENT
-    model = model or DEFAULT_MODEL
 
 
     if not source_lang:
@@ -73,7 +60,7 @@ async def generate_any_word(
     """.strip()
 
     for _ in range(retries):
-        raw = await _ask_text(client, model, prompt, max_tokens=20)
+        raw = await _ask_text(prompt, max_tokens=20)
         candidate = re.sub(r"[^a-z-]", "", (raw or "").strip().lower())
 
         if not _is_valid_candidate(candidate):

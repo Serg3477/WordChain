@@ -3,15 +3,13 @@ import json
 import re
 import unicodedata
 from typing import List, Optional
-
 from fastapi import HTTPException
-from openai import AsyncOpenAI
 from redis.asyncio import Redis
 from sqlalchemy import select, func
 
 from app.db.models.word import Word
 from app.db.models.set import Set
-from app.db.config import settings
+from app.utils.openai import _ask_text, _ask_voice
 from app.schemas.word import TranslationJSON, WordUpdateByIdRequest
 from app.utils.atomic_cache import AtomicCache
 from app.utils.word_unrepeat_cache import generate_any_word
@@ -24,7 +22,7 @@ from app.schemas.word import WordDeleteRequest
 from app.schemas.word import WordMoveRequest
 
 
-client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+
 
 # -----------------------------
 # Normalization helpers
@@ -73,16 +71,6 @@ def to_list(value: Optional[str]) -> List[str]:
     return [str(value).strip()]
 
 
-# -----------------------------
-# OpenAI wrapper
-# -----------------------------
-async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
-    resp = await client.responses.create(
-        model=settings.MODEL,
-        input=prompt,
-        max_output_tokens=max_tokens,
-    )
-    return (resp.output_text or "").strip()
 
 
 # -----------------------------
@@ -566,3 +554,29 @@ async def word_sentences(word: str) -> List[str]:
                 return parts[:6]
 
     return await _get_cached_json(key, produce, ttl=TTL_PARTS)
+
+# -------------------------------------------
+# Get Voice of the word
+# -------------------------------------------
+async def get_voice_for_word(req):
+    word = req.word.strip().lower()
+    lang = req.source_lang
+    key = f"tts:{lang}:{word}"
+
+    async def producer():
+        prompt = (
+            f"Pronounce the following word aloud in {req.source_lang}."
+            f"Use a clear and natural female voice."
+            f"Insert a 0.5‑second pause before pronouncing the word."
+            f"Do not add explanations, comments, translations, or any additional words."
+            f"Return only the audio of the pronunciation."
+    
+            f"Word: {req.word}"
+        )
+        audio_base64 = await _ask_voice(prompt)
+        return {"audio_data": audio_base64}
+
+    # AtomicCache.get_or_set → JSON → dict
+    return await cache.get_or_set(key, producer)
+
+

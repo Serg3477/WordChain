@@ -81,6 +81,15 @@ export const state = {
     };
   },
 
+  // VOICE
+  voice: "",
+
+  setVoice(audioBase64) {
+    this.voice = audioBase64;
+    this.notify("voice");
+  },
+
+
   // --- HISTORY ---
   history: [],
 

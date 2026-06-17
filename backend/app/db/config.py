@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     OPENAI_API_KEY: str
     MODEL: str
+    MODEL_AUDIO: str
 
     @property
     def database_url(self):

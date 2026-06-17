@@ -2,6 +2,7 @@ import { apiRequest } from '../core/api.js';
 import { state } from "../../core/state.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
+
 export async function translateWord({ word, sourceLang, targetLang }) {
   const requestBody = {
     word,
@@ -42,7 +43,7 @@ export async function translateWord({ word, sourceLang, targetLang }) {
       error: e.message
     });
     throw e;
-  }
+  };
 }
 
 export async function saveWord(result) {
@@ -117,3 +118,15 @@ export async function anyWord( lang ) {
     throw e;
   }
 }
+
+export async function voiceWord(word, sourceLang) {
+    const voice = await apiRequest('/get_voice', {
+      method: 'POST',
+      body: {
+        word: word,
+        source_lang: sourceLang
+      }
+    });
+    console.log("Get voice: OK ");
+  return voice
+  }

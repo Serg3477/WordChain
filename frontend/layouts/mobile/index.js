@@ -25,6 +25,6 @@ export function renderMobile(state) {
   `;
 
   // Рендерим первый экран
-  renderTranslator(state);
+  renderTranslator();
   windowManager.pushScreen("translator");
 }

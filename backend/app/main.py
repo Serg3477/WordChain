@@ -6,6 +6,7 @@ from app.logger.logging_intercept import setup_sqlalchemy_logging
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
+from app.routers.get_voice import get_voice_router
 from app.routers.save_word import save_router
 from app.routers.translation import translation_router as translation_router
 from app.routers.registration import registration_router
@@ -22,6 +23,7 @@ from app.routers.delete_set import delete_set_router
 from app.routers.move_word import move_word_router
 from app.routers.rename_set import rename_set_router
 from app.routers.get_text import get_text_router
+from app.routers.get_voice import get_voice_router
 
 app = FastAPI(
     title="WordChain",
@@ -74,7 +76,7 @@ app.include_router(delete_set_router)
 app.include_router(move_word_router)
 app.include_router(rename_set_router)
 app.include_router(get_text_router)
-
+app.include_router(get_voice_router)
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")

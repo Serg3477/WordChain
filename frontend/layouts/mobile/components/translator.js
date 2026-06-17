@@ -1,10 +1,11 @@
-import { translateWord, saveWord, anyWord } from "../../../api/translate.js";
+import { translateWord, saveWord, anyWord, voiceWord } from "../../../api/translate.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { initBottomSheet } from "../../../ui/bottomSheet/bottomSheet.js";
+import { doVoice } from "../../../utils/voice.js";
 
 
 
@@ -26,7 +27,7 @@ function getLanguageLabel(langCode) {
 }
 
 
-export function renderTranslator(state) {
+export function renderTranslator() {
   logInfo("Translate screen render start");
 
   const screen = document.querySelector('[data-screen="translator"]');
@@ -194,6 +195,10 @@ export function renderTranslator(state) {
     logInfo("Translate request success", {
       hasTranslation: !!result.translation
     });
+
+    // получение аудио слова
+    const voiceResult = await voiceWord(correctWord, state.sourceLang);
+    state.setVoice(voiceResult?.audio_data || null);
   } catch (e) {
     logError("Translate request failed in UI", { error: e.message });
     return;
@@ -243,14 +248,30 @@ export function renderTranslator(state) {
       placeholder.value = data.word;
 
       doTranslate();
+
     } catch (e) {
       logError("Any Word request failed in UI", { error: e.message });
     }
+    
   }
+
+  // ---------------------------
+  // КНОПКА VOICE
+  // ---------------------------
+  const voiceBtn = new BaseButton({
+    label: "Voice",
+    type: "ui-btn",
+    icon: `<img src="/assets/icons/megaphone.png">`,
+    action: "click",
+    handler: doVoice
+  }).render();
+
 
   buttonsRow.appendChild(translateBtn);
   buttonsRow.appendChild(saveBtn);
-  buttonsRow.appendChild(anyWordBtn)
+  buttonsRow.appendChild(anyWordBtn);
+  buttonsRow.appendChild(voiceBtn)
+
 
   // ---------------------------
   // ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ
