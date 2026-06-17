@@ -100,7 +100,7 @@ export function renderSets() {
 
                 <div class="word-actions">
                   <button class="word-action-btn" data-action="voice">
-                    <img class="word-icon" src="/assets/icons/megaphone1.png" alt="↗">
+                    <img class="word-icon" src="/assets/icons/megaphone1.png" alt="🔊">
                   </button>
 
                   <button class="word-action-btn" data-action="move">

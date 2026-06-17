@@ -58,3 +58,12 @@
   color: rgba(0, 0, 0, 0.58);
   user-select: none; 
 }
+
+.result-value-examples {
+  margin-left: -10px;
+}
+
+.word-icon {
+  width: 15px;
+  height: 15px;
+}
