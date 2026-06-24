@@ -13,22 +13,23 @@ from app.db.models.word import Word
 from app.db.models.set_word import SetWord
 from app.logger.logger import backend_logger
 from app.schemas.set import SetDeleteRequest, SetTextRequest
+from app.utils.openai import _ask_text
 
 SET_SIZE = 6
 
 
-client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+# client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 
 # -----------------------------
 # OpenAI wrapper
 # -----------------------------
-async def _ask_text(prompt: str, max_tokens: int = 200) -> str:
-    resp = await client.responses.create(
-        model=settings.MODEL,
-        input=prompt,
-        max_output_tokens=max_tokens,
-    )
-    return (resp.output_text or "").strip()
+# async def _ask_text(prompt: str, max_tokens: int = 200) -> str:
+#     resp = await client.responses.create(
+#         model=settings.MODEL,
+#         input=prompt,
+#         max_output_tokens=max_tokens,
+#     )
+#     return (resp.output_text or "").strip()
 
 
 async def check_and_create_set(user_id: int):

@@ -119,12 +119,13 @@ export async function anyWord( lang ) {
   }
 }
 
-export async function voiceWord(word, sourceLang) {
+export async function voiceWord(word, sourceLang, context) {
     const voice = await apiRequest('/get_voice', {
       method: 'POST',
       body: {
         word: word,
-        source_lang: sourceLang
+        source_lang: sourceLang,
+        context: context
       }
     });
     console.log("Get voice: OK ");

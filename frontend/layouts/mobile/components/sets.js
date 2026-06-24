@@ -127,7 +127,7 @@ export function renderSets() {
 
           item.querySelector("[data-action='voice']").onclick = async (e) => {
             e.stopPropagation();
-            const voiceResult = await voiceWord(word.word, state.sourceLang);
+            const voiceResult = await voiceWord(word.word, state.sourceLang, "word");
             state.setVoice(voiceResult?.audio_data || null);
             doVoice();
           };
@@ -221,7 +221,7 @@ export function renderSets() {
 
         item.querySelector("[data-action='voice']").onclick = async (e) => {
             e.stopPropagation();
-            const voiceResult = await voiceWord(word.word, state.sourceLang);
+            const voiceResult = await voiceWord(word.word, state.sourceLang, "word");
             state.setVoice(voiceResult?.audio_data || null);
             doVoice();
           };

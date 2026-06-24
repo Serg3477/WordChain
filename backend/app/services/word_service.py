@@ -9,6 +9,7 @@ from sqlalchemy import select, func
 
 from app.db.models.word import Word
 from app.db.models.set import Set
+from app.utils.audio_validation import is_valid_audio, is_valid_tts_output
 from app.utils.openai import _ask_text, _ask_voice
 from app.schemas.word import TranslationJSON, WordUpdateByIdRequest
 from app.utils.atomic_cache import AtomicCache
@@ -555,28 +556,8 @@ async def word_sentences(word: str) -> List[str]:
 
     return await _get_cached_json(key, produce, ttl=TTL_PARTS)
 
-# -------------------------------------------
-# Get Voice of the word
-# -------------------------------------------
-async def get_voice_for_word(req):
-    word = req.word.strip().lower()
-    lang = req.source_lang
-    key = f"tts:{lang}:{word}"
 
-    async def producer():
-        prompt = (
-            f"Pronounce the following word aloud in {req.source_lang}."
-            f"Use a clear and natural female voice."
-            f"Insert a 0.5‑second pause before pronouncing the word."
-            f"Do not add explanations, comments, translations, or any additional words."
-            f"Return only the audio of the pronunciation."
-    
-            f"Word: {req.word}"
-        )
-        audio_base64 = await _ask_voice(prompt)
-        return {"audio_data": audio_base64}
 
-    # AtomicCache.get_or_set → JSON → dict
-    return await cache.get_or_set(key, producer)
+
 
 

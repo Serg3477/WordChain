@@ -4,6 +4,8 @@ import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { translateWord } from "../../../api/translate.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { textRequest } from "../../../api/text.js";
+import { voiceWord } from "../../../../api/translate.js"
+import { audio, doVoice, doPause } from "../../../../utils/voice.js";
 
 
 
@@ -25,6 +27,15 @@ export async function renderText(set, words) {
     <div class="label-text hidden">Text with current words:</div><br>
     <div class="text"></div><br>
 
+    <div class="btn-block hidden">
+      <button class="voice-btn">
+        <img class="voice-icon" src="/assets/icons/megaphone1.png" alt="🔊">
+      </button>
+      <button class="change-btn">
+        <img class="change-icon" src="/assets/icons/Exchange.png" alt="🔊">
+      </button>
+    </div>
+
     <div class="label-text-translation hidden">Text translation:</div><br>
     <div class="text-translation"></div>
   `;
@@ -34,6 +45,10 @@ export async function renderText(set, words) {
   const labelTextTrans = screen.querySelector(".label-text-translation")
   const text = screen.querySelector(".text");
   const textTranslation = screen.querySelector(".text-translation")
+  const buttons = screen.querySelector(".btn-block");
+  const voiceBtn = screen.querySelector(".voice-btn");
+  const changeBtn = screen.querySelector(".change-btn");
+  const voiceIcon = screen.querySelector(".voice-icon");
 
   // Рендерим слова
   const wordsArray = []
@@ -76,8 +91,39 @@ export async function renderText(set, words) {
     const highLightText = highlightWords(rawText, wordsArray);
     text.innerHTML = highLightText;
 
-    if (textResult.text_translation.length) labelTextTrans.classList.remove("hidden");
+    if (textResult.text_translation.length) {
+      labelTextTrans.classList.remove("hidden");
+      buttons.classList.remove("hidden");
+    }
     textTranslation.innerHTML = textResult.text_translation;
+
+    // Обработчик озвучки
+    let isPlaying = false;
+    voiceBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      if (!isPlaying) {
+        // PLAY
+        const voiceResult = await voiceWord(textResult.text, state.sourceLang, "text");
+        state.setVoice(voiceResult?.audio_data || null);
+
+        voiceIcon.src = "/assets/icons/pause.png";
+        doVoice();
+        setTimeout(() => {
+          if (audio) {
+            audio.onended = () => {
+              voiceIcon.src = "/assets/icons/megaphone1.png";
+              isPlaying = false;
+            };
+          }
+        }, 0);
+      } else {
+        // PAUSE
+        voiceIcon.src = "/assets/icons/megaphone1.png";
+        doPause();
+      };
+
+      isPlaying = !isPlaying;
+    });
 
     Notification.show({ type: "success", message: `Resolve text success for set "${set.name}"` });
   } catch (e) {
@@ -98,5 +144,6 @@ function highlightWords(text, words) {
     return `<span class="highlight">${match}</span>`;
   });
 }
+
 
 

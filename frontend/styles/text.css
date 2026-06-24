@@ -70,3 +70,20 @@
   color: #0d05ff; /* насыщенный синий */
   font-weight: 600;
 }
+
+.btn-block {
+  margin: 10px 20px;
+  display: inline-flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.voice-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.change-icon {
+  width: 15px;
+  height: 15px;
+}

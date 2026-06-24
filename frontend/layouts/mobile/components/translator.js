@@ -197,8 +197,8 @@ export function renderTranslator() {
     });
 
     // получение аудио слова
-    const voiceResult = await voiceWord(correctWord, state.sourceLang);
-    state.setVoice(voiceResult?.audio_data || null);
+  //   const voiceResult = await voiceWord(correctWord, state.sourceLang);
+  //   state.setVoice(voiceResult?.audio_data || null);
   } catch (e) {
     logError("Translate request failed in UI", { error: e.message });
     return;
@@ -263,7 +263,16 @@ export function renderTranslator() {
     type: "ui-btn",
     icon: `<img src="/assets/icons/megaphone.png">`,
     action: "click",
-    handler: doVoice
+    handler: async () => {
+      const word = placeholder.value.trim();
+      if (!word) {
+        logInfo("Voice aborted: empty input");
+        return;
+      }
+      const voiceResult = await voiceWord(word, state.sourceLang, "word");
+      state.setVoice(voiceResult?.audio_data || null);
+      doVoice();
+    }  
   }).render();
 
 

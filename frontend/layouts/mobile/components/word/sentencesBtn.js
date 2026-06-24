@@ -32,7 +32,7 @@ export function resultSentences(result, appState) {
     // Обработчик озвучки
     btn.addEventListener("click", async (e) => {
       e.stopPropagation();
-      const voiceResult = await voiceWord(item, state.sourceLang);
+      const voiceResult = await voiceWord(item, state.sourceLang, "sentence");
       state.setVoice(voiceResult?.audio_data || null);
       doVoice();
     });

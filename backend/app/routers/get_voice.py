@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.schemas.voice import VoiceRequest, VoiceResponse
-from app.services.word_service import get_voice_for_word
+from app.services.audio_service import get_voice_for_word
 from app.logger.logger import backend_logger
 
 get_voice_router = APIRouter()
