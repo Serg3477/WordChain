@@ -30450,3 +30450,265 @@ Mara smiled, knowing fame would come or vanish, but her serenity would remain ot
 2026-06-24 15:52:02.033 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
 2026-06-24 15:52:02.034 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Voice button clicked {}
 2026-06-24 15:52:02.034 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 16:59:48.467 | INFO     | app.main:log_requests:84 - Incoming request: GET http://127.0.0.1:8000/
+2026-06-24 16:59:48.468 | INFO     | app.main:root:36 - Root endpoint called
+2026-06-24 16:59:48.468 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 16:59:48.523 | INFO     | app.main:log_requests:84 - Incoming request: GET http://127.0.0.1:8000/favicon.ico
+2026-06-24 16:59:48.523 | INFO     | app.main:log_requests:92 - Response status: 404
+2026-06-24 17:14:13.364 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.364 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.365 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.365 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.374 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.375 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.376 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/guest
+2026-06-24 17:14:13.377 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.378 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.379 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.380 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-24 17:14:13.380 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-24 17:14:13.381 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.382 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.385 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.386 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/guest
+2026-06-24 17:14:13.387 | INFO     | app.routers.auth:create_guest:17 - Create guest attempt.
+2026-06-24 17:14:13.404 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Guest create request shape {'endpoint': '/guest', 'method': 'POST', 'bodyShape': []}
+2026-06-24 17:14:13.405 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.422 | SUCCESS  | app.routers.auth:create_guest:32 - Creating guest token OK: 28
+2026-06-24 17:14:13.430 | INFO     | app.routers.auth:create_guest:44 - Guest user created: ID: 28, nick: Guest-8056, email: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyOCwiZXhwIjoxNzg0OTAyNDUzfQ.DAa4ru-gR3BiHs-0IhJBCBcp9pHi-JD2Jc0xxKHQ86s@example.com
+2026-06-24 17:14:13.431 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:13.475 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:13.476 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Guest create response shape {'keys': ['access_token', 'token_type', 'user'], 'hasAccessToken': True, 'hasUser': True}
+2026-06-24 17:14:13.476 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:18.272 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:18.272 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:18.273 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:18.274 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:18.277 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:18.278 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:18.278 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen render start {}
+2026-06-24 17:14:18.279 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:18.279 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Translate screen node {'found': True}
+2026-06-24 17:14:18.280 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:28.317 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:28.318 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:28.318 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:28.318 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login screen render start {}
+2026-06-24 17:14:28.319 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login screen node {'found': True}
+2026-06-24 17:14:28.319 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login form node {'found': True}
+2026-06-24 17:14:28.319 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:28.320 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:28.321 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.802 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:45.803 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login button clicked {}
+2026-06-24 17:14:45.803 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.805 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:45.806 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:45.806 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/login
+2026-06-24 17:14:45.807 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.807 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login submit fired {}
+2026-06-24 17:14:45.808 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login request shape {'endpoint': '/login', 'method': 'POST', 'bodyShape': ['email', 'password', 'remember_me'], 'bodyPreview': {'email': 'a@example.com', 'password': '***', 'remember_me': True}}
+2026-06-24 17:14:45.808 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.809 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.810 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/login
+2026-06-24 17:14:45.811 | INFO     | app.routers.login:login:16 - Login attempt: a@example.com
+2026-06-24 17:14:45.815 | INFO     | app.services.login_service:get_user_by_email:13 - User found: <app.db.models.user.User object at 0x7a2db3038950>
+2026-06-24 17:14:45.992 | SUCCESS  | app.routers.login:login:39 - User logged in: 2 - Sergey
+2026-06-24 17:14:45.993 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:14:45.997 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:14:45.997 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Login response shape {'status': None, 'keys': ['id', 'nickname', 'avatar_url', 'email', 'token', 'is_guest', 'is_premium'], 'hasToken': True, 'hasEmail': True, 'hasNickname': True}
+2026-06-24 17:14:45.998 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:00.024 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:00.025 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/get_sets
+2026-06-24 17:15:00.025 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:00.026 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-24 17:15:00.026 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:00.028 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_sets
+2026-06-24 17:15:00.031 | INFO     | app.routers.get_sets:get_sets:11 - Getting Sets attempt: name='Sergey'
+2026-06-24 17:15:00.034 | INFO     | app.services.set_service:check_and_create_set:42 - [SET] check_and_create_set started for user 2
+2026-06-24 17:15:00.062 | INFO     | app.services.set_service:check_and_create_set:65 - [SET] User 2 unassigned words: [108]
+2026-06-24 17:15:00.063 | INFO     | app.services.set_service:check_and_create_set:73 - [SET] check_and_create_set finished for user 2, unassigned: [108]
+2026-06-24 17:15:00.073 | INFO     | app.routers.get_sets:get_sets:16 - Getting Sets success: [{'id': 17, 'name': 'Perfect', 'word_ids': [95, 87, 88, 89, 91, 92, 96, 99, 97]}, {'id': 22, 'name': 'Set-2', 'word_ids': [102, 103, 104, 105, 106, 107]}, {'id': 21, 'name': 'Set-1', 'word_ids': [81, 84, 94, 98, 100, 101]}, {'id': 14, 'name': 'First Set', 'word_ids': [80, 93, 82, 85, 86, 90, 83]}] /n  Unassigned_words [{'id': 108, 'word': 'retrieve'}]
+2026-06-24 17:15:00.073 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:00.077 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:00.077 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:00.078 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get sets of Sergey request sent {}
+2026-06-24 17:15:00.079 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets payload {'setsCount': 4, 'unassignedCount': 1, 'unassigned_words': [{'id': 108, 'word': 'retrieve'}]}
+2026-06-24 17:15:00.079 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:00.080 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:02.348 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/get_words
+2026-06-24 17:15:02.349 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:02.353 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_words
+2026-06-24 17:15:02.356 | INFO     | app.routers.get_words_from_set:get_words:11 - Getting Sets attempt: word_ids=[80, 93, 82, 85, 86, 90, 83]
+2026-06-24 17:15:02.357 | INFO     | app.services.set_service:get_words_from_set:165 - [GET WORDS] Start fetching words for IDs: [80, 93, 82, 85, 86, 90, 83]
+2026-06-24 17:15:02.357 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 80
+2026-06-24 17:15:02.364 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=80, word='sophistication'
+2026-06-24 17:15:02.364 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 93
+2026-06-24 17:15:02.367 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=93, word='disguise'
+2026-06-24 17:15:02.367 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 82
+2026-06-24 17:15:02.369 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=82, word='rehearsal'
+2026-06-24 17:15:02.369 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 85
+2026-06-24 17:15:02.371 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=85, word='perfect'
+2026-06-24 17:15:02.371 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 86
+2026-06-24 17:15:02.373 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=86, word='solution'
+2026-06-24 17:15:02.373 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 90
+2026-06-24 17:15:02.376 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=90, word='aspire'
+2026-06-24 17:15:02.376 | INFO     | app.services.set_service:get_words_from_set:168 - [GET WORDS] Fetching words for ID: 83
+2026-06-24 17:15:02.378 | INFO     | app.services.set_service:get_words_from_set:176 - [GET WORDS] Found word: id=83, word='entity'
+2026-06-24 17:15:02.378 | INFO     | app.services.set_service:get_words_from_set:178 - [GET WORDS] Final result list: [{'id': 80, 'word': 'sophistication'}, {'id': 93, 'word': 'disguise'}, {'id': 82, 'word': 'rehearsal'}, {'id': 85, 'word': 'perfect'}, {'id': 86, 'word': 'solution'}, {'id': 90, 'word': 'aspire'}, {'id': 83, 'word': 'entity'}]
+2026-06-24 17:15:02.380 | INFO     | app.routers.get_words_from_set:get_words:16 - Getting Sets success: [{'id': 80, 'word': 'sophistication'}, {'id': 93, 'word': 'disguise'}, {'id': 82, 'word': 'rehearsal'}, {'id': 85, 'word': 'perfect'}, {'id': 86, 'word': 'solution'}, {'id': 90, 'word': 'aspire'}, {'id': 83, 'word': 'entity'}]
+2026-06-24 17:15:02.381 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:02.384 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:02.385 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get words from First Set request sent {}
+2026-06-24 17:15:02.385 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:05.087 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:05.088 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:05.089 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Set First Set button "Text" clicked {}
+2026-06-24 17:15:05.089 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:05.089 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/get_text
+2026-06-24 17:15:05.090 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Sets screen render start {}
+2026-06-24 17:15:05.090 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:05.091 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:05.091 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:05.094 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text request shape {'endpoint': '/get_text', 'method': 'POST', 'hasWords': True}
+2026-06-24 17:15:05.095 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:05.099 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_text
+2026-06-24 17:15:05.100 | INFO     | app.routers.get_text:get_text:16 - Get text attempt for set: 14, user_id: 2
+2026-06-24 17:15:07.969 | INFO     | app.services.set_service:get_text_for_set:258 - [GET TEXT] Final result text: At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture.  
+She wore a simple disguise, because the director said the story needed a hidden human entity.  
+Mara began to aspire to the role, searching for a solution to her nervous breathing.  
+Each rehearsal made her stronger, and the disguise slowly became part of her calm character.  
+By the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect.  
+When the curtain fell, she knew her solution was simple: become the entity she imagined.
+2026-06-24 17:15:09.633 | INFO     | app.services.set_service:get_text_for_set:269 - [GET TEXT] Final result translation: На репетиции Мара хотела, чтобы каждая деталь казалась совершенной, с подлинной утончённостью в каждом жесте.  
+Она носила простой маскарад, потому что режиссёр сказал, что истории нужна скрытая человеческая сущность.  
+Мара начала стремиться к этой роли, ища решение для своего нервного дыхания.  
+Каждая репетиция делала её сильнее, и маскарад постепенно становился частью её спокойного характера.  
+К последней репетиции её утончённость удивила всех, и сцена казалась почти совершенной.  
+Когда занавес опустился, она поняла, что её решение было простым: стать той сущностью, которую она воображала.
+2026-06-24 17:15:09.634 | INFO     | app.routers.get_text:get_text:19 - Get text success for set: 14  user: 2
+2026-06-24 17:15:09.639 | INFO     | app.routers.get_text:get_text:32 - Save text success for set: 14 user: 2
+2026-06-24 17:15:09.640 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:09.683 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:09.684 | INFO     | app.main:log_requests:84 - Incoming request: OPTIONS http://127.0.0.1:8000/get_voice
+2026-06-24 17:15:09.684 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:09.685 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text response shape {'text': 'At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture.  \nShe wore a simple disguise, because the director said the story needed a hidden human entity.  \nMara began to aspire to the role, searching for a solution to her nervous breathing.  \nEach rehearsal made her stronger, and the disguise slowly became part of her calm character.  \nBy the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect.  \nWhen the curtain fell, she knew her solution was simple: become the entity she imagined.', 'text_translation': 'На репетиции Мара хотела, чтобы каждая деталь казалась совершенной, с подлинной утончённостью в каждом жесте.  \nОна носила простой маскарад, потому что режиссёр сказал, что истории нужна скрытая человеческая сущность.  \nМара начала стремиться к этой роли, ища решение для своего нервного дыхания.  \nКаждая репетиция делала её сильнее, и маскарад постепенно становился частью её спокойного характера.  \nК последней репетиции её утончённость удивила всех, и сцена казалась почти совершенной.  \nКогда занавес опустился, она поняла, что её решение было простым: стать той сущностью, которую она воображала.'}
+2026-06-24 17:15:09.685 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:09.687 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:15:09.689 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture.  
+She wore a simple disguise, because the director said the story needed a hidden human entity.  
+Mara began to aspire to the role, searching for a solution to her nervous breathing.  
+Each rehearsal made her stronger, and the disguise slowly became part of her calm character.  
+By the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect.  
+When the curtain fell, she knew her solution was simple: become the entity she imagined.
+2026-06-24 17:15:17.047 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture.  
+She wore a simple disguise, because the director said the story needed a hidden human entity.  
+Mara began to aspire to the role, searching for a solution to her nervous breathing.  
+Each rehearsal made her stronger, and the disguise slowly became part of her calm character.  
+By the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect.  
+When the curtain fell, she knew her solution was simple: become the entity she imagined.
+2026-06-24 17:15:17.053 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:17.061 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:17.065 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Set Text loaded {'name': 'First Set', 'hasData': False}
+2026-06-24 17:15:17.065 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:24.554 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:15:24.555 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture. She wore a simple disguise, because the director said the story needed a hidden human entity. Mara began to aspire to the role, searching for a solution to her nervous breathing. Each rehearsal made her stronger, and the disguise slowly became part of her calm character. By the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect. When the curtain fell, she knew her solution was simple: become the entity she imagined.
+2026-06-24 17:15:30.484 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: At the rehearsal, Mara wanted every detail to feel perfect, with real sophistication in every gesture. She wore a simple disguise, because the director said the story needed a hidden human entity. Mara began to aspire to the role, searching for a solution to her nervous breathing. Each rehearsal made her stronger, and the disguise slowly became part of her calm character. By the final rehearsal, her sophistication surprised everyone, and the scene felt almost perfect. When the curtain fell, she knew her solution was simple: become the entity she imagined.
+2026-06-24 17:15:30.488 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:30.496 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:30.496 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Voice button clicked {}
+2026-06-24 17:15:30.499 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:37.251 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:37.252 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_text
+2026-06-24 17:15:37.253 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text request shape {'endpoint': '/get_text', 'method': 'POST', 'hasWords': True}
+2026-06-24 17:15:37.253 | INFO     | app.routers.get_text:get_text:16 - Get text attempt for set: 14, user_id: 2
+2026-06-24 17:15:40.077 | INFO     | app.services.set_service:get_text_for_set:258 - [GET TEXT] Final result text: At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move.  
+She wanted the performance to feel perfect, and she kept asking for a better solution.  
+Her director said any living story needs an entity that feels real, even under disguise.  
+Mira loved that idea, because she hoped to aspire beyond routine and find true sophistication.  
+By the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine.  
+When the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.
+2026-06-24 17:15:43.089 | INFO     | app.services.set_service:get_text_for_set:269 - [GET TEXT] Final result translation: На репетиции Мира надела простой маскарадный облик, хотя её спокойная утончённость проявлялась в каждом движении.  
+Она хотела, чтобы выступление казалось безупречным, и всё продолжала просить о лучшем решении.  
+Её режиссёр сказал, что любая живая история нуждается в сущности, которая ощущается реальной, даже под маской.  
+Мире понравилась эта идея, потому что она надеялась стремиться выше рутины и обрести истинную утончённость.  
+К последней репетиции решение стало ясным: маскарадный облик останется, но сердце будет сиять.  
+Когда поднялся занавес, зрители увидели совершенную сущность мужества, грации и утончённости.
+2026-06-24 17:15:43.090 | INFO     | app.routers.get_text:get_text:19 - Get text success for set: 14  user: 2
+2026-06-24 17:15:43.091 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:43.097 | INFO     | app.routers.get_text:get_text:32 - Save text success for set: 14 user: 2
+2026-06-24 17:15:43.098 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:43.103 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:43.104 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:15:43.105 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text response shape {'text': 'At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move.  \nShe wanted the performance to feel perfect, and she kept asking for a better solution.  \nHer director said any living story needs an entity that feels real, even under disguise.  \nMira loved that idea, because she hoped to aspire beyond routine and find true sophistication.  \nBy the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine.  \nWhen the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.', 'text_translation': 'На репетиции Мира надела простой маскарадный облик, хотя её спокойная утончённость проявлялась в каждом движении.  \nОна хотела, чтобы выступление казалось безупречным, и всё продолжала просить о лучшем решении.  \nЕё режиссёр сказал, что любая живая история нуждается в сущности, которая ощущается реальной, даже под маской.  \nМире понравилась эта идея, потому что она надеялась стремиться выше рутины и обрести истинную утончённость.  \nК последней репетиции решение стало ясным: маскарадный облик останется, но сердце будет сиять.  \nКогда поднялся занавес, зрители увидели совершенную сущность мужества, грации и утончённости.'}
+2026-06-24 17:15:43.105 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:43.106 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move.  
+She wanted the performance to feel perfect, and she kept asking for a better solution.  
+Her director said any living story needs an entity that feels real, even under disguise.  
+Mira loved that idea, because she hoped to aspire beyond routine and find true sophistication.  
+By the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine.  
+When the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.
+2026-06-24 17:15:50.202 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:15:50.216 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move. She wanted the performance to feel perfect, and she kept asking for a better solution. Her director said any living story needs an entity that feels real, even under disguise. Mira loved that idea, because she hoped to aspire beyond routine and find true sophistication. By the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine. When the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.
+2026-06-24 17:15:50.219 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move.  
+She wanted the performance to feel perfect, and she kept asking for a better solution.  
+Her director said any living story needs an entity that feels real, even under disguise.  
+Mira loved that idea, because she hoped to aspire beyond routine and find true sophistication.  
+By the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine.  
+When the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.
+2026-06-24 17:15:50.225 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:56.208 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:56.221 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get Another Text for Set: First Set success {}
+2026-06-24 17:15:56.222 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:56.225 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: At the rehearsal, Mira wore a simple disguise, though her calm sophistication showed in every move. She wanted the performance to feel perfect, and she kept asking for a better solution. Her director said any living story needs an entity that feels real, even under disguise. Mira loved that idea, because she hoped to aspire beyond routine and find true sophistication. By the final rehearsal, the solution was clear: the disguise would stay, but the heart would shine. When the curtain rose, the audience saw a perfect entity of courage, grace, and sophistication.
+2026-06-24 17:15:56.232 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:15:56.242 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:15:56.243 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Voice button clicked {}
+2026-06-24 17:15:56.243 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:03.267 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:16:03.268 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_text
+2026-06-24 17:16:03.268 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text request shape {'endpoint': '/get_text', 'method': 'POST', 'hasWords': True}
+2026-06-24 17:16:03.269 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:03.269 | INFO     | app.routers.get_text:get_text:16 - Get text attempt for set: 14, user_id: 2
+2026-06-24 17:16:06.288 | INFO     | app.services.set_service:get_text_for_set:258 - [GET TEXT] Final result text: Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise.  
+Each rehearsal in the old theater brought her closer to a perfect voice and a better solution.  
+The director said her stage presence had a strange sophistication, as if another entity guided her.  
+During the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself.  
+That solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope.  
+When the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.
+2026-06-24 17:16:08.235 | INFO     | app.services.set_service:get_text_for_set:269 - [GET TEXT] Final result translation: Мара хотела стремиться к жизни, полной утончённости, но чувствовала себя в ловушке из-за своего маскарада.  
+Каждая репетиция в старом театре приближала её к идеальному голосу и лучшему решению.  
+Режиссёр сказал, что её сценическое присутствие обладало странной утончённостью, словно её направляла какая-то другая сущность.  
+Во время последней репетиции Мара сбросила маскарад и нашла идеальный ответ внутри себя.  
+Это решение было простым, но оно требовало мужества, утончённости и доверия к хрупкой сущности надежды.  
+Когда поднялся занавес, она могла открыто стремиться, и зрители увидели идеальное, искреннее преображение.
+2026-06-24 17:16:08.235 | INFO     | app.routers.get_text:get_text:19 - Get text success for set: 14  user: 2
+2026-06-24 17:16:08.239 | INFO     | app.routers.get_text:get_text:32 - Save text success for set: 14 user: 2
+2026-06-24 17:16:08.240 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:08.246 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:16:08.247 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:16:08.248 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] get_text response shape {'text': 'Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise.  \nEach rehearsal in the old theater brought her closer to a perfect voice and a better solution.  \nThe director said her stage presence had a strange sophistication, as if another entity guided her.  \nDuring the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself.  \nThat solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope.  \nWhen the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.', 'text_translation': 'Мара хотела стремиться к жизни, полной утончённости, но чувствовала себя в ловушке из-за своего маскарада.  \nКаждая репетиция в старом театре приближала её к идеальному голосу и лучшему решению.  \nРежиссёр сказал, что её сценическое присутствие обладало странной утончённостью, словно её направляла какая-то другая сущность.  \nВо время последней репетиции Мара сбросила маскарад и нашла идеальный ответ внутри себя.  \nЭто решение было простым, но оно требовало мужества, утончённости и доверия к хрупкой сущности надежды.  \nКогда поднялся занавес, она могла открыто стремиться, и зрители увидели идеальное, искреннее преображение.'}
+2026-06-24 17:16:08.248 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise.  
+Each rehearsal in the old theater brought her closer to a perfect voice and a better solution.  
+The director said her stage presence had a strange sophistication, as if another entity guided her.  
+During the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself.  
+That solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope.  
+When the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.
+2026-06-24 17:16:08.248 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:14.873 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/get_voice
+2026-06-24 17:16:14.873 | INFO     | app.routers.get_voice:get_voice:10 - Get voice attempt for word: Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise. Each rehearsal in the old theater brought her closer to a perfect voice and a better solution. The director said her stage presence had a strange sophistication, as if another entity guided her. During the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself. That solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope. When the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.
+2026-06-24 17:16:14.876 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise.  
+Each rehearsal in the old theater brought her closer to a perfect voice and a better solution.  
+The director said her stage presence had a strange sophistication, as if another entity guided her.  
+During the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself.  
+That solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope.  
+When the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.
+2026-06-24 17:16:14.882 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:21.003 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:16:21.005 | INFO     | app.routers.get_voice:get_voice:13 - Get voice success for word: Mara wanted to aspire to a life of sophistication, yet she felt trapped by her disguise. Each rehearsal in the old theater brought her closer to a perfect voice and a better solution. The director said her stage presence had a strange sophistication, as if another entity guided her. During the final rehearsal, Mara dropped the disguise and found the perfect answer inside herself. That solution was simple, but it required courage, sophistication, and trust in the fragile entity of hope. When the curtain rose, she could aspire openly, and the audience saw a perfect, honest transformation.
+2026-06-24 17:16:21.011 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Get Another Text for Set: First Set success {}
+2026-06-24 17:16:21.011 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:21.012 | INFO     | app.main:log_requests:92 - Response status: 200
+2026-06-24 17:16:21.022 | INFO     | app.main:log_requests:84 - Incoming request: POST http://127.0.0.1:8000/frontend-log
+2026-06-24 17:16:21.023 | INFO     | app.routers.logs:receive_frontend_logs:10 - [INFO] Voice button clicked {}
+2026-06-24 17:16:21.023 | INFO     | app.main:log_requests:92 - Response status: 200

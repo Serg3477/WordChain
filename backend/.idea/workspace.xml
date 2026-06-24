@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/utils/voice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/utils/voice.js" afterDir="false" />
-    </list>
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,7 +297,7 @@
       <workItem from="1781684493567" duration="10997000" />
       <workItem from="1782047020225" duration="4162000" />
       <workItem from="1782051262859" duration="3372000" />
-      <workItem from="1782281837587" duration="3900000" />
+      <workItem from="1782281837587" duration="4548000" />
     </task>
     <servers />
   </component>

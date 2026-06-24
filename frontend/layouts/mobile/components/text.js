@@ -61,6 +61,8 @@ export async function renderText(set, words) {
     list.appendChild(li);
   });
 
+  await loadText();
+
   // Клик по слову → tipModal
   list.addEventListener("click", async (event) => {
     const li = event.target.closest(".word-item");
@@ -78,59 +80,74 @@ export async function renderText(set, words) {
     });
   });
 
-  try {
-    const textResult = await textRequest({ 
-      endpoint: "/get_text",
-      method: "POST",
-      set_id: set.id,
-      words: wordsArray
-    });
+  // Обработчик озвучки
+  let isPlaying = false;
+  voiceBtn.addEventListener("click", async (e) => {
+    e.stopPropagation();
+    if (!isPlaying) {
+      // PLAY
+      const voiceResult = await voiceWord(text.innerText, state.sourceLang, "text");
+      state.setVoice(voiceResult?.audio_data || null);
 
-    if (textResult.text.length) labelText.classList.remove("hidden");
-    const rawText = textResult.text;
-    const highLightText = highlightWords(rawText, wordsArray);
-    text.innerHTML = highLightText;
+      voiceIcon.src = "/assets/icons/pause.png";
+      doVoice();
+      setTimeout(() => {
+        if (audio) {
+          audio.onended = () => {
+            voiceIcon.src = "/assets/icons/megaphone1.png";
+            isPlaying = false;
+          };
+        }
+      }, 0);
+    } else {
+      // PAUSE
+      voiceIcon.src = "/assets/icons/megaphone1.png";
+      doPause();
+    };
+    isPlaying = !isPlaying;
+  });
 
-    if (textResult.text_translation.length) {
-      labelTextTrans.classList.remove("hidden");
-      buttons.classList.remove("hidden");
+  // Обработчик changeBtn смена текста
+  changeBtn.addEventListener("click", async (e) => {
+    e.stopPropagation();
+    await loadText();
+    logInfo(`Get Another Text for Set: ${set.name} success`);
+    Notification.show({ type: "success", message: `Update text success for set "${set.name}"` });
+  });
+
+  async function loadText() {
+    try {
+      const textResult = await textRequest({ 
+        endpoint: "/get_text",
+        method: "POST",
+        set_id: set.id,
+        words: wordsArray
+      });
+
+      // Обновляем текст
+      if (textResult.text.length) labelText.classList.remove("hidden");
+      const rawText = textResult.text;
+      const highLightText = highlightWords(rawText, wordsArray);
+      text.innerHTML = highLightText;
+
+      // Обновляем перевод
+      if (textResult.text_translation.length) {
+        labelTextTrans.classList.remove("hidden");
+        buttons.classList.remove("hidden");
+      }
+      textTranslation.innerHTML = textResult.text_translation;
+
+      const voiceResult = await voiceWord(textResult.text, state.sourceLang, "text");
+      state.setVoice(voiceResult?.audio_data || null);
+
+
+      Notification.show({ type: "success", message: `Resolve text success for set "${set.name}"` });
+    } catch (e) {
+      logError(`Get Text for Set: ${set.name} failed`, { error: e.message });
+      Notification.show({ type: "error", message: `Failed to fetch text for set "${set.name}"` });
     }
-    textTranslation.innerHTML = textResult.text_translation;
-
-    // Обработчик озвучки
-    let isPlaying = false;
-    voiceBtn.addEventListener("click", async (e) => {
-      e.stopPropagation();
-      if (!isPlaying) {
-        // PLAY
-        const voiceResult = await voiceWord(textResult.text, state.sourceLang, "text");
-        state.setVoice(voiceResult?.audio_data || null);
-
-        voiceIcon.src = "/assets/icons/pause.png";
-        doVoice();
-        setTimeout(() => {
-          if (audio) {
-            audio.onended = () => {
-              voiceIcon.src = "/assets/icons/megaphone1.png";
-              isPlaying = false;
-            };
-          }
-        }, 0);
-      } else {
-        // PAUSE
-        voiceIcon.src = "/assets/icons/megaphone1.png";
-        doPause();
-      };
-
-      isPlaying = !isPlaying;
-    });
-
-    Notification.show({ type: "success", message: `Resolve text success for set "${set.name}"` });
-  } catch (e) {
-    logError(`Get Text for Set: ${set.name} failed`, { error: e.message });
-    Notification.show({ type: "error", message: `Failed to fetch text for set "${set.name}"` });
   }
-}
+};
 
 // Выделение слов в тексте
 function highlightWords(text, words) {
