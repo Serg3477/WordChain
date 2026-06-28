@@ -105,6 +105,7 @@ export async function ensureGuestSession() {
     return { user: data.user, token: guestToken };
   } catch (e) {
     logError("Guest create request failed - guest.js function ensureGuestSession", { error: e.message });
+    return null;
     throw e;
   }
 }

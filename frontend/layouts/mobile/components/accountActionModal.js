@@ -76,6 +76,9 @@ async function signOutOrDeleteAccount(modalName) {
         const res = await deleteUser({email: state.user.email});
         localStorage.removeItem("token");
         sessionStorage.removeItem("token");
+        state.setUser(null);
+
+        // После удаления поиск и переход на существующего гостя
         await ensureGuestSession();
         state.setUser({token: localStorage.getItem("guest_token")});
         console.log(`User ${delUser} ${res.message} `);

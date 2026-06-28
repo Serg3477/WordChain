@@ -7,7 +7,7 @@ class Word(Base):
     __tablename__ = "words"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     word = Column(String(30), nullable=False)
     translation = Column(String(300), nullable=False)
@@ -24,4 +24,5 @@ class Word(Base):
 
     user = relationship("User", back_populates="words")
     sets = relationship("Set", secondary="set_words", back_populates="words", lazy="selectin")
+
 

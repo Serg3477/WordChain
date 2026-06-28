@@ -6,7 +6,7 @@ class Settings(Base):
     __tablename__ = "settings"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey("users.id"), unique=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), unique=True, nullable=False)
     input_lang = Column(String, default="en")
     output_lang = Column(String, default="ru")
     user_level = Column(String, default="B1")

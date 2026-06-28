@@ -8,7 +8,7 @@ class Set(Base):
     __tablename__ = "sets"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     name = Column(String(100), nullable=False)
     description = Column(String(255), nullable=True)
@@ -24,3 +24,9 @@ class Set(Base):
         back_populates="sets",
         lazy="selectin",
     )
+
+    user = relationship(
+        "User",
+        back_populates="sets"
+    )
+

@@ -19,6 +19,21 @@ class User(Base):
     is_guest = Column(Boolean, default=True)
     is_premium = Column(Boolean, default=False)
 
-    settings = relationship("Settings", back_populates="user", uselist=False)
-    words = relationship("Word", back_populates="user", cascade="all, delete-orphan")
-    # sets = relationship("Set", back_populates="user")
+    settings = relationship(
+        "Settings",
+        back_populates="user",
+        cascade="all, delete-orphan",
+        uselist=False
+    )
+
+    words = relationship(
+        "Word",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )
+
+    sets = relationship(
+        "Set",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )

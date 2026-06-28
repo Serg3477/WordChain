@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 import random
+from uuid import uuid4
 
 from app.db.session import async_session
 from app.db.models.user import User
@@ -34,7 +35,7 @@ async def create_guest():
             backend_logger.error(f"Creation guest token failed: {user.id}, error={e}")
             raise
 
-        guest_email = f"{token}@example.com"
+        guest_email = f"guest- " + str(uuid4())[:8] + "@example.com"
         user.email = guest_email
 
         # Сохраняем email в БД
