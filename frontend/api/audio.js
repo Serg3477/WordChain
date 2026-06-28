@@ -5,7 +5,7 @@ import { logInfo, logError } from "../utils/logger/logger.js";
 
 export async function voiceWord(word, sourceLang, context) {
 
-    logInfo(`${endpoint.slice(1)} request shape`, {
+    logInfo("'/get_voice' request shape", {
       endpoint: '/get_voice',
       method: 'POST',
       hastext: !!word,

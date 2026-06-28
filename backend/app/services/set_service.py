@@ -254,7 +254,7 @@ async def get_text_for_set(req: SetTextRequest):
         f"Each sentence must be short and concise, no longer than 12–18 words."
         f"Return only the text."
     )
-    text = await _ask_text(prompt, max_tokens=200)
+    text = await _ask_text(prompt, max_tokens=300)
     backend_logger.info(f"[GET TEXT] Final result text: {text}")
 
     prompt = (

@@ -114,7 +114,7 @@ class SetTextRequest(BaseModel):
     user_id: int
     source_lang: str
     target_lang: str
-    text_size: str
+    text_size: int
     level: str
     words: list[str]
 
