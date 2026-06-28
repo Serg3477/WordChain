@@ -1,34 +1,86 @@
 from pydantic import BaseModel, Field
 from typing import Optional, List
-from datetime import datetime
+
 
 
 # Базовая схема — общие поля
 class SettingBase(BaseModel):
-    ui_theme: str = "light"
-    language: str = "ru"
-    difficulty: str = "normal"
-    auto_play_audio: bool = False
-    show_transcriptions: bool = True
-    notifications_enabled: bool = True
+    user_id: int
+    input_lang: str
+    output_lang: str
+    user_level: str
+    text_size: int
+    examples_count: int
+    ui_theme: str
+    ui_lang: str
+    voice_type: str
+
 
 # Схема для создания настроек
-class SettingCreate(SettingBase):
-    pass
+class NewSettingsRequest(SettingBase):
+    user_id: int
+    input_lang: Optional[str] = None
+    output_lang: Optional[str] = None
+    user_level: Optional[str] = None
+    text_size: Optional[int] = None
+    examples_count: Optional[int] = None
+    ui_theme: Optional[str] = None
+    ui_lang: Optional[str] = None
+    voice_type: Optional[str] = None
 
-# Схема для обновления настроек
-class SettingUpdate(BaseModel):
-    ui_theme: Optional[str] = Field(None, max_length=20)
-    language: Optional[str] = Field(None, max_length=10)
-    difficulty: Optional[str] = Field(None, max_length=20)
-    auto_play_audio: Optional[bool] = Field(default=False)
-    show_transcriptions: Optional[bool] = Field(default=True)
-    notifications_enabled: Optional[bool] = Field(default=True)
+class NewSettingsResponse(SettingBase):
+    user_id: int
+    input_lang: Optional[str] = Field(default="en")
+    output_lang: Optional[str] = Field(default="ru")
+    user_level: Optional[str] = Field(default="B1")
+    text_size: Optional[int] = Field(default=6)
+    examples_count: Optional[int] = Field(default=6)
+    ui_theme: Optional[str] = Field(default="light")
+    ui_lang: Optional[str] = Field(default="en")
+    voice_type: Optional[str] = Field(default="shimmer")
+
 
 # Схема для ответа API
-class SettingRead(SettingBase):
-    id: int
+class GetSettingsRequest(BaseModel):
     user_id: int
+
+
+class GetSettingsResponse(SettingBase):
+    user_id: int
+    input_lang: Optional[str] = Field(default="en")
+    output_lang: Optional[str] = Field(default="ru")
+    user_level: Optional[str] = Field(default="B1")
+    text_size: Optional[int] = Field(default=6)
+    examples_count: Optional[int] = Field(default=6)
+    ui_theme: Optional[str] = Field(default="light")
+    ui_lang: Optional[str] = Field(default="en")
+    voice_type: Optional[str] = Field(default="shimmer")
 
     class Config:
         from_attributes = True  # позволяет возвращать ORM-модель напрямую
+
+
+
+class UpdateSettingsRequest(SettingBase):
+    user_id: int
+    input_lang: Optional[str] = Field(default="en")
+    output_lang: Optional[str] = Field(default="ru")
+    user_level: Optional[str] = Field(default="B1")
+    text_size: Optional[int] = Field(default=6)
+    examples_count: Optional[int] = Field(default=6)
+    ui_theme: Optional[str] = Field(default="light")
+    ui_lang: Optional[str] = Field(default="en")
+    voice_type: Optional[str] = Field(default="shimmer")
+
+
+class UpdateSettingsResponse(SettingBase):
+    user_id: int
+    input_lang: Optional[str] = Field(default="en")
+    output_lang: Optional[str] = Field(default="ru")
+    user_level: Optional[str] = Field(default="B1")
+    text_size: Optional[int] = Field(default=6)
+    examples_count: Optional[int] = Field(default=6)
+    ui_theme: Optional[str] = Field(default="light")
+    ui_lang: Optional[str] = Field(default="en")
+    voice_type: Optional[str] = Field(default="shimmer")
+

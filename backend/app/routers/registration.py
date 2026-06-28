@@ -38,6 +38,7 @@ async def registration(req: RegistrationRequest):
             raise
     backend_logger.info(f"Registration success:  {user.id} - {user.nickname}")
     return RegistrationResponse(
+        id=user.id,
         nickname=user.nickname,
         avatar_url=user.avatar_url,
         email=user.email,

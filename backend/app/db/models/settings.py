@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
@@ -7,13 +7,13 @@ class Settings(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), unique=True)
-
+    input_lang = Column(String, default="en")
+    output_lang = Column(String, default="ru")
+    user_level = Column(String, default="B1")
+    text_size = Column(Integer, default=6)
+    examples_count = Column(Integer, default=6)
     ui_theme = Column(String(20), default="light")
-    language = Column(String(10), default="en")
-    difficulty = Column(String(20), default="normal")
-
-    auto_play_audio = Column(Boolean, default=False)
-    show_transcription = Column(Boolean, default=True)
-    notifications_enabled = Column(Boolean, default=True)
+    ui_lang = Column(String(10), default="en")
+    voice_type = Column(String, default="shimmer")
 
     user = relationship("User", back_populates="settings")

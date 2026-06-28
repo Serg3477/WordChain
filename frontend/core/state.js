@@ -12,7 +12,28 @@ export const state = {
 
   userSkill: {
     level: "B2",
-    text_size: "6",
+    text_size: 6,
+    examples_count: 6
+  },
+
+  setUserSkill(level, text_size, examples_count) {
+    this.userSkill.level = level;
+    this.userSkill.text_size = text_size;
+    this.userSkill.examples_count = examples_count;
+    this.notify("skills");
+  },
+
+  userInterface: {
+    ui_language: "en",
+    theme: "light",
+    ai_voice: "shimmer",
+  },
+
+  setUserInterface(ui_language, theme, ai_voice) {
+    this.userInterface.ui_language = ui_language;
+    this.userInterface.theme = theme;
+    this.userInterface.ai_voice = ai_voice;
+    this.notify("interface");
   },
 
   setUser(user) {

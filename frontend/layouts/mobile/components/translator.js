@@ -1,4 +1,5 @@
-import { translateWord, saveWord, anyWord, voiceWord } from "../../../api/translate.js";
+import { translateWord, saveWord, anyWord } from "../../../api/translate.js";
+import { voiceWord } from "../../../api/audio.js"
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
@@ -13,7 +14,7 @@ import { doVoice } from "../../../utils/voice.js";
 const LANGUAGE_LABELS = {
   en: "English",
   ru: "Russian",
-  uk: "Ukrainian",
+  ua: "Ukrainian",
   de: "German",
   fr: "French",
   es: "Spanish",

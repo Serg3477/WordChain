@@ -1,9 +1,9 @@
 from sqlalchemy import select
 from fastapi import HTTPException, status
 from passlib.context import CryptContext
-from app.db import session
 from app.db.models.user import User
 from app.logger.logger import backend_logger
+
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

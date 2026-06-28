@@ -1,6 +1,7 @@
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
+import { newSettings } from "../../../api/settings.js";
 import { registerUser } from "../../../api/user.js";
 import { windowManager } from "../../../core/windowManager.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
@@ -126,6 +127,35 @@ export function renderRegister(state) {
             windowManager.back();
         } catch (e) {
             logError("Register request failed", { error: e.message });
+        }
+
+        // создание записи в таблицу settings нового юзера
+        try {
+            const settings = await newSettings({
+                endpoint: "/new_settings",
+                method: "POST",
+                currentSettings: { user_id: state.user.id }
+            });
+            logInfo("Save new settings for new user: success - components/register.js /new_settings");
+            // Сохраняем в state
+            if (settings) {
+                logInfo("Settings loaded and set into state - components/register.js setLanguages");
+                state.setLanguages(settings.input_lang, settings.output_lang);
+
+                state.setUserSkill(
+                    settings.user_level,
+                    settings.text_size,
+                    settings.examples_count
+                );
+
+                state.setUserInterface(
+                    settings.ui_lang,
+                    settings.ui_theme,
+                    settings.voice_type
+                );
+            }
+        } catch (e) {
+            logError("Save new settings request failed in UI - components/register.js /new_settings", { error: e.message });
         }
     });
 } 

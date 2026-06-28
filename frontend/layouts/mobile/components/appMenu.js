@@ -3,6 +3,7 @@
 // ===============================
 import { windowManager } from "../../../core/windowManager.js";
 import { renderSets } from "./sets.js";
+import { renderSettings } from "./settings.js";
 
 export class CurriculumMenu {
   constructor(baseRoot) {
@@ -61,7 +62,7 @@ export class CurriculumMenu {
       if (action === "translation") windowManager.pushScreen("translator");
       if (action === "sets") {windowManager.pushScreen("sets"); renderSets();};
       if (action === "exams") windowManager.open("examsModal");
-      if (action === "settings") windowManager.open("settingsModal");
+      if (action === "options") {windowManager.pushScreen("settings"); renderSettings();};
     });
 
     // закрытие при клике вне меню

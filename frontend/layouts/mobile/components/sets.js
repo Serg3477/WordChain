@@ -1,7 +1,7 @@
 import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { getSets, getWordsFromSet, setDeleteRequest, setRenameRequest } from "../../../api/sets.js";
-import { voiceWord } from "../../../api/translate.js"
+import { voiceWord } from "../../../api/audio.js"
 import { wordMoveRequest } from "../../../api/word.js";
 import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";

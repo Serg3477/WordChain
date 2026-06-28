@@ -2,7 +2,7 @@ import { state } from "../../../../core/state.js";
 import { wordRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
-import { voiceWord } from "../../../../api/translate.js"
+import { voiceWord } from "../../../../api/audio.js"
 import { doVoice } from "../../../../utils/voice.js";
 
 

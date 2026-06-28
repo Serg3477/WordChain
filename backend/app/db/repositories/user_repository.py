@@ -23,7 +23,6 @@ class UserRepository:
     async def delete(session, email) -> bool:
         result = await session.execute(select(User).where(User.email == email))
         obj = result.scalar_one_or_none()
-        print(obj)
         if not obj:
             return False
         await session.delete(obj)

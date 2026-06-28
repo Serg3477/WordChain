@@ -4,7 +4,7 @@ import { state } from "../../../core/state.js";
 import { registerUser } from "../../../api/user.js";
 import { windowManager } from "../../../core/windowManager.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { apiRequest } from "../../../core/api.js";
+import { getSettings } from "../../../api/settings.js";
 import { loginUser } from "../../../api/user.js";
 
 
@@ -25,10 +25,10 @@ export function renderLogin(state) {
             <!-- EMAIL LOGIN FORM -->
             <form class="user-form" name="login">
                 <label class="ui-label" for="login-email">Email</label>
-                <input class="input-word" type="email" name="email" required placeholder="you@example.com">
+                <input class="input-word" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
 
                 <label class="ui-label" for="login-pass">Password</label>
-                <input class="input-word" type="password" name="password" required placeholder="••••••••">
+                <input class="input-word" type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
 
                 <div class="login-row">
                     <label class="ui-checkbox">
@@ -122,5 +122,37 @@ export function renderLogin(state) {
         } catch (e) {
             logError("Login request failed", { error: e.message });
         };
+
+        // Запрос settings залогиненного юзера
+        try {
+            const settings = await getSettings({
+                endpoint: "/get_settings",
+                method: "POST",
+                user_id: state.user.id
+            });
+            logInfo("Settings loaded - components/login.js /get_settings", { keys: Object.keys(settings || {}) });
+
+            if (settings) {
+                logInfo("Settings loaded and set into state - components/login.js setLanguages");
+                state.setLanguages(settings.input_lang, settings.output_lang);
+
+                state.setUserSkill(
+                    settings.user_level,
+                    settings.text_size,
+                    settings.examples_count
+                );
+
+                state.setUserInterface(
+                    settings.ui_lang,
+                    settings.ui_theme,
+                    settings.voice_type
+                );
+            };
+            return settings;
+        } catch (e) {
+            logError("Fetch settings failed - components/login.js /get_settings", { error: e.message });
+            return null;
+        };
+        
     });
 }

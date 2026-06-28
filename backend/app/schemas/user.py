@@ -13,6 +13,7 @@ class RegistrationRequest(BaseModel):
 
 
 class RegistrationResponse(BaseModel):
+    id: int
     nickname: str
     avatar_url: Optional[str] = None
     email: str

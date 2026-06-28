@@ -4,7 +4,7 @@ import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { translateWord } from "../../../api/translate.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { textRequest } from "../../../api/text.js";
-import { voiceWord } from "../../../../api/translate.js"
+import { voiceWord } from "../../../../api/audio.js"
 import { audio, doVoice, doPause } from "../../../../utils/voice.js";
 
 
