@@ -1,8 +1,12 @@
+from openai import OpenAI
 import base64
 import asyncio
-from app.db.config import settings
-from openai import OpenAI
+from typing import Literal
 
+from app.db.config import settings
+
+
+VoiceType = Literal["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
 
 # -----------------------------
 # OpenAI wrapper
@@ -20,12 +24,12 @@ async def _ask_text(prompt: str, max_tokens: int = 60) -> str:
     return response.choices[0].message.content.strip()
 
 
-async def _ask_voice(prompt: str):
+async def _ask_voice(prompt: str, voice_type: VoiceType):
     response = client.audio.speech.create(
         model=settings.MODEL_AUDIO,
         input=prompt,
         # "alloy", "echo", "fable", "onyx", "nova", "shimmer"
-        voice="shimmer",
+        voice=voice_type,
         response_format="mp3"
     )
     audio_bytes = await asyncio.to_thread(response.read)

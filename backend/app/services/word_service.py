@@ -514,12 +514,12 @@ async def word_antonyms(word: str) -> List[str]:
 # -------------------------------------------
 # Get Sentences with the Word function
 # -------------------------------------------
-async def word_sentences(word: str) -> List[str]:
+async def word_sentences(word: str, examples_count: int) -> List[str]:
     key = f"translate:v2:meta:{_normalize_word(word)}:sentences"
 
     async def produce():
         prompt = (
-            f"Generate exactly 6 example sentences that use the word '{word}' in the same language."
+            f"Generate exactly {examples_count} example sentences that use the word {word} in the same language."
             f"Return a JSON object with a single key 'examples' whose value is an array of strings."
             f"Requirements:"
             f"- Return only the JSON object, no explanations, no extra text."

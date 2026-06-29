@@ -64,6 +64,7 @@ export function createSentencesBtn(appState, id) {
         resultSentences(res, appState);
       } catch (e) {
         logError("Sentences fetch failed", { error: e.message });
+        return;
       }
     },
   }).render();

@@ -8,8 +8,9 @@ from app.utils.cache import delete_keys
 async def get_voice_for_word(req):
     word = req.word.strip().lower()
     lang = req.source_lang
+    voice_type = req.voice_type
     context = req.context
-    key = f"tts:{lang}:{word}"
+    key = f"tts:{lang}:{voice_type}:{word}"
 
     main_prompt = f"""
 Read ONLY the word below.
@@ -30,7 +31,8 @@ Return ONLY the audio.
 """
 
     async def generate_audio(prompt):
-        audio_base64 = await _ask_voice(prompt)
+        audio_base64 = await _ask_voice(prompt, voice_type)
+        backend_logger.info("Ask voice prompt, type_voice: %s", voice_type)
 
         # 1) Проверка на битый Base64 / не-MP3
         if not is_valid_audio(audio_base64):

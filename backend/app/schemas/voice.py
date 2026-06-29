@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 class VoiceRequest(BaseModel):
     word: str
     source_lang: str
+    voice_type: str
     context: str
 
 class VoiceResponse(BaseModel):

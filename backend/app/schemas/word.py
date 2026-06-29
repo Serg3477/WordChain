@@ -70,6 +70,7 @@ class TranslationResponse(BaseModel):
 class WordByIdRequest(BaseModel):
     id: int
     user_id: int
+    examples_count: int
 
 
 class BetterTranslationByIdRequest(WordByIdRequest):

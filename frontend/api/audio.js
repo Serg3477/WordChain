@@ -18,6 +18,7 @@ export async function voiceWord(word, sourceLang, context) {
         body: {
           word: word,
           source_lang: sourceLang,
+          voice_type: state.userInterface.ai_voice,
           context: context
         }
       });

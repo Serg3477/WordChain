@@ -104,7 +104,7 @@ async def get_sentences(req: WordByIdRequest):
     async with async_session() as session:
         word_obj = await load_word_or_404(session, req)
 
-    result = await word_sentences(word_obj.word)  # -> List[str]
+    result = await word_sentences(word_obj.word, req.examples_count)  # -> List[str]
     backend_logger.info(f"Get sentences success: {word_obj.word}")
 
     return WordReadResponse(

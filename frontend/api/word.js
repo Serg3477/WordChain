@@ -16,7 +16,11 @@ export async function wordRequest ({endpoint, method, id, user_id}) {
     try {
       const res = await apiRequest(endpoint, {
         method: method,
-        body: { id, user_id },
+        body: { 
+          id, 
+          user_id,
+          examples_count: state.userSkill.examples_count
+         },
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
         keys: res ? Object.keys(res) : [],
