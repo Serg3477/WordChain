@@ -1,13 +1,13 @@
+import { state } from "../../../core/state.js";
 import { translateWord, saveWord, anyWord } from "../../../api/translate.js";
 import { voiceWord } from "../../../api/audio.js"
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
-import { state } from "../../../core/state.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { initBottomSheet } from "../../../ui/bottomSheet/bottomSheet.js";
 import { doVoice } from "../../../utils/voice.js";
-
+import { t } from "../../../shared/i18n/index.js"
 
 
 
@@ -50,7 +50,7 @@ export function renderTranslator() {
 
         <!-- INPUT FIELD -->
         <div class="input-container">
-          <input class="input-placeholder" placeholder="Enter word...">
+          <input class="input-placeholder" placeholder="${t("translator", "input_placeholder")}">
           <div class="erase-container"></div>
         </div>
 
@@ -74,7 +74,7 @@ export function renderTranslator() {
       <div class="bottom-sheet">
         <div class="bs-header">
           <div class="bs-grabber"></div>
-          <div class="bs-title">Words history</div>
+          <div class="bs-title">${t("translator", "words_history")}</div>
         </div>
         <div class="bs-content"></div>
       </div>
@@ -99,7 +99,7 @@ export function renderTranslator() {
     });
 
     // подписки на изменения языков и истории слов
-    state.on("languages", () => renderTranslator());
+    state.on("interface", () => renderTranslator());
     state.on("history", () => {
       sheet.update(state.history);
     });
@@ -128,7 +128,7 @@ export function renderTranslator() {
     // КНОПКА TRANSLATE
     // ---------------------------
     const translateBtn = new BaseButton({
-      label: "Translate",
+      label: t("translator", "translate_btn"),
       type: "ui-btn",
       icon:  `<img src="/assets/icons/Text.png" alt="🌐">`,
       action: "click",
@@ -156,7 +156,7 @@ export function renderTranslator() {
           sourceLang: state.sourceLang,
           targetLang: state.targetLang
         });
-        Notification.show({ type: "success", message: "Translation success!"})
+        Notification.show({ type: "success", message: t("translator", "notification_translate")});
 
         if (!translationResult || !translationResult.word) {
           logError("Translate returned invalid payload", { translationResult });
@@ -174,8 +174,8 @@ export function renderTranslator() {
         const targetLanguageLabel = getLanguageLabel(state.targetLang);
         const isSameWord = result.word === word;
         const correctLabel = isSameWord
-          ? "Translation of:"
-          : "The correct spelling of this word is:";
+          ? t("translator", "correct_label_true")
+          : t("translator", "correct_label_false");
         const correctWord = isSameWord ? word : result.word;
 
         placeholder.value = result.word;
@@ -187,15 +187,15 @@ export function renderTranslator() {
               <div class="result-value result-value-strong">${correctWord ?? ""}</div>
             </div><br>
             <div class="result-item">
-              <div class="result-label">Translation: ${targetLanguageLabel}:</div>
+              <div class="result-label">${t("translator", "translation")} ${targetLanguageLabel}:</div>
               <div class="result-value result-value-strong">${result.translation ?? ""}</div>
             </div><br>
             <div class="result-item">
-              <div class="result-label">Transcription:</div>
+              <div class="result-label">${t("translator", "transcription")}</div>
               <div class="result-value">${result.transcription ?? ""}</div>
             </div><br>
             <div class="result-item">
-              <div class="result-label">Part of speech:</div>
+              <div class="result-label">${t("translator", "part_of_speech")}</div>
               <div class="result-value">${result.part_of_speech ?? ""}</div>
             </div><br>
           `;
@@ -205,10 +205,6 @@ export function renderTranslator() {
         logInfo("Translate request success", {
           hasTranslation: !!result.translation
         });
-
-        // получение аудио слова
-      //   const voiceResult = await voiceWord(correctWord, state.sourceLang);
-      //   state.setVoice(voiceResult?.audio_data || null);
       } catch (e) {
         logError("Translate request failed in UI", { error: e.message });
         return;
@@ -219,7 +215,7 @@ export function renderTranslator() {
     // КНОПКА SAVE
     // ---------------------------
     const saveBtn = new BaseButton({
-      label: "Save",
+      label: t("translator", "save_btn"),
       type: "ui-btn",
       icon:  `<img src="/assets/icons/Check.png" alt="💾">`,
       action: "click",
@@ -232,7 +228,7 @@ export function renderTranslator() {
       try {
         await saveWord(result);
         logInfo("Save request success");
-        Notification.show({ type: "success", message: "Saved success!"})
+        Notification.show({ type: "success", message: t("translator", "notification_save")})
       } catch (e) {
         logError("Save request failed in UI", { error: e.message });
         return;
@@ -243,7 +239,7 @@ export function renderTranslator() {
     // КНОПКА ANY WORD
     // ---------------------------
     const anyWordBtn = new BaseButton({
-      label: "Any Word",
+      label: t("translator", "any_word_btn"),
       type: "ui-btn",
       icon: `<img src="/assets/icons/Magnifier.png">`,
       action: "click",
@@ -259,7 +255,7 @@ export function renderTranslator() {
         placeholder.value = data.word;
 
         doTranslate();
-
+        Notification.show({ type: "success", message: t("translator", "notification_any_word")})
       } catch (e) {
         logError("Any Word request failed in UI", { error: e.message });
         return;
@@ -271,7 +267,7 @@ export function renderTranslator() {
     // КНОПКА VOICE
     // ---------------------------
     const voiceBtn = new BaseButton({
-      label: "Voice",
+      label: t("translator", "voice_btn"),
       type: "ui-btn",
       icon: `<img src="/assets/icons/megaphone.png">`,
       action: "click",

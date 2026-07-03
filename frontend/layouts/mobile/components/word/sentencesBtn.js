@@ -4,7 +4,7 @@ import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
 import { voiceWord } from "../../../../api/audio.js"
 import { doVoice } from "../../../../utils/voice.js";
-
+import { t } from "../../../../shared/i18n/index.js"
 
 
 export function resultSentences(result, appState) {
@@ -49,7 +49,7 @@ export function resultSentences(result, appState) {
 
 export function createSentencesBtn(appState, id) {
   return new BaseButton({
-    label: "Sentences",
+    label: t("word", "sentences_btn"),
     type: "word-nav-btn ui-btn",
     icon: `<img src="/assets/icons/List.png" alt="🌐">`,
     action: "click",
@@ -60,6 +60,7 @@ export function createSentencesBtn(appState, id) {
           method: "POST",
           id,
           user_id: appState.user.id,
+          examples_count: state.userSkill.examples_count
         });
         resultSentences(res, appState);
       } catch (e) {

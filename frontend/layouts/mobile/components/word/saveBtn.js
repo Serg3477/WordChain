@@ -2,10 +2,12 @@ import { wordUpdateRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { Notification } from "../../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../../utils/logger/logger.js";
+import { t } from "../../../../shared/i18n/index.js"
+
 
 export function createSaveBtn(appState) {
   return new BaseButton({
-    label: "Save",
+    label: t("word", "save_btn"),
     type: "word-nav-btn ui-btn",
     icon: "💾",
     action: "click",
@@ -17,7 +19,7 @@ export function createSaveBtn(appState) {
           currentWord: appState.currentWord,
         });
         logInfo("Update Word success", { result });
-        Notification.show({ type: "success", message: "Word updation success!" });
+        Notification.show({ type: "success", message: t("word", "notification_save") });
       } catch (e) {
         logError("Update Word failed", { error: e.message });
       }

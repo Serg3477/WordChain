@@ -4,7 +4,6 @@ from app.schemas.word import (
     WordByIdRequest,
     BetterTranslationByIdRequest,
     WordReadResponse,
-    TranslationResponse,
 )
 from app.services.word_service import word_read, word_better_translation, word_synonyms, word_antonyms, word_sentences
 from app.logger.logger import backend_logger
@@ -35,7 +34,7 @@ async def get_word(req: WordByIdRequest):
     return WordReadResponse.model_validate(result)
 
 
-@get_better_translation_router.post("/get_better_translation", response_model=TranslationResponse)
+@get_better_translation_router.post("/get_better_translation", response_model=WordReadResponse)
 async def get_better_translation(req: BetterTranslationByIdRequest):
     backend_logger.info(f"Get better word translation attempt: {req}")
     async with async_session() as session:
@@ -47,7 +46,8 @@ async def get_better_translation(req: BetterTranslationByIdRequest):
 
     backend_logger.success(f"Translation success: {word_obj.word}")
 
-    return TranslationResponse(
+    return WordReadResponse(
+        id=req.id,
         word=word_obj.word,
         translation_json=result,
     )

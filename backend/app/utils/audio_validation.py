@@ -49,7 +49,7 @@ def is_valid_tts_output(b64: str, expected_word: str, context) -> bool:
             return False
 
     elif context == "text":
-        if size > 800_000:  # 800 KB — нормальный лимит для текста
+        if size > 1200_000:  # 800 KB — нормальный лимит для текста
             return False
 
     else:

@@ -1,12 +1,12 @@
 import { state } from "../../../core/state.js";
-import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { translateWord } from "../../../api/translate.js";
-import { Notification } from "../../../ui/notificationModal/notificationModal.js";
+import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { textRequest } from "../../../api/text.js";
 import { voiceWord } from "../../../../api/audio.js"
 import { audio, doVoice, doPause } from "../../../../utils/voice.js";
-
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
+import { t } from "../../../shared/i18n/index.js"
+import { logInfo, logError } from "../../../utils/logger/logger.js";
 
 
 export async function renderText(set, words) {
@@ -21,10 +21,10 @@ export async function renderText(set, words) {
   screen.innerHTML = `
     <h3 class="ui-title">${set.name} set</h3>
 
-    <div class="label">Current words:</div>
+    <div class="label">${t("text", "current_words")}</div>
     <ul class="word-list"></ul><br>
 
-    <div class="label-text hidden">Text with current words:</div><br>
+    <div class="label-text hidden">${t("text", "text_current_words")}</div><br>
     <div class="text"></div><br>
 
     <div class="btn-block hidden">
@@ -36,7 +36,7 @@ export async function renderText(set, words) {
       </button>
     </div>
 
-    <div class="label-text-translation hidden">Text translation:</div><br>
+    <div class="label-text-translation hidden">${t("text", "text_translation")}</div><br>
     <div class="text-translation"></div>
   `;
 
@@ -112,7 +112,7 @@ export async function renderText(set, words) {
     e.stopPropagation();
     await loadText();
     logInfo(`Get Another Text for Set: ${set.name} success`);
-    Notification.show({ type: "success", message: `Update text success for set "${set.name}"` });
+    Notification.show({ type: "success", message: t("text", "notification_update_text") });
   });
 
   async function loadText() {
@@ -137,14 +137,15 @@ export async function renderText(set, words) {
       }
       textTranslation.innerHTML = textResult.text_translation;
 
+      // озвучка текста
       const voiceResult = await voiceWord(textResult.text, state.sourceLang, "text");
       state.setVoice(voiceResult?.audio_data || null);
 
 
-      Notification.show({ type: "success", message: `Resolve text success for set "${set.name}"` });
+      Notification.show({ type: "success", message: t("text", "notification_text") });
     } catch (e) {
       logError(`Get Text for Set: ${set.name} failed`, { error: e.message });
-      Notification.show({ type: "error", message: `Failed to fetch text for set "${set.name}"` });
+      return;
     }
   }
 };

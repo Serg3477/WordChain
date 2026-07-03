@@ -3,6 +3,7 @@ import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { updateSettings } from "../../../api/settings.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
+import { t } from "../../../shared/i18n/index.js"
 
 
 // Изменение согласно подписке
@@ -33,41 +34,41 @@ export function renderSettings() {
 
       <!-- LANGUAGE SETTINGS -->
       <section class="settings-group">
-          <h3 class="settings-title">Settings for =${ state.user.nickname}=</h3>
+          <h3 class="settings-title">${t("settings", "settings_title")} =${ state.user.nickname}=</h3>
           <h4 class="settings-email-title">Email: ${ state.user.email}</h4><br>
-          <h3 class="settings-section-title">Language Settings</h3>
+          <h3 class="settings-section-title">${t("settings", "settings_section1")}</h3>
 
 
           <div class="settings-item">
-          <label>Input language</label>
+          <label>${t("settings", "input_language")}</label>
           <select id="input-lang" class="settings-select">
-              <option value="en">English</option>
-              <option value="ua">Ukrainian</option>
-              <option value="ru">Russian</option>
-              <option value="de">German</option>
-              <option value="fr">French</option>
-              <option value="es">Spahish</option>
-              <option value="it">Italian</option>
-              <option value="pl">Polish</option>
+              <option value="en">${t("settings", "input_english")}</option>
+              <option value="ua">${t("settings", "input_ukrainian")}</option>
+              <option value="ru">${t("settings", "input_russian")}</option>
+              <option value="de">${t("settings", "input_german")}</option>
+              <option value="fr">${t("settings", "input_french")}</option>
+              <option value="es">${t("settings", "input_spanish")}</option>
+              <option value="it">${t("settings", "input_italian")}</option>
+              <option value="pl">${t("settings", "input_polish")}</option>
           </select>
           </div>
 
           <div class="settings-item">
-          <label>Output language</label>
+          <label>${t("settings", "output_language")}</label>
           <select id="output-lang" class="settings-select">
-              <option value="en">English</option>
-              <option value="ua">Ukrainian</option>
-              <option value="ru">Russian</option>
-              <option value="de">German</option>
-              <option value="fr">French</option>
-              <option value="es">Spahish</option>
-              <option value="it">Italian</option>
-              <option value="pl">Polish</option>
+              <option value="en">${t("settings", "output_english")}</option>
+              <option value="ua">${t("settings", "output_ukrainian")}</option>
+              <option value="ru">${t("settings", "output_russian")}</option>
+              <option value="de">${t("settings", "output_german")}</option>
+              <option value="fr">${t("settings", "output_french")}</option>
+              <option value="es">${t("settings", "output_spanish")}</option>
+              <option value="it">${t("settings", "output_italian")}</option>
+              <option value="pl">${t("settings", "output_polish")}</option>
           </select>
           </div>
 
           <div class="settings-item">
-          <label>User level</label>
+          <label>${t("settings", "user_level")}</label>
           <select id="user-level" class="settings-select" >
               <option value="A1">A1</option>
               <option value="A2">A2</option>
@@ -79,44 +80,44 @@ export function renderSettings() {
           </div>
 
           <div class="settings-item">
-          <label>Text size</label>
-          <input id="text-size" type="number" min="1" max="16" class="settings-input">
+          <label>${t("settings", "text_size")}</label>
+          <input id="text-size" type="number" min="1" max="10" class="settings-input">
           </div>
 
           <div class="settings-item">
-          <label>Examples count</label>
-          <input id="examples-count" type="number" min="1" max="16" class="settings-input">
+          <label>${t("settings", "examples_count")}</label>
+          <input id="examples-count" type="number" min="1" max="10" class="settings-input">
           </div>
       </section>
 
       <!-- INTERFACE SETTINGS -->
       <section class="settings-group">
-          <h3 class="settings-section-title">Interface</h3>
+          <h3 class="settings-section-title">${t("settings", "settings_section2")}</h3>
 
           <div class="settings-item">
-          <label>Theme</label>
+          <label>${t("settings", "set_theme")}</label>
           <select id="theme" class="settings-select">
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
+              <option value="light">${t("settings", "theme_light")}</option>
+              <option value="dark">${t("settings", "theme_dark")}</option>
           </select>
           </div>
 
           <div class="settings-item">
-          <label>Interface language</label>
+          <label>${t("settings", "interface_language")}</label>
           <select id="ui-lang" class="settings-select">
-              <option value="en">English</option>
-              <option value="ua">Ukrainian</option>
-              <option value="ru">Russian</option>
-              <option value="de">German</option>
-              <option value="fr">French</option>
-              <option value="es">Spahish</option>
-              <option value="it">Italian</option>
-              <option value="pl">Polish</option>
+              <option value="en">${t("settings", "lang_english")}</option>
+              <option value="ua">${t("settings", "lang_ukrainian")}</option>
+              <option value="ru">${t("settings", "lang_russian")}</option>
+              <option value="de">${t("settings", "lang_german")}</option>
+              <option value="fr">${t("settings", "lang_french")}</option>
+              <option value="es">${t("settings", "lang_spanish")}</option>
+              <option value="it">${t("settings", "lang_italian")}</option>
+              <option value="pl">${t("settings", "lang_polish")}</option>
           </select>
           </div>
 
           <div class="settings-item">
-          <label>AI Voice</label>
+          <label>${t("settings", "ai_voice")}</label>
           <select id="voice-type" class="settings-select">
               <option value="alloy">Alloy</option>
               <option value="echo">Echo</option>
@@ -160,7 +161,7 @@ export function renderSettings() {
       // КНОПКА SAVE
       // ---------------------------
       const saveBtn = new BaseButton({
-        label: "Save",
+        label: t("settings", "save_btn"),
         type: "ui-btn",
         icon:  `<img src="/assets/icons/Check.png" alt="💾">`,
         action: "click",
@@ -198,7 +199,7 @@ export function renderSettings() {
             state.setUserSkill( settings.user_level, settings.text_size, settings.examples_count );
             state.setUserInterface( settings.ui_lang, settings.ui_theme, settings.voice_type ); 
           }  
-          Notification.show({ type: "success", message: "Save settings success!"});
+          Notification.show({ type: "success", message: t("settings", "notification_save")});
         } catch (e) {
           logError("Save settings request failed in UI  - components/settings.js /update_settings", { error: e.message });
           return;

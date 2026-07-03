@@ -2,6 +2,7 @@ import { wordRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
 import { normalizeList } from "./utils.js";
+import { t } from "../../../../shared/i18n/index.js"
 
 export function renderSynonyms(result) {
   const list = normalizeList(result?.synonyms);
@@ -13,7 +14,7 @@ export function renderSynonyms(result) {
 
 export function createSynonymsBtn(appState, id) {
   return new BaseButton({
-    label: "Synonyms",
+    label: t("word", "synonyms_btn"),
     type: "word-nav-btn ui-btn",
     icon: `<img src="/assets/icons/Link.png" alt="💾">`,
     action: "click",

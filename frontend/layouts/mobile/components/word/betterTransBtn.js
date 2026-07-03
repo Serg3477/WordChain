@@ -1,6 +1,9 @@
+import { state } from "../../../../core/state.js"
 import { betterTransRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
+import { t } from "../../../../shared/i18n/index.js"
+
 
 const EMPTY_TRANSLATION_JSON = {
   definite_translation: [],
@@ -43,7 +46,7 @@ export function resultBetterTrans(result, appState) {
   const tj = result?.translation_json ?? EMPTY_TRANSLATION_JSON;
 
   if (Array.isArray(tj.definite_translation) && tj.definite_translation.length) {
-    container.appendChild(makeLabel("Translation by parts of speech:"));
+    container.appendChild(makeLabel(t("word", "part_speech_translation")));
     const ul = document.createElement("ul");
     for (const part of tj.definite_translation) {
       const li = document.createElement("li");
@@ -54,22 +57,22 @@ export function resultBetterTrans(result, appState) {
   }
 
   if (tj.plural && tj.plural !== "-") {
-    container.appendChild(makeLabel("Plural form:"));
+    container.appendChild(makeLabel(t("word", "plural_form")));
     container.appendChild(makeItem(tj.plural));
   }
 
   if (Array.isArray(tj.verb_forms) && tj.verb_forms.length) {
-    container.appendChild(makeLabel("Verb forms:"));
+    container.appendChild(makeLabel(t("word", "verb_forms")));
     container.appendChild(makeItem(tj.verb_forms.join(", ")));
   }
 
   if (tj.passive_form && tj.passive_form !== "-") {
-    container.appendChild(makeLabel("Passive form:"));
+    container.appendChild(makeLabel(t("word", "passive_form")));
     container.appendChild(makeItem(tj.passive_form));
   }
 
   if (Array.isArray(tj.phrasal_verbs) && tj.phrasal_verbs.length) {
-    container.appendChild(makeLabel("Phrasal verbs:"));
+    container.appendChild(makeLabel(t("word", "phrasal_verbs")));
     const ul = document.createElement("ul");
     for (const pv of tj.phrasal_verbs) {
       const li = document.createElement("li");
@@ -90,7 +93,7 @@ export function resultBetterTrans(result, appState) {
 
 export function createBetterTransBtn(appState, id) {
   return new BaseButton({
-    label: "Better translation",
+    label: t("word", "better_translation_btn"),
     type: "word-nav-btn ui-btn",
     icon: `<img src="/assets/icons/Fire.png" alt="◀">`,
     action: "click",
@@ -107,6 +110,7 @@ export function createBetterTransBtn(appState, id) {
         resultBetterTrans(result, appState);
       } catch (e) {
         logError("Better translation failed", { error: e.message });
+        return;
       }
     },
   }).render();

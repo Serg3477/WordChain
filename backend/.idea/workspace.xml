@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="" />
+    <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend/api/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/api/word.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/accountActionModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/accountActionModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/sets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/translator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/userMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/userMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/antonymsBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/antonymsBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/betterTransBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/betterTransBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/saveBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/saveBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/sentencesBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/sentencesBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/synonymsBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/word/synonymsBtn.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,8 +190,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
-        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.25134.203" />
+        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
       </set>
     </attachedChunks>
   </component>
@@ -303,7 +321,10 @@
       <workItem from="1782373353152" duration="9445000" />
       <workItem from="1782542258283" duration="17891000" />
       <workItem from="1782631827175" duration="13761000" />
-      <workItem from="1782718710287" duration="8452000" />
+      <workItem from="1782718710287" duration="9090000" />
+      <workItem from="1782826037158" duration="654000" />
+      <workItem from="1782982879453" duration="1748000" />
+      <workItem from="1783067536346" duration="6714000" />
     </task>
     <servers />
   </component>

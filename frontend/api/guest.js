@@ -118,6 +118,21 @@ export async function initSession() {
       const user = await fetchMeByToken(userToken);
       logInfo("Init user success - guest.js function initSession", { hasUser: !!user });
       setActiveUser(user, userToken);
+
+      // загрузка настроек юзера
+      let settings = await fetchSettings(user.id);
+
+      if (!settings) {
+        logInfo("No settings for active user — creating default");
+        settings = await createDefaultSettings(user.id);
+      }
+
+      if (settings) {
+        state.setLanguages(settings.input_lang, settings.output_lang);
+        state.setUserSkill(settings.user_level, settings.text_size, settings.examples_count);
+        state.setUserInterface(settings.ui_lang, settings.ui_theme, settings.voice_type);
+      }
+
       return;
     } catch (e) {
       logError("Init user failed - guest.js function initSession", { error: e.message });
@@ -126,6 +141,8 @@ export async function initSession() {
     }
   }
   await ensureGuestSession();
+
+
 }
 
 export async function logoutToGuest() {

@@ -2,7 +2,6 @@
 @import "./base.css";
 @import "./layout.css";
 @import "./navbar.css";
-@import "./modal.css";
 @import "./desktop.css";
 @import "./mobile.css";
 @import "./animations.css";
@@ -15,6 +14,7 @@
 @import "./word.css";
 @import "./text.css";
 @import "./settings.css";
+@import "./accountActionModal.css";
 
 @import "../ui/baseButton/baseButton.css";
 @import "../ui/erase/eraseInputButton.css";

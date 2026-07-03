@@ -2,6 +2,7 @@ import { wordRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
 import { normalizeList } from "./utils.js";
+import { t } from "../../../../shared/i18n/index.js"
 
 export function renderAntonyms(result) {
   const list = normalizeList(result?.antonyms);
@@ -13,7 +14,7 @@ export function renderAntonyms(result) {
 
 export function createAntonymsBtn(appState, id) {
   return new BaseButton({
-    label: "Antonyms",
+    label: t("word", "antonyms_btn"),
     type: "word-nav-btn ui-btn",
     icon: `<img src="/assets/icons/Exchange.png" alt="🌐">`,
     action: "click",
@@ -29,6 +30,7 @@ export function createAntonymsBtn(appState, id) {
         appState.setField("antonyms", res.antonyms);
       } catch (e) {
         logError("Antonyms fetch failed", { error: e.message });
+        return;
       }
     },
   }).render();

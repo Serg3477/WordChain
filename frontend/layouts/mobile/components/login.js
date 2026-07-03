@@ -1,11 +1,15 @@
+import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js"
+import { loginUser } from "../../../api/user.js";
+import { registerUser } from "../../../api/user.js";
+import { renderRegister } from "./register.js";
+import { getSettings } from "../../../api/settings.js";
+
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
-import { state } from "../../../core/state.js";
-import { registerUser } from "../../../api/user.js";
-import { windowManager } from "../../../core/windowManager.js"
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { getSettings } from "../../../api/settings.js";
-import { loginUser } from "../../../api/user.js";
+import { t } from "../../../shared/i18n/index.js"
 
 
 
@@ -24,19 +28,19 @@ export function renderLogin(state) {
         <div class="user-body">
             <!-- EMAIL LOGIN FORM -->
             <form class="user-form" name="login">
-                <label class="ui-label" for="login-email">Email</label>
+                <label class="ui-label" for="login-email">${t("login", "input_email")}</label>
                 <input class="input-word" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
 
-                <label class="ui-label" for="login-pass">Password</label>
+                <label class="ui-label" for="login-pass">${t("login", "input_password")}</label>
                 <input class="input-word" type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
 
                 <div class="login-row">
                     <label class="ui-checkbox">
                         <input type="checkbox" name="remember_me">
-                        <span>Remember me</span>
+                        <span>${t("login", "remember_me")}</span>
                     </label><br>
 
-                    <a class="ui-user-link" data-action="forgot-password">Forgot password?</a>
+                    <a class="ui-user-link" data-action="forgot-password">${t("login", "forgot_password")}</a>
                 </div>
 
                 <div class="login-submit-slot">
@@ -54,8 +58,8 @@ export function renderLogin(state) {
         </div><br>
 
         <div class="modal-footer">
-            <span>Don't have an account?</span>
-            <a class="ui-user-link" data-action="open-register">Create one</a>
+            <span>${t("login", "dont_have_account")}</span>
+            <a class="ui-user-link" data-action="open-register">${t("login", "create_one")}</a>
         </div>
     `;
 
@@ -65,13 +69,23 @@ export function renderLogin(state) {
     if (!formLog) {
         logError("Login form not found");
         return;
-    }
+    };
+
+    // клик по ссылке - переход на регистрацию
+    const link = document.querySelector('[data-action="open-register"]');
+
+    if (link) {
+        link.addEventListener("click", () => {
+            windowManager.pushScreen("register");
+            renderRegister(state);
+        });
+    };
 
     const submitSlot = screen.querySelector(".login-submit-slot");
     const googleSlot = screen.querySelector(".login-google-slot");
 
     const loginAccountBtn = new BaseButton({
-        label: "Sign In",
+        label: t("login", "login_btn"),
         type: "ui-user-btn",
         icon: "",
         action: "click",
@@ -82,7 +96,7 @@ export function renderLogin(state) {
     }).render();
 
     const googleBtn = new BaseButton({
-        label: "Continue with Google",
+        label: t("login", "google_btn"),
         type: "ui-user-btn oauth-btn",
         icon: `<img src="./assets/icons/google.png">`,
         action: "click",
@@ -119,8 +133,10 @@ export function renderLogin(state) {
                 is_premium: res.is_premium
             });
             windowManager.back();
+            Notification.show({ type: "success", message: t("login", "notification_success")});
         } catch (e) {
             logError("Login request failed", { error: e.message });
+            return;
         };
 
         // Запрос settings залогиненного юзера
@@ -148,11 +164,12 @@ export function renderLogin(state) {
                     settings.voice_type
                 );
             };
+            Notification.show({ type: "success", message: t("login", "notification_success")});
             return settings;
         } catch (e) {
             logError("Fetch settings failed - components/login.js /get_settings", { error: e.message });
             return null;
         };
-        
+
     });
 }

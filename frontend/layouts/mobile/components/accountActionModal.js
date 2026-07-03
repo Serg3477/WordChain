@@ -1,10 +1,13 @@
-import { windowManager } from "../../../core/windowManager.js";
 import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js";
+import { apiRequest } from "../../../core/api.js";
 import { ensureGuestSession } from "../../../api/guest.js";
 import { deleteUser } from "../../../api/user.js";
-import { apiRequest } from "../../../core/api.js";
+import { t } from "../../../shared/i18n/index.js"
 
-function createAccountActionModal({ modalName, title, question, yesLabel = "Yes", noLabel = "No" }) {
+
+
+function createAccountActionModal({ modalName, title, question, yesLabel = t("accountAction", "yes_btn"), noLabel = t("accountAction", "no_btn") }) {
     const root = document.createElement("div");
     root.className = "overall-modal";
     
@@ -50,16 +53,16 @@ function createAccountActionModal({ modalName, title, question, yesLabel = "Yes"
 export function createSignOutModal() {
     return createAccountActionModal({
         modalName: "signOutModal",
-        title: "Sign Out",
-        question: "Are you sure you want to sign out?"
+        title: t("accountAction", "sign_out_title"),
+        question: t("accountAction", "sign_out_question")
     });
 }
 
 export function createDeleteAccountModal() {
     return createAccountActionModal({
         modalName: "deleteAccountModal",
-        title: "Delete Account",
-        question: "Are you sure you want to delete your account?"
+        title: t("accountAction", "delete_title"),
+        question: t("accountAction", "delete_question")
     });
 }
 

@@ -1,11 +1,15 @@
+import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js"
+import { apiRequest } from "../../../core/api.js";
+import { registerUser } from "../../../api/user.js";
+import { loginUser } from "../../../api/user.js";
+
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
-import { state } from "../../../core/state.js";
-import { registerUser } from "../../../api/user.js";
-import { windowManager } from "../../../core/windowManager.js"
+
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { apiRequest } from "../../../core/api.js";
-import { loginUser } from "../../../api/user.js";
+import { t } from "../../../shared/i18n/index.js"
 
 
 
@@ -30,9 +34,12 @@ export function renderProfile(state) {
         ? `../../../assets/icons/${user.avatar_url}`
         : "../../../assets/icons/default.png";
 
+    // подписки на изменения языков и истории слов
+    state.on("interface", () => renderProfile());
+
     screen.innerHTML = `
 
-        <h3 class="ui-title">Profile ${nickname}</h3>
+        <h3 class="ui-title">${t("profile", "profile_title")} =${nickname}=</h3>
 
         <div class="user-body ui-modal-body">
             <section class="profile-hero">
@@ -43,18 +50,18 @@ export function renderProfile(state) {
                 <div class="profile-identity">
                     <h2 class="profile-name">${nickname}</h2>
                     <p class="profile-email">${displayEmail}</p>
-                    <span class="profile-badge">Active learner</span>
+                    <span class="profile-badge">${t("profile", "active_learner")}</span>
                 </div>
             </section>
 
             <section class="profile-section">
                 <div class="profile-section-head">
-                    <h3 class="profile-section-title">Account</h3>
+                    <h3 class="profile-section-title">${t("profile", "profile_section1")}</h3>
                 </div>
 
                 <div class="profile-grid">
                     <label class="profile-field">
-                        <span class="ui-label">Nickname</span>
+                        <span class="ui-label">${t("profile", "nickname_label")}</span>
                         <input class="input-word" type="text" value="${nickname}" placeholder="Your nickname">
                     </label>
 
@@ -67,21 +74,21 @@ export function renderProfile(state) {
 
             <section class="profile-section">
                 <div class="profile-section-head">
-                    <h3 class="profile-section-title">Progress</h3>
+                    <h3 class="profile-section-title">${t("profile", "profile_section2")}</h3>
                 </div>
 
                 <div class="profile-stats">
                     <div class="profile-stat">
                         <span class="profile-stat-value">0</span>
-                        <span class="profile-stat-label">Words learned</span>
+                        <span class="profile-stat-label">${t("profile", "words_learned")}</span>
                     </div>
                     <div class="profile-stat">
                         <span class="profile-stat-value">0</span>
-                        <span class="profile-stat-label">Sets completed</span>
+                        <span class="profile-stat-label">${t("profile", "sets_completed")}</span>
                     </div>
                     <div class="profile-stat">
                         <span class="profile-stat-value">0</span>
-                        <span class="profile-stat-label">Current streak</span>
+                        <span class="profile-stat-label">${t("profile", "current_streak")}</span>
                     </div>
                 </div>
             </section>
@@ -105,8 +112,8 @@ export function renderProfile(state) {
     const signOutSlot = screen.querySelector(".sign-out-user-slot");
     const deleteSlot = screen.querySelector(".delete-user-slot");
 
-    const saveBtn = new BaseButton({
-        label: "Quit Profile",
+    const quitBtn = new BaseButton({
+        label: t("profile", "quit_btn"),
         type: "ui-user-btn",
         icon: "",
         action: "click",
@@ -117,7 +124,7 @@ export function renderProfile(state) {
     }).render();
 
     const signOutBtn = new BaseButton({
-        label: "Sign Out",
+        label: t("profile", "sign_out_btn"),
         type: "ui-user-btn profile-secondary-btn",
         icon: "",
         action: "click",
@@ -130,7 +137,7 @@ export function renderProfile(state) {
     }).render();
 
     const deleteBtn = new BaseButton({
-        label: "Delete account",
+        label: t("profile", "delete_btn"),
         type: "ui-user-btn profile-danger-btn",
         icon: "",
         action: "click",
@@ -142,7 +149,7 @@ export function renderProfile(state) {
         }
     }).render();
 
-    saveSlot.appendChild(saveBtn);
+    saveSlot.appendChild(quitBtn);
     signOutSlot.appendChild(signOutBtn);
     deleteSlot.appendChild(deleteBtn);
 

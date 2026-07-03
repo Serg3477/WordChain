@@ -59,23 +59,23 @@ class TranslationRequest(BaseModel):
 class TranslationResponse(BaseModel):
     word: str
     translation: str = None
-    translation_json: Optional[TranslationJSON] = None
     transcription: Optional[str] = None
     part_of_speech: Optional[str] = None
 
 
 # -----------------------------
-# 3. DTO для чтения / ответов API
+# 3. DTO для запросов синонимов, антонимов, предложений, расширенного перевода к слову / ответов API
 # -----------------------------
 class WordByIdRequest(BaseModel):
     id: int
     user_id: int
-    examples_count: int
+    examples_count:  Optional[int] = None
 
 
 class BetterTranslationByIdRequest(WordByIdRequest):
     source_lang: str
     target_lang: str
+
 
 
 class WordReadResponse(BaseModel):

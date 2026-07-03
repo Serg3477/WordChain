@@ -1,10 +1,14 @@
-import { BaseButton } from "../../../ui/baseButton/baseButton.js";
-import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
 import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js"
 import { newSettings } from "../../../api/settings.js";
 import { registerUser } from "../../../api/user.js";
-import { windowManager } from "../../../core/windowManager.js"
+import { renderLogin } from "./login.js";
+
+import { BaseButton } from "../../../ui/baseButton/baseButton.js";
+import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
+import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
+import { t } from "../../../shared/i18n/index.js"
 
 
 
@@ -17,29 +21,33 @@ export function renderRegister(state) {
         logError("Register screen not found");
         return;
     }
+
+    // подписки на изменения языков и истории слов
+    state.on("interface", () => renderRegister());
+
     screen.innerHTML = `
 
-        <h3 class="ui-title">Register account</h3>
+        <h3 class="ui-title">${t("register", "title")}</h3>
 
         <div class = "user-body">
             <!-- EMAIL REGISTRATION FORM -->
             <form class="user-form" name="registration" action="/register">
 
-                <label class="ui-label">Your name</label>
+                <label class="ui-label">${t("register", "input_name")}</label>
                 <input class="input-word" type="text" name="name" required placeholder="or nickname">
 
-                <label class="ui-label">Email</label>
+                <label class="ui-label">${t("register", "input_email")}</label>
                 <input class="input-word" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
 
-                <label class="ui-label">Password</label>
+                <label class="ui-label">${t("register", "input_password")}</label>
                 <input class="input-word" type="password" name="password" required minlength="8" autocomplete="new-password" placeholder="••••••••">
 
-                <label class="ui-label">Confirm Password</label>
+                <label class="ui-label">${t("register", "input_confirm_password")}</label>
                 <input class="input-word" type="password" name="passwordConfirmation" required minlength="8" autocomplete="new-password" placeholder="••••••••"><br>
 
                 <label class="ui-checkbox">
                     <input type="checkbox" name="reg-terms" required>
-                    <span>I agree to the Terms of Service</span>
+                    <span>${t("register", "terms_of_service")}</span>
                 </label><br>
 
                 <div class="register-submit-slot">
@@ -58,8 +66,8 @@ export function renderRegister(state) {
         </div>
         <br>
         <div class="modal-footer">
-            <span>Already have an account?</span>
-            <a class="ui-user-link" data-action="open-login">Sign In</a>
+            <span>${t("register", "already_have_account")}</span>
+            <a class="ui-user-link" data-action="open-login">${t("register", "sign_in_label")}</a>
         </div>
     `;
 
@@ -68,13 +76,23 @@ export function renderRegister(state) {
     if (!formReg) {
         logError("Register form not found");
         return;
-    }
+    };
+
+    // клик по ссылке - переход на регистрацию
+    const link = document.querySelector('[data-action="open-login"]');
+
+    if (link) {
+        link.addEventListener("click", () => {
+            windowManager.pushScreen("login");
+            renderLogin(state);
+        });
+    };
 
     const submitSlot = screen.querySelector(".register-submit-slot");
     const googleSlot = screen.querySelector(".register-google-slot");
 
     const createAccountBtn = new BaseButton({
-        label: "Create account",
+        label: t("register", "create_account_btn"),
         type: "ui-user-btn",
         icon: "🌐",
         action: "click",
@@ -85,7 +103,7 @@ export function renderRegister(state) {
     }).render();
 
     const googleBtn = new BaseButton({
-        label: "Continue with Google",
+        label: t("register", "google_btn"),
         type: "ui-user-btn oauth-btn",
         icon: `<img src="./assets/icons/google.png">`,
         action: "click",
@@ -103,14 +121,16 @@ export function renderRegister(state) {
         event.preventDefault();
         if (formReg.password.value != formReg.passwordConfirmation.value) {
             logError("Register validation failed", { reason: "password_mismatch" });
+            Notification.show({ type: "error", message: t("register", "notification_mismatch")});
             throw new Error ('Mismatch Password vc Confirm Password');
             return
-        }
+        };
         if (!formReg.reportValidity()) {
             logError("Register validation failed", { reason: "reportValidity_false" });
             throw new Error ('Lost reportValidity');
+            Notification.show({ type: "error", message: t("register", "notification_error")});
             return
-        }
+        };
         const data = { name: formReg.name.value, email: formReg.email.value, password: formReg.password.value };
         try {
             const res = await registerUser(data);
@@ -124,10 +144,12 @@ export function renderRegister(state) {
                 is_guest: res.is_guest,
                 is_premium: res.is_premium
             });
+            Notification.show({ type: "success", message: t("register", "notification_success")})
             windowManager.back();
         } catch (e) {
             logError("Register request failed", { error: e.message });
-        }
+            return;
+        };
 
         // создание записи в таблицу settings нового юзера
         try {

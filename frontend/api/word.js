@@ -3,24 +3,32 @@ import { state } from "../core/state.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
 
 
-export async function wordRequest ({endpoint, method, id, user_id}) {
+export async function wordRequest ({
+  endpoint, 
+  method, 
+  id, 
+  user_id,
+  examples_count = undefined   // ← необязательный параметр
+}) {
 
     logInfo(`${endpoint.slice(1)} request shape`, {
       endpoint: endpoint,
       method: method,
       hasEndpoint: !!endpoint,
       hasId: !!id,
-      hasUser: !!user_id
+      hasUser: !!user_id,
+      hasExamplesCount: !!examples_count
     });
 
+    
     try {
       const res = await apiRequest(endpoint, {
         method: method,
-        body: { 
-          id, 
+        body: {
+          id,
           user_id,
-          examples_count: state.userSkill.examples_count
-         },
+          ...(examples_count !== undefined && { examples_count })
+        }
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
         keys: res ? Object.keys(res) : [],
@@ -29,6 +37,7 @@ export async function wordRequest ({endpoint, method, id, user_id}) {
     } catch (e) {
       logError(`${endpoint.slice(1)} request failed`, { error: e.message });
       throw e;
+      return;
     }
   
 }
@@ -50,7 +59,7 @@ export async function betterTransRequest ({endpoint, method, id, user_id, source
           id,
           user_id,
           source_lang: sourceLang, 
-          target_lang: targetLang 
+          target_lang: targetLang,
         },
       });
       logInfo(`${endpoint.slice(1)} response shape`, {

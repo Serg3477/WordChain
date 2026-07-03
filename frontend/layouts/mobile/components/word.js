@@ -8,6 +8,9 @@ import { createBetterTransBtn, resultBetterTrans } from "./word/betterTransBtn.j
 import { createSynonymsBtn, renderSynonyms } from "./word/synonymsBtn.js";
 import { createAntonymsBtn, renderAntonyms } from "./word/antonymsBtn.js";
 import { createSentencesBtn, resultSentences } from "./word/sentencesBtn.js";
+import { t } from "../../../shared/i18n/index.js"
+
+
 
 export async function renderWord(appState, id, word) {
   logInfo("Word screen render start");
@@ -61,35 +64,35 @@ export async function renderWord(appState, id, word) {
   screen.innerHTML = `
     <div class="word-screen">
         <div class="result-item">
-          <div class="result-label">Translation of:</div>
+          <div class="result-label">${t("word", "translation_of_label")}</div>
           <div class="result-value result-value-strong">${escapeHtml(result.word ?? word ?? "")}</div>
         </div><br>
         <div class="result-item">
-          <div class="result-label">Translation: ${escapeHtml(targetLanguageLabel)}:</div>
+          <div class="result-label">${t("word", "translation_label")} ${escapeHtml(targetLanguageLabel)}:</div>
           <div class="result-value result-value-strong">${escapeHtml(result.translation ?? "")}</div>
         </div><br>
         <div class="result-item">
-          <div class="result-label">Transcription:</div>
+          <div class="result-label">${t("word", "transcription_label")}</div>
           <div class="result-value">${escapeHtml(result.transcription ?? "")}</div>
         </div><br>
         <div class="result-item">
-          <div class="result-label">Part of speech:</div>
+          <div class="result-label">${t("word", "part_of_speech_label")}</div>
           <div class="result-value">${escapeHtml(result.part_of_speech ?? "")}</div>
         </div><br>
         <div class="result-item">
-          <div class="result-label-synonyms hidden">Synonyms:</div>
+          <div class="result-label-synonyms hidden">${t("word", "synonyms_label")}</div>
           <div class="result-value result-value-synonyms"></div>
         </div><br>
         <div class="result-item">
-          <div class="result-label-antonyms hidden">Antonyms:</div>
+          <div class="result-label-antonyms hidden">${t("word", "antonyms_label")}</div>
           <div class="result-value result-value-antonyms"></div>
         </div><br>
         <div class="result-item">
-          <div class="result-label-sentences hidden">Sentences:</div>
+          <div class="result-label-sentences hidden">${t("word", "sentences_label")}</div>
           <div class="result-value result-value-examples"></div>
         </div><br>
         <div class="result-item">
-          <div class="result-label-better-translation hidden">Better translation:</div>
+          <div class="result-label-better-translation hidden">${t("word", "better_translation_label")}</div>
           <div class="result-value result-value-better-translation"></div>
         </div><br>
     </div>

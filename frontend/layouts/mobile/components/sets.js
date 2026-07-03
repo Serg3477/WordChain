@@ -1,18 +1,20 @@
 import { state } from "../../../core/state.js";
-import { logInfo, logError } from "../../../utils/logger/logger.js";
+import { windowManager } from "../../../core/windowManager.js";
 import { getSets, getWordsFromSet, setDeleteRequest, setRenameRequest } from "../../../api/sets.js";
 import { voiceWord } from "../../../api/audio.js"
+import { doVoice } from "../../../utils/voice.js";
 import { wordMoveRequest } from "../../../api/word.js";
 import { wordDeleteRequest } from "../../../api/word.js";
 import { renderWord } from "./word.js";
 import { renderText } from "./text.js";
-import { windowManager } from "../../../core/windowManager.js";
+
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { questionModal } from "../../../ui/questionModal/questionModal.js";
 import { selectModal } from "../../../ui/selectModal/selectModal.js";
 import { renameModal } from "../../../ui/renameModal/renameModal.js";
-import { doVoice } from "../../../utils/voice.js";
 
+import { logInfo, logError } from "../../../utils/logger/logger.js";
+import { t } from "../../../shared/i18n/index.js"
 
 
 
@@ -26,7 +28,7 @@ export function renderSets() {
   }
 
   screen.innerHTML = `
-    <h3 class="ui-title">${state.user.nickname}'s sets</h3>
+    <h3 class="ui-title">${state.user.nickname}${t("sets", "sets_title")}</h3>
     <div class="sets-container"></div>
   `;
 
@@ -45,7 +47,7 @@ export function renderSets() {
     container.innerHTML = "";
 
     if (!sets.length && !unassigned_words.length) {
-      container.innerHTML = "<p>No sets yet</p>";
+      container.innerHTML = t("sets", "sets_title");
       return;
     }
 
@@ -253,6 +255,7 @@ export function renderSets() {
 
     } catch (e) {
       logError("Set Text details request failed", { name, error: e.message });
+      return;
     }
   }
 
@@ -266,6 +269,7 @@ export function renderSets() {
 
     } catch (e) {
       logError("Word details request failed", { word, error: e.message });
+      return;
     }
   }
 
@@ -273,7 +277,7 @@ export function renderSets() {
     const wordText = item.dataset.word;
     const ok = await questionModal({
       icon: "/assets/icons/Flash.png",
-      text: `Do you want to delete "${wordText}"?`
+      text: `${t("sets", "delete_set_question1")} "${wordText}"?`
     });
     if (ok) {
       
@@ -286,7 +290,7 @@ export function renderSets() {
           word: wordText,
         });
         logInfo(`Delete Word ${wordText} success`, { result });
-        Notification.show({ type: "success", message: `Word "${wordText}" deleted successfully!` });
+        Notification.show({ type: "success", message: t("sets", "notification_word_delete") });
         item.remove();
 
         if (wordsList && !wordsList.querySelector(".word-item")) {
@@ -294,7 +298,7 @@ export function renderSets() {
           if (setItem) {
             setItem.remove();
             if (!container.querySelector(".set-item, .unassigned-block")) {
-              container.innerHTML = "<p>No sets yet</p>";
+              container.innerHTML = t("sets", "no_sets_yet");
             }
           }
         }
@@ -302,16 +306,17 @@ export function renderSets() {
         if (parentBlock && !parentBlock.querySelector(".word-item")) {
           parentBlock.remove();
           if (!container.querySelector(".set-item, .unassigned-block")) {
-            container.innerHTML = "<p>No sets yet</p>";
+            container.innerHTML = t("sets", "no_sets_yet");
           }
         }
       } catch (e) {
         logError(`Delete Word ${wordText} failed`, { error: e.message });
-        Notification.show({ type: "error", message: `Failed to delete "${wordText}"` });
+        return;
       }
-      console.log("Удаляем:", wordText);
+      console.log("Word deleted:", wordText);
     } else {
-      console.log("Отмена удаления слова.");
+      console.log("Delete word failed");
+      return;
     }
   }
 
@@ -319,7 +324,7 @@ export function renderSets() {
   async function deleteSetItem(set, setItem) {
     const ok = await questionModal({
       icon: "/assets/icons/Flash.png",
-      text: `Do you want to delete "${set.name}"?\nThis will delete your words in set.\nYou may remove words before deleting.`
+      text: `${t("sets", "delete_set_question1")} "${set.name}"?\n${t("sets", "delete_set_question2")}\n${t("sets", "delete_set_question3")}`
     });
 
     if (ok) {
@@ -336,7 +341,7 @@ export function renderSets() {
         logInfo(`Delete Set ${setText} success`, { result });
         Notification.show({
           type: "success",
-          message: `Set "${result.name}" deleted (${result.deleted_words_count} words)`,
+          message: `${t("sets", "notification_set_delete")} "${result.name}" - (${result.deleted_words_count} words)`,
         });
         setItem.remove();
         if (!container.querySelector(".set-item, .unassigned-block")) {
@@ -344,11 +349,12 @@ export function renderSets() {
         }
       } catch (e) {
         logError(`Delete Set ${setText} failed`, { error: e.message });
-        Notification.show({ type: "error", message: `Failed to delete "${setText}"` });
+        return;
       }
-      console.log("Удаляем:", set.name);
+      console.log("Delete set:", set.name);
     } else {
-      console.log("Отмена удаления сета.");
+      console.log("Set delete failed");
+      return;
     }
   }
 
@@ -361,7 +367,7 @@ export function renderSets() {
 
     const items = [
       ...sets.filter(s => s.id !== currentSetId).map(s => ({ label: s.name, value: s.id })),
-      ...(currentSetId !== null ? [{ label: "Beyong sets", value: null }] : []),
+      ...(currentSetId !== null ? [{ label: "Outside sets", value: null }] : []),
     ];
     console.log("Items: ", items);
     const target = await selectModal({ title: "Move to...", items });
@@ -389,17 +395,17 @@ export function renderSets() {
               // 1. Удаляем сет из DOM
               setItem.remove();
               logInfo(`Set ${setText} is empty. Delete Set ${setText} success`, { result });
-              Notification.show({type: "success", message: `Set "${emptySet.name}" deleted because it's empty (${emptySet.deleted_words_count} words)`,
+              Notification.show({type: "success", message: `${t("sets", "notification_empty_set_delete")} "${emptySet.name}" - (${emptySet.deleted_words_count} words)`,
               });
             }
           }
 
       } catch (e) {
         logError(`Move Word ${currentWord} failed`, { error: e.message });
-        Notification.show({ type: "error", message: `Failed to delete "${currentWord}"` });
+        return;
       }
       logInfo(`Move Word ${currentWord} from ${currentSetId} to ${target} success`);
-      Notification.show({ type: "success", message: `Word "${currentWord}" moved successfully!` });
+      Notification.show({ type: "success", message: `${t("sets", "notification_word_move")} "${currentWord}"` });
       // обновляем весь экран
       renderSets();
       
@@ -414,7 +420,7 @@ export function renderSets() {
   async function renameSetItem(set, setItem) {
     const newName = await renameModal({
       setName: set.name,
-      text: `Do you want to rename it?`
+      text: t("sets", "rename_set_question")
     });
 
     if (newName) {
@@ -432,15 +438,16 @@ export function renderSets() {
           type: "success",
           message: `Set "${setText}" renamed to ${result}`,
         });
-
+        Notification.show({ type: "success", message: `${t("sets", "notification_set_rename")} "${setText}"` });
       } catch (e) {
         logError(`Rename Set ${setText} failed`, { error: e.message });
-        Notification.show({ type: "error", message: `Failed to rename "${setText}"` });
+        return;
       }
       renderSets();
       console.log("Rename:", set.name);
     } else {
-      console.log("Отмена удаления сета.");
+      console.log("Rename set failed");
+      return;
     }
   }
 }
