@@ -1,18 +1,14 @@
 import asyncio
 import json
 import re
-import unicodedata
 from typing import List, Optional
 from fastapi import HTTPException
-from redis.asyncio import Redis
 from sqlalchemy import select, func
 
 from app.db.models.word import Word
 from app.db.models.set import Set
-from app.utils.audio_validation import is_valid_audio, is_valid_tts_output
-from app.utils.openai import _ask_text, _ask_voice
+from app.utils.openai import _ask_text
 from app.schemas.word import TranslationJSON, WordUpdateByIdRequest
-from app.utils.atomic_cache import AtomicCache
 from app.utils.word_unrepeat_cache import generate_any_word
 from app.utils.cache import _get_cached_json, get_full_cached, cache, TTL_PARTS, set_full_cache, TTL_FULL
 from app.utils.cache import delete_keys, collect_translation_keys
@@ -21,56 +17,7 @@ from app.db.models.set_word import SetWord
 from app.db.repositories.set_word_repository import SetWordRepository
 from app.schemas.word import WordDeleteRequest
 from app.schemas.word import WordMoveRequest
-
-
-
-
-# -----------------------------
-# Normalization helpers
-# -----------------------------
-def _normalize_word(word: str) -> str:
-    value = unicodedata.normalize("NFKC", word or "")
-    value = value.strip().lower()
-    value = re.sub(r"\s+", " ", value)
-    value = value.rstrip("!?.,;:")
-    return value
-
-
-def _normalize_lang(lang: str, default: str = "auto") -> str:
-    aliases = {
-        "eng": "en",
-        "english": "en",
-        "ru-ru": "ru",
-        "рус": "ru",
-    }
-    value = (lang or "").strip().lower()
-    if not value:
-        return default
-    return aliases.get(value, value)
-
-
-def to_list(value: Optional[str]) -> List[str]:
-    """
-    Нормализует вход (строка с запятыми, список или None) в List[str].
-    - None -> []
-    - list -> [stripped items]
-    - "a, b, c" -> ["a", "b", "c"]
-    - "a\nb" -> ["a", "b"]
-    """
-    if value is None:
-        return []
-    if isinstance(value, list):
-        return [str(x).strip() for x in value if str(x).strip()]
-    if isinstance(value, str):
-        # поддерживаем как запятые, так и переносы строк
-        if "\n" in value and "," not in value:
-            parts = [s.strip() for s in value.splitlines() if s.strip()]
-        else:
-            parts = [s.strip() for s in value.split(",") if s.strip()]
-        return parts
-    # на всякий случай
-    return [str(value).strip()]
-
+from app.utils.word_helpers import _normalize_word, _normalize_lang, to_list
 
 
 
@@ -100,7 +47,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
         return full_cached
 
     # ---------------------------------
-    # 2. PRODUCERS OF FIRS TRANSLATION
+    # 2. PRODUCERS OF FIRST TRANSLATION
     # ---------------------------------
     async def produce_correctness():
         prompt = (
