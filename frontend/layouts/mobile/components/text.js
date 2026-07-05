@@ -1,9 +1,10 @@
 import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js";
 import { translateWord } from "../../../api/translate.js";
 import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { textRequest } from "../../../api/text.js";
 import { voiceWord } from "../../../../api/audio.js"
-import { audio, doVoice, doPause } from "../../../../utils/voice.js";
+import { audio, doVoice, doPause } from "../../../shared/voice.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { t } from "../../../shared/i18n/index.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
@@ -19,6 +20,12 @@ export async function renderText(set, words) {
   }
 
   screen.innerHTML = `
+    <div class="word-back">
+        <button class="word-back-btn">
+          <img src="/assets/icons/Arrows.png" class="word-back-icon" alt="←">
+          <span>Back</span>
+        </button>
+    </div>
     <h3 class="ui-title">${set.name} set</h3>
 
     <div class="label">${t("text", "current_words")}</div>
@@ -50,6 +57,10 @@ export async function renderText(set, words) {
   const changeBtn = screen.querySelector(".change-btn");
   const voiceIcon = screen.querySelector(".voice-icon");
 
+  screen.querySelector(".word-back-btn").onclick = () => {
+    windowManager.pushScreen("sets");
+  };
+  
   // Рендерим слова
   const wordsArray = []
   words.forEach(w => {
@@ -86,8 +97,8 @@ export async function renderText(set, words) {
     e.stopPropagation();
     if (!isPlaying) {
       // PLAY
-      const voiceResult = await voiceWord(text.innerText, state.sourceLang, "text");
-      state.setVoice(voiceResult?.audio_data || null);
+      // const voiceResult = await voiceWord(text.innerText, state.sourceLang, "text");
+      // state.setVoice(voiceResult?.audio_data || null);
 
       voiceIcon.src = "/assets/icons/pause.png";
       doVoice();
@@ -111,10 +122,13 @@ export async function renderText(set, words) {
   changeBtn.addEventListener("click", async (e) => {
     e.stopPropagation();
     await loadText();
+    const voiceResult = await voiceWord(text.innerText, state.sourceLang, "text");
+    state.setVoice(voiceResult?.audio_data || null);
     logInfo(`Get Another Text for Set: ${set.name} success`);
     Notification.show({ type: "success", message: t("text", "notification_update_text") });
   });
 
+  // первичный запрос текста по кнопке текст сета
   async function loadText() {
     try {
       const textResult = await textRequest({ 

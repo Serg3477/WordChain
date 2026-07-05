@@ -1,3 +1,5 @@
+
+
 export const translations = {
   en: {
     translator: {
@@ -174,6 +176,9 @@ export const translations = {
         sets_completed: "Sets completed",
         current_streak: "Current streak"
     },
+    selectModal: {
+        nowhere_to_move: "No available sets"
+    },
   },
 
 
@@ -185,7 +190,7 @@ export const translations = {
       correct_label_true: "Переклад слова:",
       correct_label_false: "Правильне написання слова: ",
       save_btn: "Зберегти",
-      any_word_btn: "Будь-яке слово",
+      any_word_btn: "Випадкове",
       voice_btn: "Голос",
       notification_save: "Успішно збережено!",
       part_of_speech: "Частина мови",
@@ -360,7 +365,10 @@ export const translations = {
       words_learned: "Вивчено слів",
       sets_completed: "Завершено сетів",
       current_streak: "Поточна серія",
-    }
+    },
+    selectModal: {
+        nowhere_to_move: "Немає доступних сетів"
+    },
   },
 
 
@@ -549,19 +557,22 @@ export const translations = {
       sets_completed: "Завершено сетов",
       current_streak: "Текущая серия",
     },
+    selectModal: {
+        nowhere_to_move: "Нет доступных сетов"
+    },
   },
 
 
   de: {
     translator: {
       input_placeholder: "Wort eingeben...",
-      translate_btn: "Übersetzen",
+      translate_btn: "Übers.",
       notification_translate: "Übersetzung erfolgreich!",
       correct_label_true: "Übersetzung von:",
       correct_label_false: "Die richtige Schreibweise dieses Wortes ist:",
-      save_btn: "Speichern",
-      any_word_btn: "Zufälliges Wort",
-      voice_btn: "Aussprache",
+      save_btn: "Speich.",
+      any_word_btn: "Zufällig",
+      voice_btn: "Ausspr.",
       notification_save: "Wort gespeichert!",
       part_of_speech: "Wortart:",
       transcription: "Transkription:",
@@ -737,18 +748,22 @@ export const translations = {
       sets_completed: "Abgeschlossene Sets",
       current_streak: "Aktuelle Serie",
     },
+
+    selectModal: {
+        nowhere_to_move: "Keine verfügbaren Sets"
+    },
   },
 
   fr: {
     translator: {
       input_placeholder: "Entrez un mot...",
-      translate_btn: "Traduire",
+      translate_btn: "Trad.",
       notification_translate: "Traduction réussie !",
       correct_label_true: "Traduction de : ",
       correct_label_false: "L’orthographe correcte de ce mot est : ",
-      save_btn: "Enregistrer",
-      any_word_btn: "Mot aléatoire",
-      voice_btn: "Prononciation",
+      save_btn: "Enreg.",
+      any_word_btn: "Aléat.",
+      voice_btn: "Prononc.",
       notification_save: "Mot enregistré !",
       part_of_speech: "Partie du discours :",
       transcription: "Transcription :",
@@ -923,19 +938,23 @@ export const translations = {
         sets_completed: "Sets terminés",
         current_streak: "Série actuelle",
     },
+
+    selectModal: {
+        nowhere_to_move: "Aucun set disponible"
+    },
   },
 
 
   es: {
     translator: {
       input_placeholder: "Ingresa una palabra...",
-      translate_btn: "Traducir",
+      translate_btn: "Trad.",
       notification_translate: "¡Traducción exitosa!",
       correct_label_true: "Traducción de: ",
       correct_label_false: "La ortografía correcta de esta palabra es: ",
-      save_btn: "Guardar",
-      any_word_btn: "Palabra aleatoria",
-      voice_btn: "Pronunciación",
+      save_btn: "Guard.",
+      any_word_btn: "Aleat.",
+      voice_btn: "Pronunc.",
       notification_save: "¡Palabra guardada!",
       part_of_speech: "Parte del discurso:",
       transcription: "Transcripción:",
@@ -1109,18 +1128,22 @@ export const translations = {
         sets_completed: "Sets completados",
         current_streak: "Racha actual",
     },
+
+    selectModal: {
+        nowhere_to_move: "No hay sets disponibles"
+    },
   },
 
   it: {
     translator: {
       input_placeholder: "Inserisci una parola...",
-      translate_btn: "Traduci",
+      translate_btn: "Trad.",
       notification_translate: "Traduzione riuscita!",
       correct_label_true: "Traduzione di: ",
       correct_label_false: "La grafia corretta di questa parola è: ",
       save_btn: "Salva",
-      any_word_btn: "Parola casuale",
-      voice_btn: "Pronuncia",
+      any_word_btn: "Casuale",
+      voice_btn: "Pronunc.",
       notification_save: "Parola salvata!",
       part_of_speech: "Parte del discorso:",
       transcription: "Trascrizione:",
@@ -1295,17 +1318,21 @@ export const translations = {
         sets_completed: "Set completati",
         current_streak: "Serie attuale",
     },
+
+    selectModal: {
+        nowhere_to_move: "Nessun set disponibile"
+    },
   },
 
   pl: {
     translator: {
       input_placeholder: "Wpisz słowo...",
-      translate_btn: "Tłumacz",
+      translate_btn: "Tłum.",
       notification_translate: "Tłumaczenie zakończone pomyślnie!",
       correct_label_true: "Tłumaczenie słowa: ",
       correct_label_false: "Poprawna pisownia tego słowa to: ",
       save_btn: "Zapisz",
-      any_word_btn: "Losowe słowo",
+      any_word_btn: "Losowe",
       voice_btn: "Wymowa",
       notification_save: "Słowo zapisane!",
       part_of_speech: "Część mowy:",
@@ -1478,6 +1505,10 @@ export const translations = {
         words_learned: "Nauczone słowa",
         sets_completed: "Ukończone sety",
         current_streak: "Aktualna seria",
+    },
+
+    selectModal: {
+        nowhere_to_move: "Brak dostępnych zestawów"
     },
   },
 };

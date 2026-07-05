@@ -1,6 +1,7 @@
 // ===============================
 // Универсальное окно выбора.
 // ===============================
+import { t } from "../../shared/i18n/index.js"
 
 
 export function selectModal({ title = "Select...", items = [] }) {
@@ -15,10 +16,11 @@ export function selectModal({ title = "Select...", items = [] }) {
       .map((item, i) => `<button class="sm-option" data-index="${i}">${item.label}</button>`)
       .join("");
 
+    const emptySets = t("selectModal", "nowhere_to_move");
     modalEl.innerHTML = `
       <div class="sm-window">
         <div class="sm-title">${title}</div>
-        <div class="sm-options">${optionsHtml || '<div class="sm-empty">Nowhere to move</div>'}</div>
+        <div class="sm-options">${optionsHtml || '<div class="sm-empty">${emptyText}</div>'}</div>
       </div>
     `;
 
@@ -52,7 +54,7 @@ export function selectModal({ title = "Select...", items = [] }) {
     modalEl.addEventListener("click", (e) => {
       if (e.target === modalEl) {
         closeModal();
-        resolve(null);
+        resolve(undefined);
       }
     });
   });

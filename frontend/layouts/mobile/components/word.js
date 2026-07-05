@@ -1,8 +1,9 @@
+import { windowManager } from "../../../core/windowManager.js";
 import { wordRequest } from "../../../api/word.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { createScrollButtonsArea } from "../../../ui/scrollButtonsArea/scrollButtonsArea.js";
 
-import { escapeHtml, getLanguageLabel } from "./word/utils.js";
+import { escapeHtml, getLanguageLabel } from "../../../shared/wordHelpers.js";
 import { createSaveBtn } from "./word/saveBtn.js";
 import { createBetterTransBtn, resultBetterTrans } from "./word/betterTransBtn.js";
 import { createSynonymsBtn, renderSynonyms } from "./word/synonymsBtn.js";
@@ -63,6 +64,12 @@ export async function renderWord(appState, id, word) {
 
   screen.innerHTML = `
     <div class="word-screen">
+        <div class="word-back">
+          <button class="word-back-btn">
+            <img src="/assets/icons/Arrows.png" class="word-back-icon" alt="←">
+            <span>Back</span>
+          </button>
+        </div>
         <div class="result-item">
           <div class="result-label">${t("word", "translation_of_label")}</div>
           <div class="result-value result-value-strong">${escapeHtml(result.word ?? word ?? "")}</div>
@@ -106,6 +113,10 @@ export async function renderWord(appState, id, word) {
   const area = createScrollButtonsArea({ id: "global-scroll-buttons-area" });
   area.mount();
   area.trackEl.innerHTML = "";
+
+  screen.querySelector(".word-back-btn").onclick = () => {
+    windowManager.pushScreen("sets");
+  };
 
   area.addButton(createSaveBtn(appState));
   area.addButton(createBetterTransBtn(appState, id));

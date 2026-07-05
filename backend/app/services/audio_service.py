@@ -1,8 +1,7 @@
 from app.logger.logger import backend_logger
 from app.utils.audio_validation import is_valid_audio, is_valid_tts_output
 from app.utils.openai import _ask_voice
-from app.utils.cache import cache
-from app.utils.cache import delete_keys
+from app.utils.cache import cache, delete_keys, k
 
 
 async def get_voice_for_word(req):
@@ -10,7 +9,7 @@ async def get_voice_for_word(req):
     lang = req.source_lang
     voice_type = req.voice_type
     context = req.context
-    key = f"tts:{lang}:{voice_type}:{word}"
+    key = k("tts", lang, voice_type, word)
 
     main_prompt = f"""
 Read ONLY the word below.
@@ -49,16 +48,26 @@ Return ONLY the audio.
         try:
             audio_base64 = await generate_audio(main_prompt)
             return {"audio_data": audio_base64}
-        except Exception:
-            backend_logger.warning("Main TTS prompt failed for '%s', trying fallback", word)
+        except Exception as e:
+            backend_logger.warning("Main TTS prompt failed for '%s': %s", word, e)
 
         # --- Fallback промпт ---
-        audio_base64 = await generate_audio(fallback_prompt)
-        return {"audio_data": audio_base64}
+        try:
+            audio_base64 = await generate_audio(fallback_prompt)
+            return {"audio_data": audio_base64}
+        except Exception as e:
+            backend_logger.error("Fallback TTS failed for '%s': %s", word, e)
+
+            # ВАЖНО: producer ДОЛЖЕН вернуть значение
+            return {"audio_data": None}
 
     # --- Попытка взять из кэша ---
     try:
         result = await cache.get_or_set(key, producer)
+
+        if not result["audio_data"]:
+            backend_logger.error("TTS returned empty audio for '%s'", word)
+            return {"audio_data": None}
 
         # Проверяем, что кэш валиден семантически
         if not is_valid_tts_output(result["audio_data"], word, context):

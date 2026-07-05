@@ -26,16 +26,13 @@ export function questionModal({ icon, text }) {
     function closeModal() {
       if (!modalEl) return;
 
-      const el = modalEl;   // фиксируем ссылку
-      modalEl = null;       // сбрасываем глобальную переменную
+      const el = modalEl;
+      modalEl = null;
 
       el.classList.add("hide");
 
-      // гарантированное удаление
       setTimeout(() => {
-        if (el && el.parentNode) {
-          el.remove();
-        }
+        el.remove();
       }, 200);
     }
 

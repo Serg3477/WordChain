@@ -1,7 +1,7 @@
 import { wordRequest } from "../../../../api/word.js";
 import { BaseButton } from "../../../../ui/baseButton/baseButton.js";
 import { logError } from "../../../../utils/logger/logger.js";
-import { normalizeList } from "./utils.js";
+import { normalizeList } from "../../../../shared/wordHelpers.js";
 import { t } from "../../../../shared/i18n/index.js"
 
 export function renderSynonyms(result) {

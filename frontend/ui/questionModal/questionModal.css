@@ -59,6 +59,7 @@
 
 .qm-overlay.hide {
   opacity: 0;
+  pointer-events: none;
   transition: opacity .15s ease;
 }
 

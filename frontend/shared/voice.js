@@ -1,5 +1,5 @@
-import { state } from "../../../core/state.js";
-import { logInfo, logError } from "./logger/logger.js";
+import { state } from "../core/state.js";
+import { logInfo, logError } from "../utils/logger/logger.js";
 
 
 export let audio = null;
