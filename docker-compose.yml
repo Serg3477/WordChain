@@ -1,54 +1,24 @@
-# services:
-#   db:
-#     image: postgres:16-alpine
-#     container_name: wordchain-db
-#     environment:
-#       POSTGRES_DB: wordchain
-#       POSTGRES_USER: postgres
-#       POSTGRES_PASSWORD: 1234
-#     volumes:
-#       - pgdata:/var/lib/postgresql/data
-#     ports:
-#       - "5440:5432"
-
-#   backend:
-#     build:
-#       context: ./backend
-#     container_name: wordchain-backend
-#     depends_on:
-#       - db
-#     env_file:
-#       - ./backend/.env
-    
-
-#   frontend:
-#     build:
-#       context: ./frontend
-#     container_name: wordchain-frontend
-#     depends_on:
-#       - backend
-#     ports:
-#       - "8000:80"
-
-# volumes:
-#   pgdata:
-
-
 services:
   db:
     image: postgres:16-alpine
     container_name: wordchain-db
+
     environment:
-      POSTGRES_DB: wordchain
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      ENGINE_DB_NAME: ${ENGINE_DB_NAME}
+
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
       timeout: 5s
       retries: 5
+
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/01-create-engine.sh:/docker-entrypoint-initdb.d/01-create-engine.sh:ro
+
     ports:
       - 5440:5432
 
@@ -61,21 +31,29 @@ services:
     build:
       context: ./backend
     container_name: wordchain-backend
+
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_started
+
     env_file:
-        ./backend/.env
+        - ./.env
+
+    ports:
+      - "8001:8000"
 
 
   frontend:
     build:
       context: ./frontend
+
     container_name: wordchain-frontend
+
     depends_on:
       - backend
+
     ports:
       - 8000:80
 

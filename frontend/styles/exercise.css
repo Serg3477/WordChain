@@ -1,0 +1,82 @@
+/* ===============================
+   Screen exercise
+   ===============================
+*/  
+
+
+.exercise-screen {
+  margin: 0px 10px 20px 20px;
+  margin-right: 30px;
+ 
+  padding-bottom: 110px; /* чтобы текст не уходил под панель */
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.exercise-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 14px;
+  min-width: 140px;
+}
+
+.exercise-title {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+  user-select: none; 
+}
+
+.exercise-result-box {
+  margin: 10px 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.exercise-result-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.exercise-result-text {
+  font-size: 16px;
+  color: var(--text-primary);
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.exercise-level {
+  font-size: 16px;
+  padding-left: 0px;
+}
+
+.exercise-btn {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+

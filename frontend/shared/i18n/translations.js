@@ -117,6 +117,7 @@ export const translations = {
     appMenu: {
         translation_label: "Translation",
         sets_label: "Sets",
+        exercise_label: "Exercises",
         exams_label: "Exams",
         settings_label: "Settings"
     },
@@ -304,6 +305,7 @@ export const translations = {
     appMenu: {
       translation_label: "Переклад",
       sets_label: "Сети",
+      exercise_label: "Вправи",
       exams_label: "Тести",
       settings_label: "Налаштування"
     },
@@ -495,6 +497,7 @@ export const translations = {
     appMenu: {
       translation_label: "Перевод",
       sets_label: "Сеты",
+      exercise_label: "Упражнения",
       exams_label: "Тесты",
       settings_label: "Настройки"
     },
@@ -686,6 +689,7 @@ export const translations = {
     appMenu: {
       translation_label: "Übersetzung",
       sets_label: "Sets",
+      exercise_label: "Übungen",
       exams_label: "Tests",
       settings_label: "Einstellungen"
     },
@@ -876,6 +880,7 @@ export const translations = {
     appMenu: {
         translation_label: "Traduction",
         sets_label: "Ensembles",
+        exercise_label: "Exercices",
         exams_label: "Tests",
         settings_label: "Paramètres"
     },
@@ -1066,6 +1071,7 @@ export const translations = {
     appMenu: {
         translation_label: "Traducción",
         sets_label: "Conjuntos",
+        exercise_label: "Ejercicios",
         exams_label: "Exámenes",
         settings_label: "Configuración"
     },
@@ -1256,6 +1262,7 @@ export const translations = {
     appMenu: {
         translation_label: "Traduzione",
         sets_label: "Set",
+        exercise_label: "Esercizi",
         exams_label: "Test",
         settings_label: "Impostazioni"
     },
@@ -1446,6 +1453,7 @@ export const translations = {
     appMenu: {
         translation_label: "Tłumaczenie",
         sets_label: "Zestawy",
+        exercise_label: "Ćwiczenia",
         exams_label: "Testy",
         settings_label: "Ustawienia"
     },

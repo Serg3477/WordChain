@@ -1,12 +1,14 @@
+from contextlib import asynccontextmanager
+from collections.abc import AsyncIterator
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from app.db.init_db import init_models
+from app.db.init_db import init_models, dispose_engines
 from app.logger.logger import backend_logger
 from app.logger.logging_intercept import setup_sqlalchemy_logging
 
 # Роутеры
 from app.routers.auth import auth_router as auth_router
-from app.routers.get_voice import get_voice_router
 from app.routers.save_word import save_router
 from app.routers.translation import translation_router as translation_router
 from app.routers.registration import registration_router
@@ -25,12 +27,22 @@ from app.routers.rename_set import rename_set_router
 from app.routers.get_text import get_text_router
 from app.routers.get_voice import get_voice_router
 from app.routers.settings import new_settings_router, get_settings_router, update_settings_router
+from app.routers.engine.engine import engine_router
 
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    await init_models()
+
+    yield
+
+    await dispose_engines()
 
 app = FastAPI(
     title="WordChain",
     description="Async backend for translation and vocabulary learning",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 @app.get("/")
@@ -39,9 +51,6 @@ async def root():
     return {"status": "ok", "message": "WordChain backend is running"}
 
 
-@app.on_event("startup")
-async def on_startup():
-    await init_models()
 
 # -----------------------------
 # CORS (для фронтенда)
@@ -82,6 +91,7 @@ app.include_router(get_voice_router)
 app.include_router(new_settings_router)
 app.include_router(get_settings_router)
 app.include_router(update_settings_router)
+app.include_router(engine_router)
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")

@@ -4,6 +4,7 @@
 import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js";
 import { renderSets } from "./sets.js";
+import { renderExercise } from "./exercise.js"
 import { renderSettings } from "./settings.js";
 import { t } from "../../../shared/i18n/index.js";
 
@@ -48,6 +49,11 @@ export class CurriculumMenu {
         ${t("appMenu", "sets_label")}
       </div>
 
+      <div class="menu-item" data-action="exercise">
+        <span><img class="icon" src="/assets/icons/Fire.png"></span>
+        ${t("appMenu", "exercise_label")}
+      </div>
+
       <div class="menu-item" data-action="exams">
         <span><img class="icon" src="/assets/icons/Shield.png"></span>
         ${t("appMenu", "exams_label")}
@@ -89,6 +95,11 @@ export class CurriculumMenu {
       if (action === "sets") {
         windowManager.pushScreen("sets");
         renderSets();
+      }
+
+      if (action === "exercise") {
+        windowManager.pushScreen("exercise");
+        renderExercise();
       }
 
       if (action === "exams") {

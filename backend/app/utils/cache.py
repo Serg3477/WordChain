@@ -3,12 +3,14 @@ from typing import Iterable, List
 from redis.asyncio import Redis
 from app.utils.atomic_cache import AtomicCache
 from app.logger.logger import backend_logger
+from app.db import settings
 
 TTL_FULL = 60 * 60 * 24 * 30
 TTL_PARTS = 60 * 60 * 24 * 30
 
-# redis = Redis.from_url("redis://localhost:6379", decode_responses=True)      # Dev-mode
-redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
+
+redis = Redis.from_url(f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}", decode_responses=True)      # Dev-mode
+# redis = Redis.from_url("redis://redis:6379", decode_responses=True)        # Docker-mode
 
 cache = AtomicCache(redis, default_ttl=TTL_PARTS)
 
