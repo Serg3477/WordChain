@@ -22,7 +22,6 @@ export function renderMobile(state) {
       <div data-screen="word" style="display:none"></div>
       <div data-screen="text" style="display:none"></div>
       <div data-screen="settings" style="display:none"></div>
-      <div data-screen="exercise" style="display:none"></div>
     </div>
   `;
 

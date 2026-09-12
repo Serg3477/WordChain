@@ -12,8 +12,6 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
-    ENGINE_DB_NAME: str
-
     REDIS_HOST: str
     REDIS_PORT: int
 
@@ -31,14 +29,6 @@ class Settings(BaseSettings):
             f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         )
 
-    @property
-    def engine_database_url(self) -> str:
-        password = quote_plus(self.DB_PASSWORD)
-
-        return (
-            f"postgresql+asyncpg://{self.DB_USER}:{password}"
-            f"@{self.DB_HOST}:{self.DB_PORT}/{self.ENGINE_DB_NAME}"
-        )
 
     @property
     def redis_url(self) -> str:

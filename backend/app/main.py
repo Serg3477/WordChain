@@ -27,7 +27,7 @@ from app.routers.rename_set import rename_set_router
 from app.routers.get_text import get_text_router
 from app.routers.get_voice import get_voice_router
 from app.routers.settings import new_settings_router, get_settings_router, update_settings_router
-from app.routers.engine.engine import engine_router
+
 
 
 @asynccontextmanager
@@ -91,7 +91,7 @@ app.include_router(get_voice_router)
 app.include_router(new_settings_router)
 app.include_router(get_settings_router)
 app.include_router(update_settings_router)
-app.include_router(engine_router)
+
 
 # Логирование операций SQLAlchemy
 @app.middleware("http")

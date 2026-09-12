@@ -21,3 +21,5 @@ frontend/node_modules/
 
 # OS
 .DS_Store
+
+**/.idea/workspace.xml
