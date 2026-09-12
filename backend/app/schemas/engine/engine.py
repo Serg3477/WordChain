@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 # -----------------------------
@@ -11,4 +13,4 @@ class EngineRequest(BaseModel):
 
 
 class EngineResponse(BaseModel):
-    result: str
+    result: Any

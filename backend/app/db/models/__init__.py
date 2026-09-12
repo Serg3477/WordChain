@@ -6,6 +6,7 @@ from app.db.models.user import User
 from app.db.models.word import Word
 from app.db.models.settings import Settings
 from app.db.models.set import Set
+from app.db.models.set_word import SetWord
 
 __all__ = [
     "Base",
@@ -13,6 +14,7 @@ __all__ = [
     "Word",
     "Settings",
     "Set",
+    "SetWord",
     "settings",
     "engine",
     "async_session",

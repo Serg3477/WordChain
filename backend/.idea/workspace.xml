@@ -8,13 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c498de-5fef-4503-bfce-4315fe60258d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/appMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/shared/i18n/translations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/shared/i18n/translations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/styles/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/engine/simple_candidate_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas/engine/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/engine/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/engine/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/engine/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/all.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/all.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/backend.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/backend.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/layouts/mobile/components/exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/layouts/mobile/components/exercise.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +50,14 @@
     <persistenceIdMap>
       <entry key="_/home/serg/PycharmProjects/WordChain/backend" value="37Ep0daQJ2oEvQUCLyq88ChUXVf" />
     </persistenceIdMap>
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="ae1f7fc7-0a36-461b-8c49-3a806db446fc" value="" />
+    </colors>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="129" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,61 +94,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000030049747" />
-      <entry key="MS500" value="1.019750048413325" />
-      <entry key="S2" value="1.3749184827806036" />
-      <entry key="S5" value="1.6925935802204228" />
-      <entry key="S10" value="1.957480743476417" />
-      <entry key="S30" value="2.610818173505294" />
-      <entry key="S60" value="3.0881801738429404" />
-      <entry key="M2" value="3.466472519417658" />
-      <entry key="M5" value="3.7637151612795474" />
-      <entry key="M10" value="3.88938167413095" />
-      <entry key="M15" value="4.03379646154772" />
-      <entry key="M30" value="5.241411210267333" />
-      <entry key="H1" value="8.6555624353434" />
-      <entry key="H2" value="14.378144451777144" />
-      <entry key="H4" value="32.332566095911034" />
-      <entry key="D1" value="259.076482859315" />
-      <entry key="W1" value="440.1399123981373" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0000000003085747" />
+      <entry key="M10" value="1.000031266003134" />
+      <entry key="M15" value="1.0017210545379334" />
+      <entry key="M30" value="1.121320174778775" />
+      <entry key="H1" value="2.3859785412373977" />
+      <entry key="H2" value="6.992997459495726" />
+      <entry key="H4" value="21.608556001281237" />
+      <entry key="D1" value="240.13392713456932" />
+      <entry key="W1" value="439.1230259771341" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="6.815515739501166E-72" />
-      <entry key="MS500" value="5.843859218490372E-15" />
-      <entry key="S2" value="2.7648714006094414E-4" />
-      <entry key="S5" value="0.037728537835475015" />
-      <entry key="S10" value="0.19423835315270518" />
-      <entry key="S30" value="0.5791330221286906" />
-      <entry key="S60" value="0.7610078988609057" />
-      <entry key="M2" value="0.8723576672415071" />
-      <entry key="M5" value="0.947021459808567" />
-      <entry key="M10" value="0.9875951679396894" />
-      <entry key="M15" value="1.0522937791210532" />
-      <entry key="M30" value="1.421911255767521" />
-      <entry key="H1" value="2.319923978561033" />
-      <entry key="H2" value="3.725948332356224" />
-      <entry key="H4" value="6.352321550286141" />
-      <entry key="D1" value="29.742274740663905" />
-      <entry key="W1" value="46.995643662474095" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="3.1602594040624344E-175" />
+      <entry key="S10" value="8.627749500526127E-88" />
+      <entry key="S30" value="2.2328460634417734E-29" />
+      <entry key="S60" value="9.370778753290677E-15" />
+      <entry key="M2" value="1.9675573519347332E-7" />
+      <entry key="M5" value="0.0055477072653657" />
+      <entry key="M10" value="0.1870069656602904" />
+      <entry key="M15" value="0.6183684725177903" />
+      <entry key="M30" value="2.1245535242589964" />
+      <entry key="H1" value="4.331881054470375" />
+      <entry key="H2" value="7.1140543759758925" />
+      <entry key="H4" value="10.832866066973788" />
+      <entry key="D1" value="35.703662135317686" />
+      <entry key="W1" value="55.310565752066275" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8467453149069754" />
-      <entry key="MS500" value="0.9863800839528706" />
-      <entry key="S2" value="1.3635870000951915" />
-      <entry key="S5" value="1.7066169807966352" />
-      <entry key="S10" value="2.0925868583412477" />
-      <entry key="S30" value="3.1114671594349868" />
-      <entry key="S60" value="3.786850574875412" />
-      <entry key="M2" value="4.298305933210914" />
-      <entry key="M5" value="4.691547705820712" />
-      <entry key="M10" value="4.866710137148191" />
-      <entry key="M15" value="5.078789321254105" />
-      <entry key="M30" value="6.658130760147962" />
-      <entry key="H1" value="10.970395148299021" />
-      <entry key="H2" value="18.099045165717367" />
-      <entry key="H4" value="38.67947756769677" />
-      <entry key="D1" value="288.813571006102" />
-      <entry key="W1" value="487.1343643175403" />
+      <entry key="MS100" value="0.8645372313078652" />
+      <entry key="MS500" value="0.9713074955416333" />
+      <entry key="S2" value="0.992748375440308" />
+      <entry key="S5" value="0.9970930153280337" />
+      <entry key="S10" value="0.9985454498058832" />
+      <entry key="S30" value="0.9995149146655609" />
+      <entry key="S60" value="0.9997574279121806" />
+      <entry key="M2" value="0.9998789007925645" />
+      <entry key="M5" value="1.0054688685262703" />
+      <entry key="M10" value="1.1864816522195434" />
+      <entry key="M15" value="1.6188749312000583" />
+      <entry key="M30" value="3.2436332652860806" />
+      <entry key="H1" value="6.714957895257773" />
+      <entry key="H2" value="14.103516778774583" />
+      <entry key="H4" value="32.437103837424004" />
+      <entry key="D1" value="275.8326048616224" />
+      <entry key="W1" value="494.432375764895" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -147,6 +162,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.engine.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -157,13 +173,16 @@
     &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/serg/PycharmProjects/WordChain/backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/serg/Project/WordChain/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -180,11 +199,78 @@
       <recent name="$PROJECT_DIR$/app/db/models" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68" />
-        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PY-262.10315.174" />
+        <option value="bundled-python-sdk-eff1e8def5f5-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10315.174" />
       </set>
     </attachedChunks>
   </component>
@@ -340,6 +426,17 @@
       <workItem from="1784616578700" duration="14588000" />
       <workItem from="1784728331308" duration="8026000" />
       <workItem from="1784789701481" duration="14617000" />
+      <workItem from="1785229557757" duration="2882000" />
+      <workItem from="1785233093237" duration="14894000" />
+      <workItem from="1785309243638" duration="12779000" />
+      <workItem from="1787548165223" duration="751000" />
+      <workItem from="1787550213784" duration="2735000" />
+      <workItem from="1787637935508" duration="638000" />
+      <workItem from="1788250141948" duration="26000" />
+      <workItem from="1788270225790" duration="4601000" />
+      <workItem from="1788425596997" duration="256000" />
+      <workItem from="1789197004848" duration="5936000" />
+      <workItem from="1789218128251" duration="1532000" />
     </task>
     <servers />
   </component>

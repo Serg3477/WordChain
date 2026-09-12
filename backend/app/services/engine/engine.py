@@ -1,3 +1,5 @@
+from typing import Any
+
 from fastapi import HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -12,7 +14,11 @@ from app.db.models.engine.expression_strategy_templates_map import (
     ExpressionStrategyTemplatesMap,
 )
 from app.schemas.engine.engine import EngineRequest
-from app.services.engine.candidate_selector import get_candidate_pools
+from app.services.engine.simple_candidate_builder import (
+    CandidateSelectionError,
+    build_sentence,
+)
+
 
 
 LEVEL_RANK = {
@@ -28,7 +34,7 @@ LEVEL_RANK = {
 async def get_engine(
     session: AsyncSession,
     req: EngineRequest,
-) -> str:
+) -> dict[str, Any]:
     language = req.language.strip().lower()
     level = req.level.strip().upper()
     intent_code = req.intent.strip().upper()
@@ -61,12 +67,6 @@ async def get_engine(
     )
 
     intent = await session.scalar(intent_statement)
-
-    if intent is None:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Intent system code '{intent_code}' was not found",
-        )
 
     if intent is None:
         raise HTTPException(
@@ -209,95 +209,48 @@ async def get_engine(
     )
 
     # =========================================================
-    # 6. Временный текстовый результат
+    # 6–7. Выбор собираемого Template и сборка предложения
+    #
+    # Отсутствующие кандидаты у одного шаблона не должны останавливать
+    # движок: пробуем следующий Template из уже отфильтрованного списка.
     # =========================================================
 
-    strategies_text = ", ".join(
-        (
-            f"{strategy.id}: "
-            f"{strategy.code.get(language) or strategy.code.get('en')} "
-            f"({strategy.code.get('system')})"
-        )
-        for strategy in strategies
-    )
+    built_sentence = None
+    template_failures = []
 
-    templates_text = " | ".join(
-        (
-            f"code={template.code.get(language)},\n "
-            f"resolve_order={(
-                template.resolve_order.get(language)
-                if template.resolve_order
-                else None
-            )}\n"
-        )
-        for template in templates
-    )
+    for template in templates:
+        try:
+            built_sentence = await build_sentence(
+                session=session,
+                template=template,
+                language=language,
+                level=level,
+                tense=tense,
+            )
+            break
+        except CandidateSelectionError as exc:
+            template_failures.append(
+                {
+                    "template_id": template.id,
+                    "code": exc.code,
+                    "message": str(exc),
+                    **exc.details,
+                }
+            )
 
-    intent_title = (
-        intent.code.get(language)
-        or intent.code.get("en")
-        or intent_code
-    )
-
-    # =========================================================
-    # 5. Выбор одного Template
-    # =========================================================
-
-    selected_template = templates[0]
-
-    render_pattern = selected_template.code[language].strip()
-
-    resolve_pattern = render_pattern
-
-    if selected_template.resolve_order:
-        language_resolve_order = (
-            selected_template.resolve_order.get(language)
+    if built_sentence is None:
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "code": "RESOLUTION_FAILED",
+                "message": "No template could be assembled",
+                "language": language,
+                "level": level,
+                "tense": tense,
+                "template_failures": template_failures,
+            },
         )
 
-        if (
-            isinstance(language_resolve_order, str)
-            and language_resolve_order.strip()
-        ):
-            resolve_pattern = language_resolve_order.strip()
-
-    render_order = render_pattern.split()
-    resolve_order = resolve_pattern.split()
-
-
-    render_order_text = ", ".join(render_order)
-    resolve_order_text = ", ".join(resolve_order)
-
-    # =========================================================
-    # 6. Загрузка пулов ChunkCandidate
-    # =========================================================
-
-    candidate_pools = await get_candidate_pools(
-        session=session,
-        block_codes=resolve_order,
-        language=language,
-        level=level,
-    )
-
-    candidate_counts = {
-        block_code: len(candidates)
-        for block_code, candidates in candidate_pools.items()
-    }
-
-    missing_block_codes = [
-        block_code
-        for block_code, candidates in candidate_pools.items()
-        if not candidates
-    ]
-    candidate_counts_text = "\n".join(
-        f"  {block_code}: {count}"
-        for block_code, count in candidate_counts.items()
-    )
-
-    missing_blocks_text = (
-        ", ".join(missing_block_codes)
-        if missing_block_codes
-        else "none"
-    )
     print(
         "ENGINE DIAGNOSTICS:",
         {
@@ -307,41 +260,37 @@ async def get_engine(
             "intent_id": intent.id,
             "tense": tense,
             "strategy_ids": strategy_ids,
-            "templates_before_language": len(
-                templates_before_language
-            ),
+            "templates_before_language": len(templates_before_language),
             "templates_after_language": len(templates),
-            "template_ids": [
-                template.id
-                for template in templates
+            "selected_template_id": built_sentence.template_id,
+            "skipped_templates": template_failures,
+            "selected_blocks": [
+                {
+                    "position": block.position,
+                    "block_code": block.block_code,
+                    "candidate_id": block.candidate_id,
+                    "text": block.text,
+                }
+                for block in built_sentence.selected_blocks
             ],
-            "selected_template_id": selected_template.id,
-            "render_pattern": render_pattern,
-            "resolve_pattern": resolve_pattern,
-            "render_order": render_order,
-            "resolve_order": resolve_order,
-
-            "candidate_counts": candidate_counts,
-            "missing_block_codes": missing_block_codes,
-
         },
     )
 
-    return (
-        f"Intent:\n"
-        f"  id={intent.id}\n"
-        f"  code={intent_code}\n"
-        f"  title={intent_title}\n"
-        f"Level: {level}\n"
-        f"Strategies:\n{strategies_text}\n"
-        f"Selected template:\n"
-        f"  id={selected_template.id}\n"
-        f"  render_pattern={render_pattern}\n"
-        f"  resolve_pattern={resolve_pattern}\n"
-        f"  render_order=[{render_order_text}]\n"
-        f"  resolve_order=[{resolve_order_text}]\n"
-        f"\nCandidate pools:\n"
-        f"{candidate_counts_text}\n"
-        f"Missing blocks: {missing_blocks_text}"
-    )
-
+    return {
+        "sentence": built_sentence.sentence,
+        "template": {
+            "id": built_sentence.template_id,
+            "key": built_sentence.template_key,
+            "render_order": built_sentence.render_order,
+            "resolve_order": built_sentence.resolve_order,
+        },
+        "blocks": [
+            {
+                "position": block.position,
+                "block_code": block.block_code,
+                "candidate_id": block.candidate_id,
+                "text": block.text,
+            }
+            for block in built_sentence.selected_blocks
+        ],
+    }
