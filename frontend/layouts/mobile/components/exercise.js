@@ -120,7 +120,8 @@ export async function renderExercise() {
         message: "Engine response received"
       });
 
-      result.textContent = escapeHtml(res.result);
+      
+      result.textContent = JSON.stringify(escapeHtml(res.result.sentence), null, 2);
 
     } catch (e) {
       logError("Engine request failed", { error: e.message });
