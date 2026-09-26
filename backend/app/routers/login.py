@@ -20,15 +20,17 @@ async def login(req: LoginRequest):
             backend_logger.warning(f"Login failed for email={req.email}")
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid email"
+                detail="invalid_email"
             )
+
         is_valid = await check_by_password(req.password, user.hashed_password)
         if not is_valid:
-            backend_logger.warning(f"Login failed for password={req.password}")
+            backend_logger.warning(f"Login failed - invalid password for email={req.email}")
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid password",
+                detail="invalid_password",
             )
+
         new_token = create_access_token({"user_id": user.id})
         if not new_token:
             backend_logger.error(f"Token generation failed for user_id={user.id}")
@@ -45,5 +47,5 @@ async def login(req: LoginRequest):
             email=user.email,
             token=new_token,
             is_guest=user.is_guest,
-            is_premium=user.is_premium
+            is_premium=user.is_premium,
         )

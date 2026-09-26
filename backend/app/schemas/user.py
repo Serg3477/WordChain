@@ -36,6 +36,7 @@ class LoginResponse(BaseModel):
     is_guest: bool = False
     is_premium: bool = False
 
+
 class DeleteRequest(BaseModel):
     email: str
 
