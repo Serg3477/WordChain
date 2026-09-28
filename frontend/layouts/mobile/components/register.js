@@ -5,7 +5,7 @@ import { registerUser } from "../../../api/user.js";
 import { renderLogin } from "./login.js";
 
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
-import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
+import { passwordVisible } from "../../../shared/passwordVisible.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { t } from "../../../shared/i18n/index.js"
@@ -40,10 +40,16 @@ export function renderRegister(state) {
                 <input class="input-word" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
 
                 <label class="ui-label">${t("register", "input_password")}</label>
-                <input class="input-word" type="password" name="password" required minlength="8" autocomplete="new-password" placeholder="••••••••">
+                <div class="password-input-container">
+                    <input class="input-word" type="password" name="password" required minlength="8" autocomplete="new-password" placeholder="••••••••">
+                    <div class="password-button-container"></div>
+                </div>
 
                 <label class="ui-label">${t("register", "input_confirm_password")}</label>
-                <input class="input-word" type="password" name="passwordConfirmation" required minlength="8" autocomplete="new-password" placeholder="••••••••"><br>
+                <div class="password-confirm-container">
+                    <input class="input-word" type="password" name="passwordConfirmation" required minlength="8" autocomplete="new-password" placeholder="••••••••">
+                    <div class="password-confirm-button-container"></div>
+                </div><br>
 
                 <label class="ui-checkbox">
                     <input type="checkbox" name="reg-terms" required>
@@ -77,6 +83,22 @@ export function renderRegister(state) {
         logError("Register form not found");
         return;
     };
+
+    const passwordInput = formReg.elements.password;
+    const passwordConfirm = formReg.elements.passwordConfirmation;
+    const passwordButtonContainer =
+            formReg.querySelector(".password-button-container");
+    const passwordConfirmButtonContainer =
+            formReg.querySelector(".password-confirm-button-container");
+
+    passwordVisible(
+        passwordInput,
+        passwordButtonContainer
+    );
+    passwordVisible(
+        passwordConfirm,
+        passwordConfirmButtonContainer
+    );
 
     // клик по ссылке - переход на регистрацию
     const link = document.querySelector('[data-action="open-login"]');

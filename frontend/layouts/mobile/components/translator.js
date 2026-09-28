@@ -96,6 +96,13 @@ export function renderTranslator() {
       renderTranslationOutput,
     });
 
+    placeholder.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        doTranslate();
+      }
+    });
+
     const sheet = setupHistorySheet(state.history, {
       onSelect: (word) => {
         placeholder.value = word;

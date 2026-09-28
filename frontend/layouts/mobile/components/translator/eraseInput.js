@@ -1,7 +1,10 @@
 import { EraseInputButton } from "../../../../ui/erase/eraseInputButton.js";
 
 export function setupEraseInput(placeholder, eraseContainer) {
+
   const eraseBtn = new EraseInputButton({
+    icon: "/assets/icons/backspace.png",
+
     handler: () => {
       placeholder.value = "";
       placeholder.classList.remove("clearable");
@@ -10,12 +13,18 @@ export function setupEraseInput(placeholder, eraseContainer) {
   }).render();
 
   eraseContainer.appendChild(eraseBtn);
-  eraseBtn.classList.add("is-invisible");
+
+  // eraseBtn.classList.add("is-invisible");
 
   placeholder.addEventListener("input", () => {
     const hasValue = placeholder.value.trim().length > 0;
-    eraseBtn.classList.toggle("is-invisible", !hasValue);
+
+    eraseBtn.classList.toggle(
+      "is-invisible",
+      !hasValue
+    );
   });
 
   return eraseBtn;
 }
+

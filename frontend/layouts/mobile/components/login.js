@@ -4,9 +4,9 @@ import { loginUser } from "../../../api/user.js";
 import { registerUser } from "../../../api/user.js";
 import { renderRegister } from "./register.js";
 import { getSettings } from "../../../api/settings.js";
-
+import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
-import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
+import { passwordVisible } from "../../../shared/passwordVisible.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { t } from "../../../shared/i18n/index.js"
@@ -27,12 +27,15 @@ export function renderLogin(state) {
             
         <div class="user-body">
             <!-- EMAIL LOGIN FORM -->
-            <form class="user-form" name="login">
+            <form class="user-form" name="login" novalidate>
                 <label class="ui-label" for="login-email">${t("login", "input_email")}</label>
                 <input class="input-word" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
 
                 <label class="ui-label" for="login-pass">${t("login", "input_password")}</label>
-                <input class="input-word" type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+                <div class="password-input-container">
+                    <input id="login-pass" class="input-word" type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+                    <div class="password-button-container"></div>
+                </div>
 
                 <div class="login-row">
                     <label class="ui-checkbox">
@@ -63,13 +66,23 @@ export function renderLogin(state) {
         </div>
     `;
 
-
     const formLog = screen.querySelector('form[name="login"]');
     logInfo("Login form node", { found: !!formLog });
     if (!formLog) {
         logError("Login form not found");
         return;
     };
+
+    const emailInput = formLog.elements.email;
+    const passwordInput = formLog.elements.password;
+
+    const passwordButtonContainer =
+        formLog.querySelector(".password-button-container");
+
+    passwordVisible(
+        passwordInput,
+        passwordButtonContainer
+    );
 
     // клик по ссылке - переход на регистрацию
     const link = document.querySelector('[data-action="open-register"]');
@@ -112,15 +125,32 @@ export function renderLogin(state) {
     formLog.addEventListener("submit", async (event) => {
         logInfo("Login submit fired");
         event.preventDefault();
-        if (!formLog.reportValidity()) {
-            logError("Login validation failed", { reason: "reportValidity_false" });
-            throw new Error ('Lost reportValidity');
-            return
+        
+        // EMAIL не заполнен
+        if (!emailInput.value.trim()) {
+            await tipModal({
+                text: t("login", "email_required"),
+                mode: "error",
+                target: emailInput
+            });
+            return;
         }
+
+        // PASSWORD не заполнен
+        if (!passwordInput.value) {
+            await tipModal({
+                text: t("login", "password_required"),
+                mode: "error",
+                target: passwordInput
+            });
+            return;
+        }
+
         const data = { email: formLog.email.value, password: formLog.password.value, remember_me: formLog.remember_me.checked };
+
         try {
             const res = await loginUser(data);
-        
+
             if (formLog.remember_me.checked) localStorage.setItem("token", res.token)
             else sessionStorage.setItem("token", res.token);
             state.setUser({
@@ -134,8 +164,30 @@ export function renderLogin(state) {
             });
             windowManager.back();
             Notification.show({ type: "success", message: t("login", "notification_success")});
+
         } catch (e) {
-            logError("Login request failed", { error: e.message });
+            // EMAIL неверный
+            if (e.detail === "invalid_email") {
+                await tipModal({
+                    text: t("login", "invalid_email"),
+                    mode: "error",
+                    target: emailInput
+                });
+                return;
+            }
+            // PASSWORD неверный
+            if (e.detail === "invalid_password") {
+                await tipModal({
+                    text: t("login", "invalid_password"),
+                    mode: "error",
+                    target: passwordInput
+                });
+                return;
+            }
+
+            logError("Login request failed", {
+                error: e.message
+            });
             return;
         };
 
@@ -164,7 +216,7 @@ export function renderLogin(state) {
                     settings.voice_type
                 );
             };
-            Notification.show({ type: "success", message: t("login", "notification_success")});
+            // Notification.show({ type: "success", message: t("login", "notification_success")});
             return settings;
         } catch (e) {
             logError("Fetch settings failed - components/login.js /get_settings", { error: e.message });

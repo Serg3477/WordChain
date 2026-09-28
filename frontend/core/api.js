@@ -15,10 +15,29 @@ export async function apiRequest(endpoint, { method, body, token } = {}) {
     body: body ? JSON.stringify(body) : undefined,
   });
 
+  // if (!res.ok) {
+  //   const text = await res.text();
+  //   throw new Error(`API error ${res.status}: ${text}`);
+  // }
+
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`API error ${res.status}: ${text}`);
-  }
+    let data = {};
+
+    try {
+        data = await res.json();
+    } catch {
+        // backend вернул не JSON
+    }
+
+    const error = new Error(
+        data.detail || `API error ${res.status}`
+    );
+
+    error.status = res.status;
+    error.detail = data.detail;
+
+    throw error;
+}
 
   return res.json();
 }

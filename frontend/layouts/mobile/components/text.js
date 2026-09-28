@@ -87,6 +87,7 @@ export async function renderText(set, words) {
 
     await tipModal({
       text: translationResult.translation,
+      mode: "info",
       target: li
     });
   });

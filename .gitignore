@@ -4,20 +4,26 @@ __pycache__/
 *.pyo
 *.pyd
 .env
-.venv
+.venv/
 .env.docker
-poetry.lock
 
-# FastAPI
-backend/.mypy_cache/
-backend/.pytest_cache/
+# Python tools
+.mypy_cache/
+.pytest_cache/
 
-# Node / JS (на будущее)
+# Logs
+backend/logs/
+*.log
+
+# Node / JS
 frontend/node_modules/
 
 # IDE
 .idea/
 .vscode/
+
+# Archives
+*.zip
 
 # OS
 .DS_Store

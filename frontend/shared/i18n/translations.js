@@ -162,6 +162,10 @@ export const translations = {
         create_one: "Create one",
         login_btn: "Sign In",
         google_btn: "Continue with Google",
+        email_required: "Email required",
+        password_required: "Password required",
+        invalid_email: "Invalid email. User not found",
+        invalid_password: "Invalid password",
         notification_success: "Login successful!"
     },
     profile: {
@@ -352,6 +356,10 @@ export const translations = {
       create_one: "Створити акаунт",
       login_btn: "Увійти",
       google_btn: "Продовжити через Google",
+      email_required: "Введіть email",
+      password_required: "Введіть пароль",
+      invalid_email: "Невірний email. Користувача не знайдено",
+      invalid_password: "Невірний пароль",
       notification_success: "Вхід успішний!"
     },
 
@@ -544,6 +552,10 @@ export const translations = {
       create_one: "Создать аккаунт",
       login_btn: "Войти",
       google_btn: "Продолжить через Google",
+      email_required: "Введите email",
+      password_required: "Введите пароль",
+      invalid_email: "Неверный email. Пользователь не найден",
+      invalid_password: "Неверный пароль",
       notification_success: "Вход выполнен успешно!"
     },
 
@@ -736,6 +748,10 @@ export const translations = {
       create_one: "Konto erstellen",
       login_btn: "Anmelden",
       google_btn: "Weiter mit Google",
+      email_required: "E-Mail erforderlich",
+      password_required: "Passwort erforderlich",
+      invalid_email: "Ungültige E-Mail. Benutzer nicht gefunden",
+      invalid_password: "Ungültiges Passwort",
       notification_success: "Anmeldung erfolgreich!"
     },
 
@@ -927,6 +943,10 @@ export const translations = {
         create_one: "Créer un compte",
         login_btn: "Connexion",
         google_btn: "Continuer avec Google",
+        email_required: "E-mail requis",
+        password_required: "Mot de passe requis",
+        invalid_email: "E-mail invalide. Utilisateur introuvable",
+        invalid_password: "Mot de passe incorrect",
         notification_success: "Connexion réussie !"
     },
 
@@ -1118,6 +1138,10 @@ export const translations = {
         create_one: "Crea un account",
         login_btn: "Iniciar sesión",
         google_btn: "Continuar con Google",
+        email_required: "Correo electrónico obligatorio",
+        password_required: "Contraseña obligatoria",
+        invalid_email: "Correo electrónico no válido. Usuario no encontrado",
+        invalid_password: "Contraseña incorrecta",
         notification_success: "¡Inicio de sesión exitoso!"
     },
 
@@ -1309,6 +1333,10 @@ export const translations = {
         create_one: "Utwórz konto",
         login_btn: "Accedi",
         google_btn: "Continua con Google",
+        email_required: "Email obbligatoria",
+        password_required: "Password obbligatoria",
+        invalid_email: "Email non valida. Utente non trovato",
+        invalid_password: "Password errata",
         notification_success: "Accesso riuscito!"
     },
 
@@ -1498,6 +1526,10 @@ export const translations = {
         dont_have_account: "Nie masz konta?",
         login_btn: "Zaloguj się",
         google_btn: "Kontynuuj z Google",
+        email_required: "Adres e-mail jest wymagany",
+        password_required: "Hasło jest wymagane",
+        invalid_email: "Nieprawidłowy adres e-mail. Nie znaleziono użytkownika",
+        invalid_password: "Nieprawidłowe hasło",
         notification_success: "Logowanie zakończone pomyślnie!"
     },
 

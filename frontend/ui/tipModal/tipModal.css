@@ -1,19 +1,61 @@
-.tip-popup {
+/* Общий стиль для всех tipModal */
+.tip-popup,
+.tip-error,
+.tip-success {
   position: fixed;
-  background: #fff;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  padding: 6px 8px;
+  padding: 8px 10px;                  /* Чуть больше воздуха */
+  border-radius: 8px;                  /* Более современное скругление */
   font-size: 14px;
-  color: #111;
+  line-height: 1.35;
+  font-weight: 500;
   max-width: 240px;
-  line-height: 1.3;
   z-index: 99999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  animation: tip-fade .12s ease-out;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12);   /* Мягкая тень */
+  animation: tip-fade 0.16s ease-out;
+  pointer-events: none;                /* Popup не мешает нажимать элементы под ним */
 }
 
+.tip-popup {
+  background: #ffffff;                 /* Белый фон */
+  border: 1px solid #d1d5db;          /* Светло-серая рамка */
+  color: #111827;                      /* Тёмно-серый текст */
+}
+/* Ошибка */
+.tip-error {
+  background: #fff1f0;                 /* Очень светлый красный */
+  border: 1px solid #ffb3ad;           /* Красноватая рамка */
+  color: #a61d24;                      /* Тёмно-красный текст */
+}
+
+
+/* Успех */
+.tip-success {
+  background: #f0faeb;                 /* Очень светлый зелёный */
+  border: 1px solid #a8df91;           /* Зелёная рамка */
+  color: #237804;                      /* Тёмно-зелёный текст */
+}
+
+
 @keyframes tip-fade {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Для пользователей, отключивших анимации в системе */
+@media (prefers-reduced-motion: reduce) {
+
+  .tip-error,
+  .tip-success {
+    animation: none;
+  }
 }

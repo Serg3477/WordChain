@@ -1,5 +1,5 @@
 /* ===============================
-   REGISTER SCREEN (mobile)
+   LOGIN & REGISTER SCREEN (mobile)
    =============================== */
 
 
@@ -124,4 +124,35 @@
 .ui-user-link:hover {
   text-decoration: underline;
   color: #1f46da;
+}
+
+/* PASSWORD INPUT */
+
+.password-input-container, 
+.password-confirm-container {
+  position: relative;                 /* Точка отсчёта для кнопки */
+  width: 100%;
+}
+
+.password-input-container,
+.password-confirm-container,
+.input-word {
+  padding-right: 50px;                /* Оставляем место справа под кнопку */
+}
+
+.password-button-container,
+.password-confirm-button-container {
+  position: absolute;                 /* Кнопка больше не занимает место под input */
+
+  right: 8px;                         /* Отступ от правого края поля */
+
+  top: 50%;                           /* Ставим по центру высоты */
+
+  transform: translateY(-50%);        /* Точное вертикальное центрирование */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;                         /* Кнопка поверх input */
 }

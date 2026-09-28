@@ -4,25 +4,38 @@
 /*  
   /* Базовый стиль кнопки */
 .ui-btn {
-  position: relative;
-  overflow: hidden;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  position: relative;                 /* Кнопка становится точкой отсчёта для внутренних absolute-элементов */
+  overflow: hidden;                   /* Всё, что выходит за границы кнопки, обрезается */
+  display: inline-flex;               /* Кнопка ведёт себя как inline-элемент, внутри работает Flexbox */
+  align-items: center;                /* Выравнивание содержимого по вертикали */
+  justify-content: center;            /* Выравнивание содержимого по горизонтали */
 
-  padding: 16px 15px;
-  border-radius: 10px;
-  border: none;
+  gap: 3px;                           /* Расстояние между иконкой и текстом */
 
-  cursor: pointer;
-  user-select: none;
+  padding: 16px 15px;                 /* Внутренние отступы: 16px сверху/снизу, 15px слева/справа */
 
-  touch-action: manipulation;
+  border-radius: 10px;                /* Скругление углов кнопки */
+
+  white-space: nowrap;                /* Запрещает перенос текста: "Any Word" остаётся в одну строку */
+
+  cursor: pointer;                    /* При наведении курсор становится "рукой" */
+  user-select: none;                  /* Запрещает случайное выделение текста кнопки */
+  touch-action: manipulation;         /* Оптимизирует поведение кнопки на сенсорном экране */
   -webkit-tap-highlight-color: transparent;
-  outline: none;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+                                        /* Убирает стандартную подсветку при тапе на мобильных WebKit-браузерах */
+
+  outline: none;                      /* Убирает стандартную рамку браузера при фокусе */
+
+  background: transparent;            /* Делает фон кнопки прозрачным */
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+                                        /* Лёгкая полупрозрачная чёрная рамка */
+  transition:
+    transform 0.15s ease,             /* Плавное изменение размера/положения */
+    box-shadow 0.2s ease,             /* Плавное изменение тени */
+    background-color 0.2s ease,       /* Плавное изменение фона */
+    border-color 0.2s ease;           /* Плавное изменение цвета рамки */
 }
 
 .ui-btn.active {

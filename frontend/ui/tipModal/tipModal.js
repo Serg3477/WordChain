@@ -1,11 +1,13 @@
 let tipEl = null;
 
-export function tipModal({ text, target }) {
+export function tipModal({ text, mode, target }) {
   return new Promise(resolve => {
     if (tipEl) tipEl.remove();
 
     tipEl = document.createElement("div");
-    tipEl.className = "tip-popup";
+    if (mode === "info") tipEl.className = "tip-popup";
+    if (mode === "error") tipEl.className = "tip-error";
+    if (mode === "success") tipEl.className = "tip-success";
     tipEl.textContent = text;
 
     document.body.appendChild(tipEl);

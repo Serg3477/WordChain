@@ -1,27 +1,52 @@
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;                  /* Размер элемента включает padding и border */
+  -webkit-tap-highlight-color: transparent;
+                                            /* Убирает синюю/серую подсветку при тапе
+                                               на мобильных браузерах */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: system-ui, sans-serif;
+html,
+body {
+  margin: 0;                               /* Убирает стандартные внешние отступы браузера */
+  padding: 0;                              /* Убирает стандартные внутренние отступы */
+  height: 100%;                            /* Высота страницы = высоте окна */
+  font-family: system-ui, sans-serif;       /* Использует системный шрифт устройства */
+  background: transparent;                        /* Фон страницы прозрачный */
+    
+  color: var(--text);                      /* Основной цвет текста из CSS-переменной */
+
+  
+}
+
+body::before {
+  content: "";                            /* Создаём отдельный фоновый слой */
+  position: fixed;                        /* Фон остаётся неподвижным */
+  top: 0;
+  left: 0;
+  width: 100vw;                           /* Ширина всего экрана */
+  height: 100lvh;                         /* Стабильная высота мобильного viewport */
   background:
-    url("../assets/images/w27mob.png") center center / cover no-repeat fixed;
-  color: var(--text);
-
-  padding-top: var(--ic); /* отступ контента равен высоте header */
-
+    url("../assets/images/w27mob.png")
+    center center / cover no-repeat;
+                                              /* Фоновая картинка:
+                                               center center — по центру,
+                                               cover — заполняет весь экран,
+                                               no-repeat — без повторения,
+                                               fixed — фон не прокручивается */
+  z-index: -1;                            /* Помещаем фон за интерфейс */
+  pointer-events: none;                   /* Фон не мешает нажатиям */
 }
 
 #app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  height: 100vh;                           /* Высота приложения = вся высота экрана */
+
+  display: flex;                           /* Включает Flexbox */
+
+  flex-direction: column;                  /* Элементы внутри идут сверху вниз */
+  overflow: hidden;    
 }
 
 .hidden {
-  display: none !important;
+  display: none !important;                /* Полностью скрывает элемент */
 }

@@ -11,6 +11,14 @@ export async function doVoice() {
       logError("Voice: empty audio_data");
       return
     }
+
+    // Если сейчас уже что-то воспроизводится —
+    // повторное нажатие игнорируем
+    if (audio && !audio.paused && !audio.ended) {
+      logInfo("Voice: audio is already playing");
+      return;
+    }
+
     // Если аудио новое — пересоздаём
     if (state.voice !== lastVoice) {
       lastVoice = state.voice;
