@@ -82,10 +82,10 @@ export function renderRegister(state) {
     if (!formReg) {
         logError("Register form not found");
         return;
-    };
+    }
 
-    const passwordInput = formReg.elements.password;
-    const passwordConfirm = formReg.elements.passwordConfirmation;
+    const passwordInput = formReg.querySelector('[name="password"]');
+    const passwordConfirm = formReg.querySelector('[name="passwordConfirmation"]');
     const passwordButtonContainer =
             formReg.querySelector(".password-button-container");
     const passwordConfirmButtonContainer =
@@ -108,7 +108,7 @@ export function renderRegister(state) {
             windowManager.pushScreen("login");
             renderLogin(state);
         });
-    };
+    }
 
     const submitSlot = screen.querySelector(".register-submit-slot");
     const googleSlot = screen.querySelector(".register-google-slot");

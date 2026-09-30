@@ -14,11 +14,16 @@ export function tipModal({ text, mode, target }) {
 
     // Позиционирование возле слова
     const rect = target.getBoundingClientRect();
-
     const popupRect = tipEl.getBoundingClientRect();
 
-    const top = rect.top - popupRect.height - 6;   // над словом
-    const left = rect.left + (rect.width - popupRect.width) / 2;
+    const top = rect.top - popupRect.height - 6;
+    // По умолчанию — справа от target
+    let left = rect.right + 10;
+
+    // Если модалка выходит за правый край экрана — переносим влево
+    if (left + popupRect.width > window.innerWidth - 4) {
+      left = rect.left - popupRect.width - 10;
+    }
 
     tipEl.style.top = `${Math.max(top, 4)}px`;
     tipEl.style.left = `${Math.max(left, 4)}px`;

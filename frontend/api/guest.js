@@ -47,7 +47,7 @@ export async function ensureGuestSession() {
 
       // Пытаемся загрузить настройки из БД
       console.log(guestUser.id);
-      const settings = await fetchSettings(guestUser.id);
+      let settings = await fetchSettings(guestUser.id);
 
       // Если нет settings в БД - устанавливаем дефолтные
       if (!settings) {

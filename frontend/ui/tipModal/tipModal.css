@@ -16,6 +16,11 @@
   pointer-events: none;                /* Popup не мешает нажимать элементы под ним */
 }
 
+.word-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
 .tip-popup {
   background: #ffffff;                 /* Белый фон */
   border: 1px solid #d1d5db;          /* Светло-серая рамка */

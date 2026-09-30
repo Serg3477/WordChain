@@ -8,7 +8,7 @@
 
 @import "./translator.css";
 @import "./dropdownMenu.css";
-@import "./register.css";
+@import "login_register.css";
 @import "./profile.css";
 @import "./sets.css";
 @import "./word.css";

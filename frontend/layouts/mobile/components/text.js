@@ -66,8 +66,13 @@ export async function renderText(set, words) {
   words.forEach(w => {
     const li = document.createElement("li");
     li.className = "word-item";
-    li.textContent = w.word;
     li.dataset.word = w.word;
+
+    const span = document.createElement("span");
+    span.className = "word-label";
+    span.textContent = w.word;
+
+    li.appendChild(span);
     wordsArray.push(w.word);
     list.appendChild(li);
   });
@@ -79,6 +84,8 @@ export async function renderText(set, words) {
     const li = event.target.closest(".word-item");
     if (!li) return;
 
+    const wordEl = li.querySelector(".word-label");
+
     const translationResult = await translateWord({
           word: li.dataset.word,
           sourceLang: state.sourceLang,
@@ -88,7 +95,7 @@ export async function renderText(set, words) {
     await tipModal({
       text: translationResult.translation,
       mode: "info",
-      target: li
+      target: wordEl
     });
   });
 

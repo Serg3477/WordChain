@@ -1,9 +1,6 @@
 /* ===============================
    LOGIN & REGISTER SCREEN (mobile)
    =============================== */
-
-
-
 .ui-label {
   margin-top: 2px;
   font-size: 13px;
@@ -126,33 +123,59 @@
   color: #1f46da;
 }
 
+
 /* PASSWORD INPUT */
 
-.password-input-container, 
-.password-confirm-container {
-  position: relative;                 /* Точка отсчёта для кнопки */
-  width: 100%;
-}
-
 .password-input-container,
-.password-confirm-container,
-.input-word {
-  padding-right: 50px;                /* Оставляем место справа под кнопку */
-}
-
-.password-button-container,
-.password-confirm-button-container {
-  position: absolute;                 /* Кнопка больше не занимает место под input */
-
-  right: 8px;                         /* Отступ от правого края поля */
-
-  top: 50%;                           /* Ставим по центру высоты */
-
-  transform: translateY(-50%);        /* Точное вертикальное центрирование */
-
+.password-confirm-container {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  z-index: 2;                         /* Кнопка поверх input */
+  gap: 5px;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  padding: 0 6px 0 0;
 }
+
+/* Сам input внутри общего password-поля */
+.password-input-container .input-word,
+.password-confirm-container .input-word {
+
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 11px 12px;
+}
+
+
+/* Не рисуем отдельную синюю рамку вокруг самого input */
+.password-input-container .input-word:focus,
+.password-confirm-container .input-word:focus {
+  border: none;
+  box-shadow: none;
+}
+
+/* Вместо этого подсвечиваем весь password-контейнер */
+.password-input-container:focus-within,
+.password-confirm-container:focus-within {
+  border-color: #7e9cff;
+  box-shadow: 0 0 0 3px rgba(126, 156, 255, 0.2);
+}
+
+/* Место справа для кнопки */
+.password-button-container,
+.password-confirm-button-container {
+
+  flex: 0 0 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
