@@ -4,6 +4,8 @@ from redis.asyncio import Redis
 from app.utils.atomic_cache import AtomicCache
 from app.logger.logger import backend_logger
 from app.db import settings
+import uuid
+import json
 
 TTL_FULL = 60 * 60 * 24 * 30
 TTL_PARTS = 60 * 60 * 24 * 30
@@ -61,5 +63,90 @@ def collect_translation_keys(
         k("translate", "v2", "meta", norm, "antonyms"),
         k("translate", "v2", "meta", norm, "sentences"),
     ])
-
     return keys
+
+
+MIN_VARIANTS = 5
+MAX_VARIANTS = 10
+
+
+async def get_text_cache_keys(base_key: str):
+    variants_key = k(base_key, "variants")
+
+    count = await redis.scard(variants_key)
+    backend_logger.info(f"[TEXT CACHE] base_key={base_key}, variants count={count}")
+
+    # Пока вариантов меньше 5 — создаём новый
+    if count < MIN_VARIANTS:
+        return None
+
+    # Есть 5 и больше — выбираем случайный готовый вариант
+    variants = await redis.smembers(variants_key)
+    backend_logger.info(f"[TEXT CACHE] variants={variants}, count={count}")
+    variant_id = await redis.srandmember(variants_key)
+    backend_logger.info(f"[TEXT CACHE] Selected variant={variant_id}, count={count}")
+
+    if variant_id is None:
+        return None
+
+    text_key = k(base_key, variant_id, "text")
+    translation_key = k(base_key, variant_id, "translation")
+    backend_logger.info(f"[TEXT CACHE] Selected variant={variant_id}, count={count}")
+
+    return base_key, text_key, translation_key
+
+
+async def save_text_cache_variant(
+    base_key: str,
+    text: str,
+    text_translation: str,
+):
+    variants_key = k(base_key, "variants")
+
+    # Проверяем количество ДО сохранения
+    count = await redis.scard(variants_key)
+
+    if count >= MAX_VARIANTS:
+        backend_logger.info(f"[TEXT CACHE] Max variants reached: {count}")
+        return None
+
+    variant_id = uuid.uuid4().hex[:12]
+
+    text_key = k(base_key, variant_id, "text")
+    translation_key = k(base_key, variant_id, "translation")
+
+    # AtomicCache хранит JSON,
+    # поэтому здесь сохраняем в том же формате
+    await redis.set(
+        text_key,
+        json.dumps(text, ensure_ascii=False),
+        ex=TTL_FULL,
+    )
+
+    await redis.set(
+        translation_key,
+        json.dumps(text_translation, ensure_ascii=False),
+        ex=TTL_FULL,
+    )
+
+    # Регистрируем вариант
+    await redis.sadd(
+        variants_key,
+        variant_id,
+    )
+
+    # TTL самого SET со списком вариантов
+    await redis.expire(
+        variants_key,
+        TTL_FULL,
+    )
+
+    # Проверяем количество ПОСЛЕ сохранения
+    new_count = await redis.scard(variants_key)
+
+    backend_logger.info(
+        f"[TEXT CACHE] New variant saved: {variant_id}, "
+        f"count: {count} -> {new_count}"
+    )
+
+    return base_key, text_key, translation_key

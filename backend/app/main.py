@@ -24,9 +24,10 @@ from app.routers.delete_word import delete_word_router
 from app.routers.delete_set import delete_set_router
 from app.routers.move_word import move_word_router
 from app.routers.rename_set import rename_set_router
-from app.routers.get_text import get_text_router
+from app.routers.get_text import get_text_router, get_renew_text_router
 from app.routers.get_voice import get_voice_router
 from app.routers.settings import new_settings_router, get_settings_router, update_settings_router
+from app.routers.get_text import save_text_router
 
 
 
@@ -91,6 +92,8 @@ app.include_router(get_voice_router)
 app.include_router(new_settings_router)
 app.include_router(get_settings_router)
 app.include_router(update_settings_router)
+app.include_router(get_renew_text_router)
+app.include_router(save_text_router)
 
 
 # Логирование операций SQLAlchemy

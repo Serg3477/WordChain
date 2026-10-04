@@ -15,12 +15,8 @@ export async function apiRequest(endpoint, { method, body, token } = {}) {
     body: body ? JSON.stringify(body) : undefined,
   });
 
-  // if (!res.ok) {
-  //   const text = await res.text();
-  //   throw new Error(`API error ${res.status}: ${text}`);
-  // }
 
-  if (!res.ok) {
+ if (!res.ok) {
     let data = {};
 
     try {
@@ -29,8 +25,12 @@ export async function apiRequest(endpoint, { method, body, token } = {}) {
         // backend вернул не JSON
     }
 
+    console.error("API ERROR:", res.status, data);
+
     const error = new Error(
-        data.detail || `API error ${res.status}`
+        data.detail
+            ? JSON.stringify(data.detail)
+            : `API error ${res.status}`
     );
 
     error.status = res.status;

@@ -2,7 +2,6 @@ import { windowManager } from "../../../core/windowManager.js";
 import { wordRequest } from "../../../api/word.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { createScrollButtonsArea } from "../../../ui/scrollButtonsArea/scrollButtonsArea.js";
-
 import { escapeHtml, getLanguageLabel } from "../../../shared/wordHelpers.js";
 import { createSaveBtn } from "./word/saveBtn.js";
 import { createBetterTransBtn, resultBetterTrans } from "./word/betterTransBtn.js";

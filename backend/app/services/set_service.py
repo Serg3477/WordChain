@@ -1,8 +1,9 @@
-from openai import AsyncOpenAI
-from sqlalchemy import select, func
-from datetime import datetime
+import asyncio
+import json
 
-from app.db.config import settings
+from fastapi import HTTPException
+from sqlalchemy import select, func, update
+from datetime import datetime
 
 from app.db.models import User
 from app.db.models import Set
@@ -14,6 +15,9 @@ from app.db.models.set_word import SetWord
 from app.logger.logger import backend_logger
 from app.schemas.set import SetDeleteRequest, SetTextRequest
 from app.utils.openai import _ask_text
+from app.utils.cache import cache, k, TTL_FULL, get_text_cache_keys,save_text_cache_variant
+from app.utils.cache_hash import make_cache_hash
+
 
 SET_SIZE = 6
 
@@ -242,7 +246,9 @@ async def get_text_for_set(req: SetTextRequest):
     )
     text = await _ask_text(prompt, max_tokens=500)
     backend_logger.info(f"[GET TEXT] Final result text: {text}")
+    return text
 
+async def get_translation_for_text(req: SetTextRequest, text):
     prompt = (
         f"Translate the {text} into {req.target_lang}. "
         f"Translate it EXACTLY, preserving meaning, tone, and sentence structure. "
@@ -253,7 +259,123 @@ async def get_text_for_set(req: SetTextRequest):
     )
     text_translation = await _ask_text(prompt, max_tokens=200)
     backend_logger.info(f"[GET TEXT] Final result translation: {text_translation}")
+    return text_translation
+
+
+async def get_text_from_cache(req: SetTextRequest):
+    sorted_words = sorted(req.words)
+    cache_hash = make_cache_hash({
+        "source_lang": req.source_lang,
+        "target_lang": req.target_lang,
+        "text_size": req.text_size,
+        "level": req.level,
+        "words": sorted_words,
+    })
+
+    base_key = k("text", "v1", cache_hash)
+    text_key = k(base_key, "text")
+    translation_key = k(base_key, "translation")
+
+    async def produce_text():
+        text_result = await get_text_for_set(req)
+        return text_result
+
+    text = await cache.get_or_set(
+        text_key,
+        produce_text,
+        ttl=TTL_FULL,
+    )
+
+    async def produce_translation():
+        translation_result = await get_translation_for_text(req, text)
+        return translation_result
+
+    text_translation = await cache.get_or_set(
+        translation_key,
+        produce_translation,
+        ttl=TTL_FULL,
+    )
+
     return {
-        "text": text,
-        "text_translation": text_translation
+        "text": text or "",
+        "text_translation": text_translation or "",
     }
+
+async def renew_text(req: SetTextRequest):
+    sorted_words = sorted(req.words)
+    cache_hash = make_cache_hash({
+        "source_lang": req.source_lang,
+        "target_lang": req.target_lang,
+        "text_size": req.text_size,
+        "level": req.level,
+        "words": sorted_words,
+    })
+
+    base_key = k("text", "v1", cache_hash)
+    res = await get_text_cache_keys(base_key)
+
+    # В кеше меньше MIN_VARIANTS, Создаём новый текст
+    if res == None:
+        text_result = await get_text_for_set(req)
+        translation_result = await get_translation_for_text(req, text_result)
+        # Сохраняем новый вариант в общий Redis-кеш
+        await save_text_cache_variant(
+            base_key=base_key,
+            text=text_result,
+            text_translation=translation_result,
+        )
+        return {
+            "text": text_result or "",
+            "text_translation": translation_result or "",
+        }
+
+    # Есть готовые варианты
+    base_key, text_key, translation_key = res
+    text_raw, translation_raw = await asyncio.gather(
+        cache.get(text_key),
+        cache.get(translation_key),
+    )
+
+    text = json.loads(text_raw) if text_raw else None
+    text_translation = (
+        json.loads(translation_raw)
+        if translation_raw
+        else None
+    )
+
+    # Если какой-то вариант повреждён/неполный —
+    # создаём новый
+    if not text or not text_translation:
+        backend_logger.warning(f"[TEXT CACHE] Broken cache variant: "f"{text_key}, {translation_key}")
+
+        text = await get_text_for_set(req)
+
+        text_translation = await get_translation_for_text(
+            req,
+            text
+        )
+
+        await save_text_cache_variant(
+            base_key=base_key,
+            text=text,
+            text_translation=text_translation,
+        )
+
+    return {
+        "text": text or "",
+        "text_translation": text_translation or "",
+    }
+
+async def text_save(session, req: SetTextRequest):
+    await session.execute(
+        update(Set)
+        .where(
+            Set.id == req.set_id,
+            Set.user_id == req.user_id
+        )
+        .values(
+            generated_text=req.text,
+            text_translation=req.text_translation
+        )
+    )
+    await session.commit()

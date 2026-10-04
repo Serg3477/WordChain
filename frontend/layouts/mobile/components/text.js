@@ -2,12 +2,15 @@ import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js";
 import { translateWord } from "../../../api/translate.js";
 import { tipModal } from "../../../ui/tipModal/tipModal.js";
-import { textRequest } from "../../../api/text.js";
+import { textRequest, textSave } from "../../../api/text.js";
 import { voiceWord } from "../../../../api/audio.js"
 import { audio, doVoice, doPause } from "../../../shared/voice.js";
 import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { t } from "../../../shared/i18n/index.js"
 import { logInfo, logError } from "../../../utils/logger/logger.js";
+import { createScrollButtonsArea } from "../../../ui/scrollButtonsArea/scrollButtonsArea.js";
+import {BaseButton} from "../../../ui/baseButton/baseButton.js";
+
 
 
 export async function renderText(set, words) {
@@ -129,11 +132,20 @@ export async function renderText(set, words) {
   // Обработчик changeBtn смена текста
   changeBtn.addEventListener("click", async (e) => {
     e.stopPropagation();
-    await loadText();
+    const renewText = await textRequest({
+        endpoint: "/renew_text",
+        method: "POST",
+        set_id: set.id,
+        words: wordsArray
+      });
     const voiceResult = await voiceWord(text.innerText, state.sourceLang, "text");
     state.setVoice(voiceResult?.audio_data || null);
     logInfo(`Get Another Text for Set: ${set.name} success`);
     Notification.show({ type: "success", message: t("text", "notification_update_text") });
+    const rawRenewText = renewText.text;
+    const highLightRenewText = highlightWords(rawRenewText, wordsArray);
+    text.innerHTML = highLightRenewText;
+    textTranslation.innerHTML = renewText.text_translation;
   });
 
   // первичный запрос текста по кнопке текст сета
@@ -170,7 +182,15 @@ export async function renderText(set, words) {
       return;
     }
   }
-};
+  // Добавление нижнего scroll меню с кнопкой Save
+  const area = createScrollButtonsArea({ id: "global-scroll-buttons-area" });
+  area.mount();
+  // area.trackEl.innerHTML = "";
+  // const currentText = text.innerHTML;
+  // const currentTranslation = textTranslation.innerHTML;
+  // const set_id = set.id;
+  area.addButton(createSaveTextBtn(set.id, text, textTranslation));
+}
 
 // Выделение слов в тексте
 function highlightWords(text, words) {
@@ -185,5 +205,28 @@ function highlightWords(text, words) {
   });
 }
 
-
+// Сохранение текста и перевода в таблице сета для юзера
+function createSaveTextBtn(set_id, textEl, textTranslationEl) {
+  return new BaseButton({
+    label: t("word", "save_btn"),
+    type: "word-nav-btn ui-btn",
+    icon: "💾",
+    action: "click",
+    handler: async () => {
+      try {
+        const result = await textSave({
+          endpoint: "/save_text",
+          method: "PUT",
+          set_id: set_id,
+          text: textEl.innerText,
+          textTranslation: textTranslationEl.innerText
+        });
+        logInfo("Save Text success", { result });
+        Notification.show({ type: "success", message: t("text", "notification_save") });
+      } catch (e) {
+        logError("Save Text failed", { error: e.message });
+      }
+    },
+  }).render();
+}
 

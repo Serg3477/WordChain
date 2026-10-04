@@ -63,6 +63,7 @@ export const translations = {
         text_translation: "Translated text",
         notification_text: "Set text generated successfully",
         notification_update_text: "Set text updated successfully",
+        notification_save: "Text saved!",
         textRegeneratedSuccess: "Set text regenerated successfully"
     },
 
@@ -249,6 +250,7 @@ export const translations = {
       text_translation: "Перекладений текст",
       notification_text: "Текст для сету успішно створено",
       notification_update_text: "Текст успішно оновлено",
+      notification_save: "Текст збережено!",
       textRegeneratedSuccess: "Текст успішно перегенеровано"
     },
 
@@ -444,6 +446,7 @@ export const translations = {
       text_translation: "Переведённый текст",
       notification_text: "Текст для сета успешно создан",
       notification_update_text: "Текст успешно обновлён",
+      notification_save: "Текст сохранён!",
       textRegeneratedSuccess: "Текст успешно перегенерирован"
     },
 
@@ -640,13 +643,13 @@ export const translations = {
       text_translation: "Übersetzter Text",
       notification_text: "Set-Text erfolgreich erstellt",
       notification_update_text: "Text erfolgreich aktualisiert",
+      notification_save: "Text gespeichert!",
       textRegeneratedSuccess: "Set-Text erfolgreich neu generiert"
     },
 
     settings: {
       settings_title: "Einstellungen für ",
       settings_section1: "Spracheinstellungen",
-
       input_language: "Eingabesprache",
       input_english: "Englisch",
       input_ukrainian: "Ukrainisch",
@@ -836,6 +839,7 @@ export const translations = {
         text_translation: "Texte traduit",
         notification_text: "Texte de l’ensemble généré avec succès",
         notification_update_text: "Texte mis à jour avec succès",
+        notification_save: "Texte enregistré !",
         textRegeneratedSuccess: "Texte de l’ensemble régénéré avec succès"
     },
 
@@ -1032,6 +1036,7 @@ export const translations = {
         text_translation: "Texto traducido",
         notification_text: "Texto del conjunto generado con éxito",
         notification_update_text: "Texto actualizado con éxito",
+        notification_save: "¡Texto guardado!",
         textRegeneratedSuccess: "Texto del conjunto regenerado con éxito"
     },
 
@@ -1226,6 +1231,7 @@ export const translations = {
         text_translation: "Testo tradotto",
         notification_text: "Testo del set generato con successo",
         notification_update_text: "Testo aggiornato con successo",
+        notification_save: "Testo salvato!",
         textRegeneratedSuccess: "Testo del set rigenerato con successo"
     },
 
@@ -1421,6 +1427,7 @@ export const translations = {
         text_translation: "Przetłumaczony tekst",
         notification_text: "Tekst zestawu wygenerowany pomyślnie",
         notification_update_text: "Tekst zaktualizowany pomyślnie",
+        notification_save: "Tekst zapisany!",
         textRegeneratedSuccess: "Tekst zestawu wygenerowany ponownie pomyślnie"
     },
 

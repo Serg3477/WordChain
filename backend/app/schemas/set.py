@@ -123,4 +123,13 @@ class SetTextResponse(BaseModel):
     text: str
     text_translation: str
 
+class SaveTextRequest(BaseModel):
+    set_id: int
+    user_id: int
+    text: str
+    text_translation: str
+
+class SaveTextResponse(BaseModel):
+    result: str
+
 
