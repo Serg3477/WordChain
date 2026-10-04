@@ -117,12 +117,18 @@
   font-weight: 600;
   cursor: pointer;
 }
+.terms-link {
+    color: #2e5bff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-.ui-user-link:hover {
+.ui-user-link:hover,
+.terms-link:hover {
   text-decoration: underline;
   color: #1f46da;
 }
-
 
 /* PASSWORD INPUT */
 
