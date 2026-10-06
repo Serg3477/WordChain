@@ -48,7 +48,7 @@ export function renameModal({ setName, text }) {
 
     modalEl.querySelector(".rm-no").onclick = () => {
       closeModal();
-      resolve = null;
+      resolve(null);
     };
 
     modalEl.addEventListener("click", (e) => {

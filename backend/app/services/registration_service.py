@@ -1,12 +1,9 @@
 from sqlalchemy import select
 from fastapi import HTTPException, status
-from passlib.context import CryptContext
 
 from app.db.models.user import User
 from app.services.jwt_service import create_access_token
 
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 async def ensure_email_unique(session, email: str) -> None:
@@ -18,9 +15,6 @@ async def ensure_email_unique(session, email: str) -> None:
             detail="Email already registered"
         )
 
-
-def hash_password(password: str) -> str:
-    return pwd_context.hash(password)
 
 
 def generate_token(user_id: int) -> str:

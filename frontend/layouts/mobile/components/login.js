@@ -1,9 +1,11 @@
 import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js"
-import { loginUser } from "../../../api/user.js";
-import { registerUser } from "../../../api/user.js";
+import { loginUser, googleAuthUser  } from "../../../api/user.js";
 import { renderRegister } from "./register.js";
 import { getSettings } from "../../../api/settings.js";
+import { renderGoogleButton } from "../../../shared/googleIdentity.js";
+import { forgotPassword } from "./login/forgotPassword.js";
+
 import { tipModal } from "../../../ui/tipModal/tipModal.js";
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { passwordVisible } from "../../../shared/passwordVisible.js";
@@ -21,6 +23,7 @@ export function renderLogin(state) {
         logError("Login screen not found");
         return;
     }
+
     screen.innerHTML = `
    
         <h3 class="ui-title">Sign in</h3>
@@ -75,9 +78,9 @@ export function renderLogin(state) {
 
     const emailInput = formLog.elements.email;
     const passwordInput = formLog.elements.password;
-
-    const passwordButtonContainer =
-        formLog.querySelector(".password-button-container");
+    const passwordButtonContainer = formLog.querySelector(".password-button-container");
+    const forgotPasswordLink =
+        formLog.querySelector('[data-action="forgot-password"]');
 
     passwordVisible(
         passwordInput,
@@ -108,19 +111,88 @@ export function renderLogin(state) {
         }
     }).render();
 
-    const googleBtn = new BaseButton({
-        label: t("login", "google_btn"),
-        type: "ui-user-btn oauth-btn",
-        icon: `<img src="./assets/icons/google.png">`,
-        action: "click",
-        handler: () => {
-            logInfo("Login with Google button clicked");
-            console.log("Google auth click");
-        }
-    }).render();
-
     submitSlot.appendChild(loginAccountBtn);
-    googleSlot.appendChild(googleBtn);
+
+    renderGoogleButton({
+        slot: googleSlot,
+        flow: "login",
+        text: "signin_with",
+        locale:
+            state.userInterface.ui_language || "en",
+
+        onCredential: async (response) => {
+            logInfo("Google login credential received");
+            try {
+                const res = await googleAuthUser({
+                    credential: response.credential,
+                    mode: "login",
+                    terms_accepted: false
+                });
+
+                // Очень важно сначала удалить старые токены.
+                localStorage.removeItem("token");
+                sessionStorage.removeItem("token");
+
+                if (formLog.remember_me.checked) {
+                    localStorage.setItem("token", res.token);
+                } else {
+                    sessionStorage.setItem( "token", res.token);
+                }
+
+                state.setUser({
+                    id: res.id,
+                    nickname: res.nickname,
+                    avatar_url: res.avatar_url,
+                    email: res.email,
+                    token: res.token,
+                    is_guest: res.is_guest,
+                    is_premium: res.is_premium
+                });
+
+                // Settings
+                try {
+                    const settings = await getSettings({
+                        endpoint: "/get_settings",
+                        method: "POST",
+                        user_id: res.id
+                    });
+                    if (settings) {
+                        state.setLanguages(
+                            settings.input_lang,
+                            settings.output_lang
+                        );
+                        state.setUserSkill(
+                            settings.user_level,
+                            settings.text_size,
+                            settings.examples_count
+                        );
+                        state.setUserInterface(
+                            settings.ui_lang,
+                            settings.ui_theme,
+                            settings.voice_type
+                        );
+                    }
+                } catch (settingsError) {
+                    logError("Google login settings load failed", {error: settingsError.message});
+                }
+                windowManager.back();
+                Notification.show({type: "success", message: t("login", "notification_success") });
+
+            } catch (e) {
+                if (e.detail === "google_account_not_found") {
+                    Notification.show({type: "warning", message: t("login", "google_account_not_found" )});
+                    return;
+                }
+                if (e.detail === "invalid_google_token") {
+                    Notification.show({type: "error",  message: t("login", "google_auth_error" ) });
+                    return;
+                }
+                logError("Google login failed", {error: e.message, detail: e.detail} );
+            }
+        }
+    }).catch((e) => {
+        logError("Google login button render failed", { error: e.message });
+    });
 
     formLog.addEventListener("submit", async (event) => {
         logInfo("Login submit fired");
@@ -150,6 +222,9 @@ export function renderLogin(state) {
 
         try {
             const res = await loginUser(data);
+
+            localStorage.removeItem("token");
+            sessionStorage.removeItem("token");
 
             if (formLog.remember_me.checked) localStorage.setItem("token", res.token)
             else sessionStorage.setItem("token", res.token);
@@ -221,7 +296,25 @@ export function renderLogin(state) {
         } catch (e) {
             logError("Fetch settings failed - components/login.js /get_settings", { error: e.message });
             return null;
-        };
+        }
 
     });
+    forgotPasswordLink.addEventListener("click", async () => {
+        logInfo("Forgot password clicked");
+        const emailPlaceholder =  emailInput.value;
+        const res = await forgotPassword(emailPlaceholder, emailInput);
+    });
+
 }
+// подписки на изменения языков
+state.on("interface", () => {
+    const screen =
+        document.querySelector('[data-screen="login"]');
+
+    if (
+        screen &&
+        screen.style.display !== "none"
+    ) {
+        renderLogin(state);
+    }
+});

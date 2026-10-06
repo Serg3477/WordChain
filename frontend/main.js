@@ -6,6 +6,7 @@ import { initLayoutWatcher } from "./core/layoutDetector.js";
 
 import { renderMobile } from "./layouts/mobile/index.js";
 import { createSignOutModal, createDeleteAccountModal } from "./layouts/mobile/components/accountActionModal.js"
+import { handlePasswordResetFromUrl } from "./shared/passwordResetFlow.js";
 
 
 
@@ -40,6 +41,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Guest session fallback failed:", guestError);
     }
   }
+  // Проверяем, пришёл ли пользователь
+  // по password reset link. (Запрос смены пароля, если забыл)
+  // console.log("CALL PASSWORD RESET FLOW");
+  await handlePasswordResetFromUrl();
 });
 
 // Модальные окна

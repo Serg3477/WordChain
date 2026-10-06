@@ -1,4 +1,6 @@
 from fastapi import APIRouter, HTTPException
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.db.session import async_session
 from app.schemas.word import (
     WordByIdRequest,
@@ -15,7 +17,7 @@ get_antonyms_router = APIRouter()
 get_sentences_router = APIRouter()
 
 
-async def load_word_or_404(session, req: WordByIdRequest):
+async def load_word_or_404(session: AsyncSession, req: WordByIdRequest):
     # Локальный helper: загружает слово по id и проверяет принадлежность пользователю в одном месте.
     word_obj = await word_read(session, req.id, req.user_id)
     if word_obj is None:

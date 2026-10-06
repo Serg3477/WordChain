@@ -28,6 +28,7 @@ from app.routers.get_text import get_text_router, get_renew_text_router
 from app.routers.get_voice import get_voice_router
 from app.routers.settings import new_settings_router, get_settings_router, update_settings_router
 from app.routers.get_text import save_text_router
+from app.routers.forgot_password import forgot_router, reset_router
 
 
 
@@ -94,6 +95,8 @@ app.include_router(get_settings_router)
 app.include_router(update_settings_router)
 app.include_router(get_renew_text_router)
 app.include_router(save_text_router)
+app.include_router(forgot_router)
+app.include_router(reset_router)
 
 
 # Логирование операций SQLAlchemy

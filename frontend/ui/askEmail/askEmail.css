@@ -1,0 +1,120 @@
+.ask-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: qm-fade-in .15s ease;
+}
+
+.ask-window {
+  background: #fff;
+  padding: 4px 4px;
+  border-radius: 14px;
+  border: 1px solid #d8d8d8;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  animation: qm-pop .15s ease;
+}
+
+.ask-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 12px;
+}
+
+.ask-title {
+  border: 2px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  background: #2e5bff;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.ask-content {
+  padding: 12px 12px;
+  border: 1px solid #d8d8d8;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.ask-text {
+  font-size: 15px;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+.ask-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ask-btn {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+
+  transition:
+    transform 0.15s ease,             /* Плавное изменение размера/положения */
+    box-shadow 0.2s ease,             /* Плавное изменение тени */
+    background-color 0.2s ease,       /* Плавное изменение фона */
+    border-color 0.2s ease;           /* Плавное изменение цвета рамки */
+  box-shadow:
+    inset 3px 3px 6px rgba(0,0,0,0.25),
+    inset -3px -3px 6px rgba(255,255,255,0.8);
+}
+
+.ask-yes {
+  background: #759ef5;
+  color: white;
+  flex: 1.5;    /* Длина кнопки в контейнере */
+}
+
+.ask-cancel {
+  background: #e5e7eb;
+  color: #111827;
+  flex: 1;
+}
+
+.ask-overlay.hide {
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+.ask-input-placeholder {
+  font-size: 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  outline: none;
+  line-height: 1.8;
+  box-shadow: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+}
+
+.ask-input-placeholder:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@keyframes qm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes qm-pop {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

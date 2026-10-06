@@ -36,79 +36,170 @@ async function fetchMeByToken(token) {
   }
 }
 
-// --- 1. Есть токен гостя → пробуем загрузить ---
 export async function ensureGuestSession() {
-  let guestToken = localStorage.getItem("guest_token");
+    let guestToken = localStorage.getItem("guest_token");
 
-  if (guestToken) {
-    try {
-      const guestUser = await fetchMeByToken(guestToken);
-      setActiveUser(guestUser, guestToken);
+    // 1. Пробуем существующего гостя
+    if (guestToken) {
+        let guestUser = null;
+        // Проверяем ТОЛЬКО токен.
+        try {
+            guestUser = await fetchMeByToken(guestToken);
 
-      // Пытаемся загрузить настройки из БД
-      console.log(guestUser.id);
-      let settings = await fetchSettings(guestUser.id);
+        } catch (e) {
+            logError("Guest token invalid", { error: e.message });
 
-      // Если нет settings в БД - устанавливаем дефолтные
-      if (!settings) {
-        logInfo("Settings not loaded and set default settings into state  - guest.js function ensureGuestSession")
-        settings = await createDefaultSettings(guestUser.id);
-      }
-      
-      // Сохраняем в state
-      if (settings) {
-        logInfo("Settings loaded and set into state (1) - guest.js function ensureGuestSession");
-        state.setLanguages( settings.input_lang, settings.output_lang );
-        state.setUserSkill( settings.user_level, settings.text_size, settings.examples_count );
-        state.setUserInterface( settings.ui_lang, settings.ui_theme, settings.voice_type );
-      }
+            localStorage.removeItem("guest_token");
+            guestToken = null;
+        }
+        // Токен действующий.
+        if (guestUser) {
+            setActiveUser(
+                guestUser,
+                guestToken
+            );
+            let settings = await fetchSettings(guestUser.id);
 
-      return { user: guestUser, token: guestToken };
-    } catch (e) {
-      logError("Guest token invalid - guest.js function ensureGuestSession", { error: e.message });
-      localStorage.removeItem("guest_token");
-      guestToken = null;
+            if (!settings) {
+                logInfo("Settings not loaded - create defaults" );
+                settings = await createDefaultSettings(guestUser.id);
+            }
+            if (settings) {
+                state.setLanguages(
+                    settings.input_lang,
+                    settings.output_lang
+                );
+                state.setUserSkill(
+                    settings.user_level,
+                    settings.text_size,
+                    settings.examples_count
+                );
+                state.setUserInterface(
+                    settings.ui_lang,
+                    settings.ui_theme,
+                    settings.voice_type
+                );
+            }
+            return {
+                user: guestUser,
+                token: guestToken
+            };
+        }
     }
-  }
 
-  // --- 2. Токена нет → создаём нового гостя ---
-  logInfo("Create Guest request shape - guest.js function ensureGuestSession", {
-    endpoint: "/guest",
-    method: "POST",
-    bodyShape: []
-  });
+    // 2. Только если guest реально нет
+    logInfo("No valid guest — creating new guest");
 
-  try {
-    const data = await apiRequest("/guest", { method: "POST" });
-    logInfo("Guest create response shape - guest.js function ensureGuestSession", {
-      keys: data ? Object.keys(data) : [],
-      hasAccessToken: !!data?.access_token,
-      hasUser: !!data?.user
-    });
+    const data = await apiRequest(
+        "/guest",
+        {
+            method: "POST"
+        }
+    );
 
     guestToken = data.access_token;
     localStorage.setItem("guest_token", guestToken);
-    setActiveUser(data.user, guestToken);
-
-    // Создаём дефолтные настройки для нового гостя
-    logInfo("Set default settings into state (1) - guest.js function ensureGuestSession")
+    setActiveUser(
+        data.user,
+        guestToken
+    );
     const settingsNew = await createDefaultSettings(data.user.id);
-    
-    // Сохраняем в state
+
     if (settingsNew) {
-      logInfo("Settings loaded for new guest and set into state - guest.js function ensureGuestSession");
-      state.setLanguages(settingsNew.input_lang, settingsNew.output_lang);
-      state.setUserSkill( settingsNew.user_level, settingsNew.text_size, settingsNew.examples_count ) ;
-      state.setUserInterface( settingsNew.ui_lang, settingsNew.ui_theme, settingsNew.voice_type );
+        state.setLanguages(
+            settingsNew.input_lang,
+            settingsNew.output_lang
+        );
+        state.setUserSkill(
+            settingsNew.user_level,
+            settingsNew.text_size,
+            settingsNew.examples_count
+        );
+        state.setUserInterface(
+            settingsNew.ui_lang,
+            settingsNew.ui_theme,
+            settingsNew.voice_type
+        );
     }
-    
-    return { user: data.user, token: guestToken };
-  } catch (e) {
-    logError("Guest create request failed - guest.js function ensureGuestSession", { error: e.message });
-    return null;
-    throw e;
-  }
+    return {
+        user: data.user,
+        token: guestToken
+    };
 }
+
+// --- 1. Есть токен гостя → пробуем загрузить ---
+// export async function ensureGuestSession() {
+//   let guestToken = localStorage.getItem("guest_token");
+//
+//   if (guestToken) {
+//     try {
+//       const guestUser = await fetchMeByToken(guestToken);
+//       setActiveUser(guestUser, guestToken);
+//
+//       // Пытаемся загрузить настройки из БД
+//       console.log(guestUser.id);
+//       let settings = await fetchSettings(guestUser.id);
+//
+//       // Если нет settings в БД - устанавливаем дефолтные
+//       if (!settings) {
+//         logInfo("Settings not loaded and set default settings into state  - guest.js function ensureGuestSession")
+//         settings = await createDefaultSettings(guestUser.id);
+//       }
+//
+//       // Сохраняем в state
+//       if (settings) {
+//         logInfo("Settings loaded and set into state (1) - guest.js function ensureGuestSession");
+//         state.setLanguages( settings.input_lang, settings.output_lang );
+//         state.setUserSkill( settings.user_level, settings.text_size, settings.examples_count );
+//         state.setUserInterface( settings.ui_lang, settings.ui_theme, settings.voice_type );
+//       }
+//
+//       return { user: guestUser, token: guestToken };
+//     } catch (e) {
+//       logError("Guest token invalid - guest.js function ensureGuestSession", { error: e.message });
+//       localStorage.removeItem("guest_token");
+//       guestToken = null;
+//     }
+//   }
+//
+//   // --- 2. Токена нет → создаём нового гостя ---
+//   logInfo("Create Guest request shape - guest.js function ensureGuestSession", {
+//     endpoint: "/guest",
+//     method: "POST",
+//     bodyShape: []
+//   });
+//
+//   try {
+//     const data = await apiRequest("/guest", { method: "POST" });
+//     logInfo("Guest create response shape - guest.js function ensureGuestSession", {
+//       keys: data ? Object.keys(data) : [],
+//       hasAccessToken: !!data?.access_token,
+//       hasUser: !!data?.user
+//     });
+//
+//     guestToken = data.access_token;
+//     localStorage.setItem("guest_token", guestToken);
+//     setActiveUser(data.user, guestToken);
+//
+//     // Создаём дефолтные настройки для нового гостя
+//     logInfo("Set default settings into state (1) - guest.js function ensureGuestSession")
+//     const settingsNew = await createDefaultSettings(data.user.id);
+//
+//     // Сохраняем в state
+//     if (settingsNew) {
+//       logInfo("Settings loaded for new guest and set into state - guest.js function ensureGuestSession");
+//       state.setLanguages(settingsNew.input_lang, settingsNew.output_lang);
+//       state.setUserSkill( settingsNew.user_level, settingsNew.text_size, settingsNew.examples_count ) ;
+//       state.setUserInterface( settingsNew.ui_lang, settingsNew.ui_theme, settingsNew.voice_type );
+//     }
+//
+//     return { user: data.user, token: guestToken };
+//   } catch (e) {
+//     logError("Guest create request failed - guest.js function ensureGuestSession", { error: e.message });
+//
+//     throw e;
+//   }
+// }
 
 export async function initSession() {
   const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -141,8 +232,6 @@ export async function initSession() {
     }
   }
   await ensureGuestSession();
-
-
 }
 
 export async function logoutToGuest() {

@@ -114,3 +114,99 @@ export async function deleteUser(data) {
     throw e;
   }
 }
+
+export async function googleAuthUser({
+    credential,
+    mode,
+    terms_accepted = false
+}) {
+    const requestBody = {
+        credential,
+        mode,
+        terms_accepted
+    };
+
+    logInfo("Google auth request shape", {
+        endpoint: "/auth/google",
+        method: "POST",
+        mode,
+        termsAccepted: terms_accepted,
+        hasCredential: !!credential
+    });
+
+    try {
+        const res = await apiRequest("/auth/google", {
+            method: "POST",
+            body: requestBody
+        });
+
+        logInfo("Google auth response shape", {
+            keys: res ? Object.keys(res) : [],
+            hasToken: !!res?.token,
+            hasEmail: !!res?.email
+        });
+
+        return res;
+
+    } catch (e) {
+        logError("Google auth request failed", {
+            error: e.message,
+            detail: e.detail
+        });
+
+        throw e;
+    }
+}
+
+export async function forgotPasswordRequest (checkEmail){
+     logInfo("Forgot password request shape", {
+         endpoint: "/forgot_password",
+         method: "POST",
+         email: checkEmail,
+     });
+
+     try {
+         const res = await apiRequest("/forgot_password", {
+            method: "POST",
+            body: {
+                email: checkEmail
+            }
+         });
+
+         logInfo(`Fetch Email to /forgot_password request success  ${res.message}`);
+
+         return res;
+     } catch (e) {
+         logError("Fetch Email to /forgot_password request failed", {error: e.message});
+     }
+}
+
+export async function resetPasswordRequest(token, password, passwordConfirmation) {
+    logInfo("Reset password request shape", {
+        endpoint: "/reset_password",
+        method: "POST",
+        hasToken: !!token
+    });
+
+    try {
+        const res = await apiRequest(
+            "/reset_password",
+            {
+                method: "POST",
+                body: {
+                    token: token,
+                    password: password,
+                    password_confirmation: passwordConfirmation
+                }
+            }
+        );
+
+        logInfo("Reset password request success", { res });
+        return res;
+
+    } catch (e) {
+        logError("Reset password request failed", {error: e.message, detail: e.detail});
+        throw e;
+    }
+}
+

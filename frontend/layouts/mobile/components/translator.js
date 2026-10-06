@@ -13,6 +13,7 @@ import { setupLangSwitcher } from "./translator/langSwitcher.js";
 import { setupHistorySheet } from "./translator/historySheet.js";
 
 let isRendering = false;
+let historySheet = null;
 
 function renderTranslationOutput(output, result, inputWord, targetLang) {
   if (!result?.translation) return;
@@ -61,7 +62,7 @@ export function renderTranslator() {
     screen.innerHTML = `
       <div class="translator-screen">
         <div class="input-container">
-          <input class="input-placeholder" placeholder="${t("translator", "input_placeholder")}">
+          <input class="input-placeholder" type="text" autocomplete="off" placeholder="${t("translator", "input_placeholder")}">
           <div class="erase-container"></div>
         </div>
         <div class="buttons-row"></div>
@@ -110,8 +111,7 @@ export function renderTranslator() {
       },
     });
 
-    state.on("interface", () => renderTranslator());
-    state.on("history", () => sheet.update(state.history));
+    historySheet = sheet;
 
     setupEraseInput(placeholder, eraseContainer);
 
@@ -125,3 +125,20 @@ export function renderTranslator() {
     isRendering = false;
   }
 }
+// подписки на изменения языков
+state.on("interface", () => {
+    const screen =
+        document.querySelector('[data-screen="translator"]');
+
+    if (
+        screen &&
+        screen.style.display !== "none"
+    ) {
+        renderTranslator(state);
+    }
+});
+state.on("history", () => {
+    if (historySheet) {
+        historySheet.update(state.history);
+    }
+});

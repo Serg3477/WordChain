@@ -1,7 +1,6 @@
 import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js";
-import { apiRequest } from "../../../core/api.js";
-import { ensureGuestSession } from "../../../api/guest.js";
+import { logoutToGuest } from "../../../api/guest.js";
 import { deleteUser } from "../../../api/user.js";
 import { t } from "../../../shared/i18n/index.js"
 
@@ -41,7 +40,7 @@ function createAccountActionModal({ modalName, title, question, yesLabel = t("ac
 
     yesBtn.addEventListener("click", async () => {
         await signOutOrDeleteAccount(modalName);
-        closeModal()
+        closeModal();
     });
     noBtn.addEventListener("click", closeModal);
 
@@ -67,25 +66,17 @@ export function createDeleteAccountModal() {
 }
 
 async function signOutOrDeleteAccount(modalName) {
-    if (modalName == "signOutModal") {
-        await ensureGuestSession();
-        localStorage.removeItem("token");
-        sessionStorage.removeItem("token");
-        state.setUser({token: localStorage.getItem("guest_token")});
+    if (modalName === "signOutModal") {
+        await logoutToGuest();
+        return;
     }
-    if (modalName == "deleteAccountModal") {
+    if (modalName === "deleteAccountModal") {
         const delUser = state.user.nickname;
-
-        const res = await deleteUser({email: state.user.email});
-        localStorage.removeItem("token");
-        sessionStorage.removeItem("token");
-        state.setUser(null);
-
-        // После удаления поиск и переход на существующего гостя
-        await ensureGuestSession();
-        state.setUser({token: localStorage.getItem("guest_token")});
-        console.log(`User ${delUser} ${res.message} `);
+        const res = await deleteUser({
+            email: state.user.email
+        });
+        await logoutToGuest();
+        console.log(`User ${delUser} ${res.message}`);
     }
 }
-
 

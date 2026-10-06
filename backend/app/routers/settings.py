@@ -39,7 +39,11 @@ async def new_settings(req: NewSettingsRequest):
 @get_settings_router.post("/get_settings", response_model=GetSettingsResponse)
 async def get_settings(req: GetSettingsRequest):
     backend_logger.info(f"Get settings for user attempt: {req.user_id}")
-    settings = await get_settings_by_user_id(async_session(), req.user_id)
+    async with async_session() as session:
+        settings = await get_settings_by_user_id(
+            session,
+            req.user_id
+        )
     if not settings:
         backend_logger.error(f"Settings not found for user: {req.user_id}")
         raise HTTPException(status_code=404, detail="Settings not found")

@@ -1,6 +1,7 @@
 import { UserMenu } from "./userMenu.js";
 import { CurriculumMenu } from "./appMenu.js";
 import { state } from "../../../core/state.js";
+import {getAvatarSrc} from "../../../shared/getAvatar.js";
 
 
 const user = state.user;
@@ -44,7 +45,7 @@ export function renderMobileNavbar() {
     if (!user) return;
     if (!nicknameEl || !avatarEl) return;
     nicknameEl.textContent = user.nickname || "Guest";
-    avatarEl.src = `../../../assets/icons/${user.avatar_url || "user-icon.png"}`;
+    avatarEl.src = getAvatarSrc(state.user.avatar_url);
   }
 
     // Подписываемся на изменения user

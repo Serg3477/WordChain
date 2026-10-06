@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     MODEL: str
     MODEL_AUDIO: str
 
+    GOOGLE_CLIENT_ID: str
+
     @property
     def database_url(self) -> str:
         password = quote_plus(self.DB_PASSWORD)

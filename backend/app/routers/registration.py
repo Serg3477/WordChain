@@ -3,9 +3,9 @@ from app.db.session import async_session
 from app.schemas.user import RegistrationRequest, RegistrationResponse
 from app.db.repositories.user_repository import UserRepository
 from app.logger.logger import backend_logger
+from app.utils.password_hash_service import hash_password
 from app.services.registration_service import (
     ensure_email_unique,
-    hash_password,
     generate_token,
 )
 

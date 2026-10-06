@@ -4,6 +4,7 @@ import re
 from typing import List
 from fastapi import HTTPException
 from sqlalchemy import select, func
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.word import Word
 from app.db.models.set import Set
@@ -106,7 +107,7 @@ async def get_any_word(req):
 # -----------------------------
 # Read Word
 # -----------------------------
-async def word_read(session, id: int, user_id: int) -> Word:
+async def word_read(session: AsyncSession, id: int, user_id: int) -> Word:
     stmt = (
         select(Word)
         .where(Word.id == id, Word.user_id == user_id)
@@ -121,7 +122,7 @@ async def word_read(session, id: int, user_id: int) -> Word:
 # -----------------------------
 # Update Word
 # -----------------------------
-async def word_update(session, req: WordUpdateByIdRequest):
+async def word_update(session: AsyncSession, req: WordUpdateByIdRequest):
     stmt = select(Word).where(Word.id == req.id, Word.user_id == req.user_id)
     backend_logger.info(f"word_update stmt: {stmt}")
 

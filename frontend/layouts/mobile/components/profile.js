@@ -1,15 +1,10 @@
 import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js"
-import { apiRequest } from "../../../core/api.js";
-import { registerUser } from "../../../api/user.js";
-import { loginUser } from "../../../api/user.js";
 
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
-import { EraseInputButton } from "../../../ui/erase/eraseInputButton.js";
-
-import { Notification } from "../../../ui/notificationModal/notificationModal.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
-import { t } from "../../../shared/i18n/index.js"
+import { t } from "../../../shared/i18n/index.js";
+import { getAvatarSrc } from "../../../shared/getAvatar.js";
 
 
 
@@ -31,11 +26,9 @@ export function renderProfile(state) {
         : email;
 
     const avatarSrc = user.avatar_url
-        ? `../../../assets/icons/${user.avatar_url}`
+        ? getAvatarSrc(state.user.avatar_url)
         : "../../../assets/icons/default.png";
 
-    // подписки на изменения языков и истории слов
-    state.on("interface", () => renderProfile());
 
     screen.innerHTML = `
 
@@ -152,5 +145,17 @@ export function renderProfile(state) {
     saveSlot.appendChild(quitBtn);
     signOutSlot.appendChild(signOutBtn);
     deleteSlot.appendChild(deleteBtn);
-
 }
+  // подписки на изменения языков
+state.on("interface", () => {
+    const screen =
+        document.querySelector('[data-screen="profile"]');
+
+    if (
+        screen &&
+        screen.style.display !== "none"
+    ) {
+        renderProfile(state);
+    }
+});
+

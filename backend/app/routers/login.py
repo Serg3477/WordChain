@@ -22,6 +22,14 @@ async def login(req: LoginRequest):
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="invalid_email"
             )
+        if not user.hashed_password:
+            backend_logger.warning(
+                f"Password login unavailable for email={req.email}"
+            )
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="password_login_unavailable",
+            )
 
         is_valid = await check_by_password(req.password, user.hashed_password)
         if not is_valid:

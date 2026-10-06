@@ -126,8 +126,18 @@ export const state = {
   listeners: {},
 
   on(key, fn) {
-    if (!this.listeners[key]) this.listeners[key] = [];
+    if (!this.listeners[key]) {
+        this.listeners[key] = [];
+    }
+
     this.listeners[key].push(fn);
+
+    return () => {
+        this.listeners[key] =
+            this.listeners[key].filter(
+                listener => listener !== fn
+            );
+    };
   },
 
   notify(key) {

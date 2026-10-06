@@ -1,8 +1,9 @@
-import { state } from "../../../core/state.js";
+import { state } from  "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js"
 import { newSettings } from "../../../api/settings.js";
-import { registerUser } from "../../../api/user.js";
+import { registerUser, googleAuthUser } from "../../../api/user.js";
 import { renderLogin } from "./login.js";
+import { renderGoogleButton } from "../../../shared/googleIdentity.js";
 
 import { BaseButton } from "../../../ui/baseButton/baseButton.js";
 import { passwordVisible } from "../../../shared/passwordVisible.js";
@@ -22,9 +23,6 @@ export function renderRegister(state) {
         logError("Register screen not found");
         return;
     }
-
-    // подписки на изменения языков и истории слов
-    state.on("interface", () => renderRegister());
 
     screen.innerHTML = `
 
@@ -144,19 +142,112 @@ export function renderRegister(state) {
         }
     }).render();
 
-    const googleBtn = new BaseButton({
-        label: t("register", "google_btn"),
-        type: "ui-user-btn oauth-btn",
-        icon: `<img src="./assets/icons/google.png">`,
-        action: "click",
-        handler: () => {
-            logInfo("Register with Google button clicked");
-            console.log("Google auth click");
-        }
-    }).render();
-
     submitSlot.appendChild(createAccountBtn);
-    googleSlot.appendChild(googleBtn);
+
+    renderGoogleButton({
+        slot: googleSlot,
+        flow: "register",
+        text: "signup_with",
+        locale:
+            state.userInterface.ui_language || "en",
+
+        onCredential: async (response) => {
+            logInfo("Google register credential received");
+
+            // ВАЖНО:
+            // Google registration тоже требует Terms.
+            if (!termsCheckbox.checked) {
+                await tipModal({
+                    text: t(
+                        "register",
+                        "notification_terms"
+                    ),
+                    mode: "error",
+                    target: termsCheckbox
+                });
+                return;
+            }
+
+            try {
+                const res = await googleAuthUser({
+                    credential: response.credential,
+                    mode: "register",
+                    terms_accepted: true
+                });
+
+                localStorage.removeItem("token");
+                sessionStorage.removeItem("token");
+
+                localStorage.setItem(
+                    "token",
+                    res.token
+                );
+
+                state.setUser({
+                    id: res.id,
+                    nickname: res.nickname,
+                    avatar_url: res.avatar_url,
+                    email: res.email,
+                    token: res.token,
+                    is_guest: res.is_guest,
+                    is_premium: res.is_premium
+                });
+
+                // Проверяем settings.
+                let settings = null;
+
+                try {
+                    settings = await getSettings({
+                        endpoint: "/get_settings",
+                        method: "POST",
+                        user_id: res.id
+                    });
+                } catch (e) {
+                    logInfo("Settings not found for Google user");
+                }
+                // Если Google создал нового пользователя.
+                if (!settings) {
+                    settings = await newSettings({
+                        endpoint: "/new_settings",
+                        method: "POST",
+                        currentSettings: {
+                            user_id: res.id
+                        }
+                    });
+                }
+                if (settings) {
+                    state.setLanguages(
+                        settings.input_lang,
+                        settings.output_lang
+                    );
+                    state.setUserSkill(
+                        settings.user_level,
+                        settings.text_size,
+                        settings.examples_count
+                    );
+                    state.setUserInterface(
+                        settings.ui_lang,
+                        settings.ui_theme,
+                        settings.voice_type
+                    );
+                }
+                Notification.show({type: "success", message: t("register", "notification_success")});
+                windowManager.back();
+            } catch (e) {
+                if (e.detail === "terms_not_accepted") {
+                    await tipModal({
+                        text: t("register", "notification_terms"),
+                        mode: "error",
+                        target: termsCheckbox
+                    });
+                    return;
+                }
+                logError("Google registration failed", {error: e.message, detail: e.detail});
+            }
+        }
+    }).catch((e) => {
+        logError("Google register button render failed", {error: e.message});
+    });
 
     formReg.addEventListener("submit", async (event) => {
         logInfo("Register submit fired");
@@ -199,51 +290,31 @@ export function renderRegister(state) {
         }
 
         if (formReg.password.value !== formReg.passwordConfirmation.value) {
-            logError("Register validation failed", {
-                reason: "password_mismatch"
-            });
-
-            Notification.show({
-                type: "warning",
-                message: t("register", "notification_mismatch")
-            });
+            logError("Register validation failed", {reason: "password_mismatch"});
+            Notification.show({type: "warning", message: t("register", "notification_mismatch")});
 
             await tipModal({
                 text: t("register", "notification_mismatch"),
                 mode: "error",
                 target: passwordConfirm
             });
-
             return;
         }
 
         if (!formReg.reportValidity()) {
-            Notification.show({
-                type: "error",
-                message: t("register", "notification_error")
-            });
-
-            logError("Register validation failed", {
-                reason: "reportValidity_false"
-            });
-
+            Notification.show({type: "error", message: t("register", "notification_error")});
+            logError("Register validation failed", {reason: "reportValidity_false"});
             return;
         }
 
         if (!termsCheckbox.checked) {
-            logError("Register validation failed", {
-                reason: "terms_not_accepted"
-            });
+            logError("Register validation failed", {reason: "terms_not_accepted"});
             await tipModal({
                 text: t("register", "notification_terms"),
                 mode: "error",
                 target: termsCheckbox
             });
-            Notification.show({
-                type: "warning",
-                message: t("register", "notification_terms")
-            });
-
+            Notification.show({type: "warning", message: t("register", "notification_terms")});
             return;
         }
 
@@ -255,7 +326,6 @@ export function renderRegister(state) {
 
         try {
             const res = await registerUser(data);
-
             localStorage.setItem("token", res.token);
 
             state.setUser({
@@ -268,17 +338,11 @@ export function renderRegister(state) {
                 is_premium: res.is_premium
             });
 
-            Notification.show({
-                type: "success",
-                message: t("register", "notification_success")
-            });
-
+            Notification.show({type: "success", message: t("register", "notification_success")});
             windowManager.back();
 
         } catch (e) {
-            logError("Register request failed", {
-                error: e.message
-            });
+            logError("Register request failed", { error: e.message });
             return;
         }
 
@@ -291,15 +355,10 @@ export function renderRegister(state) {
                     user_id: state.user.id
                 }
             });
-
-            logInfo(
-                "Save new settings for new user: success - components/register.js /new_settings"
-            );
+            logInfo("Save new settings for new user: success - components/register.js /new_settings");
 
             if (settings) {
-                logInfo(
-                    "Settings loaded and set into state - components/register.js setLanguages"
-                );
+                logInfo("Settings loaded and set into state - components/register.js setLanguages");
 
                 state.setLanguages(
                     settings.input_lang,
@@ -318,7 +377,6 @@ export function renderRegister(state) {
                     settings.voice_type
                 );
             }
-
         } catch (e) {
             logError(
                 "Save new settings request failed in UI - components/register.js /new_settings",
@@ -326,6 +384,18 @@ export function renderRegister(state) {
             );
         }
     });
-} 
+}
 
+// подписки на изменения языков
+state.on("interface", () => {
+    const screen =
+        document.querySelector('[data-screen="register"]');
+
+    if (
+        screen &&
+        screen.style.display !== "none"
+    ) {
+        renderRegister(state);
+    }
+});
 
