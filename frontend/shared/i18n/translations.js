@@ -160,7 +160,11 @@ export const translations = {
         google_btn: "Continue with Google",
         notification_mismatch: "Passwords don’t match. Check both fields.",
         notification_error: "Some fields are invalid!",
-        notification_success: "Registration successful!"
+        notification_success: "Registration successful!",
+        google_success: "Google authentication success",
+        account_linked: "Google account successfully linked",
+        email_exist: "An account with this email already exists. Please sign in instead.",
+        email_exist_google: "This email is already registered with Google. Please sign in with Google."
     },
     login: {
         input_email: "Email:",
@@ -372,7 +376,11 @@ export const translations = {
       google_btn: "Продовжити з Google",
       notification_mismatch: "Паролі не співпадають. Перевірте обидва поля.",
       notification_error: "Деякі поля заповнені некоректно!",
-      notification_success: "Реєстрація успішна!"
+      notification_success: "Реєстрація успішна!",
+      google_success: "Автентифікацію через Google успішно виконано",
+      account_linked: "Обліковий запис Google успішно підключено",
+      email_exist: "Обліковий запис із цією електронною адресою вже існує. Будь ласка, увійдіть у свій обліковий запис.",
+      email_exist_google: "Ця електронна адреса вже зареєстрована через Google. Будь ласка, увійдіть через Google.",
     },
 
     login: {
@@ -586,7 +594,11 @@ export const translations = {
       google_btn: "Продолжить через Google",
       notification_mismatch: "Пароли не совпадают. Проверьте оба поля.",
       notification_error: "Некоторые поля заполнены некорректно!",
-      notification_success: "Регистрация успешна!"
+      notification_success: "Регистрация успешна!",
+      google_success: "Аутентификация через Google выполнена успешно",
+      account_linked: "Аккаунт Google успешно подключён",
+      email_exist: "Аккаунт с этим адресом электронной почты уже существует. Пожалуйста, войдите в свой аккаунт.",
+      email_exist_google: "Этот адрес электронной почты уже зарегистрирован через Google. Пожалуйста, войдите через Google.",
     },
 
     login: {
@@ -799,7 +811,11 @@ export const translations = {
       google_btn: "Weiter mit Google",
       notification_mismatch: "Passwörter stimmen nicht überein. Bitte beide Felder prüfen.",
       notification_error: "Einige Felder sind ungültig!",
-      notification_success: "Registrierung erfolgreich!"
+      notification_success: "Registrierung erfolgreich!",
+      google_success: "Google-Authentifizierung erfolgreich",
+      account_linked: "Google-Konto erfolgreich verknüpft",
+      email_exist: "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Bitte melden Sie sich stattdessen an.",
+      email_exist_google: "Diese E-Mail-Adresse ist bereits über Google registriert. Bitte melden Sie sich mit Google an.",
     },
 
     login: {
@@ -1012,7 +1028,11 @@ export const translations = {
         google_btn: "Continuer avec Google",
         notification_mismatch: "Les mots de passe ne correspondent pas. Vérifiez les deux champs.",
         notification_error: "Certains champs sont invalides !",
-        notification_success: "Inscription réussie !"
+        notification_success: "Inscription réussie !",
+        google_success: "Authentification Google réussie",
+        account_linked: "Compte Google associé avec succès",
+        email_exist: "Un compte avec cette adresse e-mail existe déjà. Veuillez vous connecter.",
+        email_exist_google: "Cette adresse e-mail est déjà enregistrée avec Google. Veuillez vous connecter avec Google.",
     },
 
     login: {
@@ -1225,7 +1245,11 @@ export const translations = {
         google_btn: "Continuar con Google",
         notification_mismatch: "Las contraseñas no coinciden. Revisa ambos campos.",
         notification_error: "¡Algunos campos son inválidos!",
-        notification_success: "¡Registro exitoso!"
+        notification_success: "¡Registro exitoso!",
+        google_success: "Autenticación con Google completada correctamente",
+        account_linked: "Cuenta de Google vinculada correctamente",
+        email_exist: "Ya existe una cuenta con esta dirección de correo electrónico. Inicia sesión.",
+        email_exist_google: "Esta dirección de correo electrónico ya está registrada con Google. Inicia sesión con Google.",
     },
 
     login: {
@@ -1438,7 +1462,11 @@ export const translations = {
         google_btn: "Continua con Google",
         notification_mismatch: "Le password non coincidono. Controlla entrambi i campi.",
         notification_error: "Alcuni campi non sono validi!",
-        notification_success: "Registrazione riuscita!"
+        notification_success: "Registrazione riuscita!",
+        google_success: "Autenticazione Google completata con successo",
+        account_linked: "Account Google collegato con successo",
+        email_exist: "Esiste già un account con questo indirizzo email. Accedi al tuo account.",
+        email_exist_google: "Questo indirizzo email è già registrato con Google. Accedi con Google.",
     },
 
     login: {
@@ -1650,7 +1678,11 @@ export const translations = {
         google_btn: "Kontynuuj z Google",
         notification_mismatch: "Hasła nie są identyczne. Sprawdź oba pola.",
         notification_error: "Niektóre pola są nieprawidłowe!",
-        notification_success: "Rejestracja zakończona pomyślnie!"
+        notification_success: "Rejestracja zakończona pomyślnie!",
+        google_success: "Uwierzytelnianie przez Google zakończone pomyślnie",
+        account_linked: "Konto Google zostało pomyślnie połączone",
+        email_exist: "Konto z tym adresem e-mail już istnieje. Zaloguj się do swojego konta.",
+        email_exist_google: "Ten adres e-mail jest już zarejestrowany przez Google. Zaloguj się przez Google.",
     },
 
     login: {

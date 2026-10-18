@@ -36,6 +36,8 @@ class LoginResponse(BaseModel):
     token: str
     is_guest: bool = False
     is_premium: bool = False
+    account_linked: bool = False
+
 
 
 class GoogleAuthRequest(BaseModel):

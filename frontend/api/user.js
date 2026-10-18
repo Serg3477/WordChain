@@ -1,5 +1,7 @@
 import { apiRequest } from "../core/api.js";
 import { logInfo, logError } from "../utils/logger/logger.js";
+import {t} from "../shared/i18n/index.js";
+import { Notification } from "../ui/notificationModal/notificationModal.js";
 
 export async function registerUser(data) {
   const requestBody = {
@@ -36,8 +38,9 @@ export async function registerUser(data) {
       endpoint: "/register",
       method: "POST",
       error: e.message,
+      detail: e.detail
     });
-    throw e;
+    throw e;  // Пробрасывает ошибку дальше
   }
 }
 

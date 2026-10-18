@@ -63,6 +63,7 @@ async def get_me(user = Depends(get_current_user)):
 @auth_router.post("/auth/google", response_model=LoginResponse)
 async def google_auth(req: GoogleAuthRequest):
     backend_logger.info("Google authentication attempt")
+    account_linked = False
 
     # 1. Проверяем Google ID token
     try:
@@ -105,7 +106,7 @@ async def google_auth(req: GoogleAuthRequest):
         )
         user = result.scalar_one_or_none()
 
-        # 3. Google-пользователь раньше не входил
+        # 3. Такой Google account ещё не привязан
         if not user:
             if req.mode == "login":
                 raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="google_account_not_found")
@@ -119,8 +120,9 @@ async def google_auth(req: GoogleAuthRequest):
             )
             user = result.scalar_one_or_none()
 
+            # Такой email уже есть — связываем существующий аккаунт с Google
             if user:
-                # Такой email уже есть — связываем существующий аккаунт с Google
+                # Если к этому email каким-то образом уже привязан ДРУГОЙ Google account.
                 if user.google_sub and user.google_sub != google_sub:
                     backend_logger.warning(
                         f"Google account conflict for email={email}"
@@ -131,6 +133,7 @@ async def google_auth(req: GoogleAuthRequest):
                         detail="google_account_conflict",
                     )
 
+                # Связываем существующий account с Google. НЕ меняем: user.hashed_password, user.nickname, user.avatar_url, Settings
                 user.google_sub = google_sub
                 user.is_guest = False
 
@@ -140,26 +143,22 @@ async def google_auth(req: GoogleAuthRequest):
                 backend_logger.info(
                     f"Google linked to existing user: {user.id}"
                 )
-
+                account_linked = True
             else:
                 # 4. Совсем новый пользователь
-
                 preferred_nickname = (
                     name.strip()
                     if name and name.strip()
                     else email.split("@")[0]
                 )
-
                 preferred_nickname = preferred_nickname[:50]
 
-                # nickname у тебя UNIQUE,
-                # поэтому Google name нельзя использовать вслепую
+                # nickname UNIQUE, поэтому Google name нельзя использовать вслепую
                 result = await session.execute(
                     select(User.id).where(
                         User.nickname == preferred_nickname
                     )
                 )
-
                 nickname_exists = result.scalar_one_or_none()
 
                 if nickname_exists:
@@ -187,6 +186,13 @@ async def google_auth(req: GoogleAuthRequest):
                     f"{user.id} - {user.nickname}"
                 )
 
+        # Пользователь уже был связан с Google
+        else:
+            backend_logger.info(
+                f"Existing Google user found: "
+                f"{user.id} - {user.nickname}"
+            )
+
         # 5. Выпускаем уже НАШ WordChain JWT
         new_token = create_access_token({
             "user_id": user.id
@@ -205,4 +211,6 @@ async def google_auth(req: GoogleAuthRequest):
             token=new_token,
             is_guest=user.is_guest,
             is_premium=user.is_premium,
+            account_linked=account_linked
         )
+

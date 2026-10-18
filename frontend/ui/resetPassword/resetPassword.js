@@ -24,7 +24,7 @@ export function resetPasswordModal() {
                 <div class="reset-title">
                     ${t("login", "reset_title")}
                 </div>
-                <div class="ask-content">
+                <div class="reset-content">
                     <div class="reset-text">
                         ${t("login", "reset_text")}
                     </div>

@@ -24,6 +24,7 @@ bcrypt = "4.3.0"
 google-auth = "^2.59.1"
 requests = "^2.34.2"
 pydantic = {extras = ["email"], version = "^2.14.0"}
+resend = {extras = ["async"], version = "^2.50.0"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"

@@ -1,6 +1,6 @@
 import { state } from  "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js"
-import { newSettings } from "../../../api/settings.js";
+import { getSettings, newSettings } from "../../../api/settings.js";
 import { registerUser, googleAuthUser } from "../../../api/user.js";
 import { renderLogin } from "./login.js";
 import { renderGoogleButton } from "../../../shared/googleIdentity.js";
@@ -231,7 +231,8 @@ export function renderRegister(state) {
                         settings.voice_type
                     );
                 }
-                Notification.show({type: "success", message: t("register", "notification_success")});
+                if (res.account_linked) Notification.show({type: "success", message: t("register", "account_linked")});
+                else Notification.show({type: "success", message: t("register", "google_success")});
                 windowManager.back();
             } catch (e) {
                 if (e.detail === "terms_not_accepted") {
@@ -250,7 +251,7 @@ export function renderRegister(state) {
     });
 
     formReg.addEventListener("submit", async (event) => {
-        logInfo("Register submit fired");
+        logInfo("Register submit clicked");
         event.preventDefault();
 
         if (!nameInput.value) {
@@ -342,7 +343,13 @@ export function renderRegister(state) {
             windowManager.back();
 
         } catch (e) {
-            logError("Register request failed", { error: e.message });
+            logError("Register request failed", { error: e.message, detail: e.detail });
+            if (e.detail === "Email already registered with Google") {
+                Notification.show({type: "error", message: t("register", "email_exist_google")});
+            }
+            if (e.detail === "Email already exists") {
+                Notification.show({type: "error", message: t("register", "email_exist")});
+            }
             return;
         }
 
