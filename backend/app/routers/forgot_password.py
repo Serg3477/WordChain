@@ -1,5 +1,6 @@
+import os
 from fastapi import APIRouter, HTTPException
-from sqlalchemy import select
+from sqlalchemy import select, text, func
 from starlette import status
 
 from app.db.session import async_session
@@ -17,6 +18,7 @@ from app.services.password_service import (
     get_reset_user_id,
     delete_reset_token,
 )
+from app.services.email_service import send_password_reset_email
 from app.logger.logger import backend_logger
 
 
@@ -28,18 +30,37 @@ reset_router = APIRouter()
 async def forgot_password(req: ForgotPasswordRequest):
 
     backend_logger.info(f"Password reset request: {req.email}")
+    backend_logger.info(f"Forgot email repr={req.email!r}, len={len(req.email)}")
 
     # Ищем пользователя по email
     async with async_session() as session:
-        result = await session.execute(
-            select(User).where(User.email == req.email)
+        db_info = await session.execute(
+            text("""
+                SELECT
+                    current_database(),
+                    current_user,
+                    inet_server_addr(),
+                    inet_server_port()
+            """)
+        )
+        backend_logger.info(
+            f"DB connection: {db_info.one()}"
         )
 
+        email = req.email.strip().lower()
+        result = await session.execute(
+            select(User).where(
+                func.lower(func.trim(User.email)) == email
+            )
+        )
         user = result.scalar_one_or_none()
 
     # Внешний ответ ВСЕГДА одинаковый.
-    response = ResetPasswordResponse(
-        message="password_reset_requested"
+    response = ForgotPasswordResponse(
+        message=(
+                "If an account with this email exists, "
+                "a password reset link has been sent."
+            )
     )
 
     if not user:
@@ -61,12 +82,27 @@ async def forgot_password(req: ForgotPasswordRequest):
         token_hash,
         user.id
     )
-    reset_link = (
-        "http://127.0.0.1:5550/"
-        f"?reset_token={token}"
+
+    # Отсылаем ссылку на Email пользователя для сброса пароля и задания нового через Resend
+    frontend_url = os.getenv(
+        "FRONTEND_URL",
+        "http://127.0.0.1:5550",
     )
-    backend_logger.warning( f"DEV PASSWORD RESET LINK: {reset_link}")
+
+    reset_url = f"{frontend_url}/?reset_token={token}"
+    try:
+        await send_password_reset_email(
+            user.email,
+            reset_url,
+        )
+        backend_logger.info(f"Password reset email: {user.email}  sent for user_id={user.id}")
+
+    except Exception:
+        backend_logger.exception(f"Failed to send password reset email: {user.email} for user_id={user.id}")
+        await delete_reset_token(token_hash)
+
     return response
+
 
 
 @reset_router.post("/reset_password", response_model=ResetPasswordResponse)
@@ -124,3 +160,5 @@ async def reset_password(req: ResetPasswordRequest):
     return ResetPasswordResponse(
         message="password_reset_success"
     )
+
+
