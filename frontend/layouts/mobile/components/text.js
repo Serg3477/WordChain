@@ -13,6 +13,7 @@ import {BaseButton} from "../../../ui/baseButton/baseButton.js";
 
 
 
+
 export async function renderText(set, words) {
   logInfo("Sets screen render start");
 
@@ -182,6 +183,7 @@ export async function renderText(set, words) {
       return;
     }
   }
+
   // Добавление нижнего scroll меню с кнопкой Save
   const area = createScrollButtonsArea({ id: "global-scroll-buttons-area" });
   area.mount();

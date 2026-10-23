@@ -27,9 +27,16 @@ export const windowManager = {
     }
   },
 
+  // Добавление в список посещений скринов, исключая повторения
   pushScreen(id) {
-    screenStack.push(id);
+    if (screenStack[screenStack.length - 1] !== id) {
+      screenStack.push(id);
+    }
     this.showScreen(id);
+  },
+
+  currentScreen() {
+    return screenStack[screenStack.length - 1] ?? null;
   },
 
   back() {

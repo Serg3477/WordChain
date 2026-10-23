@@ -1,8 +1,8 @@
-import { EraseInputButton } from "../../../../ui/erase/eraseInputButton.js";
+import { insideInputButton } from "../../../../ui/insideButton/insideInputButton.js";
 
 export function setupEraseInput(placeholder, eraseContainer) {
 
-  const eraseBtn = new EraseInputButton({
+  const eraseBtn = new insideInputButton({
     icon: "/assets/icons/backspace.png",
 
     handler: () => {

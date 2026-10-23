@@ -30,7 +30,7 @@
   border: 2px;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
-  background: #2e5bff;
+  background: #1AB7B0;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.8;
@@ -75,13 +75,13 @@
 }
 
 .ask-yes {
-  background: #759ef5;
+  background: #24B88E;
   color: white;
   flex: 1.5;    /* Длина кнопки в контейнере */
 }
 
 .ask-cancel {
-  background: #e5e7eb;
+  background: #2196D2;
   color: #111827;
   flex: 1;
 }

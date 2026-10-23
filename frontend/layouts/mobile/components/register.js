@@ -148,8 +148,7 @@ export function renderRegister(state) {
         slot: googleSlot,
         flow: "register",
         text: "signup_with",
-        locale:
-            state.userInterface.ui_language || "en",
+        locale: state.userInterface.ui_language || "en",
 
         onCredential: async (response) => {
             logInfo("Google register credential received");

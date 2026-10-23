@@ -2,7 +2,7 @@
 export const Notification = (() => {
     const ICONS = {
         success: `<img class="notify-image" src="/assets/icons/Check.png" alt="✔️">`,
-        error: `<img class="notify-image" src="/assets/icons/Error.png" alt="❌"`,
+        error: `<img class="notify-image" src="/assets/icons/Error.png" alt="❌">`,
         warning: "⚠️",
         info: "ℹ️"
     };

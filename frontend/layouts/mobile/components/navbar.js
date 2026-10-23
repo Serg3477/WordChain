@@ -28,16 +28,33 @@ export function renderMobileNavbar() {
   logoEl.src = "../../../assets/icons/Logo_21.png";
   
   const appMenu = new CurriculumMenu(root);
-  appMenu.button = logoEl;
+  appMenu.setButton(logoEl);
   logoEl.addEventListener("click", (e) => {
     e.stopPropagation();
+    // Закрываем UserMenu
+    userMenu.hide();
+
+    // Открываем / закрываем AppMenu
     appMenu.toggle();
   });
 
   const userMenu = new UserMenu(root);
-  userMenu.button = avatarEl;
+  userMenu.setButton(avatarEl);
   avatarEl.addEventListener("click", (e) => {
     e.stopPropagation();
+    // Закрываем AppMenu
+    appMenu.hide();
+
+    // Открываем / закрываем UserMenu
+    userMenu.toggle();
+  });
+  userMenu.setButton(nicknameEl);
+  nicknameEl.addEventListener("click", (e) => {
+    e.stopPropagation();
+    // Закрываем AppMenu
+    appMenu.hide();
+
+    // Открываем / закрываем UserMenu
     userMenu.toggle();
   });
 
@@ -49,7 +66,12 @@ export function renderMobileNavbar() {
   }
 
     // Подписываемся на изменения user
-  state.on("user", updateNavbar);
+  state.on("user", (user) => {
+    if (!user) return;
+    if (!nicknameEl || !avatarEl) return;
+    nicknameEl.textContent = user.nickname || "Guest";
+    avatarEl.src = getAvatarSrc(state.user.avatar_url);
+  });
 
     // Инициализация при загрузке страницы
   updateNavbar(state.user);

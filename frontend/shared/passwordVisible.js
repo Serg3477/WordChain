@@ -1,8 +1,8 @@
-import { EraseInputButton } from "../ui/erase/eraseInputButton.js";
+import { insideInputButton } from "../ui/insideButton/insideInputButton.js";
 
 export function passwordVisible (passwordInput, buttonContainer) {
 
-  const showPasswordBtn = new EraseInputButton({
+  const showPasswordBtn = new insideInputButton({
     icon: "/assets/icons/eye.png",
 
     handler: () => {
@@ -11,6 +11,15 @@ export function passwordVisible (passwordInput, buttonContainer) {
       passwordInput.type = isHidden
         ? "text"
         : "password";
+
+      // Переключаем иконку
+      const icon = showPasswordBtn.querySelector("img");
+
+      if (icon) {
+        icon.src = isHidden
+          ? "/assets/icons/icons8-eye-30.png"
+          : "/assets/icons/eye.png";
+      }
 
       passwordInput.focus();
     },

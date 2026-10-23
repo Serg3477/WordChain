@@ -88,6 +88,8 @@ export async function renderGoogleButton({
 
     const buttonWidth = Math.min(slotWidth, 400);
 
+
+
     window.google.accounts.id.renderButton(
         slot,
         {
@@ -103,3 +105,4 @@ export async function renderGoogleButton({
         }
     );
 }
+

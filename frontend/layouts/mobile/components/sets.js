@@ -1,4 +1,5 @@
 import { state } from "../../../core/state.js";
+import { windowManager } from "../../../core/windowManager.js";
 import { getSets, getWordsFromSet } from "../../../api/sets.js";
 import { logInfo, logError } from "../../../utils/logger/logger.js";
 import { t } from "../../../shared/i18n/index.js";

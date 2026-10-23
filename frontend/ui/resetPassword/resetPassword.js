@@ -1,5 +1,6 @@
 import { t } from "../../shared/i18n/index.js";
 import { tipModal } from "../tipModal/tipModal.js";
+import { passwordVisible } from "../../shared/passwordVisible.js";
 
 
 let modalEl = null;
@@ -17,8 +18,6 @@ export function resetPasswordModal() {
         modalEl = document.createElement("div");
         modalEl.className = "reset-overlay";
 
-        // console.log("3. modal created", modalEl);
-
         modalEl.innerHTML = `
             <div class="reset-window">
                 <div class="reset-title">
@@ -28,21 +27,27 @@ export function resetPasswordModal() {
                     <div class="reset-text">
                         ${t("login", "reset_text")}
                     </div>
-                    <input
-                        class="reset-input-placeholder"
-                        type="password"
-                        autocomplete="off"
-                        placeholder="••••••••"
-                    >
+                    <div class="reset-input-container">
+                        <input
+                            class="reset-input"
+                            type="password"
+                            autocomplete="off"
+                            placeholder="••••••••"
+                        >
+                        <div class="reset-button-container"></div>
+                    </div>
                     <div class="reset-text">
                         ${t("login", "reset_confirm_text")}
                     </div>
-                    <input
-                        class="reset-confirm-placeholder"
-                        type="password"
-                        autocomplete="off"
-                        placeholder="••••••••"
-                    >
+                    <div class="reset-confirm-container">
+                        <input
+                            class="reset-confirm"
+                            type="password"
+                            autocomplete="off"
+                            placeholder="••••••••"
+                        >
+                        <div class="reset-confirm-button-container"></div>
+                    </div>
                     <br>
                     <div class="reset-buttons">
                         <button
@@ -62,22 +67,23 @@ export function resetPasswordModal() {
 
         document.body.appendChild(modalEl);
 
-        // console.log("4. modal appended");
-        // console.log("IN DOM:", document.body.contains(modalEl));
-        // console.log(
-        //     "STYLE:",
-        //     getComputedStyle(modalEl).position,
-        //     getComputedStyle(modalEl).display,
-        //     getComputedStyle(modalEl).visibility,
-        //     getComputedStyle(modalEl).opacity,
-        //     getComputedStyle(modalEl).zIndex
-        // );
-        // console.log("RECT:",  modalEl.getBoundingClientRect());
-
         const input =
-            modalEl.querySelector(".reset-input-placeholder");
+            modalEl.querySelector(".reset-input");
         const confirm =
-            modalEl.querySelector(".reset-confirm-placeholder");
+            modalEl.querySelector(".reset-confirm");
+        const resetButtonContainer =
+            modalEl.querySelector(".reset-button-container");
+        const resetConfirmButtonContainer =
+            modalEl.querySelector(".reset-confirm-button-container");
+
+        passwordVisible(
+            input,
+            resetButtonContainer
+        );
+        passwordVisible(
+            confirm,
+            resetConfirmButtonContainer
+        );
 
 
         function closeModal() {
@@ -131,12 +137,6 @@ export function resetPasswordModal() {
             resolve(null);
         }
 
-        // modalEl.addEventListener("click", (e) => {
-        //     if (e.target === modalEl) {
-        //         closeModal();
-        //         resolve(null);
-        //     }
-        // });
     });
 }
 

@@ -64,7 +64,6 @@ export async function loginUser(data) {
       method: "POST",
       body: requestBody,
     });
-    console.log("Login:  ", res);
 
     logInfo("Login response shape", {
       status: res?.status ?? null,

@@ -85,7 +85,7 @@ export function renderTranslator() {
     `;
 
     const placeholder = screen.querySelector(".input-placeholder");
-    const eraseContainer = screen.querySelector(".erase-container");
+    const eraseContainer = screen.querySelector(".insideButton-container");
     const output = screen.querySelector("#translation-output");
     const buttonsRow = screen.querySelector(".buttons-row");
     const translationState = { result: null };

@@ -117,8 +117,7 @@ export function renderLogin(state) {
         slot: googleSlot,
         flow: "login",
         text: "signin_with",
-        locale:
-            state.userInterface.ui_language || "en",
+        locale: state.userInterface.ui_language || "en",
 
         onCredential: async (response) => {
             logInfo("Google login credential received");
@@ -175,7 +174,7 @@ export function renderLogin(state) {
                 } catch (settingsError) {
                     logError("Google login settings load failed", {error: settingsError.message});
                 }
-                windowManager.back();
+                windowManager.pushScreen("translator");
                 Notification.show({type: "success", message: t("login", "notification_success") });
 
             } catch (e) {
@@ -237,7 +236,7 @@ export function renderLogin(state) {
                 is_guest: res.is_guest,
                 is_premium: res.is_premium
             });
-            windowManager.back();
+            windowManager.pushScreen("translator");
             Notification.show({ type: "success", message: t("login", "notification_success")});
 
         } catch (e) {
