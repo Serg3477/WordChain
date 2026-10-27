@@ -41,7 +41,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
             f"Check the spelling of the '{norm_word}' in {src}. "
             f"Return only the corrected word, or '{norm_word}' if already correct. No explanations."
         )
-        return await _ask_text(prompt, max_tokens=50)
+        return await _ask_text(prompt, max_tokens=200, reasoning_effort="low")
 
     correctness = await cache.get_or_set(correctness_key, produce_correctness, ttl=TTL_PARTS)
 
@@ -57,7 +57,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
             f"Make several possible translations (max 6, comma-separated) of '{norm_word}' "
             f"from {src} to {tgt}. Return only translations, no explanations."
         )
-        raw = await _ask_text(prompt, max_tokens=100)
+        raw = await _ask_text(prompt, max_tokens=300, reasoning_effort="medium")
         lst = to_list(raw)
         return ", ".join(lst)
 
@@ -69,7 +69,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
             f"Provide IPA transcription for '{norm_word}' in {src}. "
             f"Return only transcription, no slashes, no explanations."
         )
-        return await _ask_text(prompt, max_tokens=50)
+        return await _ask_text(prompt, max_tokens=200, reasoning_effort="low")
 
     # part of speech
     pos_key = k("translate", "v2", src, tgt, norm_word, "part_of_speech")
@@ -79,7 +79,7 @@ async def translate_word(word: str, source_lang: str, target_lang: str):
             f"Determine part of speech and return only short value like noun/verb/adjective/etc "
             f"for '{norm_word}' in {src}."
         )
-        return await _ask_text(prompt, max_tokens=50)
+        return await _ask_text(prompt, max_tokens=200, reasoning_effort="low")
 
     translation, transcription, part_of_speech = await asyncio.gather(
         cache.get_or_set(translation_key, produce_translation, ttl=TTL_PARTS),
@@ -330,7 +330,7 @@ async def word_better_translation(word: str, src: str, tgt: str):
             "Example: " + json.dumps(example, ensure_ascii=False)
         )
 
-        raw = await _ask_text(prompt, max_tokens=400)
+        raw = await _ask_text(prompt, max_tokens=1400, reasoning_effort="medium")
         backend_logger.debug("Raw better_translation response for %s: %s", norm_word, raw)
 
         parsed = None
@@ -416,7 +416,7 @@ async def word_synonyms(word: str) -> List[str]:
             f"If there are no synonyms, return an empty line."
             f"Example output: capture, grab, snatch, take, appropriate."
         )
-        raw = await _ask_text(prompt, max_tokens=50)
+        raw = await _ask_text(prompt, max_tokens=300, reasoning_effort="low")
         return to_list(raw)
 
     return await cache.get_or_set(key, produce, ttl=TTL_PARTS)
@@ -436,7 +436,7 @@ async def word_antonyms(word: str) -> List[str]:
             f"If there are no antonyms, return an empty line."
             f"Example output: release, let go, free, relinquish"
         )
-        raw = await _ask_text(prompt, max_tokens=50)
+        raw = await _ask_text(prompt, max_tokens=300, reasoning_effort="low")
         return to_list(raw)
 
     return await cache.get_or_set(key, produce, ttl=TTL_PARTS)
@@ -469,7 +469,7 @@ async def word_sentences(word: str, examples_count: int) -> List[str]:
             f"'They have seized the assets after the investigation.'"
             f"]"
         )
-        raw = await _ask_text(prompt, max_tokens=200)
+        raw = await _ask_text(prompt, max_tokens=400, reasoning_effort="low")
 
         # Strict JSON parse
         try:

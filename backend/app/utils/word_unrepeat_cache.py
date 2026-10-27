@@ -60,7 +60,7 @@ async def generate_any_word(
     """.strip()
 
     for _ in range(retries):
-        raw = await _ask_text(prompt, max_tokens=20)
+        raw = await _ask_text(prompt, max_tokens=200, reasoning_effort="medium")
         candidate = re.sub(r"[^a-z-]", "", (raw or "").strip().lower())
 
         if not _is_valid_candidate(candidate):

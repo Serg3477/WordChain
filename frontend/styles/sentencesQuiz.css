@@ -1,0 +1,104 @@
+/* ===============================
+   QUIZ SENTENCES SCREEN
+   =============================== */
+
+.sq-screen {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sq-sentence-title {
+    display: block;     /*превращает label в блочный элемент, позволяя управлять вертикальными отступами.*/
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: darkblue;
+}
+
+.sq-sentence-output {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-sizing: border-box;
+  min-height: 56px; /* подберите под ваш UI */
+  margin-bottom: 20px;
+}
+
+.sq-sentence-answer-auxiliary {
+    margin-left: 30px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #3cd564;
+    word-break: break-word;
+    margin-bottom: 20px;
+}
+
+.sq-sentence-answer-verb {
+    margin-left: 30px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #0d05ff;
+    word-break: break-word;
+}
+
+/* Общий контейнер для двух списков */
+.sq-answers-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Две равные колонки */
+.sq-auxiliary-container,
+.sq-verb-container {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+}
+
+/* Списки */
+.sq-sentence-answer-auxiliary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    color: #24B88E;
+}
+
+.sq-sentence-answer-verb {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    color: #2196D2;
+}
+
+/* Отдельные варианты ответов */
+.sq-answers-container li {
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Выбранный вариант */
+.sq-answers-container li.selected {
+    background: #d7f3ee;
+    border-color: #16a085;
+}

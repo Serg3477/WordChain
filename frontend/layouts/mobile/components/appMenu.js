@@ -5,7 +5,9 @@ import { state } from "../../../core/state.js";
 import { windowManager } from "../../../core/windowManager.js";
 import { renderSets } from "./sets.js";
 import { renderSettings } from "./settings.js";
+import { renderSentencesQuiz } from "./sentencesQuiz.js";
 import { t } from "../../../shared/i18n/index.js";
+
 
 export class CurriculumMenu {
   constructor(baseRoot) {
@@ -94,6 +96,11 @@ export class CurriculumMenu {
       if (action === "sets") {
         windowManager.pushScreen("sets");
         renderSets();
+      }
+
+      if (action === "exercise") {
+        windowManager.pushScreen("sentencesQuiz");
+        renderSentencesQuiz();
       }
 
       if (action === "exams") {

@@ -244,7 +244,7 @@ async def get_text_for_set(req: SetTextRequest):
         f"Each sentence must be short and concise, no longer than 12–18 words."
         f"Return only the text."
     )
-    text = await _ask_text(prompt, max_tokens=500)
+    text = await _ask_text(prompt, max_tokens=1000, reasoning_effort="medium")
     backend_logger.info(f"[GET TEXT] Final result text: {text}")
     return text
 
@@ -257,7 +257,7 @@ async def get_translation_for_text(req: SetTextRequest, text):
         f"Do NOT add anything. "
         f"Return only the translated text."
     )
-    text_translation = await _ask_text(prompt, max_tokens=200)
+    text_translation = await _ask_text(prompt, max_tokens=1000, reasoning_effort="low")
     backend_logger.info(f"[GET TEXT] Final result translation: {text_translation}")
     return text_translation
 

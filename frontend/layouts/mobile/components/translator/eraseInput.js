@@ -14,7 +14,7 @@ export function setupEraseInput(placeholder, eraseContainer) {
 
   eraseContainer.appendChild(eraseBtn);
 
-  // eraseBtn.classList.add("is-invisible");
+  eraseBtn.classList.add("is-invisible");
 
   placeholder.addEventListener("input", () => {
     const hasValue = placeholder.value.trim().length > 0;

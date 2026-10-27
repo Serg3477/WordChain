@@ -31,7 +31,10 @@ export async function wordRequest ({
         }
       });
       logInfo(`${endpoint.slice(1)} response shape`, {
-        keys: res ? Object.keys(res) : [],
+          keys: res ? Object.keys(res) : [],
+          word: res?.word,
+          synonyms: res?.synonyms,
+          antonyms: res?.antonyms
       });
       return res;
     } catch (e) {
